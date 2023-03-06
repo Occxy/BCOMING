@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+
+<!-- Favicon-->
+<link rel="shortcut icon" href="img/favicon.ico">
+
+<script src="js/pouchdb.authentication.js"></script> 
+<script src="js/pouchdb-6.4.2.min.js"></script> 
+<script src="js/function.js"></script>
+<script src="js/loadjs.js"></script>
+
+<script type="text/javascript"> 
+
+	localStorage['web'] = 'non';
+	localStorage['version'] = '0.20.0';
+	localStorage.removeItem('debug');
+	if ((navigator.onLine) && (localStorage.getItem('web') != 'oui')) {
+		loadjs('js/load-db.js');
+	} else {
+		localStorage['remote_couchdb'] = 'https://database.ebo-sursy.eu/couchdb/';
+		localStorage['db_loaded'] = '0';
+		window.location = 'login.html';
+	}
+	
+	//alert('test n 7')
+	
+</script>
+ 
+</html>
