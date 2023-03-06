@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Projet EBO-SURSY</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="all,follow">
+        
+    <!-- Bootstrap CSS-->
+    <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
+    <!-- Font Awesome CSS-->
+    <link rel="stylesheet" href="vendor/font-awesome/css/font-awesome.min.css">
+    <!-- Fontastic Custom icon font-->
+    <link rel="stylesheet" href="css/fontastic.css">
+    <!-- Google fonts - Poppins -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,700">
+    <!-- Ladda-->
+    <link rel="stylesheet" href="vendor/ladda/ladda-themeless.min.css">
+    
+    <!-- theme stylesheet-->
+    <link rel="stylesheet" href="css/style.default.premium.css" id="theme-stylesheet">
+    <!-- Custom stylesheet - for your changes-->
+    <link rel="stylesheet" href="css/custom.css">
+    
+    <link rel="stylesheet" href="css/offline_online.css">
+    <link rel="stylesheet" href="css/login.css">
+        
+    <!-- Favicon-->
+    <link rel="shortcut icon" href="img/favicon.ico">
+    <!-- Tweaks for older IEs--><!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+    
+    <script src="vendor/jquery/jquery.min.js" onload="window.$ = window.jQuery = module.exports;"></script>
+	<script>
+		delete window.module;
+	</script>
+	
+	<script src="js/bcrypt.js"></script>
+			
+	<script src="vendor/ladda/spin.min.js"></script>
+    <script src="vendor/ladda/ladda.min.js"></script>
+    <script src="js/components-ladda.js"></script>
+ 	 	        
+    <script src="js/pouchdb.authentication.js"></script> 
+    <script src="js/pouchdb-6.4.2.min.js"></script> 
+    <script src="js/pouchdb.find.js"></script>     
+		
+	<script src="js/function.js"></script>
+	
+	<script src="js/loadjs.js"></script>
+	<script src="js/load-page.js"></script> 
+	
+  </head>
+  <body onload="loaded_login()">
+  
+    <script type="text/javascript">    
+	    showAlertFlash();
+	</script>	
+              
+    <div class="page login-page">
+      <div class="container"> <!-- d-flex align-items-center -->
+        <div class="form-holder has-shadow">
+          <div class="row">
+            <!-- Logo & Information Panel-->
+            <div class="col-lg-6">
+              <div class="info d-flex align-items-center">
+                <div class="content">
+                  <div class="logo">                		
+            	  	<div class="card-group">
+            	    <!-- <div class="card">
+            	   	    <img src="logos/logos_pour_base_de_donnee.png" class="card-img-top"/>
+            	  	  </div> -->
+            	  	  <div class="card">
+            	  	  	<img src="logos/BCOMING_logo___horizontal_color_tagline_RGB.png" class="card-img-top"/>            	   		
+            	  	  </div>
+            	  	</div>
+            	  	<!-- <h1>Projet EBO-SURSY</h1> -->
+            	  	<h1 style="color:red;"> v.
+            	  	  <label id="show_version"></label> 
+            	  	  <script type="text/javascript">
+            	  	    var show_version = document.getElementById('show_version');
+            	  		if (localStorage.getItem('web') === 'non') {
+            	  			const { ipcRenderer } = require('electron');
+	            	  		ipcRenderer.send('app_version');
+	            	        ipcRenderer.on('app_version', (event, arg) => {
+	            	          ipcRenderer.removeAllListeners('app_version');
+	            	          show_version.innerText = arg.version;
+	            	        });
+            	  		} else if (localStorage.getItem('web') === 'oui') {
+            	  			show_version.innerText = localStorage.getItem('version');
+            	  		}
+            	  	  </script>
+            	  	</h1>
+            	  	<div class="card-group">
+            	      <div class="card">
+            	  	  	<img src="logos/bcoming_picture.jpg" class="card-img-top"/>            	   		
+            	  	  </div>
+            	  	</div>
+            	  	
+                  </div>
+                  <p>Developing tools and innovations for diverse geographical contexts.</p>
+                  
+                  <div class="logo"> 
+                  	<div class="col-lg-6 col-md-6 col-sm-6 col-6">
+                      <div class="card-group">
+            		    <div class="card">
+            		      <!--  <img src="logos/bcoming_picture.jpg" class="card-img-top"/>-->
+            		    </div>
+            		  </div>
+            		</div>
+            	  </div>
+            	  
+            	  
+            	  <div align="right">
+            	    <div class="col-lg-3 col-md-3 col-sm-3 col-3">
+            		  <div class="card-group">
+		           		<div class="card">
+		           		  <!--  <img src="logos/EU_logo_projet.PNG" class="card-img-top"/>-->
+		           	    </div>
+		              </div>
+		           	</div>
+		          </div>
+		          
+		          <div id="notification" class="hidden">
+					<p id="message"></p>
+					<button id="close-button" onClick="closeNotification()">
+					  Close
+					</button>
+					<button id="restart-button" onClick="restartApp()" class="hidden">
+					  Restart
+					</button>
+				  </div>
+	           	  
+                  
+                </div>
+              </div>
+            </div>
+            <!-- Form Panel    -->
+            <div class="col-lg-6 bg-white">
+              <div class="form d-flex align-items-center">
+                <div class="content">
+                    
+			      <form id="login-form" class="needs-validation" method="post" novalidate>
+			        <div class="row">
+                      <div class="led-box">
+	    			    <div id="led"></div>
+	    			    <p id="p_led" style="color:black;"></p>
+	    			  </div>
+	                </div> 
+	                <div class="form-group">
+	                  <label for="login-username" style="color:black;">Pseudo</label>
+                      <input type="text" class="form-control" id="login-username" placeholder="Pseudo" pattern="^[a-zA-Z0-9]{3,}$" required>
+                      <div class="invalid-feedback">
+                        Le pseudo doit comporter au moins 3 caractères alphanumériques et non spéciaux !
+      				  </div>
+                    </div>  
+                    <div class="form-group">
+                      <label for="login-password" style="color:black;">Mot de passe</label>
+                      <input type="password" class="form-control" id="login-password" placeholder="Mot de passe" required>
+                      <div class="invalid-feedback">
+        			    S'il vous plaît fournir un mot de passe valide !
+      				  </div>
+      			    </div>
+      			    <!-- <div class="form-group">
+      			      <div class="i-checks">
+			            <input id="useSpecieTable" type="checkbox" value="" checked="" class="checkbox-template">
+			            <label for="useSpecieTable">Utiliser la table "espèce" de l'application</label>
+			           </div>
+			        </div> -->
+                    <div class="form-group">
+					  <!-- <Button id="connect" type="submit" class="btn btn-primary">Se connecter</Button> -->
+					  
+					  <button id="connect" name="submit" type="submit" class="btn btn-primary btn-fill pull-right ladda-button" data-style="expand-right">                        	
+	            		<span class="ladda-label">Se connecter</span>
+	            		<span class="ladda-spinner"></span>
+					  </button> 
+					</div>
+			      </form>
+                  <a href="forget.html" class="forgot-pass">Mot de passe oublié ?</a><br><small>Avez vous déjà un compte ? </small><a href="register.html" class="signup">S'inscrire</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      
+      
+            
+      <div class="copyrights text-center">
+        <p>Conçu par Bruno Rosset - Cirad</p>
+        <!-- Please do not remove the backlink to us unless you support further theme's development at https://bootstrapious.com/donate. It is part of the license conditions. Thank you for understanding :)-->
+      </div>
+    </div>
+        
+    <script type="text/javascript">
+    	
+ 		// Example starter JavaScript for disabling form submissions if there are invalid fields
+ 		(function() {
+ 		  'use strict';
+ 		  window.addEventListener('load', function() {
+ 		    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+ 		    var forms = document.getElementsByClassName('needs-validation');
+ 		    // Loop over them and prevent submission
+ 		    var validation = Array.prototype.filter.call(forms, function(form) {
+ 		      form.addEventListener('submit', function(event) {
+ 		        if (form.checkValidity() === false) {
+ 		          event.preventDefault();
+ 		          event.stopPropagation();
+ 		        } else {
+ 		          event.preventDefault();
+ 		          if (localStorage.getItem('web') != 'oui') {
+ 		        	 login();  
+ 		          } else {
+ 		        	 login_web();
+ 		          }
+ 		          
+ 		        } 		        
+ 		        form.classList.add('was-validated');
+ 		      }, false);
+ 		    });
+ 		  }, false);
+ 		})();
+		
+		function login() {  
+			
+			if (navigator.onLine == true) {
+				var remote_couchdb = localStorage.getItem('remote_couchdb');
+				var localDB = new PouchDB('username');
+				var remoteDB = new PouchDB(remote_couchdb + 'username', {skip_setup: true});
+				localDB.sync(remoteDB).on('complete', function(info) {              
+					load_db_equipe();
+				}).on('error', function (err) {
+					// error while replicating
+					alert('alert username: ' + JSON.stringify(err));
+					window.location = 'login.html';
+				});
+	
+				function load_db_equipe() {
+					var localDB = new PouchDB('equipe');
+					var remoteDB = new PouchDB(remote_couchdb + 'equipe', {skip_setup: true});
+					
+					localDB.sync(remoteDB).on('complete', function(info) {              
+						load_version();
+					}).on('error', function (err) {
+						// error while replicating
+						alert('alert equipe: ' + JSON.stringify(err));
+						window.location = 'login.html';
+					});
+				};
+				
+				function load_version() {
+					var localDB = new PouchDB('version');
+					var remoteDB = new PouchDB(remote_couchdb + 'version', {skip_setup: true});
+					
+					localDB.sync(remoteDB).on('complete', function(info) {              
+						login_();
+					}).on('error', function (err) {
+						// error while replicating
+						alert('alert version: ' + JSON.stringify(err));
+						window.location = 'login.html';
+					});
+				};
+			} else {
+				login_();
+			};
+
+			function login_() {
+			
+				var l = Ladda.create( document.querySelector( '.ladda-button' ) );
+	
+				// Start loading
+				l.start();
+				
+				//test de la version
+				localDB = new PouchDB('version');
+				localDB.allDocs({
+					include_docs: true,
+					attachments: true
+				}).then(function (result) {
+					if (typeof(JSON.stringify(result)) != "undefined") {  
+					    
+						//id = result.docs[0]._id;
+						id = result.rows[0].doc._id;
+						
+						localVersionDB = new PouchDB('version');
+						localVersionDB.get(id).then(function (doc) {
+							if (doc.version != localStorage.getItem('version')) {
+								addAlertFlash('danger', 
+	                   				'Vous devez d\'abord mettre à jour le logiciel avant de pouvoir continuer à l\'utiliser');
+		    					return window.location.reload();
+							} else {
+								return connect();
+							};
+							
+						}).catch(function (err) {
+							alert('err');
+							console.log(err);
+						});	
+					};
+				});
+				
+				function connect() {
+			  		var username = document.getElementById('login-username').value; 
+			  		localStorage['loginUsername'] = username;
+			  		var password = document.getElementById('login-password').value; 
+			  		localStorage['loginPassword'] = password;
+			  			  		
+			  		var localDB = new PouchDB('username');
+				  	localDB.find({
+				    	selector: {username: username},
+						fields: ['_id',  'equipe', 'code_equipe', 'pays', 'fonction', 'role', 'username', 'email', 'password', 'confirmation_token', 'confirmed_at',
+				  	  			 'reset_token', 'reset_at', 'remember_token']
+				  	}).then(function (result) {
+					
+						if (typeof(JSON.stringify(result.docs[0])) != "undefined"){  
+				    		if (result.docs[0].username == username){
+				    			
+								var id = result.docs[0]._id;
+								var equipe = result.docs[0].equipe;
+								var code_equipe = result.docs[0].code_equipe;
+								var password_hash = result.docs[0].password;
+				    			var reset_token = result.docs[0].reset_token;
+				    			var confirmation_token = result.docs[0].confirmation_token;					
+				    			var pays = result.docs[0].pays;
+				    			var fonction = result.docs[0].fonction;
+				    			var role = result.docs[0].role;
+				    			
+				    			if (reset_token != '') {
+				    				addAlertFlash('danger', 
+			                   			'Vous devez d\'abord valider la confirmation de changement de votre mot de passe à l\'aide de l\'email de changement et être online lors de votre première connexion');
+				    				window.location.reload();			    			
+				    			} else if (confirmation_token != '') {
+				    				addAlertFlash('danger',
+						    			'Vous devez d\'abord valider votre compte à l\'aide de l\'email de confirmation et être online lors de votre première connexion');
+									window.location.reload();			    			
+				    			} else {
+				    				
+				    				try {
+					    				var bcrypt = require('bcryptjs');
+					    			}
+					    			catch(error) {
+					   					var bcrypt = dcodeIO.bcrypt;
+					   				}
+					    			
+					    			
+					    			
+									if (bcrypt.compareSync(password, password_hash) == true){
+										
+										
+										localStorage['auth'] = id;
+										localStorage['equipe'] = equipe;
+										localStorage['code_equipe'] = code_equipe;
+										localStorage['nom_pays'] = pays;
+										localStorage['fonction'] = fonction;
+										localStorage['role'] = role;
+										
+										/*var useSpecieTable = document.getElementById('useSpecieTable');
+										if (useSpecieTable.checked == true) {
+											localStorage['table_espece'] = 'oui';										
+										} else {
+											localStorage['table_espece'] = 'non';
+										}*/
+								        
+										addAlertFlash('success',
+						        			'Vous êtes maintenant connecté');
+							        	
+							        	localStorage['login'] = "1";
+							        	
+							        	var date1 = new Date();
+							        	
+							        	localStorage['date'] = date1.getDate().toString() + date1.getMonth().toString();
+								        	
+							        	if (role == '1') {
+							        		//alert('Vous êtes administrateur !');
+							        		localStorage['debug'] = "_debug";
+							        	};
+							        	
+								        window.location = 'main.html';
+									} else {
+											
+										addAlertFlash('danger',
+						            		'Identifiant ou mot de passe incorrect');
+										window.location.reload();	
+									}
+				    			}
+				    		}
+						}else{
+								
+							addAlertFlash('danger',
+			           			'Identifiant ou mot de passe incorrect');
+							window.location.reload();	
+			        	}
+				  		
+					}).catch(function (err) {
+				  		alert(JSON.stringify(err));
+				  	}); 
+				}
+			}
+  		
+		}		
+		
+		function login_web() { 
+			
+			var remote_couchdb = localStorage.getItem('remote_couchdb');
+			var remoteDB = new PouchDB(remote_couchdb + 'username');
+			
+			var l = Ladda.create( document.querySelector( '.ladda-button' ) );
+	
+			// Start loading
+			l.start();
+				
+			remoteDB.allDocs({
+				include_docs: true,
+				attachments: true
+			}).then(function (result) {
+				if (typeof(JSON.stringify(result)) != "undefined") {  
+					    
+					//id = result.rows[0].doc._id;
+						
+			  		var username = document.getElementById('login-username').value; 
+			  		localStorage['loginUsername'] = username;
+			  		var password = document.getElementById('login-password').value; 
+			  		localStorage['loginPassword'] = password;
+			  			  		
+			  		var remoteDB2 = new PouchDB(remote_couchdb + 'username'); 
+			  		remoteDB2.find({
+				    	selector: {username: username},
+						fields: ['_id',  'equipe', 'code_equipe', 'pays', 'fonction', 'role', 'username', 'email', 'password', 'confirmation_token', 'confirmed_at',
+				  	  			 'reset_token', 'reset_at', 'remember_token']
+				  	}).then(function (result) {
+				  		
+				  		if (typeof(JSON.stringify(result.docs[0])) != "undefined"){  
+				    		if (result.docs[0].username == username){
+								
+				    			var id = result.docs[0]._id;
+				    			var equipe = result.docs[0].equipe;
+								var code_equipe = result.docs[0].code_equipe;
+								var password_hash = result.docs[0].password;
+				    			var reset_token = result.docs[0].reset_token;
+				    			var confirmation_token = result.docs[0].confirmation_token;					
+				    			var pays = result.docs[0].pays;
+				    			var fonction = result.docs[0].fonction;
+				    			var role = result.docs[0].role;
+				    			
+				    			if (reset_token != '') {
+				    				addAlertFlash('danger', 
+			                   			'Vous devez d\'abord valider la confirmation de changement de votre mot de passe à l\'aide de l\'email de changement et être online lors de votre première connexion');
+				    				window.location.reload();			    			
+				    			} else if (confirmation_token != '') {
+				    				addAlertFlash('danger',
+						    			'Vous devez d\'abord valider votre compte à l\'aide de l\'email de confirmation et être online lors de votre première connexion');
+									window.location.reload();			    			
+				    			} else {
+				    		
+				    				try {
+					    				var bcrypt = require('bcryptjs');
+					    			}
+					    			catch(error) {
+					   					var bcrypt = dcodeIO.bcrypt;
+					   				}
+								
+									if (bcrypt.compareSync(password, password_hash) == true){
+										localStorage['auth'] = id;
+										localStorage['equipe'] = equipe;
+										localStorage['code_equipe'] = code_equipe;
+										localStorage['nom_pays'] = pays;
+										localStorage['fonction'] = fonction;
+										localStorage['role'] = role;
+										
+										/*var useSpecieTable = document.getElementById('useSpecieTable');
+										if (useSpecieTable.checked == true) {
+											localStorage['table_espece'] = 'oui';										
+										} else {
+											localStorage['table_espece'] = 'non';
+										}*/
+								        
+										addAlertFlash('success',
+						        			'Vous êtes maintenant connecté');
+							        	
+							        	localStorage['login'] = "1";
+							        	var date1 = new Date();
+							        	localStorage['date'] = date1.getDate().toString() + date1.getMonth().toString();
+								        	
+							        	if (role == '1') {
+							        		//alert('Vous êtes administrateur !');
+							        		localStorage['debug'] = "_debug";
+							        	};
+								        	
+								        window.location = 'main.html';
+									} else {
+											
+										addAlertFlash('danger',
+						            		'Identifiant ou mot de passe incorrect');
+										window.location.reload();	
+									}
+				    			}
+				    		}
+						}else{
+								
+							addAlertFlash('danger',
+			           			'Identifiant ou mot de passe incorrect');
+							window.location.reload();	
+			        	}
+				  		
+					}).catch(function (err) {
+				  		alert(JSON.stringify(err));
+				  	}); 
+				}
+			});
+  		
+		}		
+	</script>
+	
+	<script type="text/javascript">
+		document.addEventListener("keydown", function(event) {
+			if (event.keyCode == 13) {
+		    	event.preventDefault();
+		    	return false;
+		  	}
+		}, true); // "true" => phase de capture
+		
+		const notification = document.getElementById('notification');
+	    const message = document.getElementById('message');
+	    const restartButton = document.getElementById('restart-button');
+	    
+	    const { ipcRenderer } = require('electron');
+	    ipcRenderer.on('update_available', () => {
+	    	//alert('Une nouvelle version est disponible !')
+	      	ipcRenderer.removeAllListeners('update_available');
+	      	message.innerText = 'A new update is available. Downloading now...';
+	      	notification.classList.remove('hidden');
+	    });
+	    
+	    ipcRenderer.on('update_downloaded', () => {
+	    	ipcRenderer.removeAllListeners('update_downloaded');
+	      	message.innerText = 'Update Downloaded. It will be installed on restart. Restart now?';
+	      	restartButton.classList.remove('hidden');
+	      	notification.classList.remove('hidden');
+	    });
+	    
+	    function closeNotification() {
+	    	notification.classList.add('hidden');
+	    }
+	    
+	    function restartApp() {
+	    	ipcRenderer.send('restart_app');
+	    }
+	  
+     </script> 
+     
+  </body>  
+</html>
+

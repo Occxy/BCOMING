@@ -1,0 +1,133 @@
+/* your styles go here */
+.login-page::before {  
+  background: url(../logos/fragmented.png);
+  background-size: stretched;
+  -webkit-filter: blur(0px);
+  filter: blur(0px);
+}
+
+.login-page .form-holder {
+	background: url(..);
+	color: #11ffee00;
+}
+
+.login-page .container {
+  padding: 100px;
+}
+
+.btn-file {
+ 	position: relative;
+ 	overflow: hidden;
+}
+.btn-file input[type=file] {
+ 	position: absolute;
+ 	top: 0;
+ 	right: 0;
+ 	min-width: 100%;
+ 	min-height: 100%;
+ 	font-size: 100px;
+ 	text-align: right;
+  	filter: alpha(opacity=0);
+  	opacity: 0;
+  	background: red;
+  	cursor: inherit;
+  	display: block;
+}
+input[readonly] {
+  	background-color: white !important;
+  	cursor: text !important;
+}
+
+.a-dashboard {
+	background: url(../logos/dashboard-2.png);
+    background-size: 80px 80px;
+	background-position: center;
+	background-repeat: no-repeat;
+	padding: 20px 30px;
+  	text-decoration: none;
+  	display: block;
+  	font-weight: 300;
+  	border-left: 4px solid transparent;
+}
+
+.a-cambodia {
+	background: url(../img/drapeau/kh.png);
+    background-size: 30px 20px;
+	background-position: right;
+	background-repeat: no-repeat;
+	padding: 10px;
+	height : 16px;
+	width : 32px;
+  	text-decoration: none;
+  	display: block-line;
+  	font-weight: 300;
+  	border-left: 4px solid transparent;
+}
+
+.a-guadeloupe {
+	background: url(../img/drapeau/fr.png);
+    background-size: 30px 20px;
+	background-position: right;
+	background-repeat: no-repeat;
+	padding: 10px;
+	height : 16px;
+	width : 32px;
+  	text-decoration: none;
+  	display: block-line;
+  	font-weight: 300;
+  	border-left: 4px solid transparent;
+}
+
+.a-ivory_coast {
+	background: url(../img/drapeau/ci.png);
+    background-size: 30px 20px;
+	background-position: right;
+	background-repeat: no-repeat;
+	padding: 10px;
+	height : 16px;
+	width : 32px;
+  	text-decoration: none;
+  	display: block-line;
+  	font-weight: 300;
+  	border-left: 4px solid transparent;
+}
+
+.a-guinea {
+	background: url(../img/drapeau/gn.png);
+    background-size: 30px 20px;
+	background-position: right;
+	background-repeat: no-repeat;
+	padding: 10px;
+	height : 16px;
+	width : 32px;
+  	text-decoration: none;
+  	display: block-line;
+  	font-weight: 300;
+  	border-left: 4px solid transparent;
+}
+
+.a-help {
+	background: url(../logos/help.png);
+    background-size: 40px 40px;
+	background-position: center;
+	background-repeat: no-repeat;
+	padding: 20px 30px;
+  	text-decoration: none;
+  	display: block;
+  	font-weight: 300;
+  	border-left: 4px solid transparent;
+}
+
+.list-styled {
+  padding-left: 0;
+  list-style: none;
+  position: relative;
+}
+
+.ms-container{
+  	width: 100%;
+}
+
+.ms-container .ms-list{
+    height: 100vh; 
+}
