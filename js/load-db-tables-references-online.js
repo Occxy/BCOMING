@@ -23,37 +23,8 @@ var progressbar_count = 0;
 
 var tables_principales = [];
 if  (debug !== '') {
-	tables_principales = ['chauves_souris_capturees_transvihmi_guinee_debug', 'chauves_souris_non_invasives_transvihmi_guinee_debug',
-		  'viande_de_brousse_transvihmi_guinee_debug', 'site_transvihmi_guinee_debug', 
-		  'donnees_mission_transvihmi_guinee_debug', 'donnees_journalieres_transvihmi_guinee_debug',
-		  'chauves_souris_capturees_transvihmi_cameroun_debug', 'chauves_souris_non_invasives_transvihmi_cameroun_debug',
-		  'viande_de_brousse_transvihmi_cameroun_debug', 'viande_de_brousse_nhp_transvihmi_cameroun_debug', 'site_transvihmi_cameroun_debug', 
-		  'donnees_mission_transvihmi_cameroun_debug', 'donnees_journalieres_transvihmi_cameroun_debug',
-		  'chauves_souris_capturees_transvihmi_rdc_debug', 'chauves_souris_non_invasives_transvihmi_rdc_debug',
-		  'viande_de_brousse_transvihmi_rdc_debug', 'site_transvihmi_rdc_debug', 
-		  'donnees_mission_transvihmi_rdc_debug', 'donnees_journalieres_transvihmi_rdc_debug',
-		  'chauves_souris_capturees_astre_guinee_debug', 'chauves_souris_non_invasives_astre_guinee_debug',
-		  'animals_mivegec_congo_debug', 'animals_mivegec_gabon_debug',
-		  'site_astre_guinee_debug', 
-		  'donnees_mission_astre_guinee_debug', 'donnees_journalieres_astre_guinee_debug',
-		  'chauves_souris_capturees_astre_congo_debug', 'chauves_souris_non_invasives_astre_congo_debug',
-		  'site_astre_congo_debug', 
-		  'donnees_mission_astre_congo_debug', 'donnees_journalieres_astre_congo_debug',
-		  'chauves_souris_capturees_astre_gabon_debug', 'chauves_souris_non_invasives_astre_gabon_debug',
-		  'site_astre_gabon_debug', 
-		  'donnees_mission_astre_gabon_debug', 'donnees_journalieres_astre_gabon_debug',
-		  'chauves_souris_capturees_mivegec_debug', 'chauves_souris_non_invasives_mivegec_debug',
-		  'site_mivegec_debug', 
-		  'donnees_mission_mivegec_debug', 'donnees_journalieres_mivegec_debug',
-		  'grands_singes_antilopes_transvihmi_cameroun_debug', 'grands_singes_antilopes_transvihmi_rdc_debug',
-		  'grands_singes_antilopes_transvihmi_gabon_debug',
-		  'grands_singes_antilopes_transvihmi_rca_debug', 'grands_singes_antilopes_transvihmi_rwanda_debug',
-		  'animals_ipg_guinee_debug', 'animals_ipg_guinee_2_debug',
-		  'chauves_souris_capturees_astre_transvihmi_guinee_debug', 'chauves_souris_non_invasives_astre_transvihmi_guinee_debug',
-		  'caracterisations_grottes_astre_transvihmi_guinee_debug', 'cameras_trap_astre_transvihmi_guinee_debug',
-		  'donnees_mission_astre_transvihmi_guinee_debug', 'donnees_journalieres_astre_transvihmi_guinee_debug',
-		  'faune_astre_transvihmi_guinee_debug',
-		  'username', 'version'];
+	tables_principales = ['bcoming_camacross_debug',
+		  ];
 	
 	
 
@@ -135,29 +106,7 @@ var tabCount = new Array();
 
 if  (debug !== '') {
 	var tables_references = 
-		['espece_transvihmi_guinee_debug', 'pays_transvihmi_guinee_debug', 'lieu_capture_transvihmi_guinee_debug', 'lieu_collecte_transvihmi_guinee_debug', 'methode_capture_transvihmi_guinee_debug', 
-		 'couleur_pelage_dorsal_transvihmi_guinee_debug', 'couleur_pelage_ventral_transvihmi_guinee_debug',  	
-		 'preleve_chez_transvihmi_guinee_debug', 'methode_chasse_transvihmi_guinee_debug', 'destination_transvihmi_guinee_debug', 'type_animal_transvihmi_guinee_debug', 'etat_carcasse_animal_transvihmi_guinee_debug',
-		 'qualite_echantillon_transvihmi_guinee_debug', 'endroit_prelevement_transvihmi_guinee_debug', 'espece_animal_transvihmi_guinee_debug', 'phenologie_transvihmi_guinee_debug', 'activite_humaine_transvihmi_guinee_debug',
-		 'espece_transvihmi_cameroun_debug', 'pays_transvihmi_cameroun_debug', 'lieu_capture_transvihmi_cameroun_debug', 'lieu_collecte_transvihmi_cameroun_debug', 'methode_capture_transvihmi_cameroun_debug', 
-		 'couleur_pelage_dorsal_transvihmi_cameroun_debug', 'couleur_pelage_ventral_transvihmi_cameroun_debug',  	
-		 'preleve_chez_transvihmi_cameroun_debug', 'methode_chasse_transvihmi_cameroun_debug', 'destination_transvihmi_cameroun_debug', 'type_animal_transvihmi_cameroun_debug', 'etat_carcasse_animal_transvihmi_cameroun_debug',
-		 'qualite_echantillon_transvihmi_cameroun_debug', 'endroit_prelevement_transvihmi_cameroun_debug', 'espece_animal_transvihmi_cameroun_debug', 'phenologie_transvihmi_cameroun_debug', 'activite_humaine_transvihmi_cameroun_debug',
-		 'espece_transvihmi_rdc_debug', 'pays_transvihmi_rdc_debug', 'lieu_capture_transvihmi_rdc_debug', 'lieu_collecte_transvihmi_rdc_debug', 'methode_capture_transvihmi_rdc_debug', 
-		 'couleur_pelage_dorsal_transvihmi_rdc_debug', 'couleur_pelage_ventral_transvihmi_rdc_debug',  	
-		 'preleve_chez_transvihmi_rdc_debug', 'methode_chasse_transvihmi_rdc_debug', 'destination_transvihmi_rdc_debug', 'type_animal_transvihmi_rdc_debug', 'etat_carcasse_animal_transvihmi_rdc_debug',
-		 'qualite_echantillon_transvihmi_rdc_debug', 'endroit_prelevement_transvihmi_rdc_debug', 'espece_animal_transvihmi_rdc_debug', 'phenologie_transvihmi_rdc_debug', 'activite_humaine_transvihmi_rdc_debug',
-		 'espece_astre_guinee_debug', 'pays_astre_guinee_debug', 'lieu_capture_astre_guinee_debug', 'lieu_collecte_astre_guinee_debug', 'methode_capture_astre_guinee_debug',
-		 'couleur_pelage_dorsal_astre_guinee_debug', 'couleur_pelage_ventral_astre_guinee_debug',  	
-		 'phenologie_astre_guinee_debug', 'activite_humaine_astre_guinee_debug',
-		 'espece_astre_congo_debug', 'pays_astre_congo_debug', 'lieu_capture_astre_congo_debug', 'lieu_collecte_astre_congo_debug', 'methode_capture_astre_congo_debug',
-		 'couleur_pelage_dorsal_astre_congo_debug', 'couleur_pelage_ventral_astre_congo_debug',  	
-		 'phenologie_astre_congo_debug', 'activite_humaine_astre_congo_debug',
-		 'espece_astre_gabon_debug', 'pays_astre_gabon_debug', 'lieu_capture_astre_gabon_debug', 'lieu_collecte_astre_gabon_debug', 'methode_capture_astre_gabon_debug',
-		 'couleur_pelage_dorsal_astre_gabon_debug', 'couleur_pelage_ventral_astre_gabon_debug',  	
-		 'phenologie_astre_gabon_debug', 'activite_humaine_astre_gabon_debug',
-		 'pays_astre_transvihmi_guinee_debug', 'espece_astre_transvihmi_guinee_debug', 'activite_humaine_astre_transvihmi_guinee_debug',
-		 'couleur_pelage_dorsal_astre_transvihmi_guinee_debug', 'couleur_pelage_ventral_astre_transvihmi_guinee_debug'
+		['username', 'version'
 		 ];
 	
 	
