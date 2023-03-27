@@ -95,11 +95,12 @@
     
     <script src="js/uuid.js"></script>
     
+    <script src="js/load-page-rhinokhov-zoocov-lab.js"></script> 
+    
     <script src="js/addReference.js"></script> 
     
   </head>
-  <body>
-  
+  <body onload="chargement_rhinokhov_zoocov_lab()">
   
     <script>
 		logged_only();
@@ -114,9 +115,13 @@
 		} else {
 			debug = localStorage.getItem('debug');
 		};
-		//var html = 'site';
+		var html = 'site';
 		//loadjs('js/menu_rights.js');
-	</script>
+	</script> 
+  
+    <!-- <script type="text/javascript">
+    	showAlertFlash();
+    </script> -->	
     
     <div class="page">
       <!-- Main Navbar-->
@@ -169,9 +174,9 @@
 	                        <li id="li_importation_camacross_datas" name="1"><a href="import_export.html?table=_camacross&type=camacross">import/export</a></li>                            
                           </ul>
 	                    </li>
-	                    <li id="li_rhinokhov_zoocovDropdown" name="1" pays="guinee"> <a id="a_rhinokhov_zoocovDropdown" name="1" href="#ul_rhinokhov_zoocovDropdown" aria-expanded="false" data-toggle="collapse">RhinoKhov-ZooCov</i> </a>
+	                    <li id="li_rhinokhov_zoocovDropdown" name="1" pays="guinee"> <a id="a_rhinokhov_zoocovDropdown" name="1" href="#ul_rhinokhov_zoocovDropdown" aria-expanded="false" data-toggle="collapse">RhinoKhov-ZooCov animal</i> </a>
                        	  <ul id="ul_rhinokhov_zoocovDropdown" name="1" pays="guinee" class="collapse list-unstyled">
-                       	    <li id="li_rhinokhov_zoocov_labDropdown" name="1" pays="guinee"> <a id="a_rhinokhov_zoocov_labDropdown" name="1" href="#ul_rhinokhov_zoocov_labDropdown" aria-expanded="false" data-toggle="collapse"><i style="font-size: 14px;">RhinoKhov-ZooCov lab</i> </a>
+                            <li id="li_rhinokhov_zoocov_labDropdown" name="1" pays="guinee"> <a id="a_rhinokhov_zoocov_labDropdown" name="1" href="#ul_rhinokhov_zoocov_labDropdown" aria-expanded="false" data-toggle="collapse"><i style="font-size: 14px;">RhinoKhov-ZooCov lab</i> </a>
                        	      <ul id="ul_rhinokhov_zoocov_labDropdown" name="1" pays="guinee" class="collapse list-unstyled">
                             	<li id="li_rhinokhov_zoocov_lab_data_list" name="1"><a href="liste_rhinokhov_zoocov_lab.html?table=_rhinokhov_zoocov_lab">data</a></li>                            
 	                        	<li id="li_rhinokhov_zoocov_lab_map" name="1"><a href="no_map.html?table=_rhinokhov_zoocov_lab&type=rhinokhov_zoocov_lab">map</a></li>
@@ -185,7 +190,7 @@
 	                        	<li id="li_importation_rhinokhov_zoocov_animal_datas" name="1"><a href="import_export.html?table=_rhinokhov_zoocov_animal&type=rhinokhov_zoocov_animal">import/export</a></li>                            
                               </ul>
 	                        </li>
-                          </ul>                          
+	                      </ul>
 	                    </li>
 	                  </ul>
 	                </li>
@@ -224,7 +229,7 @@
                           </ul>
 	                    </li>-->
 	                  </ul>
-	                </li>   
+	                </li>
 	                
 	                <li id="li_democratic_republic_of_congoDropdown" name="1"> <a id="a_democratic_republic_of_congoDropdown" name="1" href="#ul_democratic_republic_of_congoDropdown" aria-expanded="false" data-toggle="collapse"> <i class="a-democratic_republic_of_congo"></i><label id="label_democratic_republic_of_congo" style="vertical-align: top;font-size:10px;">Democratic Republic of Congo</label></a>
                       <ul id="ul_democratic_republic_of_congoDropdown" name="1" class="collapse list-unstyled">
@@ -237,7 +242,7 @@
                           </ul>
 	                    </li>
 	                  </ul>
-	                </li> 
+	                </li>    
                     
                     <!-- <li id="li_help"> 
                     	<a href="help.html"><i class='a-help'></i></a>
@@ -245,14 +250,14 @@
                     
                     <li id="li_sauvegarde" style="display:none"> 
                     	<a href="sauvegarde.html">Sauvegarde mensuelle</a>
-                    </li> -->      
+                    </li> -->       
           </ul>
         </nav>
         <div class="content-inner">
           <!-- Page Header-->
           <header class="page-header">
             <div class="container-fluid">
-              <h2 class="no-margin-bottom" id="title_1">CamAcross database</h2>
+              <h2 class="no-margin-bottom">CamAcross database</h2>
             </div>
           </header>
           
@@ -262,11 +267,184 @@
                 <div class="col-lg-12">                  
                   <div class="card">        
                    <div class="card-header" id="header">
-                     <h4 id="title_2">CamAcross map</h4>
-                     
-                    <div class="card-body">  
-                      <br>                                          
-                      <h4 style="text-align: left; width: 50%; margin-top: 30px; color: red" id="text_1">No geo-referenced data for CamAcross</h4>
+                     <!-- <h4>Nouveau site</h4> -->
+                     <script type="text/javascript">
+			         	var line = document.createElement("div");
+			            option = searchParams.get('option');
+		                nom_table = searchParams.get('table');
+	                    if ((option == 0) || (option == 1)) {
+	                    	line.innerHTML = '<h4>New RhinoKhov ZooCov lab entry</h4>';
+			            } else if (option == 2) {
+			              	var ID = 'ID_rhinokhov_zoocov_lab' + nom_table;
+		                  	line.innerHTML = '<h4>Edit this RhinoKhov ZooCov lab entry : ID = '+ localStorage.getItem(ID) + '</h4>';
+	                    }
+	                   	document.getElementById("header").appendChild(line);
+				      </script>
+                    </div>
+                    <div class="card-body">                                            
+                      <form id="documentForm" name="documentForm" class="needs-validation" method="post" novalidate>
+				        
+				        <div class="card bg-light">
+				          <div class="card-header card-header-transparent d-flex align-items-center">
+                            <h3 class="h4">Data</h3>
+                          </div>				
+                          
+                          <div class="card-body">
+                          	<div class="row">
+		      			      <div class="col-lg-6">
+		      			        <div class="form-group">
+		                          <label for="Project">Project</label>
+		                          <input type="text" class="form-control" id="Project" placeholder="Project">
+		                        </div>
+		      				  </div> 
+		      			      <div class="col-lg-6">
+		      			        <div class="form-group">
+		                          <label for="No">No</label>
+		                          <input type="text" class="form-control" id="No" placeholder="No">
+		                        </div>
+		      			      </div>
+		      			    </div>
+		      			    
+		      				<div class="row">
+		      				  <div class="col-lg-4">
+	            				<div class="form-group">
+	                              <label for="Sampling_Date">Sampling Date</label>                                
+	                              <div class="input-group">
+	    							<input type="text" class="form-control input-datepicker" id="Sampling_Date" placeholder="Sampling Date" required>
+	    							<div class="input-group-addon open-datepicker btn btn-primary" id="spanSampling_Date">
+	                                  <span class="fa fa-calendar"></span>
+	    							</div>
+	    							<div class="invalid-feedback">
+		                              S'il vous plaît fournir une date valide !
+		                            </div>
+	                              </div>
+	    					    </div> 
+	    					  </div>
+	    					  
+	    					  <div class="col-lg-8">
+			                    <div class="form-group">
+				                  <label for="Animal_ID">Animal ID</label>
+				                  <input type="text" class="form-control" id="Animal_ID" placeholder="Animal ID" required>
+				                  <div class="invalid-feedback">
+				        	  	    S'il vous plaît fournir un Numéro de site valide !
+				      		  	  </div>
+				      		  	</div>
+				      		  </div>   
+		                    </div>	 
+		      			    	      					
+	    					  			      			    
+		      			    <div class="row">
+		      			      <div class="col-lg-6">
+		      			        <div class="form-group">
+		                          <label for="Sample_Type">Sample Type</label>
+		                          <input type="text" class="form-control" id="Sample_Type" placeholder="Sample Type">
+		                        </div>
+		      				  </div> 
+		      			      <div class="col-lg-6">
+		      			        <div class="form-group">
+		                          <label for="Taxa">Taxa</label>
+		                          <input type="text" class="form-control" id="Taxa" placeholder="Taxa">
+		                        </div>
+		      			      </div>
+		      			    </div>	 
+		      			         						
+	    					  
+		      			    <div class="row">
+		      			      <div class="col-lg-6">
+		      			        <div class="form-group">
+		                          <label for="Genus_Species">Genus Species</label>
+		                          <input type="text" class="form-control" id="Genus_Species" placeholder="Genus Species">
+		                        </div>
+		      				  </div>
+		      			      <div class="col-lg-6">
+		      			        <div class="form-group">
+		                          <label for="Province">Province</label>
+		                          <input type="text" class="form-control" id="Province" placeholder="Province">
+		                        </div>
+		      				  </div>		      				  
+		      				</div>    
+		      				
+		      					
+		      				
+		      			    
+		      			    <div class="row">
+	                    	  <div class="col-lg-6">
+		      			        <div class="form-group">
+		                          <label for="rtPCR_SARS_COV_2_E_gene">rtPCR SARS-COV-2 E gene</label>
+		                          <select id="rtPCR_SARS_COV_2_E_gene" class="form-control">
+		                            <option></option>
+		                            <option>Positive</option>
+		                            <option>Negative</option>
+		                          </select>
+		                        </div>
+		      				  </div>
+		      				  <div class="col-lg-6">
+		      			        <div class="form-group">
+		                          <label for="PCR_Quan_result">PCR_Quan_result</label>
+		                          <select id="PCR_Quan_result" class="form-control">
+		                            <option></option>
+		                            <option>Positive</option>
+		                            <option>Negative</option>
+		                          </select>
+		                        </div>
+		      				  </div>		
+		      				</div> 
+		      				
+		      				<div class="row">  
+		      				  <div class="col-lg-6">      			        
+							    <div class="form-group">
+								  <label for="PCR_Watanabe_result">PCR Watanabe result</label>
+								  <select id="PCR_Watanabe_result" class="form-control">
+		                            <option></option>
+		                            <option>Positive</option>
+		                            <option>Negative</option>
+		                          </select>
+								</div>	
+							  </div>
+	                        </div>
+	                        
+	                        
+		      			    
+		      			    		      			  			
+		      			  </div>
+		      			  
+		      			  
+                        </div>
+                        
+	      			    <div class="card-body text-right" id="header_button">
+                        
+                          <script type="text/javascript">
+			               		var line = document.createElement("div");
+			                    /*let searchParams2 = new URLSearchParams(window.location.search);
+			                    var option = searchParams2.get('option');*/
+			                    if ((option == 0) || (option == 1)) {
+			                    	line.innerHTML = 
+			                          '<div class="row">' +
+			                            '<div class="col-lg-12">' +
+									      '<div class="form-group">' +
+									        '<div class="i-checks">' +
+									          '<button id="save" name="save" type="submit" class="btn btn-primary btn-fill ladda-button" data-style="expand-right" style="right:10px">' +                        	
+					            	  	        '<span class="ladda-label">Save this RhinoKhov ZooCov lab entry</span>' +
+					            	  	        '<span class="ladda-spinner"></span>' +
+									          '</button>' +
+			                                  '<input id="andAdd" type="checkbox" value="" checked="" class="checkbox-template">' +
+			                                  '<label for="andAdd">and add</label>' +
+			                                '</div>' +  
+			                              '</div>' + 
+			                            '</div>' +
+			                    	  '</div>'
+			               } else if (option == 2) {
+			                    line.innerHTML = 
+			                   		'<button id="modify" name="submit" type="submit" class="btn btn-primary btn-fill pull-right ladda-button" data-style="expand-right">' +                        	
+				            		  '<span class="ladda-label">Edit this RhinoKhov ZooCov lab entry</span>' +
+				            		  '<span class="ladda-spinner"></span>' +
+									'</button>' 
+			                }
+				          	document.getElementById("header_button").appendChild(line);
+				          </script>
+                        </div>
+						  
+				      </form>
                                                
                     </div> 
                   </div>
@@ -335,14 +513,14 @@
     </script>    
     
     <script type="text/javascript">
-   		$('#spanSamplingDate').click(function(){
+   		$('#spanSampling_Date').click(function(){
 	   		event.stopPropagation(); 
-	   	    dp = $('#SamplingDate').datepicker({
+	   	    dp = $('#Sampling_Date').datepicker({
 	   	    	language: 'en',
 	   	    	autoclose: true
 	   	    });
 	   		dp.show();
-	   		$('#SamplingDate').focus();
+	   		$('#Sampling_Date').focus();
 		});
     </script> 
     
@@ -459,9 +637,9 @@
   		        } else {
   		          event.preventDefault();
   		        if ((option == 0) || (option == 1)) {
-  		        	addCamAcross();
+  		        	addRhinoKhov_ZooCov_lab();
 	  		  	  } else if ((option == 2)) {
-	  		  		modifyCamAcross();
+	  		  		modifyRhinoKhov_ZooCov_lab();
 	  		  	  }
   		        } 		        
   		        form.classList.add('was-validated');
@@ -470,7 +648,7 @@
   		  }, false);
   		})();
  		
-  		function addCamAcross() {  
+  		function addRhinoKhov_ZooCov_lab() {  
   			
   			//alert('add');
   			
@@ -481,33 +659,40 @@
 			
 							
 			var id = uuid();
-			var SamplingDate = document.getElementById('SamplingDate').value;
-		    var AnimalCode = document.getElementById('AnimalCode').value;
+			
+												
+
+			var Project = document.getElementById('Project').value;
+		    var No = document.getElementById('No').value;
+		    var Sampling_Date = document.getElementById('Sampling_Date').value;
+		    var Animal_ID = document.getElementById('Animal_ID').value;
+		    var Sample_Type = document.getElementById('Sample_Type').value;
+		    var Taxa = document.getElementById('Taxa').value;
+		    var Genus_Species = document.getElementById('Genus_Species').value;
 		    var Province = document.getElementById('Province').value;
-		    var Site = document.getElementById('Site').value;
-		    var Species = document.getElementById('Species').value;
-		    var SampleType = document.getElementById('SampleType').value;
-		    var SampleCode = document.getElementById('SampleCode').value;
-		    var Final_Result_for_Corona_Watanabe = document.getElementById('Final_Result_for_Corona_Watanabe').value;
-		    var Final_Result_for_Corona_Quan = document.getElementById('Final_Result_for_Corona_Quan').value;
+		    var rtPCR_SARS_COV_2_E_gene = document.getElementById('rtPCR_SARS_COV_2_E_gene').value;
+		    var PCR_Quan_result = document.getElementById('PCR_Quan_result').value;
+		    var PCR_Watanabe_result = document.getElementById('PCR_Watanabe_result').value;
 		    var Username = localStorage.getItem('loginUsername');
 		    
 		    var andAdd = document.getElementById("andAdd");
 		  	if (andAdd.checked == true){
 		  	    var doc = new Object();
 		  		  
-		  	    doc.SamplingDate = SamplingDate;
-			    doc.AnimalCode = AnimalCode;
+		  	    doc.Project = Project;
+			    doc.No = No;
+			    doc.Sampling_Date = Sampling_Date;
+			    doc.Animal_ID = Animal_ID;
+			    doc.Sample_Type = Sample_Type;
+			    doc.Taxa = Taxa;
+			    doc.Genus_Species = Genus_Species;
 			    doc.Province = Province;
-			    doc.Site = Site;
-			    doc.Species = Species;
-			    doc.SampleType = SampleType;
-			    doc.SampleCode = SampleCode;	
-			    doc.Final_Result_for_Corona_Watanabe = Final_Result_for_Corona_Watanabe;
-			    doc.Final_Result_for_Corona_Quan = Final_Result_for_Corona_Quan;
+			    doc['rtPCR_SARS-COV-2_E_gene'] = rtPCR_SARS_COV_2_E_gene;
+			    doc.PCR_Quan_result = PCR_Quan_result;
+			    doc.PCR_Watanabe_result = PCR_Watanabe_result;
 			  	doc.Username = Username
 		  		  
-		  		localStorage['camacrossTablesData'] = JSON.stringify(doc);
+		  		localStorage['rhinokhov_zoocov_labTablesData'] = JSON.stringify(doc);
 		  	};
 		    
 		    if (localStorage.getItem('web') === 'oui') {
@@ -519,15 +704,17 @@
 			
 			DB.put({
 				_id: id,
-				SamplingDate: SamplingDate,
-			    AnimalCode: AnimalCode,
+				Project: Project,
+			    No: No,
+			    Sampling_Date : Sampling_Date,
+			    Animal_ID: Animal_ID,
+			    Sample_Type: Sample_Type,
+			    Taxa: Taxa,
+			    Genus_Species: Genus_Species,
 			    Province: Province,
-			    Site: Site,
-			    Species: Species,
-			    SampleType: SampleType,
-			    SampleCode: SampleCode,	
-			    Final_Result_for_Corona_Watanabe: Final_Result_for_Corona_Watanabe,
-			    Final_Result_for_Corona_Quan: Final_Result_for_Corona_Quan,
+			    'rtPCR_SARS-COV-2_E_gene': rtPCR_SARS_COV_2_E_gene,
+			    PCR_Quan_result: PCR_Quan_result,
+			    PCR_Watanabe_result: PCR_Watanabe_result,
 				Username: Username
 			}).then(function (response) {
 								
@@ -540,9 +727,9 @@
 						
 						var andAdd = document.getElementById("andAdd");
 					  	if (andAdd.checked == true) {
-					  	  window.location = 'ajouter_modifier_camacross.html?option=1&table=' + nom_table;
+					  	  window.location = 'ajouter_modifier_rhinokhov_zoocov_lab.html?option=1&table=' + nom_table;
 					  	} else {
-					  	  window.location = 'liste_camacross.html?table=' + nom_table;	
+					  	  window.location = 'liste_rhinokhov_zoocov_lab.html?table=' + nom_table;	
 					  	};
 					}).on('error', function (err) {
 						// error while replicating
@@ -552,9 +739,9 @@
 				} else {
 					var andAdd = document.getElementById("andAdd");
 				  	if (andAdd.checked == true) {
-				  	  window.location = 'ajouter_modifier_camacross.html?option=1&table=' + nom_table;
+				  	  window.location = 'ajouter_modifier_rhinokhov_zoocov_lab.html?option=1&table=' + nom_table;
 				  	} else {
-				  	  window.location = 'liste_camacross.html?table=' + nom_table;	
+				  	  window.location = 'liste_rhinokhov_zoocov_lab.html?table=' + nom_table;	
 				  	};
 				}
 				
@@ -566,22 +753,24 @@
 			});	
   		};
   		
-  		function modifyCamAcross() {  
+  		function modifyRhinoKhov_ZooCov_lab() {  
 			var l = Ladda.create( document.querySelector( '.ladda-button' ) );
 
 			// Start loading
 			l.start();
 			
-			var id = localStorage.getItem('ID_camacross' + nom_table);
-			var SamplingDate = document.getElementById('SamplingDate').value;
-		    var AnimalCode = document.getElementById('AnimalCode').value;
+			var id = localStorage.getItem('ID_rhinokhov_zoocov_lab' + nom_table);
+			var Project = document.getElementById('Project').value;
+		    var No = document.getElementById('No').value;
+		    var Sampling_Date = document.getElementById('Sampling_Date').value;
+		    var Animal_ID = document.getElementById('Animal_ID').value;
+		    var Sample_Type = document.getElementById('Sample_Type').value;
+		    var Taxa = document.getElementById('Taxa').value;
+		    var Genus_Species = document.getElementById('Genus_Species').value;
 		    var Province = document.getElementById('Province').value;
-		    var Site = document.getElementById('Site').value;
-		    var Species = document.getElementById('Species').value;
-		    var SampleType = document.getElementById('SampleType').value;
-		    var SampleCode = document.getElementById('SampleCode').value;
-		    var Final_Result_for_Corona_Watanabe = document.getElementById('Final_Result_for_Corona_Watanabe').value;
-		    var Final_Result_for_Corona_Quan = document.getElementById('Final_Result_for_Corona_Quan').value;
+		    var rtPCR_SARS_COV_2_E_gene = document.getElementById('rtPCR_SARS_COV_2_E_gene').value;
+		    var PCR_Quan_result = document.getElementById('PCR_Quan_result').value;
+		    var PCR_Watanabe_result = document.getElementById('PCR_Watanabe_result').value;
 		    var Username = localStorage.getItem('loginUsername');
 		    
 			if (localStorage.getItem('web') === 'oui') {
@@ -603,15 +792,17 @@
 				};
 				
 				DB2.get(id).then(function (doc) {
-					 doc.SamplingDate = SamplingDate;
-				    doc.AnimalCode = AnimalCode;
+					doc.Project = Project;
+				    doc.No = No;
+				    doc.Sampling_Date = Sampling_Date;
+				    doc.Animal_ID = Animal_ID;
+				    doc.Sample_Type = Sample_Type;
+				    doc.Taxa = Taxa;
+				    doc.Genus_Species = Genus_Species;
 				    doc.Province = Province;
-				    doc.Site = Site;
-				    doc.Species = Species;
-				    doc.SampleType = SampleType;
-					doc.SampleCode = SampleCode;	
-					doc.Final_Result_for_Corona_Watanabe = Final_Result_for_Corona_Watanabe;
-					doc.Final_Result_for_Corona_Quan = Final_Result_for_Corona_Quan;
+				    doc['rtPCR_SARS-COV-2_E_gene'] = rtPCR_SARS_COV_2_E_gene;
+				    doc.PCR_Quan_result = PCR_Quan_result;
+				    doc.PCR_Watanabe_result = PCR_Watanabe_result;
 					doc.Username = Username;
 										
 					return DB2.put(doc);
@@ -620,19 +811,19 @@
 				}).then(function (doc) {
 					
 					if ((navigator.onLine) && (localStorage.getItem('web') !== 'oui')) {
-						var localDB3 = new PouchDB('caracterisations_grottes' + nom_table + debug);	
+						var localDB3 = new PouchDB('bcoming' + nom_table + debug);	
 						var remote_couchdb = localStorage.getItem('remote_couchdb');
 						var remoteDB = new PouchDB(remote_couchdb + 'bcoming' + nom_table + debug);
 										
 						localDB3.sync(remoteDB).on('complete', (info) => { 
-							window.location = 'liste_camacross.html?table=' + nom_table;
+							window.location = 'liste_rhinokhov_zoocov_lab.html?table=' + nom_table;
 						}).on('error', function (err) {
 							// error while replicating
 							alert('alert sync modify site : ' + nom_table + JSON.stringify(err));
 							window.location = 'index.html';
 						});	
 					} else {
-						window.location = 'liste_camacross.html?table=' + nom_table;
+						window.location = 'liste_rhinokhov_zoocov_lab.html?table=' + nom_table;
 					}
 					
 					l.stop();								  
@@ -658,22 +849,12 @@
 		  }
 		}, true); // "true" => phase de capture
 		
-		if (nom_table == '_camacross') {
-			pays = 'cambodia';
-			document.getElementById('title_1').innerHTML = 'CamAcross database';
-			document.getElementById('title_2').innerHTML = 'CamAcross map';
-			document.getElementById('text_1').innerHTML = 'No geo-referenced data for CamAcross';				
-		} else if (nom_table == '_rhinokhov_zoocov_lab') {
-			pays = 'cambodia';
-			document.getElementById('title_1').innerHTML = 'RhinoKhov ZooCov lab database';
-			document.getElementById('title_2').innerHTML = 'RhinoKhov ZooCov lab map';
-			document.getElementById('text_1').innerHTML = 'No geo-referenced data for RhinoKhov ZooCov lab';
-		} else if (nom_table == '_rhinokhov_zoocov_animal') {
-			pays = 'cambodia';
-			document.getElementById('title_1').innerHTML = 'RhinoKhov ZooCov animal database';
-			document.getElementById('title_2').innerHTML = 'RhinoKhov ZooCov animal map';
-			document.getElementById('text_1').innerHTML = 'No geo-referenced data for RhinoKhov ZooCov animal';
-		}  
+		if ((nom_table == '_camacross') || (nom_table == '_rhinokhov_zoocov_lab')
+			|| (nom_table == '_rhinokhov_zoocov_animal')) {
+			pays = 'cambodia';	
+		} /*else if ((nom_table == '_mivegec_congo') || (nom_table == '_mivegec_gabon')){
+			institut = 'mivegec';
+		} */;
 			
   		
   		expanded(nom_table);
@@ -704,7 +885,7 @@
 			component_ul.classList.add('show');
 				
 				
-			var component_li = document.getElementById('li' + nom_table +'_map');
+			var component_li = document.getElementById('li' + nom_table +'_data_list');
 			component_li.classList.add('active');
 		};
 		

@@ -23,7 +23,8 @@ var progressbar_count = 0;
 
 var tables_principales = [];
 if  (debug !== '') {
-	tables_principales = ['bcoming_camacross_debug',
+	tables_principales = ['bcoming_camacross_debug', 'bcoming_rhinokhov_zoocov_lab_debug', 'bcoming_rhinokhov_zoocov_animal_debug', 
+		                  'bcoming_biodivafreid_debug', 'bcoming_biodivafreid_locations_debug'
 		  ];
 	
 	
@@ -106,7 +107,7 @@ var tabCount = new Array();
 
 if  (debug !== '') {
 	var tables_references = 
-		['username', 'version'
+		['username', 'bcoming_version'
 
 		 ];
 	

@@ -95,7 +95,7 @@
     
     <script src="js/uuid.js"></script>
     
-    <script src="js/load-page-camacross-consultation.js"></script> 
+    <script src="js/load-page-biodivafreid-locations-consultation.js"></script> 
     
     <script src="js/addReference.js"></script> 
     
@@ -104,7 +104,7 @@
 	
 	   
   </head>
-  <body onload="chargement_des_donnees_camacross()">
+  <body onload="chargement_des_donnees_biodivafreid_locations()">
   
     <script>
 		logged_only();
@@ -262,7 +262,7 @@
           <!-- Page Header-->
           <header class="page-header">
             <div class="container-fluid">
-              <h2 class="no-margin-bottom">CamAcross database</h2>
+              <h2 class="no-margin-bottom">Biodiv-Afreid locations database</h2>
             </div>
           </header>
           
@@ -272,7 +272,7 @@
                 <div class="col-lg-12">                  
                   <div class="card">        
                    <div class="card-header" id="header">
-                     <h4>Consult CamAcross data<a id="button_print" style="color:white;margin-left:10px;" class="btn btn btn-primary btn-fill">Print</a></h4> 
+                     <h4>Consult Biodiv-Afreid locations data<a id="button_print" style="color:white;margin-left:10px;" class="btn btn btn-primary btn-fill">Print</a></h4> 
                     </div>
                       
                     <div class="card-body">                                            
@@ -299,82 +299,207 @@
 	    					    </div>
 							  </div>
 						    </div>                                                                                                            
+                          																					
                           
-		      												
-		      				
-		      			  	<div class="row">
-		      				  <div class="col-lg-6">
-	            				<div class="form-group">
-				                  <label for="SamplingDate_value">Sampling Date : </label>
-			                      <label id="SamplingDate_value"></label>
-			                    </div> 
-			                  </div>
-			                  <div class="col-lg-6">
-			      			    <div class="form-group">
-			                      <label for="AnimalCode_value">Animal Code : </label>
-			                      <label id="AnimalCode_value"></label>
-			                    </div>
+		      				<div class="row">
+			      		      <div class="col-lg-6">      
+		                        <div class="form-group">
+			                      <label for="location_code_value">location code : </label>
+			                      <label id="location_code_value"></label>
+			                    </div>	
 			      			  </div>
-	    					</div>	
-		      				      				
-			      			
-			      			<div class="row">
 			      			  <div class="col-lg-6">
 			      			    <div class="form-group">
-			                      <label for="Province_value">Province : </label>
-			                      <label id="Province_value"></label>
+			                      <label for="sess_check_value">sess check : </label>
+			                      <label id="sess_check_value"></label>
 			                    </div>
-			      			  </div>
-			      			  <div class="col-lg-6">      
-		                        <div class="form-group">
-			                      <label for="Site_value">Site : </label>
-			                      <label id="Site_value"></label>
-			                    </div>	
-			      			  </div>			      			  
+			      			  </div>			      			  			      			  
 			      		    </div> 
-			      			         		
-			      			<div class="row">
-			      			  <div class="col-lg-6">      
-		                        <div class="form-group">
-			                      <label for="Species_value">Species : </label>
-			                      <label id="Species_value"></label>
-			                    </div>	      				  
-			      			  </div>
-			      			  <div class="col-lg-6">	    
-			      			    <div class="form-group">
-			                      <label for="SampleType_value">Sample Type : </label>
-			                      <label id="SampleType_value"></label>
-			                    </div>
-			      			  </div>			      			  
-			      		    </div>     	
 			      		    
 			      		    <div class="row">
-			      			  <div class="col-lg-6">      
+			      		      <div class="col-lg-6">      
 		                        <div class="form-group">
-			                      <label for="SampleCode_value">Sample Code : </label>
-			                      <label id="SampleCode_value"></label>
-			                    </div>	      				  
+			                      <label for="location_name_value">location name : </label>
+			                      <label id="location_name_value"></label>
+			                    </div>	
 			      			  </div>
-			      			  <div class="col-lg-6">      
-		                        <div class="form-group">
-			                      <label for="Final_Result_for_Corona_Watanabe_value">Final Result for Corona Watanabe : </label>
-			                      <label id="Final_Result_for_Corona_Watanabe_value"></label>
-			                    </div>	      				  
-			      			  </div>
-			      		    </div> 		    
-			      			    
-			      			<div class="row">
-		                      <div class="col-lg-6">
+			      			  <div class="col-lg-6">
 			      			    <div class="form-group">
-			      			      <label for="Final_Result_for_Corona_Quan_value">Final Result for Corona Quan : </label>
-							      <label id="Final_Result_for_Corona_Quan_value"></label>
-								</div>
-							  </div>
-							  		
-		                    </div>		
-		                     
-		                    
-		                    
+			                      <label for="country_value">country : </label>
+			                      <label id="country_value"></label>
+			                    </div>
+			      			  </div>			      			  			      			  
+			      		    </div> 
+			      		    
+			      		    <div class="row">
+			      		      <div class="col-lg-6">      
+		                        <div class="form-group">
+			                      <label for="province_value">province : </label>
+			                      <label id="province_value"></label>
+			                    </div>	
+			      			  </div>
+			      			  <div class="col-lg-6">
+			      			    <div class="form-group">
+			                      <label for="locality_value">locality : </label>
+			                      <label id="locality_value"></label>
+			                    </div>
+			      			  </div>			      			  			      			  
+			      		    </div> 
+			      		    
+			      		    <div class="row">
+			      		      <div class="col-lg-6">      
+		                        <div class="form-group">
+			                      <label for="site_details_value">site_details : </label>
+			                      <label id="site_details_value"></label>
+			                    </div>	
+			      			  </div>			      			  			      			  
+			      		    </div> 
+			      		    
+			      		    <div class="row">
+			      		      <div class="col-lg-6">
+			      			    <div class="form-group">
+			                      <label for="latitude_value">latitude : </label>
+			                      <label id="latitude_value"></label>
+			                    </div>
+			      			  </div>
+			      		      <div class="col-lg-6">      
+		                        <div class="form-group">
+			                      <label for="lat_ns_value">lat_ns : </label>
+			                      <label id="lat_ns_value"></label>
+			                    </div>	
+			      			  </div>			      			  			      			  
+			      		    </div> 
+			      		    
+			      		    <div class="row">
+			      			  <div class="col-lg-6">
+			      			    <div class="form-group">
+			                      <label for="longitude_value">longitude : </label>
+			                      <label id="longitude_value"></label>
+			                    </div>
+			      			  </div>
+			      		      <div class="col-lg-6">      
+		                        <div class="form-group">
+			                      <label for="long_ew_value">long_ew : </label>
+			                      <label id="long_ew_value"></label>
+			                    </div>	
+			      			  </div>			      			  			      			  
+			      		    </div> 
+			      		    
+			      		    <div class="row">
+			      		      <div class="col-lg-6">      
+		                        <div class="form-group">
+			                      <label for="coord_source_value">coord source : </label>
+			                      <label id="coord_source_value"></label>
+			                    </div>	
+			      			  </div>
+			      			  <div class="col-lg-6">
+			      			    <div class="form-group">
+			                      <label for="gps_projection_value">gps projection : </label>
+			                      <label id="gps_projection_value"></label>
+			                    </div>
+			      			  </div>			      			  			      			  
+			      		    </div> 
+			      		    
+			      		    <div class="row">
+			      		      <div class="col-lg-6">      
+		                        <div class="form-group">
+			                      <label for="gps_datum_value">gps datum : </label>
+			                      <label id="gps_datum_value"></label>
+			                    </div>	
+			      			  </div>
+			      			  <div class="col-lg-6">
+			      			    <div class="form-group">
+			                      <label for="coord_precision_value">coord precision : </label>
+			                      <label id="coord_precision_value"></label>
+			                    </div>
+			      			  </div>			      			  			      			  
+			      		    </div> 
+			      		    
+			      		    <div class="row">
+			      		      <div class="col-lg-6">      
+		                        <div class="form-group">
+			                      <label for="altitude_value">altitude : </label>
+			                      <label id="altitude_value"></label>
+			                    </div>	
+			      			  </div>
+			      			  <div class="col-lg-6">
+			      			    <div class="form-group">
+			                      <label for="alt_source_value">alt source : </label>
+			                      <label id="alt_source_value"></label>
+			                    </div>
+			      			  </div>			      			  			      			  
+			      		    </div> 
+			      		    
+			      		    <div class="row">
+			      		      <div class="col-lg-6">      
+		                        <div class="form-group">
+			                      <label for="Mapgrid_value">Mapgrid : </label>
+			                      <label id="Mapgrid_value"></label>
+			                    </div>	
+			      			  </div>
+			      			  <div class="col-lg-6">
+			      			    <div class="form-group">
+			                      <label for="habitat_Type_value">habitat Type : </label>
+			                      <label id="habitat_Type_value"></label>
+			                    </div>
+			      			  </div>			      			  			      			  
+			      		    </div> 
+			      		    
+			      		    <div class="row">
+			      		      <div class="col-lg-6">      
+		                        <div class="form-group">
+			                      <label for="rodent_proofing_value">rodent proofing : </label>
+			                      <label id="rodent_proofing_value"></label>
+			                    </div>	
+			      			  </div>
+			      			  <div class="col-lg-6">
+			      			    <div class="form-group">
+			                      <label for="inside_cover_value">inside cover : </label>
+			                      <label id="inside_cover_value"></label>
+			                    </div>
+			      			  </div>			      			  			      			  
+			      		    </div> 
+			      		    				
+			      		    <div class="row">
+			      		      <div class="col-lg-6">      
+		                        <div class="form-group">
+			                      <label for="outside_cover_value">outside cover : </label>
+			                      <label id="outside_cover_value"></label>
+			                    </div>	
+			      			  </div>
+			      			  <div class="col-lg-6">
+			      			    <div class="form-group">
+			                      <label for="open_water_value">open water : </label>
+			                      <label id="open_water_value"></label>
+			                    </div>
+			      			  </div>			      			  			      			  
+			      		    </div> 
+			      		    
+			      		    <div class="row">
+			      		      <div class="col-lg-6">      
+		                        <div class="form-group">
+			                      <label for="recent_rodent_control_value">recent rodent control : </label>
+			                      <label id="recent_rodent_control_value"></label>
+			                    </div>	
+			      			  </div>
+			      			  <div class="col-lg-6">
+			      			    <div class="form-group">
+			                      <label for="pictures_value">pictures : </label>
+			                      <label id="pictures_value"></label>
+			                    </div>
+			      			  </div>			      			  			      			  
+			      		    </div> 
+			      		    
+			      		    <div class="row">
+			      		      <div class="col-lg-12">      
+		                        <div class="form-group">
+			                      <label for="habitat_remarks_value">habitat remarks : </label>
+			                      <label id="habitat_remarks_value"></label>
+			                    </div>	
+			      			  </div>			      			  			      			  
+			      		    </div> 
+			      		    
+			      		    
 			      		  </div>
                         </div>
                         
@@ -509,13 +634,11 @@
 		  }
 		}, true); // "true" => phase de capture
 		
-		if ((nom_table == '_camacross') /*|| (nom_table == '_transvihmi_cameroun')
-			|| (nom_table == '_transvihmi_rdc') || (nom_table == '_transvihmi_gabon')
-			|| (nom_table == '_transvihmi_rca') || (nom_table == '_transvihmi_rwanda')*/) {
-			pays = 'cambodia';	
-		} /*else if ((nom_table == '_mivegec_congo') || (nom_table == '_mivegec_gabon')){
-			institut = 'mivegec';
-		} */;
+		if ((nom_table == '_biodivafreid') || (nom_table == '_biodivafreid_locations')) {
+			/*|| (nom_table == '_transvihmi_rdc') || (nom_table == '_transvihmi_gabon')
+			|| (nom_table == '_transvihmi_rca') || (nom_table == '_transvihmi_rwanda')) {*/
+			pays = 'democratic_republic_of_congo';	
+		}
 			
   		
   		expanded(nom_table);
@@ -529,11 +652,11 @@
 			var component_ul =  document.getElementById('ul_' + pays + 'Dropdown');
 			component_ul.classList.add('show');
 			
-			var component_li = document.getElementById('li' + nom_table + 'Dropdown');
+			var component_li = document.getElementById('li_biodivafreidDropdown');
 			component_li.classList.add('active');
-			var component_a = document.getElementById('a' + nom_table + 'Dropdown');
+			var component_a = document.getElementById('a_biodivafreidDropdown');
 			component_a.setAttribute('aria-expanded', 'true');
-			var component_ul =  document.getElementById('ul' + nom_table + 'Dropdown');
+			var component_ul =  document.getElementById('ul_biodivafreidDropdown');
 			component_ul.classList.add('show');
 				
 				

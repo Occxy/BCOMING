@@ -46,8 +46,8 @@ function load_db_equipe() {
 };
 
 function load_version() {
-	var localDB = new PouchDB('version');
-	var remoteDB = new PouchDB(remote_couchdb + 'version', {skip_setup: true});
+	var localDB = new PouchDB('bcoming_version');
+	var remoteDB = new PouchDB(remote_couchdb + 'bcoming_version', {skip_setup: true});
 	
 	localDB.sync(remoteDB).on('complete', function(info) {              
 		window.location = 'login.html';

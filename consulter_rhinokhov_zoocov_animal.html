@@ -95,7 +95,7 @@
     
     <script src="js/uuid.js"></script>
     
-    <script src="js/load-page-camacross-consultation.js"></script> 
+    <script src="js/load-page-rhinokhov-zoocov-animal-consultation.js"></script> 
     
     <script src="js/addReference.js"></script> 
     
@@ -104,7 +104,7 @@
 	
 	   
   </head>
-  <body onload="chargement_des_donnees_camacross()">
+  <body onload="chargement_des_donnees_rhinokhov_zoocov_animal()">
   
     <script>
 		logged_only();
@@ -254,15 +254,14 @@
                     
                     <li id="li_sauvegarde" style="display:none"> 
                     	<a href="sauvegarde.html">Sauvegarde mensuelle</a>
-                    </li> -->
-                                    
+                    </li> -->          
           </ul>
         </nav>
         <div class="content-inner">
           <!-- Page Header-->
           <header class="page-header">
             <div class="container-fluid">
-              <h2 class="no-margin-bottom">CamAcross database</h2>
+              <h2 class="no-margin-bottom">RhinoKhov ZooCov animal database</h2>
             </div>
           </header>
           
@@ -272,7 +271,7 @@
                 <div class="col-lg-12">                  
                   <div class="card">        
                    <div class="card-header" id="header">
-                     <h4>Consult CamAcross data<a id="button_print" style="color:white;margin-left:10px;" class="btn btn btn-primary btn-fill">Print</a></h4> 
+                     <h4>Consult RhinoKhov ZooCov animal data<a id="button_print" style="color:white;margin-left:10px;" class="btn btn btn-primary btn-fill">Print</a></h4> 
                     </div>
                       
                     <div class="card-body">                                            
@@ -299,20 +298,19 @@
 	    					    </div>
 							  </div>
 						    </div>                                                                                                            
+                          									
                           
-		      												
-		      				
-		      			  	<div class="row">
+		      				<div class="row">
 		      				  <div class="col-lg-6">
 	            				<div class="form-group">
-				                  <label for="SamplingDate_value">Sampling Date : </label>
-			                      <label id="SamplingDate_value"></label>
+				                  <label for="Project_value">Project : </label>
+			                      <label id="Project_value"></label>
 			                    </div> 
 			                  </div>
 			                  <div class="col-lg-6">
 			      			    <div class="form-group">
-			                      <label for="AnimalCode_value">Animal Code : </label>
-			                      <label id="AnimalCode_value"></label>
+			                      <label for="Sampling_Date_value">Sampling Date : </label>
+			                      <label id="Sampling_Date_value"></label>
 			                    </div>
 			      			  </div>
 	    					</div>	
@@ -321,59 +319,316 @@
 			      			<div class="row">
 			      			  <div class="col-lg-6">
 			      			    <div class="form-group">
-			                      <label for="Province_value">Province : </label>
-			                      <label id="Province_value"></label>
+			                      <label for="Animal_ID_value">Animal ID : </label>
+			                      <label id="Animal_ID_value"></label>
 			                    </div>
 			      			  </div>
-			      			  <div class="col-lg-6">      
+			      			  <div class="col-lg-6">
+			      			    <div class="form-group">
+			                      <label for="Genus_Species_value">Genus Species : </label>
+			                      <label id="Genus_Species_value"></label>
+			                    </div>
+			      			  </div>			      			  
+			      		    </div> 
+			      		    
+			      		    <div class="row">
+			      		      <div class="col-lg-6">      
+		                        <div class="form-group">
+			                      <label for="Province_value">Province : </label>
+			                      <label id="Province_value"></label>
+			                    </div>	
+			      			  </div>
+			      			  <div class="col-lg-6">
+			      			    <div class="form-group">
+			                      <label for="District_value">District : </label>
+			                      <label id="District_value"></label>
+			                    </div>
+			      			  </div>			      			  			      			  
+			      		    </div> 
+			      		    
+			      		    <div class="row">
+			      		      <div class="col-lg-6">      
 		                        <div class="form-group">
 			                      <label for="Site_value">Site : </label>
 			                      <label id="Site_value"></label>
 			                    </div>	
-			      			  </div>			      			  
-			      		    </div> 
-			      			         		
-			      			<div class="row">
-			      			  <div class="col-lg-6">      
-		                        <div class="form-group">
-			                      <label for="Species_value">Species : </label>
-			                      <label id="Species_value"></label>
-			                    </div>	      				  
 			      			  </div>
-			      			  <div class="col-lg-6">	    
-			      			    <div class="form-group">
-			                      <label for="SampleType_value">Sample Type : </label>
-			                      <label id="SampleType_value"></label>
-			                    </div>
-			      			  </div>			      			  
-			      		    </div>     	
+			      		      <div class="col-lg-6">      
+		                        <div class="form-group">
+			                      <label for="Specific_location_value">Specific_location : </label>
+			                      <label id="Specific_location_value"></label>
+			                    </div>	
+			      			  </div>
+			      			</div> 
 			      		    
 			      		    <div class="row">
-			      			  <div class="col-lg-6">      
-		                        <div class="form-group">
-			                      <label for="SampleCode_value">Sample Code : </label>
-			                      <label id="SampleCode_value"></label>
-			                    </div>	      				  
-			      			  </div>
-			      			  <div class="col-lg-6">      
-		                        <div class="form-group">
-			                      <label for="Final_Result_for_Corona_Watanabe_value">Final Result for Corona Watanabe : </label>
-			                      <label id="Final_Result_for_Corona_Watanabe_value"></label>
-			                    </div>	      				  
-			      			  </div>
-			      		    </div> 		    
-			      			    
-			      			<div class="row">
-		                      <div class="col-lg-6">
+			      		      <div class="col-lg-6">
 			      			    <div class="form-group">
-			      			      <label for="Final_Result_for_Corona_Quan_value">Final Result for Corona Quan : </label>
-							      <label id="Final_Result_for_Corona_Quan_value"></label>
-								</div>
-							  </div>
-							  		
-		                    </div>		
-		                     
-		                    
+			                      <label for="Sex_value">Sex : </label>
+			                      <label id="Sex_value"></label>
+			                    </div>
+			      			  </div>
+			      		      <div class="col-lg-6">      
+		                        <div class="form-group">
+			                      <label for="Age_Status_value">Age-Status : </label>
+			                      <label id="Age_Status_value"></label>
+			                    </div>	
+			      			  </div>
+			      			  			      			  
+			      		    </div>
+			      																
+			      			         		
+			      			<div class="row">
+			      		      <div class="col-lg-6">      
+		                        <div class="form-group">
+			                      <label for="Health_Status_value">Health Status : </label>
+			                      <label id="Health_Status_value"></label>
+			                    </div>	
+			      			  </div>
+			      			  <div class="col-lg-6">
+			      			    <div class="form-group">
+			                      <label for="Condition_value">Condition : </label>
+			                      <label id="Condition_value"></label>
+			                    </div>
+			      			  </div>			      			  			      			  
+			      		    </div> 
+			      		    
+			      		    <div class="row">
+			      		      <div class="col-lg-6">      
+		                        <div class="form-group">
+			                      <label for="FEV_value">FEV : </label>
+			                      <label id="FEV_value"></label>
+			                    </div>	
+			      			  </div>
+			      			  <div class="col-lg-6">
+			      			    <div class="form-group">
+			                      <label for="OSV_value">OSV : </label>
+			                      <label id="OSV_value"></label>
+			                    </div>
+			      			  </div>			      			  			      			  
+			      		    </div> 
+			      		    
+			      		    <div class="row">
+			      		      <div class="col-lg-6">      
+		                        <div class="form-group">
+			                      <label for="OST_value">OST : </label>
+			                      <label id="OST_value"></label>
+			                    </div>	
+			      			  </div>
+			      			  <div class="col-lg-6">
+			      			    <div class="form-group">
+			                      <label for="RSV_value">RSV : </label>
+			                      <label id="RSV_value"></label>
+			                    </div>
+			      			  </div>			      			  			      			  
+			      		    </div> 
+			      		    
+			      		    <div class="row">
+			      		      <div class="col-lg-6">      
+		                        <div class="form-group">
+			                      <label for="RST_value">RST : </label>
+			                      <label id="RST_value"></label>
+			                    </div>	
+			      			  </div>
+			      			  <div class="col-lg-6">
+			      			    <div class="form-group">
+			                      <label for="DBS_value">DBS : </label>
+			                      <label id="DBS_value"></label>
+			                    </div>
+			      			  </div>			      			  			      			  
+			      		    </div> 
+			      		    
+			      		    <div class="row">
+			      		      <div class="col-lg-6">      
+		                        <div class="form-group">
+			                      <label for="URV_value">URV : </label>
+			                      <label id="URV_value"></label>
+			                    </div>	
+			      			  </div>
+			      			  <div class="col-lg-6">
+			      			    <div class="form-group">
+			                      <label for="URT_value">URT : </label>
+			                      <label id="URT_value"></label>
+			                    </div>
+			      			  </div>			      			  			      			  
+			      		    </div> 
+			      		    
+			      		    <div class="row">
+			      		      <div class="col-lg-6">      
+		                        <div class="form-group">
+			                      <label for="WBV_value">WBV : </label>
+			                      <label id="WBV_value"></label>
+			                    </div>	
+			      			  </div>
+			      			  <div class="col-lg-6">
+			      			    <div class="form-group">
+			                      <label for="BSN_value">BSN : </label>
+			                      <label id="BSN_value"></label>
+			                    </div>
+			      			  </div>			      			  			      			  
+			      		    </div> 
+			      		    
+			      		    <div class="row">
+			      		      <div class="col-lg-6">      
+		                        <div class="form-group">
+			                      <label for="BCN_value">BCN : </label>
+			                      <label id="BCN_value"></label>
+			                    </div>	
+			      			  </div>
+			      			  <div class="col-lg-6">
+			      			    <div class="form-group">
+			                      <label for="FA_mm_value">FA mm : </label>
+			                      <label id="FA_mm_value"></label>
+			                    </div>
+			      			  </div>			      			  			      			  
+			      		    </div> 
+			      		    
+			      		    																		
+			      		    
+			      		    <div class="row">
+			      		      <div class="col-lg-6">      
+		                        <div class="form-group">
+			                      <label for="Weigth_g_value">Weigth g : </label>
+			                      <label id="Weigth_g_value"></label>
+			                    </div>	
+			      			  </div>
+			      			  <div class="col-lg-6">
+			      			    <div class="form-group">
+			                      <label for="Photo_value">Photo : </label>
+			                      <label id="Photo_value"></label>
+			                    </div>
+			      			  </div>			      			  			      			  
+			      		    </div> 
+			      		    
+			      		    <div class="row">
+			      		      <div class="col-lg-6">      
+		                        <div class="form-group">
+			                      <label for="Recorder_type_value">Recorder type : </label>
+			                      <label id="Recorder_type_value"></label>
+			                    </div>	
+			      			  </div>
+			      			  <div class="col-lg-6">
+			      			    <div class="form-group">
+			                      <label for="File_name_value">File name : </label>
+			                      <label id="File_name_value"></label>
+			                    </div>
+			      			  </div>			      			  			      			  
+			      		    </div> 
+			      		    
+			      		    <div class="row">
+			      		      <div class="col-lg-6">      
+		                        <div class="form-group">
+			                      <label for="Kiv_value">Kiv : </label>
+			                      <label id="Kiv_value"></label>
+			                    </div>	
+			      			  </div>
+			      			  <div class="col-lg-6">
+			      			    <div class="form-group">
+			                      <label for="KiT_value">KiT : </label>
+			                      <label id="KiT_value"></label>
+			                    </div>
+			      			  </div>			      			  			      			  
+			      		    </div> 
+			      		    
+			      		    <div class="row">
+			      		      <div class="col-lg-6">      
+		                        <div class="form-group">
+			                      <label for="SpV_value">SpV : </label>
+			                      <label id="SpV_value"></label>
+			                    </div>	
+			      			  </div>
+			      			  <div class="col-lg-6">
+			      			    <div class="form-group">
+			                      <label for="SpT_value">SpT : </label>
+			                      <label id="SpT_value"></label>
+			                    </div>
+			      			  </div>			      			  			      			  
+			      		    </div> 
+			      		    
+			      		    <div class="row">
+			      		      <div class="col-lg-6">      
+		                        <div class="form-group">
+			                      <label for="LiV_value">LiV : </label>
+			                      <label id="LiV_value"></label>
+			                    </div>	
+			      			  </div>
+			      			  <div class="col-lg-6">
+			      			    <div class="form-group">
+			                      <label for="LiT_value">LiT : </label>
+			                      <label id="LiT_value"></label>
+			                    </div>
+			      			  </div>			      			  			      			  
+			      		    </div> 
+			      		    
+			      		    <div class="row">
+			      		      <div class="col-lg-6">      
+		                        <div class="form-group">
+			                      <label for="LuV_value">LuV : </label>
+			                      <label id="LuV_value"></label>
+			                    </div>	
+			      			  </div>
+			      			  <div class="col-lg-6">
+			      			    <div class="form-group">
+			                      <label for="LuT_value">LuT : </label>
+			                      <label id="LuT_value"></label>
+			                    </div>
+			      			  </div>			      			  			      			  
+			      		    </div> 
+			      		    
+			      		    <div class="row">
+			      		      <div class="col-lg-6">      
+		                        <div class="form-group">
+			                      <label for="HeV_value">HeV : </label>
+			                      <label id="HeV_value"></label>
+			                    </div>	
+			      			  </div>
+			      		      <div class="col-lg-6">      
+		                        <div class="form-group">
+			                      <label for="BrV_value">BrV : </label>
+			                      <label id="BrV_value"></label>
+			                    </div>	
+			      			  </div>			      			  			      			  
+			      		    </div> 
+			      		    
+			      		    <div class="row">
+			      			  <div class="col-lg-6">
+			      			    <div class="form-group">
+			                      <label for="HeT_value">HeT : </label>
+			                      <label id="HeT_value"></label>
+			                    </div>
+			      			  </div>
+			      		      <div class="col-lg-6">      
+		                        <div class="form-group">
+			                      <label for="BrT_value">BrT : </label>
+			                      <label id="BrT_value"></label>
+			                    </div>	
+			      			  </div>			      			  			      			  
+			      		    </div> 
+			      		    
+			      		    <div class="row">
+			      			  <div class="col-lg-6">
+			      			    <div class="form-group">
+			                      <label for="UrV_value">UrV : </label>
+			                      <label id="UrV_value"></label>
+			                    </div>
+			      			  </div>
+			      		      <div class="col-lg-6">      
+		                        <div class="form-group">
+			                      <label for="UrT_value">UrT : </label>
+			                      <label id="UrT_value"></label>
+			                    </div>	
+			      			  </div>			      			  			      			  			      			  
+			      		    </div> 
+			      		    
+			      		    <div class="row">
+			      		      <div class="col-lg-6">
+			      			    <div class="form-group">
+			                      <label for="Other_value">Other : </label>
+			                      <label id="Other_value"></label>
+			                    </div>
+			      			  </div>
+			      			</div>
+			      		    
 		                    
 			      		  </div>
                         </div>
@@ -509,37 +764,45 @@
 		  }
 		}, true); // "true" => phase de capture
 		
-		if ((nom_table == '_camacross') /*|| (nom_table == '_transvihmi_cameroun')
-			|| (nom_table == '_transvihmi_rdc') || (nom_table == '_transvihmi_gabon')
-			|| (nom_table == '_transvihmi_rca') || (nom_table == '_transvihmi_rwanda')*/) {
-			pays = 'cambodia';	
-		} /*else if ((nom_table == '_mivegec_congo') || (nom_table == '_mivegec_gabon')){
-			institut = 'mivegec';
-		} */;
-			
-  		
-  		expanded(nom_table);
-  			
-  		function expanded(nom_table) {	
-  			
-  			var component_li = document.getElementById('li_' + pays + 'Dropdown');
-			component_li.classList.add('active');
-			var component_a = document.getElementById('a_' + pays + 'Dropdown');
-			component_a.setAttribute('aria-expanded', 'true');
-			var component_ul =  document.getElementById('ul_' + pays + 'Dropdown');
-			component_ul.classList.add('show');
-			
-			var component_li = document.getElementById('li' + nom_table + 'Dropdown');
-			component_li.classList.add('active');
-			var component_a = document.getElementById('a' + nom_table + 'Dropdown');
-			component_a.setAttribute('aria-expanded', 'true');
-			var component_ul =  document.getElementById('ul' + nom_table + 'Dropdown');
-			component_ul.classList.add('show');
+		if ((nom_table == '_camacross') || (nom_table == '_rhinokhov_zoocov_lab')
+				|| (nom_table == '_rhinokhov_zoocov_animal')) {
+				pays = 'cambodia';	
+			} /*else if ((nom_table == '_mivegec_congo') || (nom_table == '_mivegec_gabon')){
+				institut = 'mivegec';
+			} */;
 				
+	  		
+	  		expanded(nom_table);
+	  			
+	  		function expanded(nom_table) {	
+	  			
+	  			var component_li = document.getElementById('li_' + pays + 'Dropdown');
+				component_li.classList.add('active');
+				var component_a = document.getElementById('a_' + pays + 'Dropdown');
+				component_a.setAttribute('aria-expanded', 'true');
+				var component_ul =  document.getElementById('ul_' + pays + 'Dropdown');
+				component_ul.classList.add('show');
 				
-			var component_li = document.getElementById('li' + nom_table +'_data_list');
-			component_li.classList.add('active');
-		};
+				if ((nom_table == '_rhinokhov_zoocov_lab') || (nom_table == '_rhinokhov_zoocov_animal')) {
+					var component_li = document.getElementById('li_rhinokhov_zoocovDropdown');
+					component_li.classList.add('active');
+					var component_a = document.getElementById('a_rhinokhov_zoocovDropdown');
+					component_a.setAttribute('aria-expanded', 'true');
+					var component_ul =  document.getElementById('ul_rhinokhov_zoocovDropdown');
+					component_ul.classList.add('show');
+				}
+				
+				var component_li = document.getElementById('li' + nom_table + 'Dropdown');
+				component_li.classList.add('active');
+				var component_a = document.getElementById('a' + nom_table + 'Dropdown');
+				component_a.setAttribute('aria-expanded', 'true');
+				var component_ul =  document.getElementById('ul' + nom_table + 'Dropdown');
+				component_ul.classList.add('show');
+					
+					
+				var component_li = document.getElementById('li' + nom_table +'_data_list');
+				component_li.classList.add('active');
+			};
 		
   		
 	</script> 

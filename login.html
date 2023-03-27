@@ -8,7 +8,7 @@
   
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Projet EBO-SURSY</title>
+    <title>BCOMING Project</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="all,follow">
@@ -156,17 +156,17 @@
 	    			  </div>
 	                </div> 
 	                <div class="form-group">
-	                  <label for="login-username" style="color:black;">Pseudo</label>
-                      <input type="text" class="form-control" id="login-username" placeholder="Pseudo" pattern="^[a-zA-Z0-9]{3,}$" required>
+	                  <label for="login-username" style="color:black;">Username</label>
+                      <input type="text" class="form-control" id="login-username" placeholder="Username" pattern="^[a-zA-Z0-9]{3,}$" required>
                       <div class="invalid-feedback">
-                        Le pseudo doit comporter au moins 3 caractères alphanumériques et non spéciaux !
+                        The username must contain at least 3 alphanumeric and not special characters !
       				  </div>
                     </div>  
                     <div class="form-group">
-                      <label for="login-password" style="color:black;">Mot de passe</label>
-                      <input type="password" class="form-control" id="login-password" placeholder="Mot de passe" required>
+                      <label for="login-password" style="color:black;">Password</label>
+                      <input type="password" class="form-control" id="login-password" placeholder="Password" required>
                       <div class="invalid-feedback">
-        			    S'il vous plaît fournir un mot de passe valide !
+        			    Please provide a valid password !
       				  </div>
       			    </div>
       			    <!-- <div class="form-group">
@@ -179,12 +179,12 @@
 					  <!-- <Button id="connect" type="submit" class="btn btn-primary">Se connecter</Button> -->
 					  
 					  <button id="connect" name="submit" type="submit" class="btn btn-primary btn-fill pull-right ladda-button" data-style="expand-right">                        	
-	            		<span class="ladda-label">Se connecter</span>
+	            		<span class="ladda-label">Log in</span>
 	            		<span class="ladda-spinner"></span>
 					  </button> 
 					</div>
 			      </form>
-                  <a href="forget.html" class="forgot-pass">Mot de passe oublié ?</a><br><small>Avez vous déjà un compte ? </small><a href="register.html" class="signup">S'inscrire</a>
+                  <a href="forget.html" class="forgot-pass">Forgot your password?</a><br><small>Do you already have an account? </small><a href="register.html" class="signup">Sign up</a>
                 </div>
               </div>
             </div>
@@ -258,8 +258,8 @@
 				};
 				
 				function load_version() {
-					var localDB = new PouchDB('version');
-					var remoteDB = new PouchDB(remote_couchdb + 'version', {skip_setup: true});
+					var localDB = new PouchDB('bcoming_version');
+					var remoteDB = new PouchDB(remote_couchdb + 'bcoming_version', {skip_setup: true});
 					
 					localDB.sync(remoteDB).on('complete', function(info) {              
 						login_();
@@ -281,7 +281,7 @@
 				l.start();
 				
 				//test de la version
-				localDB = new PouchDB('version');
+				localDB = new PouchDB('bcoming_version');
 				localDB.allDocs({
 					include_docs: true,
 					attachments: true
@@ -291,7 +291,7 @@
 						//id = result.docs[0]._id;
 						id = result.rows[0].doc._id;
 						
-						localVersionDB = new PouchDB('version');
+						localVersionDB = new PouchDB('bcoming_version');
 						localVersionDB.get(id).then(function (doc) {
 							if (doc.version != localStorage.getItem('version')) {
 								addAlertFlash('danger', 
