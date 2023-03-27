@@ -14,7 +14,7 @@ if (localStorage.getItem('debug') === null) {
 
 var fonction = localStorage.getItem('fonction');
 
-var chauves_souris_capturees_transvihmi_guinee = 'chauves_souris_capturees_transvihmi_guinee' + debug + '_count';
+/*var chauves_souris_capturees_transvihmi_guinee = 'chauves_souris_capturees_transvihmi_guinee' + debug + '_count';
 var chauves_souris_capturees_astre_transvihmi_guinee = 'chauves_souris_capturees_astre_transvihmi_guinee' + debug + '_count';
 var chauves_souris_capturees_transvihmi_cameroun = 'chauves_souris_capturees_transvihmi_cameroun' + debug + '_count';
 var chauves_souris_capturees_transvihmi_rdc = 'chauves_souris_capturees_transvihmi_rdc' + debug + '_count';
@@ -64,15 +64,27 @@ document.getElementById("label_animals_mivegec_gabon_count").innerHTML = localSt
 document.getElementById("label_individus_cibu_count").innerHTML = localStorage.getItem(individus_cibu);
 document.getElementById("label_prelevements_cibu_count").innerHTML = localStorage.getItem(prelevements_cibu);
 
-document.getElementById("label_faune_astre_transvihmi_guinee_count").innerHTML = localStorage.getItem(faune_astre_transvihmi_guinee);
+document.getElementById("label_faune_astre_transvihmi_guinee_count").innerHTML = localStorage.getItem(faune_astre_transvihmi_guinee);*/
+
+var bcoming_camacross = 'bcoming_camacross' + debug + '_count';
+var bcoming_rhinokhov_zoocov_lab = 'bcoming_rhinokhov_zoocov_lab' + debug + '_count';
+var bcoming_rhinokhov_zoocov_animal = 'bcoming_rhinokhov_zoocov_animal' + debug + '_count';
+var bcoming_biodivafreid = 'bcoming_biodivafreid' + debug + '_count';
+var bcoming_biodivafreid_locations = 'bcoming_biodivafreid_locations' + debug + '_count';
+
+document.getElementById("label_bcoming_camacross_count").innerHTML = localStorage.getItem(bcoming_camacross);
+document.getElementById("label_bcoming_rhinokhov_zoocov_lab_count").innerHTML = localStorage.getItem(bcoming_rhinokhov_zoocov_lab);
+document.getElementById("label_bcoming_rhinokhov_zoocov_animal_count").innerHTML = localStorage.getItem(bcoming_rhinokhov_zoocov_animal);
+document.getElementById("label_bcoming_biodivafreid_count").innerHTML = localStorage.getItem(bcoming_biodivafreid);
+document.getElementById("label_bcoming_biodivafreid_locations_count").innerHTML = localStorage.getItem(bcoming_biodivafreid_locations);
 
 if (String(fonction) == 'admin') {
 	
-	if ((code_equipe != 2) && (code_equipe != 5)) {
+	/*if ((code_equipe != 2) && (code_equipe != 5)) {
 		document.getElementById("card_tables_references").style.display="block";
 		document.getElementById("card_tables_phenologie").style.display="block";
 		document.getElementById("card_tables_espece_chauves_souris").style.display="block";
-	}
+	}*/
 	
 	var tables_references = document.getElementById("tables_references");
 	var tables_phenologie = document.getElementById("tables_phenologie");

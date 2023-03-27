@@ -95,7 +95,7 @@
     
     <script src="js/uuid.js"></script>
     
-    <script src="js/load-page-camacross-consultation.js"></script> 
+    <script src="js/load-page-biodivafreid-consultation.js"></script> 
     
     <script src="js/addReference.js"></script> 
     
@@ -104,7 +104,7 @@
 	
 	   
   </head>
-  <body onload="chargement_des_donnees_camacross()">
+  <body onload="chargement_des_donnees_biodivafreid()">
   
     <script>
 		logged_only();
@@ -262,7 +262,7 @@
           <!-- Page Header-->
           <header class="page-header">
             <div class="container-fluid">
-              <h2 class="no-margin-bottom">CamAcross database</h2>
+              <h2 class="no-margin-bottom">Biodiv-Afreid captures database</h2>
             </div>
           </header>
           
@@ -272,7 +272,7 @@
                 <div class="col-lg-12">                  
                   <div class="card">        
                    <div class="card-header" id="header">
-                     <h4>Consult CamAcross data<a id="button_print" style="color:white;margin-left:10px;" class="btn btn btn-primary btn-fill">Print</a></h4> 
+                     <h4>Consult Biodiv-Afreid captures data<a id="button_print" style="color:white;margin-left:10px;" class="btn btn btn-primary btn-fill">Print</a></h4> 
                     </div>
                       
                     <div class="card-body">                                            
@@ -301,80 +301,527 @@
 						    </div>                                                                                                            
                           
 		      												
+		      											
 		      				
 		      			  	<div class="row">
-		      				  <div class="col-lg-6">
-	            				<div class="form-group">
-				                  <label for="SamplingDate_value">Sampling Date : </label>
-			                      <label id="SamplingDate_value"></label>
-			                    </div> 
-			                  </div>
-			                  <div class="col-lg-6">
-			      			    <div class="form-group">
-			                      <label for="AnimalCode_value">Animal Code : </label>
-			                      <label id="AnimalCode_value"></label>
-			                    </div>
+			      		      <div class="col-lg-6">      
+		                        <div class="form-group">
+			                      <label for="project_code_value">project code : </label>
+			                      <label id="project_code_value"></label>
+			                    </div>	
 			      			  </div>
-	    					</div>	
-		      				      				
-			      			
-			      			<div class="row">
 			      			  <div class="col-lg-6">
 			      			    <div class="form-group">
-			                      <label for="Province_value">Province : </label>
-			                      <label id="Province_value"></label>
+			                      <label for="ua_id_pr_value">ua id pr : </label>
+			                      <label id="ua_id_pr_value"></label>
 			                    </div>
-			      			  </div>
-			      			  <div class="col-lg-6">      
-		                        <div class="form-group">
-			                      <label for="Site_value">Site : </label>
-			                      <label id="Site_value"></label>
-			                    </div>	
-			      			  </div>			      			  
+			      			  </div>			      			  			      			  
 			      		    </div> 
-			      			         		
-			      			<div class="row">
-			      			  <div class="col-lg-6">      
-		                        <div class="form-group">
-			                      <label for="Species_value">Species : </label>
-			                      <label id="Species_value"></label>
-			                    </div>	      				  
-			      			  </div>
-			      			  <div class="col-lg-6">	    
-			      			    <div class="form-group">
-			                      <label for="SampleType_value">Sample Type : </label>
-			                      <label id="SampleType_value"></label>
-			                    </div>
-			      			  </div>			      			  
-			      		    </div>     	
 			      		    
 			      		    <div class="row">
-			      			  <div class="col-lg-6">      
+			      		      <div class="col-lg-6">      
 		                        <div class="form-group">
-			                      <label for="SampleCode_value">Sample Code : </label>
-			                      <label id="SampleCode_value"></label>
-			                    </div>	      				  
+			                      <label for="ua_id_nr_value">ua id nr : </label>
+			                      <label id="ua_id_nr_value"></label>
+			                    </div>	
 			      			  </div>
-			      			  <div class="col-lg-6">      
-		                        <div class="form-group">
-			                      <label for="Final_Result_for_Corona_Watanabe_value">Final Result for Corona Watanabe : </label>
-			                      <label id="Final_Result_for_Corona_Watanabe_value"></label>
-			                    </div>	      				  
-			      			  </div>
-			      		    </div> 		    
-			      			    
-			      			<div class="row">
-		                      <div class="col-lg-6">
+			      			  <div class="col-lg-6">
 			      			    <div class="form-group">
-			      			      <label for="Final_Result_for_Corona_Quan_value">Final Result for Corona Quan : </label>
-							      <label id="Final_Result_for_Corona_Quan_value"></label>
-								</div>
-							  </div>
-							  		
-		                    </div>		
-		                     
+			                      <label for="ua_id_value">ua id : </label>
+			                      <label id="ua_id_value"></label>
+			                    </div>
+			      			  </div>			      			  			      			  
+			      		    </div> 
+			      		    
+			      		    <div class="row">
+			      		      <div class="col-lg-6">      
+		                        <div class="form-group">
+			                      <label for="date_value">date : </label>
+			                      <label id="date_value"></label>
+			                    </div>	
+			      			  </div>
+			      			  <div class="col-lg-6">
+			      			    <div class="form-group">
+			                      <label for="location_code_value">location code : </label>
+			                      <label id="location_code_value"></label>
+			                    </div>
+			      			  </div>			      			  			      			  
+			      		    </div> 
+			      		    
+			      		    <div class="row">
+			      		      <div class="col-lg-6">      
+		                        <div class="form-group">
+			                      <label for="session_code_value">session code : </label>
+			                      <label id="session_code_value"></label>
+			                    </div>	
+			      			  </div>
+			      			  <div class="col-lg-6">
+			      			    <div class="form-group">
+			                      <label for="Location_value">Location : </label>
+			                      <label id="Location_value"></label>
+			                    </div>
+			      			  </div>			      			  			      			  
+			      		    </div> 
+			      		    
+			      		    <div class="row">
+			      		      <div class="col-lg-6">
+			      			    <div class="form-group">
+			                      <label for="locses_value">locses : </label>
+			                      <label id="locses_value"></label>
+			                    </div>
+			      			  </div>
+			      			  <div class="col-lg-6">      
+		                        <div class="form-group">
+			                      <label for="Session_check_value">Session check : </label>
+			                      <label id="Session_check_value"></label>
+			                    </div>	
+			      			  </div>			      			  			      			  
+			      		    </div> 
+			      		    
+			      		    																					
+			      		    
+		                    <div class="row">
+			      		      <div class="col-lg-6">      
+		                        <div class="form-group">
+			                      <label for="sub_order_value">sub order : </label>
+			                      <label id="sub_order_value"></label>
+			                    </div>	
+			      			  </div>
+			      			  <div class="col-lg-6">
+			      			    <div class="form-group">
+			                      <label for="genus_field_value">genus field : </label>
+			                      <label id="genus_field_value"></label>
+			                    </div>
+			      			  </div>			      			  			      			  
+			      		    </div> 
+			      		    
+			      		    <div class="row">
+			      		      <div class="col-lg-6">      
+		                        <div class="form-group">
+			                      <label for="species_field_value">species field : </label>
+			                      <label id="species_field_value"></label>
+			                    </div>	
+			      			  </div>
+			      			  <div class="col-lg-6">
+			      			    <div class="form-group">
+			                      <label for="trap_value">trap : </label>
+			                      <label id="trap_value"></label>
+			                    </div>
+			      			  </div>			      			  			      			  
+			      		    </div> 
+			      		    
+			      		    <div class="row">
+			      		      <div class="col-lg-6">      
+		                        <div class="form-group">
+			                      <label for="trap_id_value">trap id : </label>
+			                      <label id="trap_id_value"></label>
+			                    </div>	
+			      			  </div>
+			      			  <div class="col-lg-6">
+			      			    <div class="form-group">
+			                      <label for="sex_value">sex : </label>
+			                      <label id="sex_value"></label>
+			                    </div>
+			      			  </div>			      			  			      			  
+			      		    </div> 
+			      		    
+			      		    <div class="row">
+			      		      <div class="col-lg-6">      
+		                        <div class="form-group">
+			                      <label for="sex_cond_value">sex cond : </label>
+			                      <label id="sex_cond_value"></label>
+			                    </div>	
+			      			  </div>
+			      			  <div class="col-lg-6">
+			      			    <div class="form-group">
+			                      <label for="weight_g_value">weight g : </label>
+			                      <label id="weight_g_value"></label>
+			                    </div>
+			      			  </div>			      			  			      			  
+			      		    </div> 
+			      		    
+			      		    <div class="row">
+			      		      <div class="col-lg-6">      
+		                        <div class="form-group">
+			                      <label for="head_body_mm_value">head body mm : </label>
+			                      <label id="head_body_mm_value"></label>
+			                    </div>	
+			      			  </div>
+			      			  <div class="col-lg-6">
+			      			    <div class="form-group">
+			                      <label for="tail_mm_value">tail mm : </label>
+			                      <label id="tail_mm_value"></label>
+			                    </div>
+			      			  </div>			      			  			      			  
+			      		    </div> 
+			      		    
+			      		    <div class="row">
+			      		      <div class="col-lg-6">      
+		                        <div class="form-group">
+			                      <label for="embryo_tot_value">embryo tot : </label>
+			                      <label id="embryo_tot_value"></label>
+			                    </div>	
+			      			  </div>
+			      			  <div class="col-lg-6">
+			      			    <div class="form-group">
+			                      <label for="ectopar_tot_value">ectopar tot : </label>
+			                      <label id="ectopar_tot_value"></label>
+			                    </div>
+			      			  </div>			      			  			      			  
+			      		    </div> 
+			      		    
+			      		    <div class="row">
+			      		      <div class="col-lg-6">      
+		                        <div class="form-group">
+			                      <label for="capture_remarks_value">capture remarks : </label>
+			                      <label id="capture_remarks_value"></label>
+			                    </div>	
+			      			  </div>
+			      			  <div class="col-lg-6">
+			      			    <div class="form-group">
+			                      <label for="liver_LI_value">liver LI : </label>
+			                      <label id="liver_LI_value"></label>
+			                    </div>
+			      			  </div>			      			  			      			  
+			      		    </div> 
+			      		    
+			      		    <div class="row">
+			      		      <div class="col-lg-6">      
+		                        <div class="form-group">
+			                      <label for="spleen_SP_value">spleen SP : </label>
+			                      <label id="spleen_SP_value"></label>
+			                    </div>	
+			      			  </div>
+			      			  <div class="col-lg-6">
+			      			    <div class="form-group">
+			                      <label for="kindney_KI_value">kindney KI : </label>
+			                      <label id="kindney_KI_value"></label>
+			                    </div>
+			      			  </div>			      			  			      			  
+			      		    </div> 
+			      		    
+			      		    <div class="row">
+			      		      <div class="col-lg-6">      
+		                        <div class="form-group">
+			                      <label for="lung_LU_value">lung LU : </label>
+			                      <label id="lung_LU_value"></label>
+			                    </div>	
+			      			  </div>
+			      			  <div class="col-lg-6">
+			      			    <div class="form-group">
+			                      <label for="intestine_IN_value">intestine IN : </label>
+			                      <label id="intestine_IN_value"></label>
+			                    </div>
+			      			  </div>			      			  			      			  
+			      		    </div> 
+			      		    
+			      		    <div class="row">
+			      		      <div class="col-lg-6">      
+		                        <div class="form-group">
+			                      <label for="uterus_UT_value">uterus UT : </label>
+			                      <label id="uterus_UT_value"></label>
+			                    </div>	
+			      			  </div>
+			      			  <div class="col-lg-6">
+			      			    <div class="form-group">
+			                      <label for="blood_BL_value">blood BL : </label>
+			                      <label id="blood_BL_value"></label>
+			                    </div>
+			      			  </div>			      			  			      			  
+			      		    </div> 
+			      		    
+			      		    <div class="row">
+			      		      <div class="col-lg-6">      
+		                        <div class="form-group">
+			                      <label for="other_tissue_XX_value">other tissue XX : </label>
+			                      <label id="other_tissue_XX_value"></label>
+			                    </div>	
+			      			  </div>
+			      			  <div class="col-lg-6">
+			      			    <div class="form-group">
+			                      <label for="eye_EY_value">eye EY : </label>
+			                      <label id="eye_EY_value"></label>
+			                    </div>
+			      			  </div>			      			  			      			  
+			      		    </div>  
+			      		    
+			      		    														
+			      		    <div class="row">
+			      		      <div class="col-lg-6">      
+		                        <div class="form-group">
+			                      <label for="TE_value">TE : </label>
+			                      <label id="TE_value"></label>
+			                    </div>	
+			      			  </div>
+			      			  <div class="col-lg-6">
+			      			    <div class="form-group">
+			                      <label for="SP_value">SP : </label>
+			                      <label id="SP_value"></label>
+			                    </div>
+			      			  </div>			      			  			      			  
+			      		    </div> 
+			      		    <div class="row">
+			      		      <div class="col-lg-6">      
+		                        <div class="form-group">
+			                      <label for="KL_value">KL : </label>
+			                      <label id="KL_value"></label>
+			                    </div>	
+			      			  </div>
+			      			  <div class="col-lg-6">
+			      			    <div class="form-group">
+			                      <label for="KD_value">KD : </label>
+			                      <label id="KD_value"></label>
+			                    </div>
+			      			  </div>			      			  			      			  
+			      		    </div> 
+			      		    <div class="row">
+			      		      <div class="col-lg-6">      
+		                        <div class="form-group">
+			                      <label for="LI_value">LI : </label>
+			                      <label id="LI_value"></label>
+			                    </div>	
+			      			  </div>
+			      			  <div class="col-lg-6">
+			      			    <div class="form-group">
+			                      <label for="FC_value">FC : </label>
+			                      <label id="FC_value"></label>
+			                    </div>
+			      			  </div>			      			  			      			  
+			      		    </div> 
+			      		    <div class="row">
+			      		      <div class="col-lg-6">      
+		                        <div class="form-group">
+			                      <label for="LU_value">LU : </label>
+			                      <label id="LU_value"></label>
+			                    </div>	
+			      			  </div>
+			      			  <div class="col-lg-6">
+			      			    <div class="form-group">
+			                      <label for="BL_value">BL : </label>
+			                      <label id="BL_value"></label>
+			                    </div>
+			      			  </div>			      			  			      			  
+			      		    </div> 
+			      		    <div class="row">
+			      		      <div class="col-lg-6">      
+		                        <div class="form-group">
+			                      <label for="TN_value">TN : </label>
+			                      <label id="TN_value"></label>
+			                    </div>	
+			      			  </div>
+			      			  <div class="col-lg-6">
+			      			    <div class="form-group">
+			                      <label for="EY_value">EY : </label>
+			                      <label id="EY_value"></label>
+			                    </div>
+			      			  </div>			      			  			      			  
+			      		    </div> 
+			      		    <div class="row">
+			      		      <div class="col-lg-6">      
+		                        <div class="form-group">
+			                      <label for="ECTO_value">ECTO : </label>
+			                      <label id="ECTO_value"></label>
+			                    </div>	
+			      			  </div>
+			      			  <div class="col-lg-6">
+			      			    <div class="form-group">
+			                      <label for="BR_value">BR : </label>
+			                      <label id="BR_value"></label>
+			                    </div>
+			      			  </div>			      			  			      			  
+			      		    </div> 
+			      		    <div class="row">
+			      		      <div class="col-lg-6">      
+		                        <div class="form-group">
+			                      <label for="FOET_value">FOET : </label>
+			                      <label id="FOET_value"></label>
+			                    </div>	
+			      			  </div>
+			      			  <div class="col-lg-6">
+			      			    <div class="form-group">
+			                      <label for="URINE_WHATMAN_value">URINE WHATMAN : </label>
+			                      <label id="URINE_WHATMAN_value"></label>
+			                    </div>
+			      			  </div>			      			  			      			  
+			      		    </div> 
+			      		    <div class="row">
+			      		      <div class="col-lg-6">      
+		                        <div class="form-group">
+			                      <label for="HI_FORMOL_value">HI FORMOL : </label>
+			                      <label id="HI_FORMOL_value"></label>
+			                    </div>	
+			      			  </div>
+			      			  <div class="col-lg-6">
+			      			    <div class="form-group">
+			                      <label for="CARCASS_FORMOL_value">CARCASS FORMOL : </label>
+			                      <label id="CARCASS_FORMOL_value"></label>
+			                    </div>
+			      			  </div>			      			  			      			  
+			      		    </div> 
+		                    											
 		                    
-		                    
+		                    <div class="row">
+			      		      <div class="col-lg-6">      
+		                        <div class="form-group">
+			                      <label for="Tongue_in_ethanol_value">Tongue in ethanol : </label>
+			                      <label id="Tongue_in_ethanol_value"></label>
+			                    </div>	
+			      			  </div>
+			      			  <div class="col-lg-6">
+			      			    <div class="form-group">
+			                      <label for="Swab_Oral_value">Swab Oral : </label>
+			                      <label id="Swab_Oral_value"></label>
+			                    </div>
+			      			  </div>			      			  			      			  
+			      		    </div> 
+			      		    
+			      		    <div class="row">
+			      		      <div class="col-lg-6">      
+		                        <div class="form-group">
+			                      <label for="Swab_Nasal_value">Swab Nasal : </label>
+			                      <label id="Swab_Nasal_value"></label>
+			                    </div>	
+			      			  </div>
+			      			  <div class="col-lg-6">
+			      			    <div class="form-group">
+			                      <label for="Swab_Anal_value">Swab Anal : </label>
+			                      <label id="Swab_Anal_value"></label>
+			                    </div>
+			      			  </div>			      			  			      			  
+			      		    </div> 
+			      		    
+			      		    
+			      		    <div class="row">
+			      		      <div class="col-lg-6">      
+		                        <div class="form-group">
+			                      <label for="Swab_Urogenital_value">Swab Urogenital : </label>
+			                      <label id="Swab_Urogenital_value"></label>
+			                    </div>	
+			      			  </div>
+			      			  <div class="col-lg-6">
+			      			    <div class="form-group">
+			                      <label for="BAT_NUMBER1_value">BAT NUMBER1 : </label>
+			                      <label id="BAT_NUMBER1_value"></label>
+			                    </div>
+			      			  </div>			      			  			      			  
+			      		    </div> 
+			      		    
+			      		    <div class="row">
+			      		      <div class="col-lg-6">      
+		                        <div class="form-group">
+			                      <label for="Bat_Reproductive_status_value">Bat Reproductive status : </label>
+			                      <label id="Bat_Reproductive_status_value"></label>
+			                    </div>	
+			      			  </div>
+			      			  <div class="col-lg-6">
+			      			    <div class="form-group">
+			                      <label for="Bat_Teeth_value">Bat Teeth : </label>
+			                      <label id="Bat_Teeth_value"></label>
+			                    </div>
+			      			  </div>			      			  			      			  
+			      		    </div> 
+			      		    
+			      		    <div class="row">
+			      		      <div class="col-lg-6">      
+		                        <div class="form-group">
+			                      <label for="Bat_Bone_fusion_value">Bat Bone fusion : </label>
+			                      <label id="Bat_Bone_fusion_value"></label>
+			                    </div>	
+			      			  </div>
+			      			  <div class="col-lg-6">      
+		                        <div class="form-group">
+			                      <label for="Bat_Age_value">Bat Age : </label>
+			                      <label id="Bat_Age_value"></label>
+			                    </div>	
+			      			  </div>			      			  			      			  
+			      		    </div> 
+			      		    
+			      		    <div class="row">
+			      		      <div class="col-lg-6">      
+		                        <div class="form-group">
+			                      <label for="Bat_Forearm_length_mm_value">Bat Forearm length mm : </label>
+			                      <label id="Bat_Forearm_length_mm_value"></label>
+			                    </div>	
+			      			  </div>
+			      			  <div class="col-lg-6">
+			      			    <div class="form-group">
+			                      <label for="Bat_Tibia_length_mm_value">Bat Tibia length mm : </label>
+			                      <label id="Bat_Tibia_length_mm_value"></label>
+			                    </div>
+			      			  </div>			      			  			      			  
+			      		    </div> 
+			      		     
+			      		    								
+			      		   
+			      		    <div class="row">
+			      		      <div class="col-lg-6">      
+		                        <div class="form-group">
+			                      <label for="Bat_Age_2_value">Bat Age 2 : </label>
+			                      <label id="Bat_Age_2_value"></label>
+			                    </div>	
+			      			  </div>
+			      			  <div class="col-lg-6">
+			      			    <div class="form-group">
+			                      <label for="Bat_Urine_value">Bat Urine : </label>
+			                      <label id="Bat_Urine_value"></label>
+			                    </div>
+			      			  </div>			      			  			      			  
+			      		    </div> 
+			      		    
+			      		    <div class="row">
+			      		      <div class="col-lg-6">      
+		                        <div class="form-group">
+			                      <label for="Bat_Faeces_value">Bat Faeces : </label>
+			                      <label id="Bat_Faeces_value"></label>
+			                    </div>	
+			      			  </div>
+			      			  <div class="col-lg-6">
+			      			    <div class="form-group">
+			                      <label for="Bat_Oral_swab_value">Bat Oral swab : </label>
+			                      <label id="Bat_Oral_swab_value"></label>
+			                    </div>
+			      			  </div>			      			  			      			  
+			      		    </div> 
+			      		    
+			      		    <div class="row">
+			      		      <div class="col-lg-6">      
+		                        <div class="form-group">
+			                      <label for="Bat_Wing_punch_value">Bat Wing punch : </label>
+			                      <label id="Bat_Wing_punch_value"></label>
+			                    </div>	
+			      			  </div>
+			      			  <div class="col-lg-6">
+			      			    <div class="form-group">
+			                      <label for="Bat_Blood_filter_paper_value">Bat Blood filter paper : </label>
+			                      <label id="Bat_Blood_filter_paper_value"></label>
+			                    </div>
+			      			  </div>			      			  			      			  
+			      		    </div> 
+			      		    
+			      		    <div class="row">
+			      		      <div class="col-lg-6">      
+		                        <div class="form-group">
+			                      <label for="Bat_ectoparasites_value">Bat ectoparasites : </label>
+			                      <label id="Bat_ectoparasites_value"></label>
+			                    </div>	
+			      			  </div>
+			      			  <div class="col-lg-6">
+			      			    <div class="form-group">
+			                      <label for="Livestock_Age_value">Livestock Age : </label>
+			                      <label id="Livestock_Age_value"></label>
+			                    </div>
+			      			  </div>			      			  			      			  
+			      		    </div> 
+			      		    
+			      		    <div class="row">
+			      		      <div class="col-lg-6">      
+		                        <div class="form-group">
+			                      <label for="habitat_value">habitat : </label>
+			                      <label id="habitat_value"></label>
+			                    </div>	
+			      			  </div>			      			  			      			  
+			      		    </div> 
+			      		    
 			      		  </div>
                         </div>
                         
@@ -509,11 +956,11 @@
 		  }
 		}, true); // "true" => phase de capture
 		
-		if ((nom_table == '_camacross') /*|| (nom_table == '_transvihmi_cameroun')
-			|| (nom_table == '_transvihmi_rdc') || (nom_table == '_transvihmi_gabon')
-			|| (nom_table == '_transvihmi_rca') || (nom_table == '_transvihmi_rwanda')*/) {
-			pays = 'cambodia';	
-		} /*else if ((nom_table == '_mivegec_congo') || (nom_table == '_mivegec_gabon')){
+		if ((nom_table == '_biodivafreid') /*|| (nom_table == '_transvihmi_cameroun')
+				|| (nom_table == '_transvihmi_rdc') || (nom_table == '_transvihmi_gabon')
+				|| (nom_table == '_transvihmi_rca') || (nom_table == '_transvihmi_rwanda')*/) {
+				pays = 'democratic_republic_of_congo';	
+			} /*else if ((nom_table == '_mivegec_congo') || (nom_table == '_mivegec_gabon')){
 			institut = 'mivegec';
 		} */;
 			

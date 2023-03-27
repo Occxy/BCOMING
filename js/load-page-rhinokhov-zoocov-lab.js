@@ -1,4 +1,4 @@
-function chargement_camacross() {
+function chargement_rhinokhov_zoocov_lab() {
 	showConnexionStatus();
 	
     var option = searchParams.get('option');
@@ -32,11 +32,7 @@ function chargement_des_tables_de_reference(table, option) {
 	}).then(function (result) {
 		// handle result
 		if (typeof(JSON.stringify(result)) != "undefined"){  
-	    	var paysTablesData = JSON.parse(JSON.stringify(result));
-		    	
-	    	paysTablesData.rows.forEach(function(row){   
-	    		Pays.options[Pays.options.length] = new Option(row.doc.Pays, row.doc.Pays); 
-	    	});		 
+	    		 
 
 	    	//listeLieu_capture();
 	    	
@@ -57,7 +53,7 @@ function modifier(table, option) {
 	
 	var doc;
 	if (option == 1) {
-		doc = JSON.parse(localStorage.getItem('camacrossTablesData'));
+		doc = JSON.parse(localStorage.getItem('rhinokhov_zoocov_labTablesData'));
 		
 		function addValue(elementName, onchange) {
 			var element = document.getElementById(elementName);
@@ -70,14 +66,30 @@ function modifier(table, option) {
 			};
 		}
 		
-		var SamplingDate = new Date(doc.SamplingDate);
-		$('#SamplingDate').datepicker('setDate', SamplingDate);
+		var Sampling_Date = doc.Sampling_Date;
+		
+		let parts = Sampling_Date.split('-');
+		
+		let year = "20" + parts[2];
+		var monthNames = [
+		  "janv", "févr", "mars", "avr", "mai", "juin",
+		  "juil", "août", "sept", "oct", "nov", "déc"
+		];
+		if (monthNames.indexOf(parts[1]) > -1) {
+			var month = monthNames.indexOf(parts[1]);
+			let day = parseInt(parts[0]);
+			let date = new Date(year, month, day);
+			$('#Sampling_Date').datepicker('setDate', date.toLocaleDateString('fr-FR'));
+		} else {
+			$('#Sampling_Date').datepicker('setDate', Sampling_Date);
+		}
+		
+		addValue('Project');
 		addValue('Province');
-		addValue('Site');
 
 	} else {
 	
-		var id = localStorage.getItem('ID_camacross' + table);
+		var id = localStorage.getItem('ID_rhinokhov_zoocov_lab' + table);
 		
 		var debug;
 		if (localStorage.getItem('debug') === null) {
@@ -104,7 +116,11 @@ function modifier(table, option) {
 				
 				function addValue(elementName, onchange) {
 					var element = document.getElementById(elementName);
-					element.value = result.rows[0].doc[elementName];
+					if (elementName == 'rtPCR_SARS_COV_2_E_gene') {
+						element.value = result.rows[0].doc['rtPCR_SARS-COV-2_E_gene'];
+					} else {
+						element.value = result.rows[0].doc[elementName];
+					}
 					try {
 						if (onchange) {
 							element.onchange();
@@ -113,16 +129,35 @@ function modifier(table, option) {
 					};
 				}
 				
-				var SamplingDate = new Date(result.rows[0].doc.SamplingDate);
-				$('#SamplingDate').datepicker('setDate', SamplingDate);
-				addValue('AnimalCode');
+				addValue('Project');
+				addValue('No');
+				
+				var Sampling_Date = result.rows[0].doc.Sampling_Date;
+				let parts = Sampling_Date.split('-');
+				let year = "20" + parts[2];
+				var monthNames = [
+					  "janv", "févr", "mars", "avr", "mai", "juin",
+					  "juil", "août", "sept", "oct", "nov", "déc"
+				];
+				if (monthNames.indexOf(parts[1]) > -1) {
+					var month = monthNames.indexOf(parts[1]);
+					let day = parseInt(parts[0]);
+					let date = new Date(year, month, day);
+					$('#Sampling_Date').datepicker('setDate', date.toLocaleDateString('fr-FR'));
+				} else {
+					$('#Sampling_Date').datepicker('setDate', Sampling_Date);
+				}
+				
+				
+				
+				addValue('Animal_ID');				
+				addValue('Sample_Type');
+				addValue('Taxa');
+				addValue('Genus_Species');
 				addValue('Province');
-				addValue('Site');
-				addValue('Species');
-				addValue('SampleType');
-				addValue('SampleCode');
-				addValue('Final_Result_for_Corona_Watanabe');
-				addValue('Final_Result_for_Corona_Quan');
+				addValue('rtPCR_SARS_COV_2_E_gene');
+				addValue('PCR_Quan_result');
+				addValue('PCR_Watanabe_result');
 				
 				
 				

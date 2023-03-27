@@ -95,11 +95,12 @@
     
     <script src="js/uuid.js"></script>
     
+    <script src="js/load-page-biodivafreid-locations.js"></script> 
+    
     <script src="js/addReference.js"></script> 
     
   </head>
-  <body>
-  
+  <body onload="chargement_biodivafreid_locations()">
   
     <script>
 		logged_only();
@@ -114,9 +115,13 @@
 		} else {
 			debug = localStorage.getItem('debug');
 		};
-		//var html = 'site';
+		var html = 'site';
 		//loadjs('js/menu_rights.js');
-	</script>
+	</script> 
+  
+    <!-- <script type="text/javascript">
+    	showAlertFlash();
+    </script> -->	
     
     <div class="page">
       <!-- Main Navbar-->
@@ -237,7 +242,7 @@
                           </ul>
 	                    </li>
 	                  </ul>
-	                </li> 
+	                </li>
                     
                     <!-- <li id="li_help"> 
                     	<a href="help.html"><i class='a-help'></i></a>
@@ -245,14 +250,14 @@
                     
                     <li id="li_sauvegarde" style="display:none"> 
                     	<a href="sauvegarde.html">Sauvegarde mensuelle</a>
-                    </li> -->      
+                    </li> -->       
           </ul>
         </nav>
         <div class="content-inner">
           <!-- Page Header-->
           <header class="page-header">
             <div class="container-fluid">
-              <h2 class="no-margin-bottom" id="title_1">CamAcross database</h2>
+              <h2 class="no-margin-bottom">Biodiv-Afreid locations database</h2>
             </div>
           </header>
           
@@ -262,11 +267,255 @@
                 <div class="col-lg-12">                  
                   <div class="card">        
                    <div class="card-header" id="header">
-                     <h4 id="title_2">CamAcross map</h4>
-                     
-                    <div class="card-body">  
-                      <br>                                          
-                      <h4 style="text-align: left; width: 50%; margin-top: 30px; color: red" id="text_1">No geo-referenced data for CamAcross</h4>
+                     <!-- <h4>Nouveau site</h4> -->
+                     <script type="text/javascript">
+			         	var line = document.createElement("div");
+			            option = searchParams.get('option');
+		                nom_table = searchParams.get('table');
+	                    if ((option == 0) || (option == 1)) {
+	                    	line.innerHTML = '<h4>New Biodiv-Afreid location entry</h4>';
+			            } else if (option == 2) {
+			              	var ID = 'ID_biodivafreid_locations' + nom_table;
+		                  	line.innerHTML = '<h4>Edit this Biodiv-Afreid location entry : ID = '+ localStorage.getItem(ID) + '</h4>';
+	                    }
+	                   	document.getElementById("header").appendChild(line);
+				      </script>
+                    </div>
+                    <div class="card-body">                                            
+                      <form id="documentForm" name="documentForm" class="needs-validation" method="post" novalidate>
+				        
+				        <div class="card bg-light">
+				          <div class="card-header card-header-transparent d-flex align-items-center">
+                            <h3 class="h4">Data</h3>
+                          </div>
+                          <div class="card-body">
+                          
+                          	<div class="row">
+		      			      <div class="col-lg-4">
+		      			        <div class="form-group">				      			        
+		                          <label for="location_code">Location code</label>
+		                          <input type="text" class="form-control" id="location_code" placeholder="Location code">
+		                        </div>
+		      				  </div> 
+		      			      <div class="col-lg-4">
+		      			        <div class="form-group">
+		                          <label for="sess_check">Sess check</label>
+		                          <input type="text" class="form-control" id="sess_check" placeholder="Sess check">
+		                        </div>
+		      			      </div>
+		      			      <div class="col-lg-4">
+		      			        <div class="form-group">
+		                          <label for="location_name">Location name</label>
+		                          <input type="text" class="form-control" id="location_name" placeholder="Location name">
+		                        </div>
+		      				  </div>
+		      			    </div>	 
+		      			    
+		      			    <div class="row">
+		      			      <div class="col-lg-3">
+		      			        <div class="form-group">				      			        
+		                          <label for="country">Country</label>
+		                          <input type="text" class="form-control" id="country" placeholder="Country">
+		                        </div>
+		      				  </div> 
+		      			      <div class="col-lg-3">
+		      			        <div class="form-group">
+		                          <label for="province">Province</label>
+		                          <input type="text" class="form-control" id="province" placeholder="Province">
+		                        </div>
+		      			      </div>
+		      			      <div class="col-lg-3">
+		      			        <div class="form-group">
+		                          <label for="locality">Locality</label>
+		                          <input type="text" class="form-control" id="locality" placeholder="Locality">
+		                        </div>
+		      				  </div>
+		      				  <div class="col-lg-3">
+		      			        <div class="form-group">
+		                          <label for="site_details">Site details</label>
+		                          <input type="text" class="form-control" id="site_details" placeholder="Site details">
+		                        </div>
+		      				  </div>		  
+		      				</div>
+		      				
+		      				<div class="row">
+		      			      <div class="col-lg-3">
+		      			        <div class="form-group">				      			        
+		                          <label for="latitude">Latitude</label>
+		                          <input type="text" class="form-control" id="latitude" placeholder="Latitude">
+		                        </div>
+		      				  </div> 
+		      			      <div class="col-lg-3">
+		      			        <div class="form-group">
+		                          <label for="lat_ns">Lat ns</label>
+		                          <input type="text" class="form-control" id="lat_ns" placeholder="Lat ns">
+		                        </div>
+		      			      </div>
+		      			      <div class="col-lg-3">
+		      			        <div class="form-group">
+		                          <label for="longitude">Longitude</label>
+		                          <input type="text" class="form-control" id="longitude" placeholder="Longitude">
+		                        </div>
+		      				  </div>
+		      				  <div class="col-lg-3">
+		      			        <div class="form-group">
+		                          <label for="long_ew">Long ew</label>
+		                          <input type="text" class="form-control" id="long_ew" placeholder="Long ew">
+		                        </div>
+		      				  </div>		  
+		      				</div>
+		      				
+		      				<div class="row">
+		      			      <div class="col-lg-3">
+		      			        <div class="form-group">				      			        
+		                          <label for="coord_source">Coord source</label>
+		                          <input type="text" class="form-control" id="coord_source" placeholder="Coord source">
+		                        </div>
+		      				  </div> 
+		      			      <div class="col-lg-3">
+		      			        <div class="form-group">
+		                          <label for="gps_projection">Gps projection</label>
+		                          <input type="text" class="form-control" id="gps_projection" placeholder="Gps projection">
+		                        </div>
+		      			      </div>
+		      			      <div class="col-lg-3">
+		      			        <div class="form-group">
+		                          <label for="gps_datum">Gps datum</label>
+		                          <input type="text" class="form-control" id="gps_datum" placeholder="Gps datum">
+		                        </div>
+		      				  </div>
+		      				  <div class="col-lg-3">
+		      			        <div class="form-group">
+		                          <label for="coord_precision">Coord precision</label>
+		                          <input type="text" class="form-control" id="coord_precision" placeholder="Coord precision">
+		                        </div>
+		      				  </div>		  
+		      				</div>
+		      				
+		      				<div class="row">
+		      			      <div class="col-lg-4">
+		      			        <div class="form-group">				      			        
+		                          <label for="altitude">Altitude</label>
+		                          <input type="text" class="form-control" id="altitude" placeholder="Altitude">
+		                        </div>
+		      				  </div> 
+		      			      <div class="col-lg-4">
+		      			        <div class="form-group">
+		                          <label for="alt_source">Alt source</label>
+		                          <input type="text" class="form-control" id="alt_source" placeholder="Alt source">
+		                        </div>
+		      			      </div>
+		      			      <div class="col-lg-4">
+		      			        <div class="form-group">
+		                          <label for="Mapgrid">Mapgrid</label>
+		                          <input type="text" class="form-control" id="Mapgrid" placeholder="Mapgrid">
+		                        </div>
+		      				  </div>		  
+		      				</div>
+		      				
+		      				<div class="row">
+		      			      <div class="col-lg-12">
+		      			        <div class="form-group">				      			        
+		                          <label for="habitat_Type">Habitat Type</label>
+		                          <input type="text" class="form-control" id="habitat_Type" placeholder="Habitat Type">
+		                        </div>
+		      				  </div> 
+		      			    </div>
+		      			    
+		      			    <div class="row">
+		      			      <div class="col-lg-4">
+		      			        <div class="form-group">				      			        
+		                          <label for="rodent_proofing">Rodent proofing</label>
+		                          <input type="text" class="form-control" id="rodent_proofing" placeholder="Rodent proofing">
+		                        </div>
+		      				  </div> 
+		      			      <div class="col-lg-4">
+		      			        <div class="form-group">
+		                          <label for="inside_cover">Inside cover</label>
+		                          <input type="text" class="form-control" id="inside_cover" placeholder="Inside cover">
+		                        </div>
+		      			      </div>
+		      			      <div class="col-lg-4">
+		      			        <div class="form-group">
+		                          <label for="outside_cover">Outside cover</label>
+		                          <input type="text" class="form-control" id="outside_cover" placeholder="Outside cover">
+		                        </div>
+		      				  </div>		  
+		      				</div>
+		      				
+		      				<div class="row">
+		      			      <div class="col-lg-6">
+		      			        <div class="form-group">
+		                          <label for="open_water">Open water</label>
+		                          <input type="text" class="form-control" id="open_water" placeholder="Open water">
+		                        </div>
+		      			      </div>
+		      			      <div class="col-lg-6">
+		      			        <div class="form-group">
+		                          <label for="recent_rodent_control">Recent rodent control</label>
+		                          <input type="text" class="form-control" id="recent_rodent_control" placeholder="Recent rodent control">
+		                        </div>
+		      				  </div>		  
+		      				</div>
+		      				
+		      				<div class="row">
+		      			      <div class="col-lg-12">
+		      			        <div class="form-group">				      			        
+		                          <label for="pictures">Pictures</label>
+		                          <input type="text" class="form-control" id="pictures" placeholder="Pictures">
+		                        </div>
+		      				  </div> 
+		      			    </div>
+		      			    
+		      			    <div class="row">
+		      			      <div class="col-lg-12">
+		      			        <div class="form-group">				      			        
+		                          <label for="habitat_remarks">Habitat remarks</label>
+		                          <input type="text" class="form-control" id="habitat_remarks" placeholder="Habitat remarks">
+		                        </div>
+		      				  </div> 
+		      			    </div>
+		      			    
+		      			    
+		      			  </div>
+		      			  
+		      			  
+                        </div>
+                        
+	      			    <div class="card-body text-right" id="header_button">
+                        
+                          <script type="text/javascript">
+			               		var line = document.createElement("div");
+			                    /*let searchParams2 = new URLSearchParams(window.location.search);
+			                    var option = searchParams2.get('option');*/
+			                    if ((option == 0) || (option == 1)) {
+			                    	line.innerHTML = 
+			                          '<div class="row">' +
+			                            '<div class="col-lg-12">' +
+									      '<div class="form-group">' +
+									        '<div class="i-checks">' +
+									          '<button id="save" name="save" type="submit" class="btn btn-primary btn-fill ladda-button" data-style="expand-right" style="right:10px">' +                        	
+					            	  	        '<span class="ladda-label">Save this Biodiv-Afreid location entry</span>' +
+					            	  	        '<span class="ladda-spinner"></span>' +
+									          '</button>' +
+			                                  '<input id="andAdd" type="checkbox" value="" checked="" class="checkbox-template">' +
+			                                  '<label for="andAdd">and add</label>' +
+			                                '</div>' +  
+			                              '</div>' + 
+			                            '</div>' +
+			                    	  '</div>'
+			               } else if (option == 2) {
+			                    line.innerHTML = 
+			                   		'<button id="modify" name="submit" type="submit" class="btn btn-primary btn-fill pull-right ladda-button" data-style="expand-right">' +                        	
+				            		  '<span class="ladda-label">Edit this Biodiv-Afreid location entry</span>' +
+				            		  '<span class="ladda-spinner"></span>' +
+									'</button>' 
+			                }
+				          	document.getElementById("header_button").appendChild(line);
+				          </script>
+                        </div>
+						  
+				      </form>
                                                
                     </div> 
                   </div>
@@ -335,14 +584,14 @@
     </script>    
     
     <script type="text/javascript">
-   		$('#spanSamplingDate').click(function(){
+   		$('#spanDate').click(function(){
 	   		event.stopPropagation(); 
-	   	    dp = $('#SamplingDate').datepicker({
+	   	    dp = $('#date').datepicker({
 	   	    	language: 'en',
 	   	    	autoclose: true
 	   	    });
 	   		dp.show();
-	   		$('#SamplingDate').focus();
+	   		$('#date').focus();
 		});
     </script> 
     
@@ -459,9 +708,9 @@
   		        } else {
   		          event.preventDefault();
   		        if ((option == 0) || (option == 1)) {
-  		        	addCamAcross();
+  		        	addBiodivAfreid_locations();
 	  		  	  } else if ((option == 2)) {
-	  		  		modifyCamAcross();
+	  		  		modifyBiodivAfreid_locations();
 	  		  	  }
   		        } 		        
   		        form.classList.add('was-validated');
@@ -470,7 +719,7 @@
   		  }, false);
   		})();
  		
-  		function addCamAcross() {  
+  		function addBiodivAfreid_locations() {  
   			
   			//alert('add');
   			
@@ -481,53 +730,108 @@
 			
 							
 			var id = uuid();
-			var SamplingDate = document.getElementById('SamplingDate').value;
-		    var AnimalCode = document.getElementById('AnimalCode').value;
-		    var Province = document.getElementById('Province').value;
-		    var Site = document.getElementById('Site').value;
-		    var Species = document.getElementById('Species').value;
-		    var SampleType = document.getElementById('SampleType').value;
-		    var SampleCode = document.getElementById('SampleCode').value;
-		    var Final_Result_for_Corona_Watanabe = document.getElementById('Final_Result_for_Corona_Watanabe').value;
-		    var Final_Result_for_Corona_Quan = document.getElementById('Final_Result_for_Corona_Quan').value;
+			
+			var location_code = document.getElementById('location_code').value; 
+			var sess_check = document.getElementById('sess_check').value;
+			var location_name = document.getElementById('location_name').value; 
+			var country = document.getElementById('country').value; 
+			var province = document.getElementById('province').value; 
+			var locality = document.getElementById('locality').value; 
+			var site_details = document.getElementById('site_details').value; 
+			var latitude = document.getElementById('latitude').value; 
+			var lat_ns = document.getElementById('lat_ns').value; 
+			var longitude = document.getElementById('longitude').value;
+			var long_ew = document.getElementById('long_ew').value;
+			var coord_source = document.getElementById('coord_source').value;
+			var gps_projection = document.getElementById('gps_projection').value; 
+			var gps_datum = document.getElementById('gps_datum').value; 
+			var coord_precision = document.getElementById('coord_precision').value;
+			var altitude = document.getElementById('altitude').value; 
+			var alt_source = document.getElementById('alt_source').value; 
+			var Mapgrid = document.getElementById('Mapgrid').value; 
+			var habitat_Type = document.getElementById('habitat_Type').value; 
+			var rodent_proofing = document.getElementById('rodent_proofing').value; 
+			var inside_cover = document.getElementById('inside_cover').value; 
+			var outside_cover = document.getElementById('outside_cover').value; 
+			var open_water = document.getElementById('open_water').value; 
+			var recent_rodent_control = document.getElementById('recent_rodent_control').value;
+			var pictures = document.getElementById('pictures').value; 
+			var habitat_remarks = document.getElementById('habitat_remarks').value;
+		
 		    var Username = localStorage.getItem('loginUsername');
 		    
 		    var andAdd = document.getElementById("andAdd");
 		  	if (andAdd.checked == true){
 		  	    var doc = new Object();
 		  		  
-		  	    doc.SamplingDate = SamplingDate;
-			    doc.AnimalCode = AnimalCode;
-			    doc.Province = Province;
-			    doc.Site = Site;
-			    doc.Species = Species;
-			    doc.SampleType = SampleType;
-			    doc.SampleCode = SampleCode;	
-			    doc.Final_Result_for_Corona_Watanabe = Final_Result_for_Corona_Watanabe;
-			    doc.Final_Result_for_Corona_Quan = Final_Result_for_Corona_Quan;
+		  	    doc.location_code = location_code; 
+				doc.sess_check = sess_check;
+				doc.location_name = location_name; 
+				doc.country = country; 
+				doc.province = province; 
+				doc.locality = locality; 
+				doc.site_details = site_details; 
+				doc.latitude = latitude; 
+				doc.lat_ns = lat_ns; 
+				doc.longitude = longitude;
+				doc.long_ew = long_ew;
+				doc.coord_source = coord_source;
+				doc.gps_projection = gps_projection; 
+				doc.gps_datum = gps_datum; 
+				doc.coord_precision = coord_precision;
+				doc.altitude = altitude; 
+				doc.alt_source = alt_source; 
+				doc.Mapgrid = Mapgrid; 
+				doc.habitat_Type = habitat_Type; 
+				doc.rodent_proofing = rodent_proofing; 
+				doc.inside_cover = inside_cover; 
+				doc.outside_cover = outside_cover; 
+				doc.open_water = open_water; 
+				doc.recent_rodent_control = recent_rodent_control;
+				doc.pictures = pictures; 
+				doc.habitat_remarks = habitat_remarks;
+				
+		  	   
 			  	doc.Username = Username
 		  		  
-		  		localStorage['camacrossTablesData'] = JSON.stringify(doc);
+		  		localStorage['biodivafreid_locationsTablesData'] = JSON.stringify(doc);
 		  	};
 		    
 		    if (localStorage.getItem('web') === 'oui') {
 				var remote_couchdb = localStorage.getItem('remote_couchdb');
-				var DB = new PouchDB(remote_couchdb + 'bcoming' + nom_table + debug);
+				doc.DB = new PouchDB(remote_couchdb + 'bcoming' + nom_table + debug);
 			} else {
 				var DB = new PouchDB('bcoming' + nom_table + debug);
 			};
 			
 			DB.put({
 				_id: id,
-				SamplingDate: SamplingDate,
-			    AnimalCode: AnimalCode,
-			    Province: Province,
-			    Site: Site,
-			    Species: Species,
-			    SampleType: SampleType,
-			    SampleCode: SampleCode,	
-			    Final_Result_for_Corona_Watanabe: Final_Result_for_Corona_Watanabe,
-			    Final_Result_for_Corona_Quan: Final_Result_for_Corona_Quan,
+				location_code: location_code, 
+				sess_check: sess_check,
+				location_name: location_name, 
+				country: country, 
+				province: province, 
+				locality: locality, 
+				site_details: site_details, 
+				latitude: latitude, 
+				lat_ns: lat_ns, 
+				longitude: longitude,
+				long_ew: long_ew,
+				coord_source: coord_source,
+				gps_projection: gps_projection, 
+				gps_datum: gps_datum, 
+				coord_precision: coord_precision,
+				altitude: altitude, 
+				alt_source: alt_source, 
+				Mapgrid: Mapgrid, 
+				habitat_Type: habitat_Type, 
+				rodent_proofing: rodent_proofing, 
+				inside_cover: inside_cover, 
+				outside_cover: outside_cover, 
+				open_water: open_water, 
+				recent_rodent_control: recent_rodent_control,
+				pictures: pictures, 
+				habitat_remarks: habitat_remarks,
 				Username: Username
 			}).then(function (response) {
 								
@@ -540,9 +844,9 @@
 						
 						var andAdd = document.getElementById("andAdd");
 					  	if (andAdd.checked == true) {
-					  	  window.location = 'ajouter_modifier_camacross.html?option=1&table=' + nom_table;
+					  	  window.location = 'ajouter_modifier_biodivafreid_locations.html?option=1&table=' + nom_table;
 					  	} else {
-					  	  window.location = 'liste_camacross.html?table=' + nom_table;	
+					  	  window.location = 'liste_biodivafreid_locations.html?table=' + nom_table;	
 					  	};
 					}).on('error', function (err) {
 						// error while replicating
@@ -552,9 +856,9 @@
 				} else {
 					var andAdd = document.getElementById("andAdd");
 				  	if (andAdd.checked == true) {
-				  	  window.location = 'ajouter_modifier_camacross.html?option=1&table=' + nom_table;
+				  	  window.location = 'ajouter_modifier_biodivafreid_locations.html?option=1&table=' + nom_table;
 				  	} else {
-				  	  window.location = 'liste_camacross.html?table=' + nom_table;	
+				  	  window.location = 'liste_biodivafreid_locations.html?table=' + nom_table;	
 				  	};
 				}
 				
@@ -566,22 +870,39 @@
 			});	
   		};
   		
-  		function modifyCamAcross() {  
+  		function modifyBiodivAfreid_locations() {  
 			var l = Ladda.create( document.querySelector( '.ladda-button' ) );
 
 			// Start loading
 			l.start();
 			
-			var id = localStorage.getItem('ID_camacross' + nom_table);
-			var SamplingDate = document.getElementById('SamplingDate').value;
-		    var AnimalCode = document.getElementById('AnimalCode').value;
-		    var Province = document.getElementById('Province').value;
-		    var Site = document.getElementById('Site').value;
-		    var Species = document.getElementById('Species').value;
-		    var SampleType = document.getElementById('SampleType').value;
-		    var SampleCode = document.getElementById('SampleCode').value;
-		    var Final_Result_for_Corona_Watanabe = document.getElementById('Final_Result_for_Corona_Watanabe').value;
-		    var Final_Result_for_Corona_Quan = document.getElementById('Final_Result_for_Corona_Quan').value;
+			var id = localStorage.getItem('ID_biodivafreid_locations' + nom_table);
+			var location_code = document.getElementById('location_code').value; 
+			var sess_check = document.getElementById('sess_check').value;
+			var location_name = document.getElementById('location_name').value; 
+			var country = document.getElementById('country').value; 
+			var province = document.getElementById('province').value; 
+			var locality = document.getElementById('locality').value; 
+			var site_details = document.getElementById('site_details').value; 
+			var latitude = document.getElementById('latitude').value; 
+			var lat_ns = document.getElementById('lat_ns').value; 
+			var longitude = document.getElementById('longitude').value;
+			var long_ew = document.getElementById('long_ew').value;
+			var coord_source = document.getElementById('coord_source').value;
+			var gps_projection = document.getElementById('gps_projection').value; 
+			var gps_datum = document.getElementById('gps_datum').value; 
+			var coord_precision = document.getElementById('coord_precision').value;
+			var altitude = document.getElementById('altitude').value; 
+			var alt_source = document.getElementById('alt_source').value; 
+			var Mapgrid = document.getElementById('Mapgrid').value; 
+			var habitat_Type = document.getElementById('habitat_Type').value; 
+			var rodent_proofing = document.getElementById('rodent_proofing').value; 
+			var inside_cover = document.getElementById('inside_cover').value; 
+			var outside_cover = document.getElementById('outside_cover').value; 
+			var open_water = document.getElementById('open_water').value; 
+			var recent_rodent_control = document.getElementById('recent_rodent_control').value;
+			var pictures = document.getElementById('pictures').value; 
+			var habitat_remarks = document.getElementById('habitat_remarks').value;
 		    var Username = localStorage.getItem('loginUsername');
 		    
 			if (localStorage.getItem('web') === 'oui') {
@@ -603,15 +924,32 @@
 				};
 				
 				DB2.get(id).then(function (doc) {
-					 doc.SamplingDate = SamplingDate;
-				    doc.AnimalCode = AnimalCode;
-				    doc.Province = Province;
-				    doc.Site = Site;
-				    doc.Species = Species;
-				    doc.SampleType = SampleType;
-					doc.SampleCode = SampleCode;	
-					doc.Final_Result_for_Corona_Watanabe = Final_Result_for_Corona_Watanabe;
-					doc.Final_Result_for_Corona_Quan = Final_Result_for_Corona_Quan;
+					doc.location_code = location_code; 
+					doc.sess_check = sess_check;
+					doc.location_name = location_name; 
+					doc.country = country; 
+					doc.province = province; 
+					doc.locality = locality; 
+					doc.site_details = site_details; 
+					doc.latitude = latitude; 
+					doc.lat_ns = lat_ns; 
+					doc.longitude = longitude;
+					doc.long_ew = long_ew;
+					doc.coord_source = coord_source;
+					doc.gps_projection = gps_projection; 
+					doc.gps_datum = gps_datum; 
+					doc.coord_precision = coord_precision;
+					doc.altitude = altitude; 
+					doc.alt_source = alt_source; 
+					doc.Mapgrid = Mapgrid; 
+					doc.habitat_Type = habitat_Type; 
+					doc.rodent_proofing = rodent_proofing; 
+					doc.inside_cover = inside_cover; 
+					doc.outside_cover = outside_cover; 
+					doc.open_water = open_water; 
+					doc.recent_rodent_control = recent_rodent_control;
+					doc.pictures = pictures; 
+					doc.habitat_remarks = habitat_remarks;
 					doc.Username = Username;
 										
 					return DB2.put(doc);
@@ -620,19 +958,19 @@
 				}).then(function (doc) {
 					
 					if ((navigator.onLine) && (localStorage.getItem('web') !== 'oui')) {
-						var localDB3 = new PouchDB('caracterisations_grottes' + nom_table + debug);	
+						var localDB3 = new PouchDB('bcoming' + nom_table + debug);	
 						var remote_couchdb = localStorage.getItem('remote_couchdb');
 						var remoteDB = new PouchDB(remote_couchdb + 'bcoming' + nom_table + debug);
 										
 						localDB3.sync(remoteDB).on('complete', (info) => { 
-							window.location = 'liste_camacross.html?table=' + nom_table;
+							window.location = 'liste_biodivafreid_locations.html?table=' + nom_table;
 						}).on('error', function (err) {
 							// error while replicating
-							alert('alert sync modify site : ' + nom_table + JSON.stringify(err));
+							alert('alert sync modify biodivafreid : ' + nom_table + JSON.stringify(err));
 							window.location = 'index.html';
 						});	
 					} else {
-						window.location = 'liste_camacross.html?table=' + nom_table;
+						window.location = 'liste_biodivafreid_locations.html?table=' + nom_table;
 					}
 					
 					l.stop();								  
@@ -658,22 +996,11 @@
 		  }
 		}, true); // "true" => phase de capture
 		
-		if (nom_table == '_camacross') {
-			pays = 'cambodia';
-			document.getElementById('title_1').innerHTML = 'CamAcross database';
-			document.getElementById('title_2').innerHTML = 'CamAcross map';
-			document.getElementById('text_1').innerHTML = 'No geo-referenced data for CamAcross';				
-		} else if (nom_table == '_rhinokhov_zoocov_lab') {
-			pays = 'cambodia';
-			document.getElementById('title_1').innerHTML = 'RhinoKhov ZooCov lab database';
-			document.getElementById('title_2').innerHTML = 'RhinoKhov ZooCov lab map';
-			document.getElementById('text_1').innerHTML = 'No geo-referenced data for RhinoKhov ZooCov lab';
-		} else if (nom_table == '_rhinokhov_zoocov_animal') {
-			pays = 'cambodia';
-			document.getElementById('title_1').innerHTML = 'RhinoKhov ZooCov animal database';
-			document.getElementById('title_2').innerHTML = 'RhinoKhov ZooCov animal map';
-			document.getElementById('text_1').innerHTML = 'No geo-referenced data for RhinoKhov ZooCov animal';
-		}  
+		if ((nom_table == '_biodivafreid') || (nom_table == '_biodivafreid_locations')) {
+			/*|| (nom_table == '_transvihmi_rdc') || (nom_table == '_transvihmi_gabon')
+			|| (nom_table == '_transvihmi_rca') || (nom_table == '_transvihmi_rwanda')) {*/
+			pays = 'democratic_republic_of_congo';	
+		}
 			
   		
   		expanded(nom_table);
@@ -687,24 +1014,15 @@
 			var component_ul =  document.getElementById('ul_' + pays + 'Dropdown');
 			component_ul.classList.add('show');
 			
-			if ((nom_table == '_rhinokhov_zoocov_lab') || (nom_table == '_rhinokhov_zoocov_animal')) {
-				var component_li = document.getElementById('li_rhinokhov_zoocovDropdown');
-				component_li.classList.add('active');
-				var component_a = document.getElementById('a_rhinokhov_zoocovDropdown');
-				component_a.setAttribute('aria-expanded', 'true');
-				var component_ul =  document.getElementById('ul_rhinokhov_zoocovDropdown');
-				component_ul.classList.add('show');
-			}
-			
-			var component_li = document.getElementById('li' + nom_table + 'Dropdown');
+			var component_li = document.getElementById('li_biodivafreidDropdown');
 			component_li.classList.add('active');
-			var component_a = document.getElementById('a' + nom_table + 'Dropdown');
+			var component_a = document.getElementById('a_biodivafreidDropdown');
 			component_a.setAttribute('aria-expanded', 'true');
-			var component_ul =  document.getElementById('ul' + nom_table + 'Dropdown');
+			var component_ul =  document.getElementById('ul_biodivafreidDropdown');
 			component_ul.classList.add('show');
 				
 				
-			var component_li = document.getElementById('li' + nom_table +'_map');
+			var component_li = document.getElementById('li' + nom_table +'_data_list');
 			component_li.classList.add('active');
 		};
 		

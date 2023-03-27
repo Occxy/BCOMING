@@ -5,7 +5,7 @@
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
     <meta http-equiv="Pragma" content="no-cache" />
     <meta http-equiv="Expires" content="0" />
-    
+  
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>BCOMING Project</title>
@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="vendor/font-awesome/css/font-awesome.min.css">
     <!-- Fontastic Custom icon font-->
     <link rel="stylesheet" href="css/fontastic.css">
-    <!-- Google fonts - Poppins -->	
+    <!-- Google fonts - Poppins -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,700">
     
     <!-- theme stylesheet-->
@@ -31,22 +31,28 @@
     <!-- Tweaks for older IEs--><!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
-    <link rel="stylesheet" href="css/icone.css">
-    
-    <link rel="stylesheet" href="css/offline_online.css">
-    
+        
     <script src="vendor/jquery/jquery.min.js"></script>
     
     <script src="vendor/jquery/jquery.min.js" onload="window.$ = window.jQuery = module.exports;"></script>
 	<script>
 		delete window.module;
 	</script>	
-	<!-- Javascript files-->
+    
+    <!-- DataTables CSS-->
+    <link rel="stylesheet" href="css/dataTables.bootstrap4.css">
+    <link rel="stylesheet" href="css/responsive.bootstrap4.min.css">
+        
+    <link rel="stylesheet" href="css/icone.css">
+    
+    <link rel="stylesheet" href="css/offline_online.css">    
+    
     <script src="vendor/popper.js/umd/popper.min.js"> </script>
     <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-    <script src="vendor/jquery.cookie/jquery.cookie.js"> </script>    
+    <script src="vendor/jquery.cookie/jquery.cookie.js"> </script>
     <script src="vendor/chart.js/Chart.min.js"></script>
     <script src="vendor/jquery-validation/jquery.validate.min.js"></script>
+    <!-- <script src="js/charts-home.js"></script> -->
     <!-- Notifications-->
     <script src="vendor/messenger-hubspot/build/js/messenger.min.js"></script>
     <script src="vendor/messenger-hubspot/build/js/messenger-theme-flat.js"></script>
@@ -55,14 +61,23 @@
     <!-- Bootstrap DatePicker-->
     <script src="vendor/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
     <script src="vendor/bootstrap-datepicker/locales/bootstrap-datepicker.fr.min.js" charset="UTF-8"></script>
-   
+    
+    <!-- Data Tables-->
+    <script src="vendor/datatables.net/js/jquery.dataTables.js"></script>
+    <script src="vendor/datatables.net-bs4/js/dataTables.bootstrap4.js"></script>
+    <script src="vendor/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="vendor/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js"></script>
+    <script src="js/tables-datatable.js"></script>
+    <script src="js/date-eu.js"></script>
+    
+    <!-- Forms init-->
+    <!-- <script src="js/forms-advanced.js"></script>-->
+    
     <!-- Main File-->
-    <script src="js/front.js"></script> 
-        
+    <script src="js/front.js"></script>
+    
     <script src="js/pouchdb.authentication.js"></script> 
-    <!-- <script src="js/pouchdb-7.0.0.js"></script> --> 
     <script src="js/pouchdb-6.4.2.min.js"></script> 
-    <script src="js/pouchdb.find.js"></script>
     
     <script src="js/function.js"></script>
     <script src="js/menu.js"></script>
@@ -71,45 +86,28 @@
     
     <script src="js/uuid.js"></script>
     
-    <script src="node_modules/alasql/dist/alasql.js"></script>
+    <script src="js/formatted-numbers.js"></script>
     
-    <!-- Bootstrap Select-->
-    <script src="vendor/bootstrap-select/js/bootstrap-select.min.js"></script>
-    <!-- Bootstrap Touchspin-->
-    <script src="vendor/bootstrap-touchspin/jquery.bootstrap-touchspin.min.js"></script>
-    <!-- MultiSelect-->
-    <script src="vendor/multiselect/js/jquery.multi-select.js"> </script>
-    <!-- Forms init-->
-    <script src="js/forms-advanced.js"></script>
-    
-    <script src="js/FileSaver.js"></script>
-    
-    <script src="js/clock.js"></script>
-    
+    <!-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.18/sl-1.3.0/datatables.min.css"/>
+ 
+	<script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.18/sl-1.3.0/datatables.min.js"></script> -->
+       
   </head>
-  <!-- <body onload="chargement_de_la_table_site()">   -->
-  <body>
+  <body onload="showConnexionStatus()">
+  
     <script>
 		logged_only();
-		
+		var clickedBtn = null;
 		let searchParams = new URLSearchParams(window.location.search);
 		nom_table = searchParams.get('table');
-		type_table = searchParams.get('type'); 
+		localStorage['biodivafreid_locations_table'] = 'bcoming' + nom_table;
 		
-		localStorage['export_table'] = nom_table;
-		
-		if ((localStorage.getItem('export_table') == '_camacross') && (type_table == 'camacross')) {
-        	loadjs('js/exportation_camacross.js')
-        } else if ((localStorage.getItem('export_table') == '_rhinokhov_zoocov_lab') && (type_table == 'rhinokhov_zoocov_lab')) {
-        	loadjs('js/exportation_rhinokhov_zoocov_lab.js')
-        } else if ((localStorage.getItem('export_table') == '_rhinokhov_zoocov_animal') && (type_table == 'rhinokhov_zoocov_animal')) {
-        	loadjs('js/exportation_rhinokhov_zoocov_animal.js')
-        } else if ((localStorage.getItem('export_table') == '_biodivafreid') && (type_table == 'biodivafreid')) {
-        	loadjs('js/exportation_biodivafreid.js')
-        }  else if ((localStorage.getItem('export_table') == '_biodivafreid_locations') && (type_table == 'biodivafreid_locations')) {
-        	loadjs('js/exportation_biodivafreid_locations.js')
-        }  
+
 	</script> 
+  
+    <!-- <script type="text/javascript">
+    	showAlertFlash();
+    </script> -->	
     
     <div class="page">
       <!-- Main Navbar-->
@@ -133,17 +131,17 @@
 	    		    <p id="p_led"></p>
 	    		  </div>
 	            </li>
-	            
+	           
                 <!-- Logout    -->
                 <li class="nav-item"><a href="logout.html" class="nav-link logout">Log out<i class="fa fa-sign-out"></i></a></li>
               </ul>
             </div>
-            <div id="child" style="display: none; color: #fff; background: #2f333e;">
-    		  <label id="progress_label">Synchronisation des données...</label>
+            <!-- <div id="child" style="display: block; color: #fff; background: #2f333e;">
+    		  <label>Synchronisation des données...</label>
 			  <div class="progress">
   				<div class="progress-bar progress-bar-striped" id="myBar" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
 			  </div>
-			</div>
+			</div> -->
           </div>
         </nav>
       </header>
@@ -236,7 +234,7 @@
                           </ul>
 	                    </li>
 	                  </ul>
-	                </li>   
+	                </li> 
                     
                     <!-- <li id="li_help"> 
                     	<a href="help.html"><i class='a-help'></i></a>
@@ -252,99 +250,54 @@
           <!-- Page Header-->
           <header class="page-header">
             <div class="container-fluid">
-              <h2 class="no-margin-bottom" id="title">CamAcross database</h2>
+              <h2 class="no-margin-bottom">Biodiv-Afreid locations database</h2>
             </div>
           </header>
           
           <section>          
             <div class="container-fluid">              
-  			  <div class="card">
-                <div class="card-header" id="table">
-                  <!-- <h4>Liste des champs des chauves-souris capturées</h4> -->
-                  <script type="text/javascript">
-			      	var line = document.createElement("div");
-			      	var table;
-	               	/*if (type_table == 'chauves_souris_capturees') {
-	               		table = 'chauves-souris capturées'
-	     			} else if (type_table == 'chauves_souris_non_invasives') {
-	     				table = 'chauves-souris non invasives'
-	     			} else if (type_table == 'viande_de_brousse') {
-	     				table = 'viandes de brousses'
-	     			} else if (type_table == 'donnees_journalieres') {
-	     				table = 'données journalières'
-	     			} else if (type_table == 'donnees_mission') {
-	     				table = 'données missions'
-	     			} else if (type_table == 'animals') {
-	     				table = 'animaux'
-	     			} else if (type_table == 'grands_singes_antilopes') {
-	     				table = 'grands singes et des antilopes'
-	     			} else if (type_table == 'animals_ipg') {
-	     				table = 'animaux'
-	     			} else if (type_table == 'caracterisations_grottes') {
-	     				table = 'caractérisations des grottes'
-	     			}*/
-	     			if (type_table == 'camacross') {
-	               		table = 'CamAcross'
-	     			} else if (type_table == 'rhinokhov_zoocov_lab') {
-	               		table = 'RhinoKhov ZooCov lab'
-	     			} else if (type_table == 'rhinokhov_zoocov_animal') {
-	               		table = 'RhinoKhov ZooCov animal'
-	     			} else if (type_table == 'biodivafreid') {
-	               		table =  'Biodiv-Afreid captures'
-	     			}
-			       	line.innerHTML = 
-			        	'<h4>List of fields in the ' +
-			        	table +
-			            ' database </h4>';			               		
-				   	document.getElementById("table").appendChild(line);
-				  </script>
+              <div class="row">                
+                <div class="col-lg-12">                  
+                  <div class="card">                  
+                    <div class="card-header" id="button_table">
+                          <script type="text/javascript">
+		                    var line = document.createElement("div");
+		                    line.innerHTML = 
+		                    	'<h4 class="title"> New data ' +
+		                    	'<a id="button_add" href="ajouter_modifier_biodivafreid_locations.html?option=0&table=' + nom_table + '" class="btn btn btn-primary btn-fill" style="left:10px">Add</a>' +
+		                    	//'<a id="button_importer_caracterisations" href="import_export.html?table=' + nom_table + '&type=caracterisations" class="btn btn btn-primary btn-fill float-right" >Importer les caractérisations des grottes</a>' +
+		                    	'<a id="button_selection_delete" style="color:white;margin-right:20px" class="btn btn btn-primary btn-fill float-right" data-toggle="modal" data-target="#deletemodalall" >Delete selection</a>' +
+		                    	'</h4>';
+		                    document.getElementById("button_table").appendChild(line);
+			         	 </script>
+			         	 
+			         	 
+			         	 
+                      <!-- <a id="button_add" href="ajouter_modifier_chauves_souris_capturees.html?option=0&table=chauves_souris_capturees_astre" class="btn btn btn-primary btn-fill">Ajouter</a> -->
+                    </div>      
+                    <div class="card-body">                      
+                      <div class="content table-responsive table-full-width">
+                        <table id="example" class="table table-striped table-sm compact nowrap"> 
+                          
+                          <thead>
+				            <tr>
+				              <th>location_code</th>
+				              <th>location_name</th>
+				              <th>country</th>
+				              <th>province</th>
+				              <th>locality</th>				              
+				              <th>Action</th>
+				            </tr>
+				          </thead>
+                          <!-- <tbody>
+                            
+                          </tbody>-->
+                        </table>
+                      </div> 
+                    </div>
+                  </div>
                 </div>
-              <div class="card-body">
-  			    <form>
-                  <div class="form-group">
-                    <label class="form-control-label">Select the fields to export</label>
-                    <select id="multiselect1" multiple="multiple" name="multiselect1[]">
-                     
-                    </select>
-                  </div>
-                </form>
-              </div>
-              
-              <div class="card-body text-left">
-                <div class="row">
-                  <!-- <div class="col-lg-4">
-                      <a id="add_selection_criteria" href="selection_criteres_chauves_souris_capturees_astre.html" class="btn btn-primary btn-fill">Critères de selection</a></h4>
-			  	  </div> -->
-			  	  
-			  	  <div class="col-lg-4">
-			  	    <div class="form-group">
-	                  <button id="add_selection_criteria" name="add_selection_criteria" type="submit" class="btn btn-primary btn-fill ladda-button" >                        	
-			            <span class="ladda-label">Selection criteria</span>
-			            <span class="ladda-spinner"></span>
-				  	  </button>  
-				  	</div> 
-                  </div>
-                  
-			  	  <div class="col-lg-4">
-			  	    <div class="form-group">
-	                  <button id="export_selected_fields" name="export_selected_fields" type="submit" class="btn btn-primary btn-fill ladda-button" >                        	
-			            <span class="ladda-label">Export selection</span>
-			            <span class="ladda-spinner"></span>
-				  	  </button>  
-				  	</div> 
-                  </div>
-			  	  
-			  	  <div class="col-lg-4">
-			  	    <div class="form-group">
-	                  <button id="export_all_fields" name="export_all_fields" type="submit" class="btn btn-primary btn-fill ladda-button" >                        	
-			            <span class="ladda-label">Export all fields</span>
-			            <span class="ladda-spinner"></span>
-				  	  </button>  
-				  	</div> 
-				  </div>
-                </div>
-              </div>
-              
+              </div>  
             </div>
           </section>          
           
@@ -373,72 +326,187 @@
       </div>
     </div>
     
-    <script type="text/javascript">
-	    
-    	
-        
-        
-        
-	</script> 
+    <div class="modal fade" id="deletemodal" tabindex="-1" role="dialog" aria-labelledby="delete" aria-hidden="true">
+	  <div class="modal-dialog">
+		<div class="modal-content">
+		  <div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+			  <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+			</button>
+			<h4 class="modal-title custom_align" id="Heading">Delete this entry</h4>
+		  </div>
+		  <div class="modal-body">
+			<form>
+		      <div class="alert alert-danger">
+				<span class="glyphicon glyphicon-warning-sign"></span> Are you sure you want to delete this record?
+			  </div>
+			  <div class="form-group">
+				<button type="submit" class="btn btn-success" id="confirmdeletebtn" name="confirmdeletebtn">
+				  <span class="glyphicon glyphicon-ok-sign"></span> Yes
+				</button>
+				<button type="button" class="btn btn-default" data-dismiss="modal">
+				  <span class="glyphicon glyphicon-remove"></span> No
+				</button>
+			  </div>
+			</form>
+		  </div>
+		  <div class="modal-footer ">
+		  </div>
+		</div>
+	  </div>
+	</div>
+	
+	<div class="modal fade" id="deletemodalall" tabindex="-1" role="dialog" aria-labelledby="delete" aria-hidden="true">
+	  <div class="modal-dialog">
+		<div class="modal-content">
+		  <div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+			  <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+			</button>
+			<h4 class="modal-title custom_align" id="Heading">Delete all selected entries</h4>
+		  </div>
+		  <div class="modal-body">
+			<form>
+		      <div class="alert alert-danger">
+				<span class="glyphicon glyphicon-warning-sign"></span> Are you sure you want to delete all these records?
+			  </div>
+			  <div class="form-group">
+				<button type="submit" class="btn btn-success" id="confirmdeletebtnall" name="confirmdeletebtn">
+				  <span class="glyphicon glyphicon-ok-sign"></span> Yes
+				</button>
+				<button type="button" class="btn btn-default" data-dismiss="modal">
+				  <span class="glyphicon glyphicon-remove"></span> No
+				</button>
+			  </div>
+			</form>
+		  </div>
+		  <div class="modal-footer ">
+		  </div>
+		</div>
+	  </div>
+	</div>
 	
 	<script type="text/javascript">
-		document.addEventListener("keydown", function(event) {
+	
+		var clickedBtn;	
+	
+    	$(document).on('click', ".deletebtn", function (e) {
+	    	e.preventDefault();
+	    	var ID = $(this).data('id');
+	      	$('#confirmdeletebtn').data('id', ID);
+	   		clickedBtn = this;
+	      	// show the modal dialog
+	    });		
+    	
+    	$("#button_selection_delete").click(function(e){
+	    	e.preventDefault();
+	   		clickedBtn = this;
+	      	// show the modal dialog
+	    });	
+	
+	    $("#confirmdeletebtn").click(function(e){
+	    	e.preventDefault();
+	    	
+	    	var table = $('#example').DataTable();
+	    	 
+	    	var ID = $(this).data('id');
+	    	localStorage['ID'] = ID;
+	    	localStorage['delete_record_table'] = 'bcoming' + nom_table;
+	    	if(clickedBtn){ // make sure we have assigned a reference
+		    	//$(clickedBtn).closest("tr").remove().draw();
+	    		table.row($(clickedBtn).closest('tr')).remove().draw();
+	    		clickedBtn = null; // not necessary
+	        	$('#deletemodal').modal('hide');
+	    		loadjs('js/delete-record.js');
+	        // close the modal dialog.
+	      	}
+	    });
+	    
+	    $("#confirmdeletebtnall").click(function(e){
+	    	e.preventDefault();
+	    	
+	    	if(clickedBtn){
+	    		var table = $('#example').DataTable();
+				var array_checked_records = [];
+	    		
+		    	table.$('.chk:checked').each(function () {
+		    	    array_checked_records.push($(this).data('id'));
+		    	    table.row($(this).parents('tr')).remove().draw();
+		    	});
+		    	
+		    	localStorage['delete_checked_records_table'] = 'bcoming' + nom_table;
+		    	localStorage.setItem("array_checked_records", JSON.stringify(array_checked_records));
+		    	loadjs('js/delete-selected-record.js');
+		    	table.draw();
+	    	}
+	    	$('#deletemodalall').modal('hide');
+	    });
+    
+	</script>
+	
+	<script type="text/javascript">
+		$(document).on('click', ".modifybtn", function () {
+   			var ID = $(this).attr("data-id");
+   			var ID_table = 'ID_biodivafreid_locations' + nom_table;
+   			localStorage[ID_table] = ID;
+   			window.location = 'ajouter_modifier_biodivafreid_locations.html?option=2&table=' + nom_table;
+	 	});
+		
+		$(document).on('click', ".showbtn", function () {
+   			var ID = $(this).attr("data-id");
+   			var ID_table = 'ID_biodivafreid_locations' + nom_table;
+   			localStorage[ID_table] = ID;
+   			window.location = 'consulter_biodivafreid_locations.html?table=' + nom_table;
+   			
+	 	});
+  	</script>  
+  	
+  	<script type="text/javascript">
+		
+  		document.addEventListener("keydown", function(event) {
 		  if (event.keyCode == 13) {
 		    event.preventDefault();
 		    return false;
 		  }
 		}, true); // "true" => phase de capture
 		
-		if (nom_table == '_camacross') {
-			pays = 'cambodia';	
-			nomtable = nom_table
-		} else if ((nom_table == '_rhinokhov_zoocov_lab') || (nom_table == '_rhinokhov_zoocov_animal')) {
-			pays = 'cambodia';
-			document.getElementById('title').innerText = 'RhinoKhov ZooCov'
-			nomtable = nom_table
-		} else if ((nom_table == '_biodivafreid') || (nom_table == '_biodivafreid_locations')) {
+		
+		if ((nom_table == '_biodivafreid') || (nom_table == '_biodivafreid_locations')) {
+			/*|| (nom_table == '_transvihmi_rdc') || (nom_table == '_transvihmi_gabon')
+			|| (nom_table == '_transvihmi_rca') || (nom_table == '_transvihmi_rwanda')) {*/
 			pays = 'democratic_republic_of_congo';	
-			document.getElementById('title').innerText = 'Biodiv-Afreid'
-			nomtable = '_biodivafreid'
-		} ;
-		
-		
-		
-		expanded(nom_table);
-				
-		function expanded(nom_table) {
-			var component_li = document.getElementById('li_' + pays + 'Dropdown');
+		} /*else if ((nom_table == '_mivegec_congo') || (nom_table == '_mivegec_gabon')){
+			institut = 'mivegec';
+		} */;
+			
+  		
+  		expanded(nom_table);
+  			
+  		function expanded(nom_table) {	
+  			
+  			var component_li = document.getElementById('li_' + pays + 'Dropdown');
 			component_li.classList.add('active');
 			var component_a = document.getElementById('a_' + pays + 'Dropdown');
 			component_a.setAttribute('aria-expanded', 'true');
 			var component_ul =  document.getElementById('ul_' + pays + 'Dropdown');
 			component_ul.classList.add('show');
 			
-			if ((nom_table == '_rhinokhov_zoocov_lab') || (nom_table == '_rhinokhov_zoocov_animal')) {
-				var component_li = document.getElementById('li_rhinokhov_zoocovDropdown');
-				component_li.classList.add('active');
-				var component_a = document.getElementById('a_rhinokhov_zoocovDropdown');
-				component_a.setAttribute('aria-expanded', 'true');
-				var component_ul =  document.getElementById('ul_rhinokhov_zoocovDropdown');
-				component_ul.classList.add('show');
-			}
-			
-			var component_li = document.getElementById('li' + nomtable + 'Dropdown');
+			var component_li = document.getElementById('li_biodivafreidDropdown');
 			component_li.classList.add('active');
-			var component_a = document.getElementById('a' + nomtable + 'Dropdown');
+			var component_a = document.getElementById('a_biodivafreidDropdown');
 			component_a.setAttribute('aria-expanded', 'true');
-			var component_ul =  document.getElementById('ul' + nomtable + 'Dropdown');
+			var component_ul =  document.getElementById('ul_biodivafreidDropdown');
 			component_ul.classList.add('show');
 				
 				
-			var component_li = document.getElementById('li_importation' + nomtable +'_datas');
+			var component_li = document.getElementById('li' + nom_table +'_data_list');
 			component_li.classList.add('active');
-			
-			
-		};
-		
-			
-     </script>  
+	    	
+	    	loadjs('js/load-db-biodivafreid-locations.js');
+	    	
+  		};
+  		
+	</script> 
   </body>
 </html>
-	 
+	

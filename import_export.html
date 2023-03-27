@@ -8,7 +8,7 @@
     
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Projet EBO-SURSY</title>
+    <title>BCOMING Project</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="robots" content="all,follow">
@@ -150,6 +150,24 @@
 	                        <li id="li_importation_camacross_datas" name="1"><a href="import_export.html?table=_camacross&type=camacross">import/export</a></li>                            
                           </ul>
 	                    </li>
+	                    <li id="li_rhinokhov_zoocovDropdown" name="1" pays="guinee"> <a id="a_rhinokhov_zoocovDropdown" name="1" href="#ul_rhinokhov_zoocovDropdown" aria-expanded="false" data-toggle="collapse">RhinoKhov-ZooCov</i> </a>
+                       	  <ul id="ul_rhinokhov_zoocovDropdown" name="1" pays="guinee" class="collapse list-unstyled">
+                       	    <li id="li_rhinokhov_zoocov_labDropdown" name="1" pays="guinee"> <a id="a_rhinokhov_zoocov_labDropdown" name="1" href="#ul_rhinokhov_zoocov_labDropdown" aria-expanded="false" data-toggle="collapse"><i style="font-size: 14px;">RhinoKhov-ZooCov lab</i> </a>
+                       	      <ul id="ul_rhinokhov_zoocov_labDropdown" name="1" pays="guinee" class="collapse list-unstyled">
+                            	<li id="li_rhinokhov_zoocov_lab_data_list" name="1"><a href="liste_rhinokhov_zoocov_lab.html?table=_rhinokhov_zoocov_lab">data</a></li>                            
+	                        	<li id="li_rhinokhov_zoocov_lab_map" name="1"><a href="no_map.html?table=_rhinokhov_zoocov_lab&type=rhinokhov_zoocov_lab">map</a></li>
+	                        	<li id="li_importation_rhinokhov_zoocov_lab_datas" name="1"><a href="import_export.html?table=_rhinokhov_zoocov_lab&type=rhinokhov_zoocov_lab">import/export</a></li>                            
+                              </ul>
+	                        </li>
+	                        <li id="li_rhinokhov_zoocov_animalDropdown" name="1" pays="guinee"> <a id="a_rhinokhov_zoocov_animalDropdown" name="1" href="#ul_rhinokhov_zoocov_animalDropdown" aria-expanded="false" data-toggle="collapse"><i style="font-size: 14px;">RhinoKhov-ZooCov animal</i> </a>
+                       	      <ul id="ul_rhinokhov_zoocov_animalDropdown" name="1" pays="guinee" class="collapse list-unstyled">
+                            	<li id="li_rhinokhov_zoocov_animal_data_list" name="1"><a href="liste_rhinokhov_zoocov_animal.html?table=_rhinokhov_zoocov_animal">data</a></li>                            
+	                        	<li id="li_rhinokhov_zoocov_animal_map" name="1"><a href="no_map.html?table=_rhinokhov_zoocov_animal&type=rhinokhov_zoocov_animal">map</a></li>
+	                        	<li id="li_importation_rhinokhov_zoocov_animal_datas" name="1"><a href="import_export.html?table=_rhinokhov_zoocov_animal&type=rhinokhov_zoocov_animal">import/export</a></li>                            
+                              </ul>
+	                        </li>
+                          </ul>                          
+	                    </li>
 	                  </ul>
 	                </li>
 	                
@@ -187,15 +205,28 @@
                           </ul>
 	                    </li>-->
 	                  </ul>
-	                </li>   
-                    
-                    <li id="li_help"> 
+	                </li> 
+	                
+	                <li id="li_democratic_republic_of_congoDropdown" name="1"> <a id="a_democratic_republic_of_congoDropdown" name="1" href="#ul_democratic_republic_of_congoDropdown" aria-expanded="false" data-toggle="collapse"> <i class="a-democratic_republic_of_congo"></i><label id="label_democratic_republic_of_congo" style="vertical-align: top;font-size:10px;">Democratic Republic of Congo</label></a>
+                      <ul id="ul_democratic_republic_of_congoDropdown" name="1" class="collapse list-unstyled">
+                        <li id="li_biodivafreidDropdown" name="1" pays="guinee"> <a id="a_biodivafreidDropdown" name="1" href="#ul_biodivafreidDropdown" aria-expanded="false" data-toggle="collapse">Biodiv Afreid</i> </a>
+                       	  <ul id="ul_biodivafreidDropdown" name="1" pays="guinee" class="collapse list-unstyled">
+                            <li id="li_biodivafreid_data_list" name="1"><a href="liste_biodivafreid.html?table=_biodivafreid">captures</a></li> 
+                            <li id="li_biodivafreid_locations_data_list" name="1"><a href="liste_biodivafreid_locations.html?table=_biodivafreid_locations">locations</a></li>                           
+	                        <li id="li_biodivafreid_map" name="1"><a href="map.html?table=_biodivafreid_locations&type=biodivafreid_locations">map</a></li>
+	                        <li id="li_importation_biodivafreid_datas" name="1"><a href="import_export.html?table=_biodivafreid&type=biodivafreid">importation/exportation</a></li>                            
+                          </ul>
+	                    </li>
+	                  </ul>
+	                </li> 
+	                
+                    <!-- <li id="li_help"> 
                     	<a href="help.html"><i class='a-help'></i></a>
                     </li>
                     
                     <li id="li_sauvegarde" style="display:none"> 
                     	<a href="sauvegarde.html">Sauvegarde mensuelle</a>
-                    </li>
+                    </li> -->
                                     
           </ul>
         </nav>
@@ -203,7 +234,7 @@
           <!-- Page Header-->
           <header class="page-header">
             <div class="container-fluid">
-              <h2 class="no-margin-bottom">CamAcross database</h2>
+              <h2 class="no-margin-bottom" id="database">CamAcross database</h2>
             </div>
           </header>
           
@@ -233,7 +264,7 @@
                     </div>
                   </div>
                   
-                  <div class="card" id="ipg_2" style="display:none;">                  
+                  <div class="card" id="biodivafreid_locations_importation" style="display:none;">                  
                     <div class="card-header">
                   	  <h4 id="card4">Importation pour le deuxième jeu de données</h4>
                 	</div>
@@ -260,13 +291,19 @@
                 	</div>
                 	<div class="card-body">  
                   	  <div class="row">
-                        <div class="col-lg-12" id="template">
+                        <div class="col-lg-12" id="template_1">
                           
                           <script type="text/javascript">
 			               		var line = document.createElement("div");
 			               	   	var file;
 				               	if (type_table == 'camacross') {
 				     				file = 'CA'
+				     			} else if (type_table == 'rhinokhov_zoocov_lab') {
+				     				file = 'RKZCL'
+								} else if (type_table == 'rhinokhov_zoocov_animal') {
+									file = 'RKZCA'
+				     			} else if (type_table == 'biodivafreid') {
+									file = 'BAC'
 				     			} /*else if ((type_table == 'chauves_souris_capturees') && (localStorage.getItem('export_table') == '_astre_transvihmi_guinee')) {
 				     				file = 'CSGU'
 				     			} else if ((type_table == 'chauves_souris_non_invasives') && (localStorage.getItem('export_table') != '_astre_transvihmi_guinee')) {
@@ -296,7 +333,63 @@
 			                          '<a id="button_download" class="btn btn-primary btn-fill" href="templates/' +
 			                          file + 
 			                          '.csv" download>Download</a>'			               		
-				          		document.getElementById("template").appendChild(line);
+				          		document.getElementById("template_1").appendChild(line);
+				          </script>
+                          
+                          <!-- <a id="button_download" class="btn btn-primary btn-fill" href="templates/CICS.csv" download>Télécharger</a> -->
+						</div>
+                      </div>
+                      <div class="row" id="success_label" style="display: none;">
+                        <div class="col-lg-12">
+                          <label id="success" style="color:red;">success</label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="card" id="biodivafreid_locations_template" style="display:none;">                  
+                    <div class="card-header">
+                  	  <h4 id="card5">Téléchargement du template des chauves-souris capturées</h4>
+                	</div>
+                	<div class="card-body">  
+                  	  <div class="row">
+                        <div class="col-lg-12" id="template_2">
+                          
+                          <script type="text/javascript">
+			               		var line = document.createElement("div");
+			               	   	var file;
+				               	if (type_table == 'biodivafreid') {
+									file = 'BAL'
+				     			} /*else if ((type_table == 'chauves_souris_capturees') && (localStorage.getItem('export_table') == '_astre_transvihmi_guinee')) {
+				     				file = 'CSGU'
+				     			} else if ((type_table == 'chauves_souris_non_invasives') && (localStorage.getItem('export_table') != '_astre_transvihmi_guinee')) {
+				     				file = 'CINI'
+				     			} else if ((type_table == 'chauves_souris_non_invasives') && (localStorage.getItem('export_table') == '_astre_transvihmi_guinee')) {
+				     				file = 'NIGU'
+				     			} else if (type_table == 'viande_de_brousse') {
+				     				file = 'VB'
+				     			} else if ((type_table == 'donnees_mission') && (localStorage.getItem('export_table') != '_astre_transvihmi_guinee')) {
+				     				file = 'DM'
+				     			} else if ((type_table == 'donnees_mission') && (localStorage.getItem('export_table') == '_astre_transvihmi_guinee')) {
+				     				file = 'DMGU'
+				     			} else if ((type_table == 'donnees_journalieres') && (localStorage.getItem('export_table') != '_astre_transvihmi_guinee')) {
+				     				file = 'DJ'
+				     			} else if ((type_table == 'donnees_journalieres') && (localStorage.getItem('export_table') == '_astre_transvihmi_guinee')) {
+				     				file = 'DJGU'
+				     			} else if (type_table == 'animals') {
+				     				file = 'MIV'
+				     			} else if (type_table == 'caracterisations_grottes') {
+				     				file = 'CG'
+				     			} else if (type_table == 'cameras_trap') {
+				     				file = 'CT'
+				     			} else if (type_table == 'faune') {
+				     				file = 'FA'
+				     			}   */	               		
+			               		line.innerHTML = 
+			                          '<a id="button_download" class="btn btn-primary btn-fill" href="templates/' +
+			                          file + 
+			                          '.csv" download>Download</a>'			               		
+				          		document.getElementById("template_2").appendChild(line);
 				          </script>
                           
                           <!-- <a id="button_download" class="btn btn-primary btn-fill" href="templates/CICS.csv" download>Télécharger</a> -->
@@ -316,7 +409,7 @@
                   	</div>
                   	<div class="card-body">  
                   	  <div class="row">
-                        <div class="col-lg-12" id="generate_button">
+                        <div class="col-lg-12" id="generate_button_1">
                           <!-- <label id="button_generate" class="btn btn-primary btn-fill btn-file">
     			  			Générer le fichier
 				  		  </label> -->
@@ -327,7 +420,32 @@
 			                          '<a id="button_generate" href="exportation.html?table=' +
 			                          nom_table + '&type=' + type_table +
 			                          '" class="btn btn btn-primary btn-fill">Generate the file</a></h4>';			               		
-				          		document.getElementById("generate_button").appendChild(line);
+				          		document.getElementById("generate_button_1").appendChild(line);
+				          </script>
+                        
+				   		</div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="card" id="biodivafreid_locations_exportation" style="display:none;">                  
+                    <div class="card-header">
+                  	  <h4 id="card6">Exporter les chauves-souris capturées</h4>
+                  	</div>
+                  	<div class="card-body">  
+                  	  <div class="row">
+                        <div class="col-lg-12" id="generate_button_2">
+                          <!-- <label id="button_generate" class="btn btn-primary btn-fill btn-file">
+    			  			Générer le fichier
+				  		  </label> -->
+				  		  
+				  		  <script type="text/javascript">
+				  		        var line = document.createElement("div");
+			           			line.innerHTML = 
+			                          '<a id="button_generate" href="exportation.html?table=' +
+			                          '_biodivafreid_locations' + '&type=' + 'biodivafreid_locations' +
+			                          '" class="btn btn btn-primary btn-fill">Generate the file</a></h4>';			               		
+				          		document.getElementById("generate_button_2").appendChild(line);
 				          </script>
                         
 				   		</div>
@@ -394,10 +512,10 @@
             <div class="container-fluid">
               <div class="row">
                 <div class="col-sm-4">
-                  <p>Projet EBO-SURSY  2017-2021</p>
+                  <p>BCOMING Project 2022-2026</p>
                 </div>
                 <div class="col-sm-4">
-                  <p>Conçu par Bruno Rosset - Cirad</p>
+                  <p>Designed by Bruno Rosset - Cirad</p>
                 </div>
                 <div class="col-sm-4 text-right"> 
                   <p><a href="javascript:ouvre_popup('CGU.html')"><U>CGU</U></a></p>
@@ -469,6 +587,12 @@
             	    
             	    if (type_table == 'camacross') {
 						loadjs('js/importation-CamAcross.js');
+        	    	} else if (type_table == 'rhinokhov_zoocov_lab') {
+						loadjs('js/importation-RhinoKhov-ZooCov-Lab.js');
+        	    	} else if (type_table == 'rhinokhov_zoocov_animal') {
+						loadjs('js/importation-RhinoKhov-ZooCov-Animal.js');
+        	    	} else if (type_table == 'biodivafreid') {
+						loadjs('js/importation-BiodivAfreid.js');
         	    	}
         	    };
 				reader.readAsText(file, 'ISO-8859-1');
@@ -493,8 +617,9 @@
         	    	var label =  document.getElementById("file_name");
         	    	label.innerHTML = log;
         	    	
-        	    	if (type_table == 'animals_ipg') {
-            	    	loadjs('js/importation-animal-ipg-2.js');
+        	    	if (type_table == 'biodivafreid') {
+        	    		localStorage['import_table'] = nom_table + '_locations';
+            	    	loadjs('js/importation-BiodivAfreid-locations.js');
             	    }
         	    };
 				reader.readAsText(file, 'ISO-8859-1');
@@ -621,12 +746,45 @@
 			|| (nom_table == '_transvihmi_rdc') || (nom_table == '_transvihmi_gabon')
 			|| (nom_table == '_transvihmi_rca') || (nom_table == '_transvihmi_rwanda')*/) {
 			pays = 'cambodia';	
+			document.getElementById("database").innerHTML = "CamAcross database";
 			document.getElementById("card1").innerHTML = "Importing data from CamAcross";
 			document.getElementById("card2").innerHTML = "Downloading the CamAcross data template";
 			document.getElementById("card3").innerHTML = "Exporting data from CamAcross";
-		} /*else if ((nom_table == '_mivegec_congo') || (nom_table == '_mivegec_gabon')){
-			institut = 'mivegec';
-		} */;
+		} else if (nom_table == '_rhinokhov_zoocov_lab') {
+			pays = 'cambodia';	
+			document.getElementById("database").innerHTML = "RhinoKhov-ZooCov lab database";
+			document.getElementById("card1").innerHTML = "Importing data from RhinoKhov-ZooCov lab";
+			document.getElementById("card2").innerHTML = "Downloading the RhinoKhov-ZooCov lab data template";
+			document.getElementById("card3").innerHTML = "Exporting data from RhinoKhov-ZooCov lab";
+		} else if (nom_table == '_rhinokhov_zoocov_animal') {
+			pays = 'cambodia';	
+			document.getElementById("database").innerHTML = "RhinoKhov-ZooCov animal database";
+			document.getElementById("card1").innerHTML = "Importing data from RhinoKhov-ZooCov animal";
+			document.getElementById("card2").innerHTML = "Downloading the RhinoKhov-ZooCov animal data template";
+			document.getElementById("card3").innerHTML = "Exporting data from RhinoKhov-ZooCov animal";
+		} else if (nom_table == '_rhinokhov_zoocov_animal') {
+			pays = 'cambodia';	
+			document.getElementById("database").innerHTML = "RhinoKhov-ZooCov animal database";
+			document.getElementById("card1").innerHTML = "Importing data from RhinoKhov-ZooCov animal";
+			document.getElementById("card2").innerHTML = "Downloading the RhinoKhov-ZooCov animal data template";
+			document.getElementById("card3").innerHTML = "Exporting data from RhinoKhov-ZooCov animal";
+		}else if (nom_table == '_biodivafreid') {
+			pays = 'democratic_republic_of_congo';	
+			document.getElementById("database").innerHTML = "Biodiv-Afreid database";
+			document.getElementById("card1").innerHTML = "Importing data captures from Biodiv-Afreid";
+			document.getElementById("card2").innerHTML = "Downloading the Biodiv-Afreid captures data template";
+			document.getElementById("card3").innerHTML = "Exporting data from Biodiv-Afreid captures";
+			
+			document.getElementById("biodivafreid_locations_importation").style.display = "block";
+			document.getElementById("card4").innerHTML = "Importing data locations from Biodiv-Afreid";
+			
+			document.getElementById("biodivafreid_locations_template").style.display = "block";
+			document.getElementById("card5").innerHTML = "Downloading the Biodiv-Afreid locations data template";
+			
+			document.getElementById("biodivafreid_locations_exportation").style.display = "block";
+			document.getElementById("card6").innerHTML = "Exporting data from Biodiv-Afreid locations";
+			
+		} 
 		
 		expanded(nom_table);
 				
@@ -637,6 +795,17 @@
 			component_a.setAttribute('aria-expanded', 'true');
 			var component_ul =  document.getElementById('ul_' + pays + 'Dropdown');
 			component_ul.classList.add('show');
+			
+			
+			if ((nom_table == '_rhinokhov_zoocov_lab') || (nom_table == '_rhinokhov_zoocov_animal')) {
+				var component_li = document.getElementById('li_rhinokhov_zoocovDropdown');
+				component_li.classList.add('active');
+				var component_a = document.getElementById('a_rhinokhov_zoocovDropdown');
+				component_a.setAttribute('aria-expanded', 'true');
+				var component_ul =  document.getElementById('ul_rhinokhov_zoocovDropdown');
+				component_ul.classList.add('show');
+			}
+			
 			
 			var component_li = document.getElementById('li' + nom_table + 'Dropdown');
 			component_li.classList.add('active');
