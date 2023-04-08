@@ -260,26 +260,24 @@ $('#export_selected_fields').click(function(){
 	});
 })
 
-/*window.onload = function() {
-	document.getElementById("add_selection_criteria").setAttribute("disabled", true);
 
-	var multiselect1 = document.getElementById("multiselect1");
-	for (var i = 0; i < fields.length; i++) {
-		multiselect1.options[i] = new Option(fields[i], fields[i]);
-	};
-}*/
+$("#add_selection_criteria").attr("disabled", true);
 
-window.onload = function() {
-	$("#add_selection_criteria").attr("disabled", true);
+
+
+var $multiselect1 = $("#multiselect1");
+
+$.each(fields, function(index, value) {
+	console.log(value);
+	$multiselect1.append($("<option>").attr("value", value).text(value));
+});
+
+$multiselect1.multiSelect();
 	
-	
-	
-	var $multiselect1 = $("#multiselect1");
-	$.each(fields, function(index, value) {
-		console.log(value);
-		$multiselect1.append($("<option></option>").attr("value", value).text(value));
-	});
-}
+
+
+
+
 
 
 	
