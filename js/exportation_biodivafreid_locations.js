@@ -201,30 +201,32 @@ function add_selection_field(row) {
 	}
 }
 
-$('#export_all_fields').click(function(){
-	CSV_data = fields_CSV_head;
-	
-	var res = alasql("SELECT location_code, sess_check, location_name, country, province, locality, site_details, latitude, lat_ns, longitude, long_ew, coord_source, gps_projection, gps_datum, coord_precision, altitude, alt_source, Mapgrid, habitat_Type, rodent_proofing, inside_cover, outside_cover, open_water, recent_rodent_control, pictures, habitat_remarks,  Username FROM ? ORDER BY date", [tab_biodivafreid_locations] );
-    			
-    var CS = JSON.stringify(res);
-    			
-    var obj_CS = JSON.parse(CS);
-	 
-    
-    res.forEach(function(row){
-    	//wait(10);
-		//console.log(row.N_identification_CS)
-    	
-		//alert(count)
-		if (count == i) {
-			addBiodivAfreid_locationsRecord(row, false);
-		}
+//window.onload = function() {
+	$('#export_all_fields').click(function(){
+		CSV_data = fields_CSV_head;
 		
-		
-	}).catch(function (err) {
-		console.log(err);
-	});
-})
+		var res = alasql("SELECT location_code, sess_check, location_name, country, province, locality, site_details, latitude, lat_ns, longitude, long_ew, coord_source, gps_projection, gps_datum, coord_precision, altitude, alt_source, Mapgrid, habitat_Type, rodent_proofing, inside_cover, outside_cover, open_water, recent_rodent_control, pictures, habitat_remarks,  Username FROM ? ORDER BY date", [tab_biodivafreid_locations] );
+	    			
+	    var CS = JSON.stringify(res);
+	    			
+	    var obj_CS = JSON.parse(CS);
+		 
+	    
+	    res.forEach(function(row){
+	    	//wait(10);
+			//console.log(row.N_identification_CS)
+	    	
+			//alert(count)
+			if (count == i) {
+				addBiodivAfreid_locationsRecord(row, false);
+			}
+			
+			
+		}).catch(function (err) {
+			console.log(err);
+		});
+	})
+//}
 
 
 $('#export_selected_fields').click(function(){
@@ -269,8 +271,6 @@ $('#export_selected_fields').click(function(){
 
 window.onload = function() {
 	$("#add_selection_criteria").attr("disabled", true);
-	
-	$("#export_selected_fields").attr("disabled", true);
 	
 	var $multiselect1 = $("#multiselect1");
 	$.each(fields, function(index, value) {

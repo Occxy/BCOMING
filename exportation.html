@@ -98,17 +98,7 @@
 		
 		localStorage['export_table'] = nom_table;
 		
-		if ((localStorage.getItem('export_table') == '_camacross') && (type_table == 'camacross')) {
-        	loadjs('js/exportation_camacross.js')
-        } else if ((localStorage.getItem('export_table') == '_rhinokhov_zoocov_lab') && (type_table == 'rhinokhov_zoocov_lab')) {
-        	loadjs('js/exportation_rhinokhov_zoocov_lab.js')
-        } else if ((localStorage.getItem('export_table') == '_rhinokhov_zoocov_animal') && (type_table == 'rhinokhov_zoocov_animal')) {
-        	loadjs('js/exportation_rhinokhov_zoocov_animal.js')
-        } else if ((localStorage.getItem('export_table') == '_biodivafreid') && (type_table == 'biodivafreid')) {
-        	loadjs('js/exportation_biodivafreid.js')
-        }  else if ((localStorage.getItem('export_table') == '_biodivafreid_locations') && (type_table == 'biodivafreid_locations')) {
-        	loadjs('js/exportation_biodivafreid_locations.js')
-        }  
+
 	</script> 
     
     <div class="page">
@@ -437,7 +427,17 @@
 			
 		};
 		
-			
+		if ((localStorage.getItem('export_table') == '_camacross') && (type_table == 'camacross')) {
+        	loadjs('js/exportation_camacross.js')
+        } else if ((localStorage.getItem('export_table') == '_rhinokhov_zoocov_lab') && (type_table == 'rhinokhov_zoocov_lab')) {
+        	loadjs('js/exportation_rhinokhov_zoocov_lab.js')
+        } else if ((localStorage.getItem('export_table') == '_rhinokhov_zoocov_animal') && (type_table == 'rhinokhov_zoocov_animal')) {
+        	loadjs('js/exportation_rhinokhov_zoocov_animal.js')
+        } else if ((localStorage.getItem('export_table') == '_biodivafreid') && (type_table == 'biodivafreid')) {
+        	loadjs('js/exportation_biodivafreid.js')
+        }  else if ((localStorage.getItem('export_table') == '_biodivafreid_locations') && (type_table == 'biodivafreid_locations')) {
+        	loadjs('js/exportation_biodivafreid_locations.js')
+        }  
      </script>  
   </body>
 </html>
