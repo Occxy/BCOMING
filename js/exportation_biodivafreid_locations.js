@@ -258,7 +258,7 @@ $('#export_selected_fields').click(function(){
 	});
 })
 
-document.getElementById("add_selection_criteria").disabled = true;
+document.getElementById("add_selection_criteria").setAttribute("disabled", true);
 
 var multiselect1 = document.getElementById("multiselect1");
 for (var i = 0; i < fields.length; i++) {
