@@ -258,12 +258,21 @@ $('#export_selected_fields').click(function(){
 	});
 })
 
-document.getElementById("add_selection_criteria").setAttribute("disabled", true);
+/*window.onload = function() {
+	document.getElementById("add_selection_criteria").setAttribute("disabled", true);
 
-var multiselect1 = document.getElementById("multiselect1");
-for (var i = 0; i < fields.length; i++) {
-	multiselect1.options[i] = new Option(fields[i], fields[i]);
-};
+	var multiselect1 = document.getElementById("multiselect1");
+	for (var i = 0; i < fields.length; i++) {
+		multiselect1.options[i] = new Option(fields[i], fields[i]);
+	};
+}*/
+
+$("#add_selection_criteria").attr("disabled", true);
+
+var $multiselect1 = $("#multiselect1");
+$.each(fields, function(index, value) {
+	$multiselect1.append($("<option></option>").attr("value", value).text(value));
+});
 
 
 	
