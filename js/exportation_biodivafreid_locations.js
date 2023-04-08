@@ -270,6 +270,8 @@ $('#export_selected_fields').click(function(){
 window.onload = function() {
 	$("#add_selection_criteria").attr("disabled", true);
 	
+	$("#export_selected_fields").attr("disabled", true);
+	
 	var $multiselect1 = $("#multiselect1");
 	$.each(fields, function(index, value) {
 		$multiselect1.append($("<option></option>").attr("value", value).text(value));
