@@ -267,12 +267,14 @@ $('#export_selected_fields').click(function(){
 	};
 }*/
 
-$("#add_selection_criteria").attr("disabled", true);
-
-var $multiselect1 = $("#multiselect1");
-$.each(fields, function(index, value) {
-	$multiselect1.append($("<option></option>").attr("value", value).text(value));
-});
+window.onload = function() {
+	$("#add_selection_criteria").attr("disabled", true);
+	
+	var $multiselect1 = $("#multiselect1");
+	$.each(fields, function(index, value) {
+		$multiselect1.append($("<option></option>").attr("value", value).text(value));
+	});
+}
 
 
 	
