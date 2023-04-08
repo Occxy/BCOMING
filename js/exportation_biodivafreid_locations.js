@@ -264,15 +264,16 @@ $('#export_selected_fields').click(function(){
 $("#add_selection_criteria").attr("disabled", true);
 
 
-
-var $multiselect1 = $("#multiselect1");
-
-$.each(fields, function(index, value) {
-	console.log(value);
-	$multiselect1.append($("<option>").attr("value", value).text(value));
-});
-
-$multiselect1.multiSelect();
+window.onload = function() {
+	var $multiselect1 = $("#multiselect1");
+	
+	$.each(fields, function(index, value) {
+		console.log(value);
+		$multiselect1.append($("<option>").attr("value", value).text(value));
+	});
+	
+	$multiselect1.multiSelect();
+}
 	
 
 
