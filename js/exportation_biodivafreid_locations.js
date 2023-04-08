@@ -270,6 +270,8 @@ window.onload = function() {
 
 	
 	
+	$("#export_selected_fields").attr("disabled", true);
+	
 	var $multiselect1 = $("#multiselect1");
 	
 	$.each(fields, function(index, value) {
