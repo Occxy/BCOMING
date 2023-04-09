@@ -201,7 +201,11 @@ function add_selection_field(row) {
 	}
 }
 
-//window.onload = function() {
+
+
+window.onload = function() {
+	
+	
 	$('#export_all_fields').click(function(){
 		CSV_data = fields_CSV_head;
 		
@@ -226,45 +230,45 @@ function add_selection_field(row) {
 			console.log(err);
 		});
 	})
-//}
 
 
-$('#export_selected_fields').click(function(){
-	
-	array_selected_fields = [];
-	array_selected_fields.length = 0;
-	
-	$('#multiselect1 :selected').each(function(i, sel){ 
-		array_selected_fields.push($(sel).val()); 
-		//alert($(sel).val())
-	});
-	
-	var res = alasql("SELECT location_code, sess_check, location_name, country, province, locality, site_details, latitude, lat_ns, longitude, long_ew, coord_source, gps_projection, gps_datum, coord_precision, altitude, alt_source, Mapgrid, habitat_Type, rodent_proofing, inside_cover, outside_cover, open_water, recent_rodent_control, pictures, habitat_remarks,  Username FROM ? ORDER BY date", [tab_biodivafreid_locations] );
-    			
-    var CS = JSON.stringify(res);
-    			
-    var obj_CS = JSON.parse(CS);
-	   
-    
-    res.forEach(function(row){
-    	//wait(10);
-		//console.log(row.N_identification_CS)
-		//alert(count)
-		if (count == i) {
-			addBiodivAfreid_locationsRecord(row, true);
-		}
+
+	$('#export_selected_fields').click(function(){
 		
+		array_selected_fields = [];
+		array_selected_fields.length = 0;
 		
-	}).catch(function (err) {
-		console.log(err);
-	});
-})
+		$('#multiselect1 :selected').each(function(i, sel){ 
+			array_selected_fields.push($(sel).val()); 
+			//alert($(sel).val())
+		});
+		
+		var res = alasql("SELECT location_code, sess_check, location_name, country, province, locality, site_details, latitude, lat_ns, longitude, long_ew, coord_source, gps_projection, gps_datum, coord_precision, altitude, alt_source, Mapgrid, habitat_Type, rodent_proofing, inside_cover, outside_cover, open_water, recent_rodent_control, pictures, habitat_remarks,  Username FROM ? ORDER BY date", [tab_biodivafreid_locations] );
+	    			
+	    var CS = JSON.stringify(res);
+	    			
+	    var obj_CS = JSON.parse(CS);
+		   
+	    
+	    res.forEach(function(row){
+	    	//wait(10);
+			//console.log(row.N_identification_CS)
+			//alert(count)
+			if (count == i) {
+				addBiodivAfreid_locationsRecord(row, true);
+			}
+			
+			
+		}).catch(function (err) {
+			console.log(err);
+		});
+	})
+	
+	
+	$("#add_selection_criteria").attr("disabled", true);
 
-
-$("#add_selection_criteria").attr("disabled", true);
-
-
-window.onload = function() {
+	
+	
 	var $multiselect1 = $("#multiselect1");
 	
 	$.each(fields, function(index, value) {
