@@ -213,69 +213,78 @@ function addCamAcrossRecord(row, selected) {
 	
 }
 
-$('#export_all_fields').click(function(){
-	CSV_data = fields_CSV_head;
+
+
+window.onload = function() {
+	$('#export_all_fields').click(function(){
+		CSV_data = fields_CSV_head;
+		
+		var res = alasql("SELECT SamplingDate, AnimalCode, Province, Site, Species, SampleType, SampleCode, Final_Result_for_Corona_Watanabe, Final_Result_for_Corona_Quan, Username FROM ? ORDER BY SamplingDate", [tab_camacross] );
+	    			
+	    var CS = JSON.stringify(res);
+	    			
+	    var obj_CS = JSON.parse(CS);
+		 
+	    
+	    res.forEach(function(row){
+	    	//wait(10);
+			//console.log(row.N_identification_CS)
+	    	
+			//alert(count)
+			if (count == i) {
+				addCamAcrossRecord(row, false);
+			}
+			
+			
+		}).catch(function (err) {
+			console.log(err);
+		});
+	})
+
+
+	$('#export_selected_fields').click(function(){
+		
+		array_selected_fields = [];
+		array_selected_fields.length = 0;
+		
+		$('#multiselect1 :selected').each(function(i, sel){ 
+			array_selected_fields.push($(sel).val()); 
+			//alert($(sel).val())
+		});
+		
+		var res = alasql("SELECT SamplingDate, AnimalCode, Province, Site, Species, SampleType, SampleCode, Final_Result_for_Corona_Watanabe, Final_Result_for_Corona_Quan, Username FROM ? ORDER BY SamplingDate", [tab_camacross] );
+	    			
+	    var CS = JSON.stringify(res);
+	    			
+	    var obj_CS = JSON.parse(CS);
+		   
+	    
+	    res.forEach(function(row){
+	    	//wait(10);
+			//console.log(row.N_identification_CS)
+			//alert(count)
+			if (count == i) {
+				addCamAcrossRecord(row, true);
+			}
+			
+			
+		}).catch(function (err) {
+			console.log(err);
+		});
+	})
 	
-	var res = alasql("SELECT SamplingDate, AnimalCode, Province, Site, Species, SampleType, SampleCode, Final_Result_for_Corona_Watanabe, Final_Result_for_Corona_Quan, Username FROM ? ORDER BY SamplingDate", [tab_camacross] );
-    			
-    var CS = JSON.stringify(res);
-    			
-    var obj_CS = JSON.parse(CS);
-	 
-    
-    res.forEach(function(row){
-    	//wait(10);
-		//console.log(row.N_identification_CS)
-    	
-		//alert(count)
-		if (count == i) {
-			addCamAcrossRecord(row, false);
-		}
-		
-		
-	}).catch(function (err) {
-		console.log(err);
+	$("#add_selection_criteria").attr("disabled", true);
+
+	var $multiselect1 = $("#multiselect1");
+	
+	$.each(fields, function(index, value) {
+		console.log(value);
+		$multiselect1.append($("<option>").attr("value", value).text(value));
 	});
-})
-
-
-$('#export_selected_fields').click(function(){
 	
-	array_selected_fields = [];
-	array_selected_fields.length = 0;
-	
-	$('#multiselect1 :selected').each(function(i, sel){ 
-		array_selected_fields.push($(sel).val()); 
-		//alert($(sel).val())
-	});
-	
-	var res = alasql("SELECT SamplingDate, AnimalCode, Province, Site, Species, SampleType, SampleCode, Final_Result_for_Corona_Watanabe, Final_Result_for_Corona_Quan, Username FROM ? ORDER BY SamplingDate", [tab_camacross] );
-    			
-    var CS = JSON.stringify(res);
-    			
-    var obj_CS = JSON.parse(CS);
-	   
-    
-    res.forEach(function(row){
-    	//wait(10);
-		//console.log(row.N_identification_CS)
-		//alert(count)
-		if (count == i) {
-			addCamAcrossRecord(row, true);
-		}
-		
-		
-	}).catch(function (err) {
-		console.log(err);
-	});
-})
+	$multiselect1.multiSelect();
+}
 
-document.getElementById("add_selection_criteria").disabled = true;
-
-var multiselect1 = document.getElementById("multiselect1");
-for (var i = 0; i < fields.length; i++) {
-	multiselect1.options[i] = new Option(fields[i], fields[i]);
-};
 
 
 	

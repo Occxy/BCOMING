@@ -293,69 +293,81 @@ function add_selection_field(row) {
 	}
 }
 
-$('#export_all_fields').click(function(){
-	CSV_data = fields_CSV_head;
+
+
+
+window.onload = function() {
 	
-	var res = alasql("SELECT project_code, ua_id_pr, ua_id_nr, ua_id, date, location_code, session_code, Location, locses, Session_check, sub_order, genus_field, species_field, trap, trap_id, sex, sex_cond, weight_g, head_body_mm, tail_mm, embryo_tot, ectopar_tot, capture_remarks, liver_LI, spleen_SP, kindney_KI, lung_LU, intestine_IN, uterus_UT, blood_BL, other_tissue_XX, eye_EY, TE, SP, KL, KD, LI, FC, LU, BL, TN, EY, ECTO, BR, FOET, URINE_WHATMAN, HI_FORMOL, CARCASS_FORMOL, Tongue_in_ethanol, Swab_Oral, Swab_Nasal, Swab_Anal, Swab_Urogenital, BAT_NUMBER1, Bat_Reproductive_status, Bat_Teeth, Bat_Bone_fusion, Bat_Age, Bat_Forearm_length_mm, Bat_Tibia_length_mm, Bat_Age_2, Bat_Urine, Bat_Faeces, Bat_Oral_swab, Bat_Wing_punch, Bat_Blood_filter_paper, Bat_ectoparasites, Livestock_Age, habitat,  Username FROM ? ORDER BY date", [tab_biodivafreid] );
-    			
-    var CS = JSON.stringify(res);
-    			
-    var obj_CS = JSON.parse(CS);
-	 
-    
-    res.forEach(function(row){
-    	//wait(10);
-		//console.log(row.N_identification_CS)
-    	
-		//alert(count)
-		if (count == i) {
-			addBiodivAfreidRecord(row, false);
-		}
+	$('#export_all_fields').click(function(){
+		CSV_data = fields_CSV_head;
 		
+		var res = alasql("SELECT project_code, ua_id_pr, ua_id_nr, ua_id, date, location_code, session_code, Location, locses, Session_check, sub_order, genus_field, species_field, trap, trap_id, sex, sex_cond, weight_g, head_body_mm, tail_mm, embryo_tot, ectopar_tot, capture_remarks, liver_LI, spleen_SP, kindney_KI, lung_LU, intestine_IN, uterus_UT, blood_BL, other_tissue_XX, eye_EY, TE, SP, KL, KD, LI, FC, LU, BL, TN, EY, ECTO, BR, FOET, URINE_WHATMAN, HI_FORMOL, CARCASS_FORMOL, Tongue_in_ethanol, Swab_Oral, Swab_Nasal, Swab_Anal, Swab_Urogenital, BAT_NUMBER1, Bat_Reproductive_status, Bat_Teeth, Bat_Bone_fusion, Bat_Age, Bat_Forearm_length_mm, Bat_Tibia_length_mm, Bat_Age_2, Bat_Urine, Bat_Faeces, Bat_Oral_swab, Bat_Wing_punch, Bat_Blood_filter_paper, Bat_ectoparasites, Livestock_Age, habitat,  Username FROM ? ORDER BY date", [tab_biodivafreid] );
+	    			
+	    var CS = JSON.stringify(res);
+	    			
+	    var obj_CS = JSON.parse(CS);
+		 
+	    
+	    res.forEach(function(row){
+	    	//wait(10);
+			//console.log(row.N_identification_CS)
+	    	
+			//alert(count)
+			if (count == i) {
+				addBiodivAfreidRecord(row, false);
+			}
+			
+			
+		}).catch(function (err) {
+			console.log(err);
+		});
+	})
+
+
+	$('#export_selected_fields').click(function(){
 		
-	}).catch(function (err) {
-		console.log(err);
+		array_selected_fields = [];
+		array_selected_fields.length = 0;
+		
+		$('#multiselect1 :selected').each(function(i, sel){ 
+			array_selected_fields.push($(sel).val()); 
+			//alert($(sel).val())
+		});
+		
+		var res = alasql("SELECT project_code, ua_id_pr, ua_id_nr, ua_id, date, location_code, session_code, Location, locses, Session_check, sub_order, genus_field, species_field, trap, trap_id, sex, sex_cond, weight_g, head_body_mm, tail_mm, embryo_tot, ectopar_tot, capture_remarks, liver_LI, spleen_SP, kindney_KI, lung_LU, intestine_IN, uterus_UT, blood_BL, other_tissue_XX, eye_EY, TE, SP, KL, KD, LI, FC, LU, BL, TN, EY, ECTO, BR, FOET, URINE_WHATMAN, HI_FORMOL, CARCASS_FORMOL, Tongue_in_ethanol, Swab_Oral, Swab_Nasal, Swab_Anal, Swab_Urogenital, BAT_NUMBER1, Bat_Reproductive_status, Bat_Teeth, Bat_Bone_fusion, Bat_Age, Bat_Forearm_length_mm, Bat_Tibia_length_mm, Bat_Age_2, Bat_Urine, Bat_Faeces, Bat_Oral_swab, Bat_Wing_punch, Bat_Blood_filter_paper, Bat_ectoparasites, Livestock_Age, habitat,  Username FROM ? ORDER BY date", [tab_biodivafreid] );
+	    			
+	    var CS = JSON.stringify(res);
+	    			
+	    var obj_CS = JSON.parse(CS);
+		   
+	    
+	    res.forEach(function(row){
+	    	//wait(10);
+			//console.log(row.N_identification_CS)
+			//alert(count)
+			if (count == i) {
+				addBiodivAfreidRecord(row, true);
+			}
+			
+			
+		}).catch(function (err) {
+			console.log(err);
+		});
+	})
+	
+	$("#add_selection_criteria").attr("disabled", true);
+
+	var $multiselect1 = $("#multiselect1");
+	
+	$.each(fields, function(index, value) {
+		console.log(value);
+		$multiselect1.append($("<option>").attr("value", value).text(value));
 	});
-})
-
-
-$('#export_selected_fields').click(function(){
 	
-	array_selected_fields = [];
-	array_selected_fields.length = 0;
+	$multiselect1.multiSelect();
 	
-	$('#multiselect1 :selected').each(function(i, sel){ 
-		array_selected_fields.push($(sel).val()); 
-		//alert($(sel).val())
-	});
-	
-	var res = alasql("SELECT project_code, ua_id_pr, ua_id_nr, ua_id, date, location_code, session_code, Location, locses, Session_check, sub_order, genus_field, species_field, trap, trap_id, sex, sex_cond, weight_g, head_body_mm, tail_mm, embryo_tot, ectopar_tot, capture_remarks, liver_LI, spleen_SP, kindney_KI, lung_LU, intestine_IN, uterus_UT, blood_BL, other_tissue_XX, eye_EY, TE, SP, KL, KD, LI, FC, LU, BL, TN, EY, ECTO, BR, FOET, URINE_WHATMAN, HI_FORMOL, CARCASS_FORMOL, Tongue_in_ethanol, Swab_Oral, Swab_Nasal, Swab_Anal, Swab_Urogenital, BAT_NUMBER1, Bat_Reproductive_status, Bat_Teeth, Bat_Bone_fusion, Bat_Age, Bat_Forearm_length_mm, Bat_Tibia_length_mm, Bat_Age_2, Bat_Urine, Bat_Faeces, Bat_Oral_swab, Bat_Wing_punch, Bat_Blood_filter_paper, Bat_ectoparasites, Livestock_Age, habitat,  Username FROM ? ORDER BY date", [tab_biodivafreid] );
-    			
-    var CS = JSON.stringify(res);
-    			
-    var obj_CS = JSON.parse(CS);
-	   
-    
-    res.forEach(function(row){
-    	//wait(10);
-		//console.log(row.N_identification_CS)
-		//alert(count)
-		if (count == i) {
-			addBiodivAfreidRecord(row, true);
-		}
-		
-		
-	}).catch(function (err) {
-		console.log(err);
-	});
-})
+}
 
-document.getElementById("add_selection_criteria").disabled = true;
-
-var multiselect1 = document.getElementById("multiselect1");
-for (var i = 0; i < fields.length; i++) {
-	multiselect1.options[i] = new Option(fields[i], fields[i]);
-};
 
 
 	
