@@ -185,9 +185,16 @@
 	                
 	                <li id="li_guineaDropdown" name="1"> <a id="a_guineaDropdown" name="1" href="#ul_guineaDropdown" aria-expanded="false" data-toggle="collapse"> <i class="a-guinea"></i><label id="label_guinea" style="vertical-align: top;">Guinea</label></a>
                       <ul id="ul_guineaDropdown" name="1" class="collapse list-unstyled">
-                        
+                        <li id="li_bcoming_guineaDropdown" name="1" pays="guinee"> <a id="a_bcoming_guineaDropdown" name="1" href="#ul_bcoming_guineaDropdown" aria-expanded="false" data-toggle="collapse">BCOMING</i> </a>
+                       	  <ul id="ul_bcoming_guineaDropdown" name="1" pays="guinee" class="collapse list-unstyled">
+                            <li id="li_bcoming_rongeurs_captures_guinea_data_list" name="1"><a href="liste_bcoming_rongeurs_captures_guinea.html?table=_bcoming_rongeurs_captures_guinea">data rongeurs capturés</a></li>                            
+	                        <li id="li_bcoming_chauves_souris_capturees_guinea_data_list" name="1"><a href="liste_bcoming_chauves_souris_capturees_guinea.html?table=_bcoming_chauves_souris_capturees_guinea">data chauves-souris capturées</a></li>                            
+	                        <li id="li_bcoming_guinea_map" name="1"><a href="no_map.html?table=_bcoming_guinea&type=bcoming_guinea">map</a></li>
+	                        <li id="li_importation_bcoming_guinea_datas" name="1"><a href="import_export.html?table=_bcoming_guinea&type=bcoming_guinea">import/export</a></li>                            
+                          </ul>
+	                    </li>
 	                  </ul>
-	                </li>   
+	                </li>  
 	                
 	                <li id="li_democratic_republic_of_congoDropdown" name="1"> <a id="a_democratic_republic_of_congoDropdown" name="1" href="#ul_democratic_republic_of_congoDropdown" aria-expanded="false" data-toggle="collapse"> <i class="a-democratic_republic_of_congo"></i><label id="label_democratic_republic_of_congo" style="vertical-align: top;font-size:10px;">Democratic Republic of Congo</label></a>
                       <ul id="ul_democratic_republic_of_congoDropdown" name="1" class="collapse list-unstyled">
@@ -396,10 +403,10 @@
                   </div>
                   
                   
-                  <div name="6" pays="guinee" id="bcoming_camacross" style="display: none;">
+                  <div name="1" pays="guinee" id="bcoming_camacross" style="display: none;">
                     <div class="card">
 	                  <div class="card-header">
-	                    <h4>CamAcross data - Guinea</h4>
+	                    <h4>CamAcross data - Cambodia</h4>
 	                  </div>
 	                  <div class="card-body">
 	                    <div class="row">
@@ -414,10 +421,10 @@
 	                </div>
                   </div>
                   
-                  <div name="6" pays="guinee" id="bcoming_rhinokhov_zoocov_lab"  style="display: none;">
+                  <div name="1" pays="guinee" id="bcoming_rhinokhov_zoocov_lab"  style="display: none;">
                     <div class="card">
                   	  <div class="card-header">
-                        <h4>RhinoKhov ZooCov lab data - Guinea</h4>
+                        <h4>RhinoKhov ZooCov lab data - Cambodia</h4>
                       </div>
                       <div class="card-body">
                         <div class="row">
@@ -432,10 +439,10 @@
                     </div>
                   </div>
                   
-                  <div name="6" pays="guinee" id="bcoming_rhinokhov_zoocov_animal"  style="display: none;">
+                  <div name="1" pays="guinee" id="bcoming_rhinokhov_zoocov_animal"  style="display: none;">
                     <div class="card">
                   	  <div class="card-header">
-                        <h4>RhinoKhov ZooCov animal data - Guinea</h4>
+                        <h4>RhinoKhov ZooCov animal data - Cambodia</h4>
                       </div>
                       <div class="card-body">
                         <div class="row">
@@ -483,6 +490,44 @@
 		    			    <div class="form-group">
 		      			   	  <label>Number of records collected: </label>
 		      			      <label id="label_bcoming_biodivafreid_locations_count" style="color:red;font-weight: bold;"></label>
+						    </div>                                                                                     
+	                      </div>
+	                    </div>
+	                  </div>
+	                </div>
+                  </div>
+                  
+                  <!-- Datepickers-->
+                  <div name="1" pays="guinee" style="display: none;">
+                    <div class="card">
+	                  <div class="card-header">
+	                    <h4>Bcoming rongeurs capturés - Guinea</h4>
+	                  </div>
+	                  <div class="card-body">
+	                    <div class="row">
+	                      <div class="col-lg-6">                    	      
+		    			    <div class="form-group">
+		      			   	  <label>Number of records collected: </label>
+		      			      <label id="label_bcoming_bcoming_rongeurs_captures_guinea_count" style="color:red;font-weight: bold;"></label>
+						    </div>                                                                                     
+	                      </div>
+	                    </div>
+	                  </div>
+	                </div>
+                  </div>
+                  
+                  <!-- Datepickers-->
+                  <div name="1" pays="guinee" style="display: none;">
+                    <div class="card">
+	                  <div class="card-header">
+	                    <h4>Bcoming chauves-souris capturées - Guinea</h4>
+	                  </div>
+	                  <div class="card-body">
+	                    <div class="row">
+	                      <div class="col-lg-6">                    	      
+		    			    <div class="form-group">
+		      			   	  <label>Number of records collected: </label>
+		      			      <label id="label_bcoming_bcoming_chauves_souris_capturees_guinea_count" style="color:red;font-weight: bold;"></label>
 						    </div>                                                                                     
 	                      </div>
 	                    </div>
@@ -884,12 +929,12 @@
 				
 	</script>	
 	
-	<script src="js/charts.js"></script>
+	<!-- <script src="js/charts.js"></script>
 	
 	<script>
 		document.getElementById("year_astre").onchange();
 		document.getElementById("year1_astre").onchange();
-	</script>
+	</script> -->
   
 </html>
 	 

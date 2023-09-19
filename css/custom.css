@@ -1,4 +1,17 @@
 /* your styles go here */
+
+li.noclick {
+	pointer-events: none;
+}
+
+label.noclick {
+	pointer-events: none;
+}
+
+a.noclick {
+	pointer-events: none;
+}	
+	
 .login-page::before {  
   background: url(../logos/fragmented.png);
   background-size: stretched;
