@@ -24,12 +24,24 @@ var progressbar_count = 0;
 var tables_principales = [];
 if  (debug !== '') {
 	tables_principales = ['bcoming_camacross_debug', 'bcoming_rhinokhov_zoocov_lab_debug', 'bcoming_rhinokhov_zoocov_animal_debug', 
-		                  'bcoming_biodivafreid_debug', 'bcoming_biodivafreid_locations_debug'
+		                  'bcoming_biodivafreid_debug', 'bcoming_biodivafreid_locations_debug', 'bcoming_bcoming_rongeurs_captures_guinea_debug',
+		                   'bcoming_bcoming_chauves_souris_capturees_guinea_debug'
 		  ];
 	
 	
 
-} else if ((code_equipe === '1') && (nom_pays == 'guinee')) {
+} else {
+	tables_principales = ['bcoming_camacross', 'bcoming_rhinokhov_zoocov_lab', 'bcoming_rhinokhov_zoocov_animal', 
+        'bcoming_biodivafreid', 'bcoming_biodivafreid_locations', 'bcoming_bcoming_rongeurs_captures_guinea',
+         'bcoming_bcoming_chauves_souris_capturees_guinea'
+        ];
+
+
+
+}
+	
+	
+	/*else if ((code_equipe === '1') && (nom_pays == 'guinee')) {
 	tables_principales = ['chauves_souris_capturees_transvihmi_guinee', 'chauves_souris_non_invasives_transvihmi_guinee',
 						  'viande_de_brousse_transvihmi_guinee', 'site_transvihmi_guinee', 
 						  'donnees_mission_transvihmi_guinee', 'donnees_journalieres_transvihmi_guinee',
@@ -86,7 +98,7 @@ if  (debug !== '') {
 						  'faune_astre_transvihmi_guinee'];
 }  else if ((code_equipe === '6') && (nom_pays == 'congo')) {
 	tables_principales = ['chauves_souris_capturees_astre_congo', 'chauves_souris_non_invasives_astre_congo', 
-		  'site_astre_congo', 'donnees_mission_astre_congo', 'donnees_journalieres_astre_congo'/*, 'espece_astre_congo'*/];
+		  'site_astre_congo', 'donnees_mission_astre_congo', 'donnees_journalieres_astre_congo'];
 }  else if ((code_equipe === '6') && (nom_pays == 'gabon')) {
 	tables_principales = ['chauves_souris_capturees_astre_gabon', 'chauves_souris_non_invasives_astre_gabon', 
 		  'site_astre_gabon', 'donnees_mission_astre_gabon', 'donnees_journalieres_astre_gabon'];
@@ -101,18 +113,29 @@ if  (debug !== '') {
 		  'caracterisations_grottes_astre_transvihmi_guinee', 'cameras_trap_astre_transvihmi_guinee',
 		  'donnees_mission_astre_transvihmi_guinee', 'donnees_journalieres_astre_transvihmi_guinee',
 		  'faune_astre_transvihmi_guinee'];
-}
+}*/
 
 var tabCount = new Array();
 
 if  (debug !== '') {
 	var tables_references = 
-		['username', 'bcoming_version'
+		['username', 'bcoming_version', 'bcoming_bcoming_rongeurs_captures_couleur_pelage_dorsal_debug',  'bcoming_bcoming_rongeurs_captures_couleur_pelage_ventral_debug',
+		 'bcoming_bcoming_rongeurs_captures_espece_debug', 'bcoming_bcoming_chauves_souris_capturees_couleur_pelage_dorsal_debug',  'bcoming_bcoming_chauves_souris_capturees_couleur_pelage_ventral_debug',
+		 'bcoming_bcoming_chauves_souris_capturees_espece_debug'
 
 		 ];
 	
 	
-} else if ((code_equipe === '1') && (nom_pays == 'guinee')) {
+} else {
+	var tables_references = 
+		['username', 'bcoming_version', 'bcoming_bcoming_rongeurs_captures_couleur_pelage_dorsal',  'bcoming_bcoming_rongeurs_captures_couleur_pelage_ventral',
+		 'bcoming_bcoming_rongeurs_captures_espece', 'bcoming_bcoming_chauves_souris_capturees_couleur_pelage_dorsal',  'bcoming_bcoming_chauves_souris_capturees_couleur_pelage_ventral',
+		 'bcoming_bcoming_chauves_souris_capturees_espece'
+
+		 ];
+}
+
+/*else if ((code_equipe === '1') && (nom_pays == 'guinee')) {
 	var tables_references = 
 		['espece_transvihmi_guinee', 'pays_transvihmi_guinee', 'lieu_capture_transvihmi_guinee', 'lieu_collecte_transvihmi_guinee', 'methode_capture_transvihmi_guinee', 
 		 'couleur_pelage_dorsal_transvihmi_guinee', 'couleur_pelage_dorsal_transvihmi_guinee',  	
@@ -176,7 +199,7 @@ if  (debug !== '') {
 		 'couleur_pelage_dorsal_astre_gabon', 'couleur_pelage_ventral_astre_gabon',
 		 'pays_astre_transvihmi_guinee', 'espece_astre_transvihmi_guinee', 'activite_humaine_astre_transvihmi_guinee',
 		 'couleur_pelage_dorsal_astre_transvihmi_guinee', 'couleur_pelage_ventral_astre_transvihmi_guinee'];
-}
+}*/
 
 step = 100 / (tables_principales.length + tables_references.length);
 
@@ -185,8 +208,8 @@ load_tables_count(tables_principales_count);
 
 function load_tables_count(i) {
 	if (i > 0) {
-		var localDB = new PouchDB(tables_principales[i-1] /*+ debug*/);
-		var remoteDB = new PouchDB(remote_couchdb + tables_principales[i-1] /*+ debug*/, {skip_setup: true});
+		var localDB = new PouchDB(tables_principales[i-1] + debug);
+		var remoteDB = new PouchDB(remote_couchdb + tables_principales[i-1] + debug, {skip_setup: true});
 		remoteDB.info().then((infos) => {
 			var table_principale_count = tables_principales[i-1] + '_count';
 			localStorage[table_principale_count] = infos.doc_count;

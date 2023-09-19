@@ -71,12 +71,16 @@ var bcoming_rhinokhov_zoocov_lab = 'bcoming_rhinokhov_zoocov_lab' + debug + '_co
 var bcoming_rhinokhov_zoocov_animal = 'bcoming_rhinokhov_zoocov_animal' + debug + '_count';
 var bcoming_biodivafreid = 'bcoming_biodivafreid' + debug + '_count';
 var bcoming_biodivafreid_locations = 'bcoming_biodivafreid_locations' + debug + '_count';
+var bcoming_bcoming_rongeurs_captures_guinea = 'bcoming_bcoming_rongeurs_captures_guinea' + debug + '_count';
+var bcoming_bcoming_chauves_souris_capturees_guinea = 'bcoming_bcoming_chauves_souris_capturees_guinea' + debug + '_count';
 
 document.getElementById("label_bcoming_camacross_count").innerHTML = localStorage.getItem(bcoming_camacross);
 document.getElementById("label_bcoming_rhinokhov_zoocov_lab_count").innerHTML = localStorage.getItem(bcoming_rhinokhov_zoocov_lab);
 document.getElementById("label_bcoming_rhinokhov_zoocov_animal_count").innerHTML = localStorage.getItem(bcoming_rhinokhov_zoocov_animal);
 document.getElementById("label_bcoming_biodivafreid_count").innerHTML = localStorage.getItem(bcoming_biodivafreid);
 document.getElementById("label_bcoming_biodivafreid_locations_count").innerHTML = localStorage.getItem(bcoming_biodivafreid_locations);
+document.getElementById("label_bcoming_bcoming_rongeurs_captures_guinea_count").innerHTML = localStorage.getItem(bcoming_bcoming_rongeurs_captures_guinea);
+document.getElementById("label_bcoming_bcoming_chauves_souris_capturees_guinea_count").innerHTML = localStorage.getItem(bcoming_bcoming_chauves_souris_capturees_guinea);
 
 if (String(fonction) == 'admin') {
 	
