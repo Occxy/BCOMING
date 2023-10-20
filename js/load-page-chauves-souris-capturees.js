@@ -401,9 +401,9 @@ function listeFamille() {
 	var Famille = document.getElementById("Famille");
 	if (localStorage.getItem('web') === 'oui') {
 		var remote_couchdb = localStorage.getItem('remote_couchdb');
-		var DB = new PouchDB(remote_couchdb + 'bcoming_bcoming_chauves_souris_capturees_espece' /*+ debug*/);
+		var DB = new PouchDB(remote_couchdb + 'bcoming_bcoming_chauves_souris_capturees_espece' + debug);
 	} else {
-		var DB = new PouchDB('bcoming_bcoming_chauves_souris_capturees_espece' /*+ debug*/);
+		var DB = new PouchDB('bcoming_bcoming_chauves_souris_capturees_espece' + debug);
 	};
 	DB.allDocs({  		
 		include_docs: true,

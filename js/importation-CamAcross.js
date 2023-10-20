@@ -401,7 +401,7 @@ function success() {
 	elem.style.display = "block";
 	var label =  document.getElementById("success");
 	label.style.color = "green";
-	label.innerHTML = 'Importation du fichier réussie !';
+	label.innerHTML = 'Successful file import!';
 };
 
 function failure_fields(msg) {

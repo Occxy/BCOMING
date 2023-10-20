@@ -205,7 +205,7 @@ function addCamAcrossRecord(row, selected) {
 			console.log(count);
 			if (count == 0) {
 				var blob = new Blob(['\ufeff' + CSV_data], {type: "text/csv;charset=ISO-8859-1"});
-	       		saveAs(blob, "camacross" + clock.now + ".csv");
+	       		saveAs(blob, "comacross" + clock.now + ".csv");
 			}	
 			
 	} 

@@ -208,8 +208,8 @@ load_tables_count(tables_principales_count);
 
 function load_tables_count(i) {
 	if (i > 0) {
-		var localDB = new PouchDB(tables_principales[i-1] + debug);
-		var remoteDB = new PouchDB(remote_couchdb + tables_principales[i-1] + debug, {skip_setup: true});
+		var localDB = new PouchDB(tables_principales[i-1]/* + debug*/);
+		var remoteDB = new PouchDB(remote_couchdb + tables_principales[i-1] /*+ debug*/, {skip_setup: true});
 		remoteDB.info().then((infos) => {
 			var table_principale_count = tables_principales[i-1] + '_count';
 			localStorage[table_principale_count] = infos.doc_count;
