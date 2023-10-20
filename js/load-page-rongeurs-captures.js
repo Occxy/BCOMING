@@ -321,9 +321,9 @@ function listeFamille() {
 	var Famille = document.getElementById("Famille");
 	if (localStorage.getItem('web') === 'oui') {
 		var remote_couchdb = localStorage.getItem('remote_couchdb');
-		var DB = new PouchDB(remote_couchdb + 'bcoming_bcoming_rongeurs_captures_espece' /*+ debug*/);
+		var DB = new PouchDB(remote_couchdb + 'bcoming_bcoming_rongeurs_captures_espece' + debug);
 	} else {
-		var DB = new PouchDB('bcoming_bcoming_rongeurs_captures_espece' /*+ debug*/);
+		var DB = new PouchDB('bcoming_bcoming_rongeurs_captures_espece' + debug);
 	};
 	DB.allDocs({  		
 		include_docs: true,

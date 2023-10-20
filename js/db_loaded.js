@@ -66,6 +66,7 @@ document.getElementById("label_prelevements_cibu_count").innerHTML = localStorag
 
 document.getElementById("label_faune_astre_transvihmi_guinee_count").innerHTML = localStorage.getItem(faune_astre_transvihmi_guinee);*/
 
+
 var bcoming_camacross = 'bcoming_camacross' + debug + '_count';
 var bcoming_rhinokhov_zoocov_lab = 'bcoming_rhinokhov_zoocov_lab' + debug + '_count';
 var bcoming_rhinokhov_zoocov_animal = 'bcoming_rhinokhov_zoocov_animal' + debug + '_count';
