@@ -1229,11 +1229,12 @@
 					addReference(html, 'lieu_capture', 'Lieu_capture', select, null, null);	
    				}*/
    				if ($(this).data('data-id') == 'couleur_pelage_dorsal') {
-					var select = document.getElementById('Couleur_pelage_dorsal');	    		
-					addReference('bcoming_bcoming_rongeurs_captures_couleur_pelage_dorsal', 'Couleur_pelage_dorsal', select);
+					var select = document.getElementById('Couleur_pelage_dorsal');	
+					
+					addReference1('bcoming_bcoming_rongeurs_captures_couleur_pelage_dorsal', 'Couleur_pelage_dorsal', select);
    				} else if ($(this).data('data-id') == 'couleur_pelage_ventral') {
 					var select = document.getElementById('Couleur_pelage_ventral');	    		
-					addReference('bcoming_bcoming_rongeurs_captures_couleur_pelage_ventral', 'Couleur_pelage_ventral', select);
+					addReference1('bcoming_bcoming_rongeurs_captures_couleur_pelage_ventral', 'Couleur_pelage_ventral', select);
    				} else if ($(this).data('data-id') == 'famille') {
 					var select = document.getElementById('Famille');
 					addReference('bcoming_bcoming_rongeurs_captures_espece', 'Famille', select, null, null);
@@ -1415,9 +1416,9 @@
 			$('#genreInput').prop('disabled', true);
    		});
    		
-   		function addReference(nom_table, field, select) {
-   			
+   		function addReference1(nom_table, field, select) {
    			var value = document.getElementById('referenceInput').value;
+   			
    			
    			if (localStorage.getItem('web') === 'oui') {
 				var remote_couchdb = localStorage.getItem('remote_couchdb');
@@ -1437,6 +1438,7 @@
 					var doc = new Object();
 					doc._id = id;
 					doc[field] = value;
+					
 					
 					return DB.put(doc).then(function (doc) {
 						if ((navigator.onLine) && (localStorage.getItem('web') !== 'oui')) {

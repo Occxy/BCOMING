@@ -1187,10 +1187,10 @@
    				}*/
    				if ($(this).data('data-id') == 'couleur_pelage_dorsal') {
 					var select = document.getElementById('Couleur_pelage_dorsal');	    		
-					addReference('bcoming_bcoming_chauves_souris_capturees_couleur_pelage_dorsal', 'Couleur_pelage_dorsal', select);
+					addReference1('bcoming_bcoming_chauves_souris_capturees_couleur_pelage_dorsal', 'Couleur_pelage_dorsal', select);
    				} else if ($(this).data('data-id') == 'couleur_pelage_ventral') {
 					var select = document.getElementById('Couleur_pelage_ventral');	    		
-					addReference('bcoming_bcoming_chauves_souris_capturees_couleur_pelage_ventral', 'Couleur_pelage_ventral', select);
+					addReference1('bcoming_bcoming_chauves_souris_capturees_couleur_pelage_ventral', 'Couleur_pelage_ventral', select);
    				} else if ($(this).data('data-id') == 'famille') {
 					var select = document.getElementById('Famille');
 					addReference('bcoming_bcoming_chauves_souris_capturees_espece', 'Famille', select, null, null);
@@ -1372,7 +1372,7 @@
 			$('#genreInput').prop('disabled', true);
    		});
    		
-   		function addReference(nom_table, field, select) {
+   		function addReference1(nom_table, field, select) {
    			
    			var value = document.getElementById('referenceInput').value;
    			

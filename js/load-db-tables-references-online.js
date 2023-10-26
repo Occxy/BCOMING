@@ -31,9 +31,9 @@ if  (debug !== '') {
 	
 
 } else {
-	tables_principales = ['bcoming_camacross', 'bcoming_rhinokhov_zoocov_lab', 'bcoming_rhinokhov_zoocov_animal', 
-        'bcoming_biodivafreid', 'bcoming_biodivafreid_locations', 'bcoming_bcoming_rongeurs_captures_guinea',
-         'bcoming_bcoming_chauves_souris_capturees_guinea'
+	tables_principales = ['bcoming_bcoming_rongeurs_captures_guinea',
+        'bcoming_bcoming_chauves_souris_capturees_guinea', 'bcoming_camacross', 'bcoming_rhinokhov_zoocov_lab', 'bcoming_rhinokhov_zoocov_animal', 
+        'bcoming_biodivafreid', 'bcoming_biodivafreid_locations' 
         ];
 
 
@@ -279,8 +279,8 @@ function load_tables_references(i) {
 
 	if (i > 0) {
 				
-		var localDB = new PouchDB(tables_references[i-1] /*+ debug*/);
-		var remoteDB = new PouchDB(remote_couchdb + tables_references[i-1] /*+ debug*/, {skip_setup: true});
+		var localDB = new PouchDB(tables_references[i-1] + debug);
+		var remoteDB = new PouchDB(remote_couchdb + tables_references[i-1] + debug, {skip_setup: true});
 		console.log('---' + tables_references[i-1] + '---');
 		localDB.sync(remoteDB).on('complete', (info) => { 
 			move();
@@ -325,8 +325,8 @@ function load_tables_principales(i) {
 
 		var count = 0, count_total = 0;
 		localStorage['doc_' + tables_principales[i-1] + '_progress_count'] = 0;
-		var localDB = new PouchDB(tables_principales[i-1] /*+ debug*/);
-		var remoteDB = new PouchDB(remote_couchdb + tables_principales[i-1] /*+ debug*/, {skip_setup: true});
+		var localDB = new PouchDB(tables_principales[i-1] + debug);
+		var remoteDB = new PouchDB(remote_couchdb + tables_principales[i-1] + debug, {skip_setup: true});
 		localDB.sync(remoteDB, {batch_size: 20}).on('complete', (info) => {
 			count_total = localStorage.getItem('doc_' + tables_principales[i-1] + '_progress_count') / 20;
 			//for (var j=0; j<count_total; j++) {
