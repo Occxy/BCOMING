@@ -237,14 +237,18 @@
 				var localDB = new PouchDB('username');
 				var remoteDB = new PouchDB(remote_couchdb + 'username', {skip_setup: true});
 				localDB.sync(remoteDB).on('complete', function(info) {              
-					load_db_equipe();
+					//load_db_equipe();
+					connect();
 				}).on('error', function (err) {
 					// error while replicating
+					console.log(JSON.stringify(err))
 					alert('alert username: ' + JSON.stringify(err));
+					
 					window.location = 'login.html';
 				});
 	
 				function load_db_equipe() {
+				
 					var localDB = new PouchDB('equipe');
 					var remoteDB = new PouchDB(remote_couchdb + 'equipe', {skip_setup: true});
 					
@@ -308,105 +312,109 @@
 					};
 				});
 				
-				function connect() {
-			  		var username = document.getElementById('login-username').value; 
-			  		localStorage['loginUsername'] = username;
-			  		var password = document.getElementById('login-password').value; 
-			  		localStorage['loginPassword'] = password;
-			  			  		
-			  		var localDB = new PouchDB('username');
-				  	localDB.find({
-				    	selector: {username: username},
-						fields: ['_id',  'equipe', 'code_equipe', 'pays', 'fonction', 'role', 'username', 'email', 'password', 'confirmation_token', 'confirmed_at',
-				  	  			 'reset_token', 'reset_at', 'remember_token']
-				  	}).then(function (result) {
-					
-						if (typeof(JSON.stringify(result.docs[0])) != "undefined"){  
-				    		if (result.docs[0].username == username){
-				    			
-								var id = result.docs[0]._id;
-								var equipe = result.docs[0].equipe;
-								var code_equipe = result.docs[0].code_equipe;
-								var password_hash = result.docs[0].password;
-				    			var reset_token = result.docs[0].reset_token;
-				    			var confirmation_token = result.docs[0].confirmation_token;					
-				    			var pays = result.docs[0].pays;
-				    			var fonction = result.docs[0].fonction;
-				    			var role = result.docs[0].role;
-				    			
-				    			if (reset_token != '') {
-				    				addAlertFlash('danger', 
-			                   			'Vous devez d\'abord valider la confirmation de changement de votre mot de passe à l\'aide de l\'email de changement et être online lors de votre première connexion');
-				    				window.location.reload();			    			
-				    			} else if (confirmation_token != '') {
-				    				addAlertFlash('danger',
-						    			'Vous devez d\'abord valider votre compte à l\'aide de l\'email de confirmation et être online lors de votre première connexion');
-									window.location.reload();			    			
-				    			} else {
-				    				
-				    				try {
-					    				var bcrypt = require('bcryptjs');
-					    			}
-					    			catch(error) {
-					   					var bcrypt = dcodeIO.bcrypt;
-					   				}
-					    			
-					    			
-					    			
-									if (bcrypt.compareSync(password, password_hash) == true){
-										
-										
-										localStorage['auth'] = id;
-										localStorage['equipe'] = equipe;
-										localStorage['code_equipe'] = code_equipe;
-										localStorage['nom_pays'] = pays;
-										localStorage['fonction'] = fonction;
-										localStorage['role'] = role;
-										
-										/*var useSpecieTable = document.getElementById('useSpecieTable');
-										if (useSpecieTable.checked == true) {
-											localStorage['table_espece'] = 'oui';										
-										} else {
-											localStorage['table_espece'] = 'non';
-										}*/
-								        
-										addAlertFlash('success',
-						        			'Vous êtes maintenant connecté');
-							        	
-							        	localStorage['login'] = "1";
-							        	
-							        	var date1 = new Date();
-							        	
-							        	localStorage['date'] = date1.getDate().toString() + date1.getMonth().toString();
-								        	
-							        	if (role == '1') {
-							        		//alert('Vous êtes administrateur !');
-							        		localStorage['debug'] = "_debug";
-							        	};
-							        	
-								        window.location = 'main.html';
-									} else {
-											
-										addAlertFlash('danger',
-						            		'Identifiant ou mot de passe incorrect');
-										window.location.reload();	
-									}
-				    			}
-				    		}
-						}else{
-								
-							addAlertFlash('danger',
-			           			'Identifiant ou mot de passe incorrect');
-							window.location.reload();	
-			        	}
-				  		
-					}).catch(function (err) {
-				  		alert(JSON.stringify(err));
-				  	}); 
-				}
+				
 			}
   		
 		}		
+		
+		function connect() {
+	  		var username = document.getElementById('login-username').value; 
+	  		localStorage['loginUsername'] = username;
+	  		var password = document.getElementById('login-password').value; 
+	  		localStorage['loginPassword'] = password;
+	  			  		
+	  		var localDB = new PouchDB('username');
+		  	localDB.find({
+		    	selector: {username: username},
+				fields: ['_id',  'equipe', 'code_equipe', 'projects', 'pays', 'fonction', 'role', 'username', 'email', 'password', 'confirmation_token', 'confirmed_at',
+		  	  			 'reset_token', 'reset_at', 'remember_token']
+		  	}).then(function (result) {
+			
+				if (typeof(JSON.stringify(result.docs[0])) != "undefined"){  
+		    		if (result.docs[0].username == username){
+		    			
+						var id = result.docs[0]._id;
+						var equipe = result.docs[0].equipe;
+						var code_equipe = result.docs[0].code_equipe;
+						var projects = result.docs[0].projects;
+						var password_hash = result.docs[0].password;
+		    			var reset_token = result.docs[0].reset_token;
+		    			var confirmation_token = result.docs[0].confirmation_token;					
+		    			var pays = result.docs[0].pays;
+		    			var fonction = result.docs[0].fonction;
+		    			var role = result.docs[0].role;
+		    			
+		    			if (reset_token != '') {
+		    				addAlertFlash('danger', 
+	                   			'Vous devez d\'abord valider la confirmation de changement de votre mot de passe à l\'aide de l\'email de changement et être online lors de votre première connexion');
+		    				window.location.reload();			    			
+		    			} else if (confirmation_token != '') {
+		    				addAlertFlash('danger',
+				    			'Vous devez d\'abord valider votre compte à l\'aide de l\'email de confirmation et être online lors de votre première connexion');
+							window.location.reload();			    			
+		    			} else {
+		    				
+		    				try {
+			    				var bcrypt = require('bcryptjs');
+			    			}
+			    			catch(error) {
+			   					var bcrypt = dcodeIO.bcrypt;
+			   				}
+			    			
+			    			
+			    			
+							if (bcrypt.compareSync(password, password_hash) == true){
+								
+								
+								localStorage['auth'] = id;
+								localStorage['equipe'] = equipe;
+								localStorage['code_equipe'] = code_equipe;
+								localStorage['projects'] = projects;
+								localStorage['nom_pays'] = pays;
+								localStorage['fonction'] = fonction;
+								localStorage['role'] = role;
+								
+								/*var useSpecieTable = document.getElementById('useSpecieTable');
+								if (useSpecieTable.checked == true) {
+									localStorage['table_espece'] = 'oui';										
+								} else {
+									localStorage['table_espece'] = 'non';
+								}*/
+						        
+								addAlertFlash('success',
+				        			'Vous êtes maintenant connecté');
+					        	
+					        	localStorage['login'] = "1";
+					        	
+					        	var date1 = new Date();
+					        	
+					        	localStorage['date'] = date1.getDate().toString() + date1.getMonth().toString();
+						        	
+					        	if (role == '1') {
+					        		//alert('Vous êtes administrateur !');
+					        		localStorage['debug'] = "_debug";
+					        	};
+					        	
+						        window.location = 'main.html';
+							} else {
+									
+								addAlertFlash('danger',
+				            		'Identifiant ou mot de passe incorrect');
+								window.location.reload();	
+							}
+		    			}
+		    		}
+				}else{
+						
+					addAlertFlash('danger',
+	           			'Identifiant ou mot de passe incorrect');
+					window.location.reload();	
+	        	}
+		  		
+			}).catch(function (err) {
+		  		alert(JSON.stringify(err));
+		  	}); 
+		}
 		
 		function login_web() { 
 			

@@ -80,10 +80,11 @@
     <script src="node_modules/alasql/dist/alasql.js"></script>
     
   </head>
-  <body > 
+  <body onload="showConnexionStatus()"> 
   <!-- <body> -->
     <script>
 		logged_only();
+
 		
 		let searchParams = new URLSearchParams(window.location.search);
 		nom_table = searchParams.get('table');
@@ -145,27 +146,30 @@
                       <ul id="ul_cambodiaDropdown" name="1" class="collapse list-unstyled">
                         <li id="li_camacrossDropdown" name="1" pays="guinee"> <a id="a_camacrossDropdown" name="1" href="#ul_camacrossDropdown" aria-expanded="false" data-toggle="collapse">ComAcross</i> </a>
                        	  <ul id="ul_camacrossDropdown" name="1" pays="guinee" class="collapse list-unstyled">
-                            <li id="li_camacross_data_list" name="1"><a href="liste_camacross.html?table=_camacross">data</a></li>                            
-	                        <li id="li_camacross_map" name="1"><a href="no_map.html?table=_camacross&type=camacross">map</a></li>
-	                        <li id="li_importation_camacross_datas" name="1"><a href="import_export.html?table=_camacross&type=camacross">import/export</a></li>                            
+                            <li id="li_camacross_data_list" name="2"><a href="liste_camacross.html?table=_camacross">data</a></li>                            
+	                        <li id="li_camacross_map" name="2"><a href="no_map.html?table=_camacross&type=camacross">map</a></li>
+	                        <li id="li_importation_camacross_datas" name="2"><a href="import_export.html?table=_camacross&type=camacross">import/export</a></li>                            
                           </ul>
-	                    </li>
+	                    </li>	                    
 	                    <li id="li_rhinokhov_zoocovDropdown" name="1" pays="guinee"> <a id="a_rhinokhov_zoocovDropdown" name="1" href="#ul_rhinokhov_zoocovDropdown" aria-expanded="false" data-toggle="collapse">RhinoKhov-ZooCov</i> </a>
                        	  <ul id="ul_rhinokhov_zoocovDropdown" name="1" pays="guinee" class="collapse list-unstyled">
-                       	    <li id="li_rhinokhov_zoocov_labDropdown" name="1" pays="guinee"> <a id="a_rhinokhov_zoocov_labDropdown" name="1" href="#ul_rhinokhov_zoocov_labDropdown" aria-expanded="false" data-toggle="collapse"><i style="font-size: 14px;">RhinoKhov-ZooCov lab</i> </a>
+                       	    <!-- <li id="li_rhinokhov_zoocov_labDropdown" name="1" pays="guinee"> <a id="a_rhinokhov_zoocov_labDropdown" name="1" href="#ul_rhinokhov_zoocov_labDropdown" aria-expanded="false" data-toggle="collapse"><i style="font-size: 14px;">RhinoKhov-ZooCov lab</i> </a>
                        	      <ul id="ul_rhinokhov_zoocov_labDropdown" name="1" pays="guinee" class="collapse list-unstyled">
-                            	<li id="li_rhinokhov_zoocov_lab_data_list" name="1"><a href="liste_rhinokhov_zoocov_lab.html?table=_rhinokhov_zoocov_lab">data</a></li>                            
-	                        	<li id="li_rhinokhov_zoocov_lab_map" name="1"><a href="no_map.html?table=_rhinokhov_zoocov_lab&type=rhinokhov_zoocov_lab">map</a></li>
-	                        	<li id="li_importation_rhinokhov_zoocov_lab_datas" name="1"><a href="import_export.html?table=_rhinokhov_zoocov_lab&type=rhinokhov_zoocov_lab">import/export</a></li>                            
+                            	<li id="li_rhinokhov_zoocov_lab_data_list" name="3"><a href="liste_rhinokhov_zoocov_lab.html?table=_rhinokhov_zoocov_lab">data</a></li>                            
+	                        	<li id="li_rhinokhov_zoocov_lab_map" name="3"><a href="no_map.html?table=_rhinokhov_zoocov_lab&type=rhinokhov_zoocov_lab">map</a></li>
+	                        	<li id="li_importation_rhinokhov_zoocov_lab_datas" name="3"><a href="import_export.html?table=_rhinokhov_zoocov_lab&type=rhinokhov_zoocov_lab">import/export</a></li>                            
                               </ul>
 	                        </li>
 	                        <li id="li_rhinokhov_zoocov_animalDropdown" name="1" pays="guinee"> <a id="a_rhinokhov_zoocov_animalDropdown" name="1" href="#ul_rhinokhov_zoocov_animalDropdown" aria-expanded="false" data-toggle="collapse"><i style="font-size: 14px;">RhinoKhov-ZooCov animal</i> </a>
                        	      <ul id="ul_rhinokhov_zoocov_animalDropdown" name="1" pays="guinee" class="collapse list-unstyled">
-                            	<li id="li_rhinokhov_zoocov_animal_data_list" name="1"><a href="liste_rhinokhov_zoocov_animal.html?table=_rhinokhov_zoocov_animal">data</a></li>                            
-	                        	<li id="li_rhinokhov_zoocov_animal_map" name="1"><a href="no_map.html?table=_rhinokhov_zoocov_animal&type=rhinokhov_zoocov_animal">map</a></li>
-	                        	<li id="li_importation_rhinokhov_zoocov_animal_datas" name="1"><a href="import_export.html?table=_rhinokhov_zoocov_animal&type=rhinokhov_zoocov_animal">import/export</a></li>                            
+                            	<li id="li_rhinokhov_zoocov_animal_data_list" name="3"><a href="liste_rhinokhov_zoocov_animal.html?table=_rhinokhov_zoocov_animal">data</a></li>                            
+	                        	<li id="li_rhinokhov_zoocov_animal_map" name="3"><a href="no_map.html?table=_rhinokhov_zoocov_animal&type=rhinokhov_zoocov_animal">map</a></li>
+	                        	<li id="li_importation_rhinokhov_zoocov_animal_datas" name="3"><a href="import_export.html?table=_rhinokhov_zoocov_animal&type=rhinokhov_zoocov_animal">import/export</a></li>                            
                               </ul>
-	                        </li>
+	                        </li> -->
+	                        <li id="li_rhinokhov_zoocov_data_list" name="3"><a href="liste_rhinokhov_zoocov.html?table=_rhinokhov_zoocov">data</a></li>
+	                        <li id="li_rhinokhov_zoocov_map" name="3"><a href="no_map.html?table=_rhinokhov_zoocov&type=rhinokhov_zoocov">map</a></li>
+	                        <li id="li_importation_rhinokhov_zoocov_datas" name="3"><a href="import_export.html?table=_rhinokhov_zoocov&type=rhinokhov_zoocov">import/export</a></li>
                           </ul>                          
 	                    </li>
 	                  </ul>
@@ -197,28 +201,30 @@
 	                
 	                <li id="li_guineaDropdown" name="1"> <a id="a_guineaDropdown" name="1" href="#ul_guineaDropdown" aria-expanded="false" data-toggle="collapse"> <i class="a-guinea"></i><label id="label_guinea" style="vertical-align: top;">Guinea</label></a>
                       <ul id="ul_guineaDropdown" name="1" class="collapse list-unstyled">
-                        <!--<li id="li_camacrossDropdown" name="1" pays="guinee"> <a id="a_camacrossDropdown" name="1" href="#ul_camacrossDropdown" aria-expanded="false" data-toggle="collapse">ComAcross</i> </a>
-                       	  <ul id="ul_CamAcrossDropdown" name="1" pays="guinee" class="collapse list-unstyled">
-                            <li id="li_CamAcross_datas_list" name="1"><a href="liste_chauves_souris_capturees.html?table=_transvihmi_guinee">datas</a></li>                            
-	                        <li id="li_bat_map_capturees_transvihmi_guinee" name="1"><a href="cartographie.html?table=_transvihmi_guinee&type=chauves_souris_capturees">map</a></li>
-	                        <li id="li_importation_CamAcross_datas" name="1"><a href="import_export.html?table=_CamAcross&type=CamAcross">importation/exportation</a></li>                            
+                        <li id="li_bcoming_guineaDropdown" name="1" pays="guinee"> <a id="a_bcoming_guineaDropdown" name="1" href="#ul_bcoming_guineaDropdown" aria-expanded="false" data-toggle="collapse">BCOMING/CERFIG</i> </a>
+                       	  <ul id="ul_bcoming_guineaDropdown" name="1" pays="guinee" class="collapse list-unstyled">
+                            <li id="li_bcoming_rongeurs_captures_guinea_data_list" name="4"><a href="liste_bcoming_rongeurs_captures_guinea.html?table=_bcoming_rongeurs_captures_guinea">data rongeurs capturés</a></li>                            
+	                        <li id="li_bcoming_chauves_souris_capturees_guinea_data_list" name="4"><a href="liste_bcoming_chauves_souris_capturees_guinea.html?table=_bcoming_chauves_souris_capturees_guinea">data chauves-souris capturées</a></li>                            
+	                        <li id="li_bcoming_rongeurs_captures_guinea_map" name="4"><a href="map.html?table=_bcoming_rongeurs_captures_guinea&type=bcoming_rongeurs_captures_guinea">rongeurs capturés map</a></li>
+	                        <li id="li_bcoming_chauves_souris_capturees_guinea_map" name="4"><a href="map.html?table=_bcoming_chauves_souris_capturees_guinea&type=bcoming_chauves_souris_capturees_guinea">chauves-souris capturées map</a></li>
+	                        <li id="li_importation_bcoming_guinea_datas" name="4"><a href="import_export.html?table=_bcoming_guinea&type=bcoming_guinea">import/export</a></li>                            
                           </ul>
-	                    </li>-->
+	                    </li>
 	                  </ul>
-	                </li> 
+	                </li>   
 	                
 	                <li id="li_democratic_republic_of_congoDropdown" name="1"> <a id="a_democratic_republic_of_congoDropdown" name="1" href="#ul_democratic_republic_of_congoDropdown" aria-expanded="false" data-toggle="collapse"> <i class="a-democratic_republic_of_congo"></i><label id="label_democratic_republic_of_congo" style="vertical-align: top;font-size:10px;">Democratic Republic of Congo</label></a>
                       <ul id="ul_democratic_republic_of_congoDropdown" name="1" class="collapse list-unstyled">
                         <li id="li_biodivafreidDropdown" name="1" pays="guinee"> <a id="a_biodivafreidDropdown" name="1" href="#ul_biodivafreidDropdown" aria-expanded="false" data-toggle="collapse">Biodiv Afreid</i> </a>
                        	  <ul id="ul_biodivafreidDropdown" name="1" pays="guinee" class="collapse list-unstyled">
-                            <li id="li_biodivafreid_data_list" name="1"><a href="liste_biodivafreid.html?table=_biodivafreid">captures</a></li> 
-                            <li id="li_biodivafreid_locations_data_list" name="1"><a href="liste_biodivafreid_locations.html?table=_biodivafreid_locations">locations</a></li>                           
-	                        <li id="li_biodivafreid_map" name="1"><a href="map.html?table=_biodivafreid_locations&type=biodivafreid_locations">map</a></li>
-	                        <li id="li_importation_biodivafreid_datas" name="1"><a href="import_export.html?table=_biodivafreid&type=biodivafreid">importation/exportation</a></li>                            
+                            <li id="li_biodivafreid_data_list" name="5"><a href="liste_biodivafreid.html?table=_biodivafreid">captures</a></li> 
+                            <li id="li_biodivafreid_locations_data_list" name="5"><a href="liste_biodivafreid_locations.html?table=_biodivafreid_locations">locations</a></li>                           
+	                        <li id="li_biodivafreid_map" name="5"><a href="map.html?table=_biodivafreid_locations&type=biodivafreid_locations">map</a></li>
+	                        <li id="li_importation_biodivafreid_datas" name="5"><a href="import_export.html?table=_biodivafreid&type=biodivafreid">importation/exportation</a></li>                            
                           </ul>
 	                    </li>
 	                  </ul>
-	                </li> 
+	                </li>  
 	                
                     <!-- <li id="li_help"> 
                     	<a href="help.html"><i class='a-help'></i></a>
@@ -241,7 +247,28 @@
           <section>          
             <div class="container-fluid">              
               <div class="row">                
-                <div class="col-lg-12">                  
+                <div class="col-lg-12">     
+                
+                  <div class="card" id="rhinokhov_zoocov_importation" style="display:none;">                  
+                    <div class="card-header">
+                  	  <h4>Importation de rhinokhov_zoocov_lab</h4>
+                	</div>
+                	<div class="card-body">  
+                  	  <div class="row">
+                        <div class="col-lg-12">
+                          <label id="button_open_3" class="btn btn-primary btn-fill btn-file">
+    						Ouvrir le fichier <input type="file">
+						  </label>
+						  <label id="file_name" ></label>
+						</div>
+                      </div>
+                      <div class="row" id="success_label" style="display: none;">
+                        <div class="col-lg-12">
+                          <label id="success" style="color:red;">success</label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>             
                   
                   <div class="card">                  
                     <div class="card-header">
@@ -264,7 +291,7 @@
                     </div>
                   </div>
                   
-                  <div class="card" id="biodivafreid_locations_importation" style="display:none;">                  
+                  <div class="card" id="card4_importation" style="display:none;">                  
                     <div class="card-header">
                   	  <h4 id="card4">Importation pour le deuxième jeu de données</h4>
                 	</div>
@@ -302,6 +329,8 @@
 				     				file = 'RKZCL'
 								} else if (type_table == 'rhinokhov_zoocov_animal') {
 									file = 'RKZCA'
+				     			} else if (type_table == 'rhinokhov_zoocov') {
+									file = 'RKZC'
 				     			} else if (type_table == 'biodivafreid') {
 									file = 'BAC'
 				     			} /*else if ((type_table == 'chauves_souris_capturees') && (localStorage.getItem('export_table') == '_astre_transvihmi_guinee')) {
@@ -347,7 +376,7 @@
                     </div>
                   </div>
                   
-                  <div class="card" id="biodivafreid_locations_template" style="display:none;">                  
+                  <div class="card" id="card5_template" style="display:none;">                  
                     <div class="card-header">
                   	  <h4 id="card5">Téléchargement du template des chauves-souris capturées</h4>
                 	</div>
@@ -416,11 +445,22 @@
 				  		  
 				  		  <script type="text/javascript">
 			               		var line = document.createElement("div");
-			           			line.innerHTML = 
-			                          '<a id="button_generate" href="exportation.html?table=' +
-			                          nom_table + '&type=' + type_table +
-			                          '" class="btn btn btn-primary btn-fill">Generate the file</a></h4>';			               		
-				          		document.getElementById("generate_button_1").appendChild(line);
+			           			
+			               		if (nom_table == '_bcoming_guinea') {
+			               			line.innerHTML = 
+				                          '<a id="button_generate" href="exportation.html?table=_bcoming_rongeurs_captures_guinea' +
+				                          '&type=bcoming_rongeurs_captures_guinea' +
+				                          '" class="btn btn btn-primary btn-fill">Generate the file</a></h4>';			               		
+					          		document.getElementById("generate_button_1").appendChild(line);
+			               		} else {
+			               			line.innerHTML = 
+				                          '<a id="button_generate" href="exportation.html?table=' +
+				                          nom_table + '&type=' + type_table +
+				                          '" class="btn btn btn-primary btn-fill">Generate the file</a></h4>';			               		
+					          		document.getElementById("generate_button_1").appendChild(line);
+			               		}
+			               		
+			               		
 				          </script>
                         
 				   		</div>
@@ -428,7 +468,7 @@
                     </div>
                   </div>
                   
-                  <div class="card" id="biodivafreid_locations_exportation" style="display:none;">                  
+                  <div class="card" id="card6_exportation" style="display:none;">                  
                     <div class="card-header">
                   	  <h4 id="card6">Exporter les chauves-souris capturées</h4>
                   	</div>
@@ -591,8 +631,13 @@
 						loadjs('js/importation-RhinoKhov-ZooCov-Lab.js');
         	    	} else if (type_table == 'rhinokhov_zoocov_animal') {
 						loadjs('js/importation-RhinoKhov-ZooCov-Animal.js');
+        	    	} else if (type_table == 'rhinokhov_zoocov') {
+        	    		localStorage['rhinokhov_zoocov_animal'] = event.target.result;
+						loadjs('js/importation-RhinoKhov-ZooCov.js');
         	    	} else if (type_table == 'biodivafreid') {
 						loadjs('js/importation-BiodivAfreid.js');
+        	    	} else if (type_table == 'bcoming_guinea') {
+						loadjs('js/importation-BCOMING-rongeurs-captures-Guinea.js');
         	    	}
         	    };
 				reader.readAsText(file, 'ISO-8859-1');
@@ -621,6 +666,31 @@
         	    		localStorage['import_table'] = nom_table + '_locations';
             	    	loadjs('js/importation-BiodivAfreid-locations.js');
             	    }
+        	    };
+				reader.readAsText(file, 'ISO-8859-1');
+        	    //reader.readAsText(file, 'WINDOWS-1252');
+        	    
+			});
+        });
+        
+        $(document).ready( function() {
+       		$('#button_open_3 :file').on('fileselect', function(event, numFiles, label) {
+       			
+       			var input = $(this).parents('.input-group').find(':text'),
+        	        log = numFiles > 1 ? numFiles + ' files selected' : label;
+        	        
+        	    var file = event.target.files[0];
+        	    var reader = new FileReader();
+        	    
+        	     reader.onload = function(event) {
+        	   		console.log(event.target.result);
+        	    	localStorage['rhinokhov_zoocov_lab'] = event.target.result;
+        	    	
+        	    	var label =  document.getElementById("file_name");
+        	    	label.innerHTML = log;
+        	    	
+        	    	
+            	    
         	    };
 				reader.readAsText(file, 'ISO-8859-1');
         	    //reader.readAsText(file, 'WINDOWS-1252');
@@ -768,20 +838,43 @@
 			document.getElementById("card1").innerHTML = "Importing data from RhinoKhov-ZooCov animal";
 			document.getElementById("card2").innerHTML = "Downloading the RhinoKhov-ZooCov animal data template";
 			document.getElementById("card3").innerHTML = "Exporting data from RhinoKhov-ZooCov animal";
-		}else if (nom_table == '_biodivafreid') {
+		} else if (nom_table == '_rhinokhov_zoocov') {
+			pays = 'cambodia';	
+			document.getElementById("rhinokhov_zoocov_importation").style.display = "block";
+			document.getElementById("card4").innerHTML = "Importing data locations from Biodiv-Afreid";
+			document.getElementById("database").innerHTML = "RhinoKhov-ZooCov animal database";
+			document.getElementById("card1").innerHTML = "Importing data from RhinoKhov-ZooCov animal";
+			document.getElementById("card2").innerHTML = "Downloading the RhinoKhov-ZooCov data template";
+			document.getElementById("card3").innerHTML = "Exporting data from RhinoKhov-ZooCov";
+		} else if (nom_table == '_bcoming_guinea') {
+			pays = 'guinea';	
+			document.getElementById("database").innerHTML = "BCOMING/CERFIG database";
+			document.getElementById("card1").innerHTML = "Importing rongeurs capturés data from BCOMING/CERFIG";
+			document.getElementById("card2").innerHTML = "Downloading the rongeurs capturés data template (BCOMING/CERFIG)";
+			document.getElementById("card3").innerHTML = "Exporting rongeurs capturés data from BCOMING/CERFIG";
+			
+			document.getElementById("card4_importation").style.display = "block";
+			document.getElementById("card4").innerHTML = "Importing chauves-souris capturées data from BCOMING/CERFIG";
+			
+			document.getElementById("card5_template").style.display = "block";
+			document.getElementById("card5").innerHTML = "Downloading the chauves-souris capturées data template (BCOMING/CERFIG)";
+			
+			document.getElementById("card6_exportation").style.display = "block";
+			document.getElementById("card6").innerHTML = "Exporting chauves-souris capturées data from BCOMING/CERFIG";
+		}  else if (nom_table == '_biodivafreid') {
 			pays = 'democratic_republic_of_congo';	
 			document.getElementById("database").innerHTML = "Biodiv-Afreid database";
 			document.getElementById("card1").innerHTML = "Importing data captures from Biodiv-Afreid";
 			document.getElementById("card2").innerHTML = "Downloading the Biodiv-Afreid captures data template";
 			document.getElementById("card3").innerHTML = "Exporting data from Biodiv-Afreid captures";
 			
-			document.getElementById("biodivafreid_locations_importation").style.display = "block";
+			document.getElementById("card4_importation").style.display = "block";
 			document.getElementById("card4").innerHTML = "Importing data locations from Biodiv-Afreid";
 			
-			document.getElementById("biodivafreid_locations_template").style.display = "block";
+			document.getElementById("card5_template").style.display = "block";
 			document.getElementById("card5").innerHTML = "Downloading the Biodiv-Afreid locations data template";
 			
-			document.getElementById("biodivafreid_locations_exportation").style.display = "block";
+			document.getElementById("card6_exportation").style.display = "block";
 			document.getElementById("card6").innerHTML = "Exporting data from Biodiv-Afreid locations";
 			
 		} 
@@ -804,7 +897,22 @@
 				component_a.setAttribute('aria-expanded', 'true');
 				var component_ul =  document.getElementById('ul_rhinokhov_zoocovDropdown');
 				component_ul.classList.add('show');
-			}
+			} else if ((nom_table == '_bcoming_rongeurs_captures_guinea') || (nom_table == '_bcoming_chauves_souris_capturees_guinea')
+					   ||(nom_table == '_bcoming_guinea')) {
+				var component_li = document.getElementById('li_bcoming_guineaDropdown');
+				component_li.classList.add('active');
+				var component_a = document.getElementById('a_bcoming_guineaDropdown');
+				component_a.setAttribute('aria-expanded', 'true');
+				var component_ul =  document.getElementById('ul_bcoming_guineaDropdown');
+				component_ul.classList.add('show');
+				/*if (nom_table == '_bcoming_rongeurs_captures_guinea') {
+					var component_li = document.getElementById('li_bcoming_rongeurs_captures_guinea_map');
+					component_li.classList.add('active');
+				} else if (nom_table == '_bcoming_chauves_souris_capturees_guinea') {
+					var component_li = document.getElementById('li_bcoming_chauves_souris_capturees_guinea_map');
+					component_li.classList.add('active');
+				} */
+  			}
 			
 			
 			var component_li = document.getElementById('li' + nom_table + 'Dropdown');
@@ -820,6 +928,8 @@
 			
 			
 		};
+		
+		enable_li();
 		
 	</script> 
     

@@ -3,6 +3,8 @@ var width = 0;
 
 var remote_couchdb = localStorage.getItem('remote_couchdb');
 var code_equipe = localStorage.getItem('code_equipe');
+var projects = localStorage.getItem('projects');
+var codeProjectsArray = projects.split(',');
 var nom_pays = localStorage.getItem('nom_pays');
 
 
@@ -22,6 +24,11 @@ show_progress_bar();
 var progressbar_count = 0;
 
 var tables_principales = [];
+
+function arrayIncludes(arr, value) {
+    return arr.indexOf(value) !== -1;
+}
+
 if  (debug !== '') {
 	tables_principales = ['bcoming_camacross_debug', 'bcoming_rhinokhov_zoocov_lab_debug', 'bcoming_rhinokhov_zoocov_animal_debug', 
 		                  'bcoming_biodivafreid_debug', 'bcoming_biodivafreid_locations_debug', 'bcoming_bcoming_rongeurs_captures_guinea_debug',
@@ -31,10 +38,36 @@ if  (debug !== '') {
 	
 
 } else {
-	tables_principales = ['bcoming_bcoming_rongeurs_captures_guinea',
+	/*tables_principales = ['bcoming_bcoming_rongeurs_captures_guinea',
         'bcoming_bcoming_chauves_souris_capturees_guinea', 'bcoming_camacross', 'bcoming_rhinokhov_zoocov_lab', 'bcoming_rhinokhov_zoocov_animal', 
         'bcoming_biodivafreid', 'bcoming_biodivafreid_locations' 
-        ];
+        ];*/
+	
+	for (var i = 1; i < 6; i++) {
+		  
+		if (i === 2) {
+		    if (arrayIncludes(codeProjectsArray, String(i))) {
+		      tables_principales.push('bcoming_camacross');
+		    }
+		}
+		if (i === 3) {
+		    if (arrayIncludes(codeProjectsArray, String(i))) {
+		      tables_principales.push('bcoming_rhinokhov_zoocov');
+		    }
+		}
+		if (i === 4) {
+		    if (arrayIncludes(codeProjectsArray, String(i))) {
+		      tables_principales.push('bcoming_bcoming_rongeurs_captures_guinea');
+		      tables_principales.push('bcoming_bcoming_chauves_souris_capturees_guinea');
+		    }
+		}
+		if (i === 5) {
+		    if (arrayIncludes(codeProjectsArray, String(i))) {
+		      tables_principales.push('bcoming_biodivafreid');
+		      tables_principales.push('bcoming_biodivafreid_locations');
+		    }
+		}
+	}
 
 
 
@@ -265,11 +298,14 @@ function loadCount_total() {
 	localStorage['non_multiple_de_20_count'] = non_multiple_de_20_count;
 	
 	var tables_references_count = tables_references.length;
+	
 	//if (debug !== '') {
 		//load_tables_references_debug(tables_references_count);
 	//} else {
 		load_tables_references(tables_references_count);
 	//}
+		
+		
 	
 };
 
@@ -327,7 +363,8 @@ function load_tables_principales(i) {
 		localStorage['doc_' + tables_principales[i-1] + '_progress_count'] = 0;
 		var localDB = new PouchDB(tables_principales[i-1] + debug);
 		var remoteDB = new PouchDB(remote_couchdb + tables_principales[i-1] + debug, {skip_setup: true});
-		localDB.sync(remoteDB, {batch_size: 20}).on('complete', (info) => {
+		console.log('---' + tables_principales[i-1] + '---');
+		localDB.sync(remoteDB, {batch_size: 1000}).on('complete', (info) => {
 			count_total = localStorage.getItem('doc_' + tables_principales[i-1] + '_progress_count') / 20;
 			//for (var j=0; j<count_total; j++) {
 				move();

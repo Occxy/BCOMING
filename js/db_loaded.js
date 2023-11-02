@@ -75,13 +75,38 @@ var bcoming_biodivafreid_locations = 'bcoming_biodivafreid_locations' + debug + 
 var bcoming_bcoming_rongeurs_captures_guinea = 'bcoming_bcoming_rongeurs_captures_guinea' + debug + '_count';
 var bcoming_bcoming_chauves_souris_capturees_guinea = 'bcoming_bcoming_chauves_souris_capturees_guinea' + debug + '_count';
 
-document.getElementById("label_bcoming_camacross_count").innerHTML = localStorage.getItem(bcoming_camacross);
+/*document.getElementById("label_bcoming_camacross_count").innerHTML = localStorage.getItem(bcoming_camacross);
 document.getElementById("label_bcoming_rhinokhov_zoocov_lab_count").innerHTML = localStorage.getItem(bcoming_rhinokhov_zoocov_lab);
 document.getElementById("label_bcoming_rhinokhov_zoocov_animal_count").innerHTML = localStorage.getItem(bcoming_rhinokhov_zoocov_animal);
 document.getElementById("label_bcoming_biodivafreid_count").innerHTML = localStorage.getItem(bcoming_biodivafreid);
 document.getElementById("label_bcoming_biodivafreid_locations_count").innerHTML = localStorage.getItem(bcoming_biodivafreid_locations);
 document.getElementById("label_bcoming_bcoming_rongeurs_captures_guinea_count").innerHTML = localStorage.getItem(bcoming_bcoming_rongeurs_captures_guinea);
-document.getElementById("label_bcoming_bcoming_chauves_souris_capturees_guinea_count").innerHTML = localStorage.getItem(bcoming_bcoming_chauves_souris_capturees_guinea);
+document.getElementById("label_bcoming_bcoming_chauves_souris_capturees_guinea_count").innerHTML = localStorage.getItem(bcoming_bcoming_chauves_souris_capturees_guinea);*/
+
+//Define an array of IDs
+var elementIds = [
+  "label_bcoming_camacross_count",
+  /*"label_bcoming_rhinokhov_zoocov_lab_count",
+  "label_bcoming_rhinokhov_zoocov_animal_count",*/
+  "label_bcoming_rhinokhov_zoocov_count",
+  "label_bcoming_biodivafreid_count",
+  "label_bcoming_biodivafreid_locations_count",
+  "label_bcoming_bcoming_rongeurs_captures_guinea_count",
+  "label_bcoming_bcoming_chauves_souris_capturees_guinea_count"
+];
+
+// Loop through the array of IDs and set their content based on localStorage values
+elementIds.forEach(function (elementId) {
+  var localStorageValue = localStorage.getItem(elementId.replace("_count", ""));
+  localStorageValue = localStorage.getItem(elementId.replace("label_", ""));
+  var element = document.getElementById(elementId);
+
+  if (localStorageValue === null || localStorageValue === "") {
+    element.innerHTML = "Not accessible";
+  } else {
+    element.innerHTML = localStorageValue;
+  }
+});
 
 if (String(fonction) == 'admin') {
 	
@@ -91,7 +116,7 @@ if (String(fonction) == 'admin') {
 		document.getElementById("card_tables_espece_chauves_souris").style.display="block";
 	}*/
 	
-	var tables_references = document.getElementById("tables_references");
+	/*var tables_references = document.getElementById("tables_references");
 	var tables_phenologie = document.getElementById("tables_phenologie");
 	var tables_espece_chauves_souris = document.getElementById("tables_espece_chauves_souris");
 	
@@ -427,7 +452,7 @@ if (String(fonction) == 'admin') {
 		tables_espece_chauves_souris.options[tables_espece_chauves_souris.options.length] = new Option(fields3[i][0], fields3[i][1]);
 	}
 	
-	loadjs('js/charts.js');
+	loadjs('js/charts.js');*/
 }
 
 enable_li();

@@ -132,10 +132,19 @@ function disable_li() {
 
 function enable_li() {
 	
-	var code_equipe = localStorage.getItem('code_equipe');
+	
+	
+	var projects = localStorage.getItem('projects');
+
+	
+	// Split the comma-separated values into an array
+    var codeProjectsArray = projects.split(',');
+    
 	var nom_pays = localStorage.getItem('nom_pays');
+	var code_equipe = localStorage.getItem('code_equipe');
 	
 	$('li').each(function() {
+		
 		var id = this.id;
 		var name = this.getAttribute('name');
 		var attribut_pays = this.getAttribute('pays');
@@ -144,9 +153,12 @@ function enable_li() {
 			click_li(id);
 		} else if ((id !== '') && (localStorage.getItem('debug') !== null)) {
 			click_li(id);
-		} else if ((id !== '') && (name === code_equipe)) {
+		} else if ((id !== '') && arrayIncludes(codeProjectsArray, name)) {
 			click_li(id);
 			
+			
+		} else if ((id.substr(0,18) !== 'example_previous') && (id.substr(0,18) !== 'example_ellipsis') && (id.substr(0,18) !== 'example_next')) {
+			addRedNotAccessibleTextToLi(id)
 		}
 		
 		if ((nom_pays !== 'tous') && (attribut_pays != null)) {
@@ -157,9 +169,9 @@ function enable_li() {
 		
 		console.log(id.substr(0,18))
 		
-		if (((nom_pays == 'guinee') || (nom_pays == 'tous')) && (code_equipe == '1') && (id.indexOf('astre_transvihmi') > -1)) {
+		/*if (((nom_pays == 'guinee') || (nom_pays == 'tous')) && (code_equipe == '1') && (id.indexOf('astre_transvihmi') > -1)) {
 			click_li(id);
-		}
+		}*/
 		
 		
 		
@@ -188,10 +200,21 @@ function enable_li() {
 		component_li.classList.add("noclick");
 	}
 	
-	/*if (code_equipe == '20') {
-		var component_li =  document.getElementById('li_sauvegarde');
-		component_li.style.display='block';
-	}*/
+	function addRedNotAccessibleTextToLi(liId) {
+		  var liElement = document.getElementById(liId);
+
+		  if (liElement) {
+		    var redSpan = document.createElement("span");
+		    redSpan.style.color = "red";
+		    redSpan.textContent = "Not accessible";
+
+		    liElement.appendChild(document.createTextNode("\u00A0")); // Add a non-breaking space
+		    liElement.appendChild(redSpan);
+		  }
+		}
+	function arrayIncludes(arr, value) {
+        return arr.indexOf(value) !== -1;
+    }
 };
 
 function show_infos() {
