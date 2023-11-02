@@ -95,12 +95,12 @@
     
     <script src="js/uuid.js"></script>
     
-    <script src="js/load-page-biodivafreid-locations.js"></script> 
+    <script src="js/load-page-rhinokhov-zoocov.js"></script> 
     
     <script src="js/addReference.js"></script> 
     
   </head>
-  <body onload="chargement_biodivafreid_locations()">
+  <body onload="chargement_rhinokhov_zoocov()">
   
     <script>
 		logged_only();
@@ -224,16 +224,17 @@
 	                
 	                <li id="li_guineaDropdown" name="1"> <a id="a_guineaDropdown" name="1" href="#ul_guineaDropdown" aria-expanded="false" data-toggle="collapse"> <i class="a-guinea"></i><label id="label_guinea" style="vertical-align: top;">Guinea</label></a>
                       <ul id="ul_guineaDropdown" name="1" class="collapse list-unstyled">
-                        <li id="li_bcoming_guineaDropdown" name="1" pays="guinee"> <a id="a_bcoming_guineaDropdown" name="1" href="#ul_bcoming_guineaDropdown" aria-expanded="false" data-toggle="collapse">BCOMING</i> </a>
+                        <li id="li_bcoming_guineaDropdown" name="1" pays="guinee"> <a id="a_bcoming_guineaDropdown" name="1" href="#ul_bcoming_guineaDropdown" aria-expanded="false" data-toggle="collapse">BCOMING/CERFIG</i> </a>
                        	  <ul id="ul_bcoming_guineaDropdown" name="1" pays="guinee" class="collapse list-unstyled">
                             <li id="li_bcoming_rongeurs_captures_guinea_data_list" name="4"><a href="liste_bcoming_rongeurs_captures_guinea.html?table=_bcoming_rongeurs_captures_guinea">data rongeurs capturés</a></li>                            
 	                        <li id="li_bcoming_chauves_souris_capturees_guinea_data_list" name="4"><a href="liste_bcoming_chauves_souris_capturees_guinea.html?table=_bcoming_chauves_souris_capturees_guinea">data chauves-souris capturées</a></li>                            
-	                        <li id="li_bcoming_guinea_map" name="4"><a href="map.html?table=_bcoming_rongeurs_captures_guinea&type=bcoming_rongeurs_captures_guinea">map</a></li>
+	                        <li id="li_bcoming_rongeurs_captures_guinea_map" name="4"><a href="map.html?table=_bcoming_rongeurs_captures_guinea&type=bcoming_rongeurs_captures_guinea">rongeurs capturés map</a></li>
+	                        <li id="li_bcoming_chauves_souris_capturees_guinea_map" name="4"><a href="map.html?table=_bcoming_chauves_souris_capturees_guinea&type=bcoming_chauves_souris_capturees_guinea">chauves-souris capturées map</a></li>
 	                        <li id="li_importation_bcoming_guinea_datas" name="4"><a href="import_export.html?table=_bcoming_guinea&type=bcoming_guinea">import/export</a></li>                            
                           </ul>
 	                    </li>
 	                  </ul>
-	                </li>  
+	                </li>   
 	                
 	                <li id="li_democratic_republic_of_congoDropdown" name="1"> <a id="a_democratic_republic_of_congoDropdown" name="1" href="#ul_democratic_republic_of_congoDropdown" aria-expanded="false" data-toggle="collapse"> <i class="a-democratic_republic_of_congo"></i><label id="label_democratic_republic_of_congo" style="vertical-align: top;font-size:10px;">Democratic Republic of Congo</label></a>
                       <ul id="ul_democratic_republic_of_congoDropdown" name="1" class="collapse list-unstyled">
@@ -254,14 +255,14 @@
                     
                     <li id="li_sauvegarde" style="display:none"> 
                     	<a href="sauvegarde.html">Sauvegarde mensuelle</a>
-                    </li> -->       
+                    </li> -->     
           </ul>
         </nav>
         <div class="content-inner">
           <!-- Page Header-->
           <header class="page-header">
             <div class="container-fluid">
-              <h2 class="no-margin-bottom">Biodiv-Afreid locations database</h2>
+              <h2 class="no-margin-bottom">CamAcross database</h2>
             </div>
           </header>
           
@@ -277,10 +278,10 @@
 			            option = searchParams.get('option');
 		                nom_table = searchParams.get('table');
 	                    if ((option == 0) || (option == 1)) {
-	                    	line.innerHTML = '<h4>New Biodiv-Afreid location entry</h4>';
+	                    	line.innerHTML = '<h4>New RhinoKhov ZooCov entry</h4>';
 			            } else if (option == 2) {
-			              	var ID = 'ID_biodivafreid_locations' + nom_table;
-		                  	line.innerHTML = '<h4>Edit this Biodiv-Afreid location entry : ID = '+ localStorage.getItem(ID) + '</h4>';
+			              	var ID = 'ID_rhinokhov_zoocov' + nom_table;
+		                  	line.innerHTML = '<h4>Edit this RhinoKhov ZooCov entry : ID = '+ localStorage.getItem(ID) + '</h4>';
 	                    }
 	                   	document.getElementById("header").appendChild(line);
 				      </script>
@@ -292,195 +293,432 @@
 				          <div class="card-header card-header-transparent d-flex align-items-center">
                             <h3 class="h4">Data</h3>
                           </div>
+                          				
                           <div class="card-body">
+                            <div class="row">
+		      				  <div class="col-lg-4">
+	            				<div class="form-group">
+	                              <label for="Sampling_Date">Sampling Date</label>                                
+	                              <div class="input-group">
+	    							<input type="text" class="form-control input-datepicker" id="Sampling_Date" placeholder="Sampling Date" required>
+	    							<div class="input-group-addon open-datepicker btn btn-primary" id="spanSampling_Date">
+	                                  <span class="fa fa-calendar"></span>
+	    							</div>
+	    							<div class="invalid-feedback">
+		                              S'il vous plaît fournir une date valide !
+		                            </div>
+	                              </div>
+	    					    </div> 
+	    					  </div>
+	    					  
+	    					  <div class="col-lg-8">
+			                    <div class="form-group">
+				                  <label for="Animal_ID">Animal ID</label>
+				                  <input type="text" class="form-control" id="Animal_ID" placeholder="Animal ID" required>
+				                  <div class="invalid-feedback">
+				        	  	    S'il vous plaît fournir un Numéro de site valide !
+				      		  	  </div>
+				      		  	</div>
+				      		  </div>   
+		                    </div>	
+                          
                           
                           	<div class="row">
-		      			      <div class="col-lg-4">
-		      			        <div class="form-group">				      			        
-		                          <label for="location_code">Location code</label>
-		                          <input type="text" class="form-control" id="location_code" placeholder="Location code">
-		                        </div>
-		      				  </div> 
-		      			      <div class="col-lg-4">
+		      			      <div class="col-lg-6">
 		      			        <div class="form-group">
-		                          <label for="sess_check">Sess check</label>
-		                          <input type="text" class="form-control" id="sess_check" placeholder="Sess check">
+		                          <label for="No">No</label>
+		                          <input type="text" class="form-control" id="No" placeholder="No">
 		                        </div>
 		      			      </div>
-		      			      <div class="col-lg-4">
+		      			      <div class="col-lg-6">
 		      			        <div class="form-group">
-		                          <label for="location_name">Location name</label>
-		                          <input type="text" class="form-control" id="location_name" placeholder="Location name">
+		                          <label for="Project">Project</label>
+		                          <input type="text" class="form-control" id="Project" placeholder="Project">
+		                        </div>
+		      				  </div> 
+		      			    </div>
+		      			    
+		      				
+		      			    	      					
+	    					  			      			    
+		      			    <div class="row">
+		      			      <div class="col-lg-6">
+		      			        <div class="form-group">
+		                          <label for="Sample_Type">Sample Type</label>
+		                          <input type="text" class="form-control" id="Sample_Type" placeholder="Sample Type">
+		                        </div>
+		      				  </div> 
+		      			      <div class="col-lg-6">
+		      			        <div class="form-group">
+		                          <label for="Taxa">Taxa</label>
+		                          <input type="text" class="form-control" id="Taxa" placeholder="Taxa">
+		                        </div>
+		      			      </div>
+		      			    </div>   
+		      				
+		      					
+		      				
+		      			    
+		      			    <div class="row">
+	                    	  <div class="col-lg-6">
+		      			        <div class="form-group">
+		                          <label for="rtPCR_SARS_COV_2_E_gene">rtPCR SARS-COV-2 E gene</label>
+		                          <select id="rtPCR_SARS_COV_2_E_gene" class="form-control">
+		                            <option></option>
+		                            <option>Positive</option>
+		                            <option>Negative</option>
+		                          </select>
 		                        </div>
 		      				  </div>
+		      				  <div class="col-lg-6">
+		      			        <div class="form-group">
+		                          <label for="PCR_Quan_result">PCR_Quan_result</label>
+		                          <select id="PCR_Quan_result" class="form-control">
+		                            <option></option>
+		                            <option>Positive</option>
+		                            <option>Negative</option>
+		                          </select>
+		                        </div>
+		      				  </div>		
+		      				</div> 
+		      				
+		      				<div class="row">  
+		      				  <div class="col-lg-6">      			        
+							    <div class="form-group">
+								  <label for="PCR_Watanabe_result">PCR Watanabe result</label>
+								  <select id="PCR_Watanabe_result" class="form-control">
+		                            <option></option>
+		                            <option>Positive</option>
+		                            <option>Negative</option>
+		                          </select>
+								</div>	
+							  </div>
+	                        </div>
+	                        
+	                        
+		      			    
+		      			    		      			  			
+		      			  </div>
+		      			  
+                          <div class="card-body">
+                          	
+		      			    
+		      				 
+		      			    	      					
+	    					  									
+	    					  			      			    
+		      			    <div class="row">
+		      			      <div class="col-lg-6">
+		      			        <div class="form-group">
+		                          <label for="Genus_Species">Genus Species</label>
+		                          <input type="text" class="form-control" id="Genus_Species" placeholder="Genus Species">
+		                        </div>
+		      				  </div> 
+		      			      <div class="col-lg-6">
+		      			        <div class="form-group">
+		                          <label for="Province">Province</label>
+		                          <input type="text" class="form-control" id="Province" placeholder="Province">
+		                        </div>
+		      			      </div>
 		      			    </div>	 
-		      			    
+		      			         						
+	    					  
 		      			    <div class="row">
-		      			      <div class="col-lg-3">
-		      			        <div class="form-group">				      			        
-		                          <label for="country">Country</label>
-		                          <input type="text" class="form-control" id="country" placeholder="Country">
-		                        </div>
-		      				  </div> 
-		      			      <div class="col-lg-3">
-		      			        <div class="form-group">
-		                          <label for="province">Province</label>
-		                          <input type="text" class="form-control" id="province" placeholder="Province">
-		                        </div>
-		      			      </div>
-		      			      <div class="col-lg-3">
-		      			        <div class="form-group">
-		                          <label for="locality">Locality</label>
-		                          <input type="text" class="form-control" id="locality" placeholder="Locality">
-		                        </div>
-		      				  </div>
-		      				  <div class="col-lg-3">
-		      			        <div class="form-group">
-		                          <label for="site_details">Site details</label>
-		                          <input type="text" class="form-control" id="site_details" placeholder="Site details">
-		                        </div>
-		      				  </div>		  
-		      				</div>
-		      				
-		      				<div class="row">
-		      			      <div class="col-lg-3">
-		      			        <div class="form-group">				      			        
-		                          <label for="latitude">Latitude</label>
-		                          <input type="text" class="form-control" id="latitude" placeholder="Latitude">
-		                        </div>
-		      				  </div> 
-		      			      <div class="col-lg-3">
-		      			        <div class="form-group">
-		                          <label for="lat_ns">Lat ns</label>
-		                          <input type="text" class="form-control" id="lat_ns" placeholder="Lat ns">
-		                        </div>
-		      			      </div>
-		      			      <div class="col-lg-3">
-		      			        <div class="form-group">
-		                          <label for="longitude">Longitude</label>
-		                          <input type="text" class="form-control" id="longitude" placeholder="Longitude">
-		                        </div>
-		      				  </div>
-		      				  <div class="col-lg-3">
-		      			        <div class="form-group">
-		                          <label for="long_ew">Long ew</label>
-		                          <input type="text" class="form-control" id="long_ew" placeholder="Long ew">
-		                        </div>
-		      				  </div>		  
-		      				</div>
-		      				
-		      				<div class="row">
-		      			      <div class="col-lg-3">
-		      			        <div class="form-group">				      			        
-		                          <label for="coord_source">Coord source</label>
-		                          <input type="text" class="form-control" id="coord_source" placeholder="Coord source">
-		                        </div>
-		      				  </div> 
-		      			      <div class="col-lg-3">
-		      			        <div class="form-group">
-		                          <label for="gps_projection">Gps projection</label>
-		                          <input type="text" class="form-control" id="gps_projection" placeholder="Gps projection">
-		                        </div>
-		      			      </div>
-		      			      <div class="col-lg-3">
-		      			        <div class="form-group">
-		                          <label for="gps_datum">Gps datum</label>
-		                          <input type="text" class="form-control" id="gps_datum" placeholder="Gps datum">
-		                        </div>
-		      				  </div>
-		      				  <div class="col-lg-3">
-		      			        <div class="form-group">
-		                          <label for="coord_precision">Coord precision</label>
-		                          <input type="text" class="form-control" id="coord_precision" placeholder="Coord precision">
-		                        </div>
-		      				  </div>		  
-		      				</div>
-		      				
-		      				<div class="row">
-		      			      <div class="col-lg-4">
-		      			        <div class="form-group">				      			        
-		                          <label for="altitude">Altitude</label>
-		                          <input type="text" class="form-control" id="altitude" placeholder="Altitude">
-		                        </div>
-		      				  </div> 
-		      			      <div class="col-lg-4">
-		      			        <div class="form-group">
-		                          <label for="alt_source">Alt source</label>
-		                          <input type="text" class="form-control" id="alt_source" placeholder="Alt source">
-		                        </div>
-		      			      </div>
-		      			      <div class="col-lg-4">
-		      			        <div class="form-group">
-		                          <label for="Mapgrid">Mapgrid</label>
-		                          <input type="text" class="form-control" id="Mapgrid" placeholder="Mapgrid">
-		                        </div>
-		      				  </div>		  
-		      				</div>
-		      				
-		      				<div class="row">
-		      			      <div class="col-lg-12">
-		      			        <div class="form-group">				      			        
-		                          <label for="habitat_Type">Habitat Type</label>
-		                          <input type="text" class="form-control" id="habitat_Type" placeholder="Habitat Type">
-		                        </div>
-		      				  </div> 
-		      			    </div>
-		      			    
-		      			    <div class="row">
-		      			      <div class="col-lg-4">
-		      			        <div class="form-group">				      			        
-		                          <label for="rodent_proofing">Rodent proofing</label>
-		                          <input type="text" class="form-control" id="rodent_proofing" placeholder="Rodent proofing">
-		                        </div>
-		      				  </div> 
-		      			      <div class="col-lg-4">
-		      			        <div class="form-group">
-		                          <label for="inside_cover">Inside cover</label>
-		                          <input type="text" class="form-control" id="inside_cover" placeholder="Inside cover">
-		                        </div>
-		      			      </div>
-		      			      <div class="col-lg-4">
-		      			        <div class="form-group">
-		                          <label for="outside_cover">Outside cover</label>
-		                          <input type="text" class="form-control" id="outside_cover" placeholder="Outside cover">
-		                        </div>
-		      				  </div>		  
-		      				</div>
-		      				
-		      				<div class="row">
 		      			      <div class="col-lg-6">
 		      			        <div class="form-group">
-		                          <label for="open_water">Open water</label>
-		                          <input type="text" class="form-control" id="open_water" placeholder="Open water">
+		                          <label for="District">District</label>
+		                          <input type="text" class="form-control" id="District" placeholder="District">
 		                        </div>
-		      			      </div>
+		      				  </div>
 		      			      <div class="col-lg-6">
 		      			        <div class="form-group">
-		                          <label for="recent_rodent_control">Recent rodent control</label>
-		                          <input type="text" class="form-control" id="recent_rodent_control" placeholder="Recent rodent control">
+		                          <label for="Site">Site</label>
+		                          <input type="text" class="form-control" id="Site" placeholder="Site">
 		                        </div>
-		      				  </div>		  
-		      				</div>
+		      				  </div>		      				  
+		      				</div>    
 		      				
-		      				<div class="row">
-		      			      <div class="col-lg-12">
-		      			        <div class="form-group">				      			        
-		                          <label for="pictures">Pictures</label>
-		                          <input type="text" class="form-control" id="pictures" placeholder="Pictures">
-		                        </div>
-		      				  </div> 
-		      			    </div>
+		      					
+		      				
 		      			    
 		      			    <div class="row">
-		      			      <div class="col-lg-12">
-		      			        <div class="form-group">				      			        
-		                          <label for="habitat_remarks">Habitat remarks</label>
-		                          <input type="text" class="form-control" id="habitat_remarks" placeholder="Habitat remarks">
+	                    	  <div class="col-lg-6">
+		      			        <div class="form-group">
+		                          <label for="Specific_location">Specific location</label>
+		                          <input type="text" class="form-control" id="Specific_location" placeholder="Specific location">
 		                        </div>
-		      				  </div> 
-		      			    </div>
+		      				  </div>
+		      				  <div class="col-lg-6">
+		      			        <div class="form-group">
+		                          <label for="Sex">Sex</label>
+		                          <input type="text" class="form-control" id="Sex" placeholder="Sex">
+		                        </div>
+		      				  </div>		
+		      				</div> 
+		      				
+		      				<div class="row">  
+		      				  <div class="col-lg-6">      			        
+							    <div class="form-group">
+								  <label for="Age_Status">Age-Status</label>
+								  <input type="text" class="form-control" id="Age_Status" placeholder="Age-Status">
+								</div>	
+							  </div>
+							  <div class="col-lg-6">      			        
+							    <div class="form-group">
+								  <label for="Health_Status">Health_Status</label>
+								  <input type="text" class="form-control" id="Health_Status" placeholder="Health_Status">
+								</div>	
+							  </div>
+	                        </div>
+	                        
+	                        														
+	                        <div class="row">  
+		      				  <div class="col-lg-6">      			        
+							    <div class="form-group">
+								  <label for="Condition">Condition</label>
+								  <input type="text" class="form-control" id="Condition" placeholder="Condition">
+								</div>	
+							  </div>
+							  <div class="col-lg-6">      			        
+							    <div class="form-group">
+								  <label for="FEV">FEV</label>
+								  <input type="text" class="form-control" id="FEV" placeholder="FEV">
+								</div>	
+							  </div>
+	                        </div>
+	                        
+	                        <div class="row">  
+		      				  <div class="col-lg-6">      			        
+							    <div class="form-group">
+								  <label for="OSV">OSV</label>
+								  <input type="text" class="form-control" id="OSV" placeholder="OSV">
+								</div>	
+							  </div>
+							  <div class="col-lg-6">      			        
+							    <div class="form-group">
+								  <label for="OST">OST</label>
+								  <input type="text" class="form-control" id="OST" placeholder="OST">
+								</div>	
+							  </div>
+	                        </div>
+	                        
+	                        <div class="row">  
+		      				  <div class="col-lg-6">      			        
+							    <div class="form-group">
+								  <label for="RSV">RSV</label>
+								  <input type="text" class="form-control" id="RSV" placeholder="RSV">
+								</div>	
+							  </div>
+							  <div class="col-lg-6">      			        
+							    <div class="form-group">
+								  <label for="RST">RST</label>
+								  <input type="text" class="form-control" id="RST" placeholder="RST">
+								</div>	
+							  </div>
+	                        </div>
+	                        
+	                        <div class="row">  
+		      				  <div class="col-lg-6">      			        
+							    <div class="form-group">
+								  <label for="DBS">DBS</label>
+								  <input type="text" class="form-control" id="DBS" placeholder="DBS">
+								</div>	
+							  </div>
+							  <div class="col-lg-6">      			        
+							    <div class="form-group">
+								  <label for="URV">URV</label>
+								  <input type="text" class="form-control" id="URV" placeholder="URV">
+								</div>	
+							  </div>
+	                        </div>
+	                        
+	                        <div class="row">  
+		      				  <div class="col-lg-6">      			        
+							    <div class="form-group">
+								  <label for="URT">URT</label>
+								  <input type="text" class="form-control" id="URT" placeholder="URT">
+								</div>	
+							  </div>
+							  <div class="col-lg-6">      			        
+							    <div class="form-group">
+								  <label for="WBV">WBV</label>
+								  <input type="text" class="form-control" id="WBV" placeholder="WBV">
+								</div>	
+							  </div>
+	                        </div>
+	                        
+	                        <div class="row">  
+		      				  <div class="col-lg-6">      			        
+							    <div class="form-group">
+								  <label for="BSN">BSN</label>
+								  <input type="text" class="form-control" id="BSN" placeholder="BSN">
+								</div>	
+							  </div>
+							  <div class="col-lg-6">      			        
+							    <div class="form-group">
+								  <label for="BCN">BCN</label>
+								  <input type="text" class="form-control" id="BCN" placeholder="BCN">
+								</div>	
+							  </div>
+	                        </div>
+	                        
+	                        <div class="row">  
+		      				  <div class="col-lg-6">      			        
+							    <div class="form-group">
+								  <label for="FA_mm">FA_mm</label>
+								  <input type="text" class="form-control" id="FA_mm" placeholder="FA_mm">
+								</div>	
+							  </div>
+							  <div class="col-lg-6">      			        
+							    <div class="form-group">
+								  <label for="Weigth_g">Weigth_g</label>
+								  <input type="text" class="form-control" id="Weigth_g" placeholder="Weigth_g">
+								</div>	
+							  </div>
+	                        </div>                  
+	                        	 						
+		      			    <div class="row">  
+		      				  <div class="col-lg-6">      			        
+							    <div class="form-group">
+								  <label for="Photo">Photo</label>
+								  <input type="text" class="form-control" id="Photo" placeholder="Photo">
+								</div>	
+							  </div>
+							  <div class="col-lg-6">      			        
+							    <div class="form-group">
+								  <label for="Recorder_type">Recorder_type</label>
+								  <input type="text" class="form-control" id="Recorder_type" placeholder="Recorder_type">
+								</div>	
+							  </div>
+	                        </div>
+	                        
+	                        <div class="row">  
+		      				  <div class="col-lg-6">      			        
+							    <div class="form-group">
+								  <label for="File_name">File_name</label>
+								  <input type="text" class="form-control" id="File_name" placeholder="File_name">
+								</div>	
+							  </div>
+							  <div class="col-lg-6">      			        
+							    <div class="form-group">
+								  <label for="Kiv">Kiv</label>
+								  <input type="text" class="form-control" id="Kiv" placeholder="Kiv">
+								</div>	
+							  </div>
+	                        </div>
+	                        
+	                        <div class="row">  
+		      				  <div class="col-lg-6">      			        
+							    <div class="form-group">
+								  <label for="KiT">KiT</label>
+								  <input type="text" class="form-control" id="KiT" placeholder="KiT">
+								</div>	
+							  </div>
+							  <div class="col-lg-6">      			        
+							    <div class="form-group">
+								  <label for="SpV">SpV</label>
+								  <input type="text" class="form-control" id="SpV" placeholder="SpV">
+								</div>	
+							  </div>
+	                        </div>
+	                        
+	                        <div class="row">  
+		      				  <div class="col-lg-6">      			        
+							    <div class="form-group">
+								  <label for="SpT">SpT</label>
+								  <input type="text" class="form-control" id="SpT" placeholder="SpT">
+								</div>	
+							  </div>
+							  <div class="col-lg-6">      			        
+							    <div class="form-group">
+								  <label for="LiV">LiV</label>
+								  <input type="text" class="form-control" id="LiV" placeholder="LiV">
+								</div>	
+							  </div>
+	                        </div>
+	                        
+	                        <div class="row">  
+		      				  <div class="col-lg-6">      			        
+							    <div class="form-group">
+								  <label for="LiT">LiT</label>
+								  <input type="text" class="form-control" id="LiT" placeholder="LiT">
+								</div>	
+							  </div>
+							  <div class="col-lg-6">      			        
+							    <div class="form-group">
+								  <label for="LuV">LuV</label>
+								  <input type="text" class="form-control" id="LuV" placeholder="LuV">
+								</div>	
+							  </div>
+	                        </div>
+	                        	 						
+	                        <div class="row">  
+		      				  <div class="col-lg-6">      			        
+							    <div class="form-group">
+								  <label for="LuT">LuT</label>
+								  <input type="text" class="form-control" id="LuT" placeholder="LuT">
+								</div>	
+							  </div>
+							  <div class="col-lg-6">      			        
+							    <div class="form-group">
+								  <label for="HeV">HeV</label>
+								  <input type="text" class="form-control" id="HeV" placeholder="HeV">
+								</div>	
+							  </div>
+	                        </div>
+	                        
+	                        <div class="row">  
+		      				  <div class="col-lg-6">      			        
+							    <div class="form-group">
+								  <label for="HeT">HeT</label>
+								  <input type="text" class="form-control" id="HeT" placeholder="HeT">
+								</div>	
+							  </div>
+							  <div class="col-lg-6">      			        
+							    <div class="form-group">
+								  <label for="BrV">BrV</label>
+								  <input type="text" class="form-control" id="BrV" placeholder="BrV">
+								</div>	
+							  </div>
+	                        </div>
+	                        
+	                        <div class="row">  
+		      				  <div class="col-lg-6">      			        
+							    <div class="form-group">
+								  <label for="BrT">BrT</label>
+								  <input type="text" class="form-control" id="BrT" placeholder="BrT">
+								</div>	
+							  </div>
+							  <div class="col-lg-6">      			        
+							    <div class="form-group">
+								  <label for="UrV">UrV</label>
+								  <input type="text" class="form-control" id="UrV" placeholder="UrV">
+								</div>	
+							  </div>
+	                        </div>
+	                        
+	                        <div class="row">  
+		      				  <div class="col-lg-6">      			        
+							    <div class="form-group">
+								  <label for="UrT">UrT</label>
+								  <input type="text" class="form-control" id="UrT" placeholder="UrT">
+								</div>	
+							  </div>
+							  <div class="col-lg-6">      			        
+							    <div class="form-group">
+								  <label for="Other">Other</label>
+								  <input type="text" class="form-control" id="Other" placeholder="Other">
+								</div>	
+							  </div>
+	                        </div>
+	                        
+	                        
+	                        
+	                        
+	                        
+	                        
 		      			    
-		      			    
+		      			    		      			  			
 		      			  </div>
 		      			  
 		      			  
@@ -499,7 +737,7 @@
 									      '<div class="form-group">' +
 									        '<div class="i-checks">' +
 									          '<button id="save" name="save" type="submit" class="btn btn-primary btn-fill ladda-button" data-style="expand-right" style="right:10px">' +                        	
-					            	  	        '<span class="ladda-label">Save this Biodiv-Afreid location entry</span>' +
+					            	  	        '<span class="ladda-label">Save this RhinoKhov ZooCov entry</span>' +
 					            	  	        '<span class="ladda-spinner"></span>' +
 									          '</button>' +
 			                                  '<input id="andAdd" type="checkbox" value="" checked="" class="checkbox-template">' +
@@ -511,7 +749,7 @@
 			               } else if (option == 2) {
 			                    line.innerHTML = 
 			                   		'<button id="modify" name="submit" type="submit" class="btn btn-primary btn-fill pull-right ladda-button" data-style="expand-right">' +                        	
-				            		  '<span class="ladda-label">Edit this Biodiv-Afreid location entry</span>' +
+				            		  '<span class="ladda-label">Edit this RhinoKhov ZooCov entry</span>' +
 				            		  '<span class="ladda-spinner"></span>' +
 									'</button>' 
 			                }
@@ -588,14 +826,14 @@
     </script>    
     
     <script type="text/javascript">
-   		$('#spanDate').click(function(){
+   		$('#spanSampling_Date').click(function(){
 	   		event.stopPropagation(); 
-	   	    dp = $('#date').datepicker({
+	   	    dp = $('#Sampling_Date').datepicker({
 	   	    	language: 'en',
 	   	    	autoclose: true
 	   	    });
 	   		dp.show();
-	   		$('#date').focus();
+	   		$('#Sampling_Date').focus();
 		});
     </script> 
     
@@ -712,9 +950,9 @@
   		        } else {
   		          event.preventDefault();
   		        if ((option == 0) || (option == 1)) {
-  		        	addBiodivAfreid_locations();
+  		        	addRhinoKhov_ZooCov();
 	  		  	  } else if ((option == 2)) {
-	  		  		modifyBiodivAfreid_locations();
+	  		  		modifyRhinoKhov_ZooCov();
 	  		  	  }
   		        } 		        
   		        form.classList.add('was-validated');
@@ -723,7 +961,7 @@
   		  }, false);
   		})();
  		
-  		function addBiodivAfreid_locations() {  
+  		function addRhinoKhov_ZooCov() {  
   			
   			//alert('add');
   			
@@ -735,107 +973,183 @@
 							
 			var id = uuid();
 			
-			var location_code = document.getElementById('location_code').value; 
-			var sess_check = document.getElementById('sess_check').value;
-			var location_name = document.getElementById('location_name').value; 
-			var country = document.getElementById('country').value; 
-			var province = document.getElementById('province').value; 
-			var locality = document.getElementById('locality').value; 
-			var site_details = document.getElementById('site_details').value; 
-			var latitude = document.getElementById('latitude').value; 
-			var lat_ns = document.getElementById('lat_ns').value; 
-			var longitude = document.getElementById('longitude').value;
-			var long_ew = document.getElementById('long_ew').value;
-			var coord_source = document.getElementById('coord_source').value;
-			var gps_projection = document.getElementById('gps_projection').value; 
-			var gps_datum = document.getElementById('gps_datum').value; 
-			var coord_precision = document.getElementById('coord_precision').value;
-			var altitude = document.getElementById('altitude').value; 
-			var alt_source = document.getElementById('alt_source').value; 
-			var Mapgrid = document.getElementById('Mapgrid').value; 
-			var habitat_Type = document.getElementById('habitat_Type').value; 
-			var rodent_proofing = document.getElementById('rodent_proofing').value; 
-			var inside_cover = document.getElementById('inside_cover').value; 
-			var outside_cover = document.getElementById('outside_cover').value; 
-			var open_water = document.getElementById('open_water').value; 
-			var recent_rodent_control = document.getElementById('recent_rodent_control').value;
-			var pictures = document.getElementById('pictures').value; 
-			var habitat_remarks = document.getElementById('habitat_remarks').value;
-		
+			
+
+			var Project = document.getElementById('Project').value;
+		    var Sampling_Date = document.getElementById('Sampling_Date').value;
+		    var Animal_ID = document.getElementById('Animal_ID').value;
+		    var Genus_Species = document.getElementById('Genus_Species').value;
+		    var Province = document.getElementById('Province').value;
+		    var District = document.getElementById('District').value;
+		    var Site = document.getElementById('Site').value;
+		    var Specific_location = document.getElementById('Specific_location').value;
+		    
+		    var No = document.getElementById('No').value;
+		    var Sample_Type = document.getElementById('Sample_Type').value;
+		    var Taxa = document.getElementById('Taxa').value;
+		    var rtPCR_SARS_COV_2_E_gene = document.getElementById('rtPCR_SARS_COV_2_E_gene').value;
+		    var PCR_Quan_result = document.getElementById('PCR_Quan_result').value;
+		    var PCR_Watanabe_result = document.getElementById('PCR_Watanabe_result').value;
+		    
+		    var Sex = document.getElementById('Sex').value;
+		    var Age_Status = document.getElementById('Age_Status').value;
+		    var Health_Status = document.getElementById('Health_Status').value;
+		    var Condition = document.getElementById('Condition').value;
+		    var FEV = document.getElementById('FEV').value;
+		    var OSV = document.getElementById('OSV').value;
+		    var OST = document.getElementById('OST').value;
+		    var RSV = document.getElementById('RSV').value;
+		    var RST = document.getElementById('RST').value;
+		    var DBS = document.getElementById('DBS').value; 
+		    var URV = document.getElementById('URV').value;
+		    var URT = document.getElementById('URT').value; 
+		    var WBV = document.getElementById('WBV').value; 
+		    var BSN = document.getElementById('BSN').value;
+		    var BCN = document.getElementById('BCN').value; 
+		    var FA_mm = document.getElementById('FA_mm').value;
+		    var Weigth_g = document.getElementById('Weigth_g').value;
+		    var Photo = document.getElementById('Photo').value;
+		    var Recorder_type = document.getElementById('Recorder_type').value;
+		    var File_name = document.getElementById('File_name').value;
+		    var Kiv = document.getElementById('Kiv').value;
+		    var KiT = document.getElementById('KiT').value;
+		    var SpV = document.getElementById('SpV').value;
+		    var SpT = document.getElementById('SpT').value;
+		    var LiV = document.getElementById('LiV').value;
+		    var LiT = document.getElementById('LiT').value;
+		    var LuV = document.getElementById('LuV').value;
+		    var LuT = document.getElementById('LuT').value;
+		    var HeV = document.getElementById('HeV').value; 
+		    var HeT = document.getElementById('HeT').value; 
+		    var BrV = document.getElementById('BrV').value; 
+		    var BrT = document.getElementById('BrT').value; 
+		    var UrV = document.getElementById('UrV').value; 
+		    var UrT = document.getElementById('UrT').value; 
+		    var Other = document.getElementById('Other').value;
+			
+		    
 		    var Username = localStorage.getItem('loginUsername');
 		    
 		    var andAdd = document.getElementById("andAdd");
 		  	if (andAdd.checked == true){
 		  	    var doc = new Object();
 		  		  
-		  	    doc.location_code = location_code; 
-				doc.sess_check = sess_check;
-				doc.location_name = location_name; 
-				doc.country = country; 
-				doc.province = province; 
-				doc.locality = locality; 
-				doc.site_details = site_details; 
-				doc.latitude = latitude; 
-				doc.lat_ns = lat_ns; 
-				doc.longitude = longitude;
-				doc.long_ew = long_ew;
-				doc.coord_source = coord_source;
-				doc.gps_projection = gps_projection; 
-				doc.gps_datum = gps_datum; 
-				doc.coord_precision = coord_precision;
-				doc.altitude = altitude; 
-				doc.alt_source = alt_source; 
-				doc.Mapgrid = Mapgrid; 
-				doc.habitat_Type = habitat_Type; 
-				doc.rodent_proofing = rodent_proofing; 
-				doc.inside_cover = inside_cover; 
-				doc.outside_cover = outside_cover; 
-				doc.open_water = open_water; 
-				doc.recent_rodent_control = recent_rodent_control;
-				doc.pictures = pictures; 
-				doc.habitat_remarks = habitat_remarks;
-				
-		  	   
+		  	    doc.Project = Project;
+		  	    doc.Sampling_Date = Sampling_Date;
+			    doc.Animal_ID = Animal_ID;
+			    doc.Genus_Species = Genus_Species;
+			    doc.Province = Province;
+			    doc.District = District;
+			    doc.Site = Site;
+			    doc.Specific_location = Specific_location;
+			    
+			    doc.No = No;
+			    doc.Sample_Type = Sample_Type;
+			    doc.Taxa = Taxa;
+			    doc['rtPCR_SARS-COV-2_E_gene'] = rtPCR_SARS_COV_2_E_gene;
+			    doc.PCR_Quan_result = PCR_Quan_result;
+			    doc.PCR_Watanabe_result = PCR_Watanabe_result;
+			  	
+			    doc.Sex = Sex;
+			    doc['Age-Status'] = Age_Status;
+			    doc.Health_Status = Health_Status;
+			    doc.Condition = Condition;
+			    doc.FEV = FEV;
+			    doc.OSV = OSV;
+			    doc.OST = OST;
+			    doc.RSV = RSV;
+			    doc.RST = RST;
+			    doc.DBS = DBS; 
+			    doc.URV = URV;
+			    doc.URT = URT; 
+			    doc.WBV = WBV; 
+			    doc.BSN = BSN;
+			    doc.BCN = BCN; 
+			    doc.FA_mm = FA_mm;
+			    doc.Weigth_g = Weigth_g;
+			    doc.Photo = Photo;
+			    doc.Recorder_type = Recorder_type;
+			    doc.File_name = File_name;
+			    doc.Kiv = Kiv;
+			    doc.KiT = KiT;
+			    doc.SpV = SpV;
+			    doc.SpT = SpT;
+			    doc.LiV = LiV;
+			    doc.LiT = LiT;
+			    doc.LuV = LuV;
+			    doc.LuT = LuT;
+			    doc.HeV = HeV; 
+			    doc.HeT = HeT; 
+			    doc.BrV = BrV; 
+			    doc.BrT = BrT; 
+			    doc.UrV = UrV; 
+			    doc.UrT = UrT; 
+			    doc.Other = Other;
 			  	doc.Username = Username
 		  		  
-		  		localStorage['biodivafreid_locationsTablesData'] = JSON.stringify(doc);
+		  		localStorage['rhinokhov_zoocovTablesData'] = JSON.stringify(doc);
 		  	};
 		    
 		    if (localStorage.getItem('web') === 'oui') {
 				var remote_couchdb = localStorage.getItem('remote_couchdb');
-				doc.DB = new PouchDB(remote_couchdb + 'bcoming' + nom_table + debug);
+				var DB = new PouchDB(remote_couchdb + 'bcoming' + nom_table + debug);
 			} else {
 				var DB = new PouchDB('bcoming' + nom_table + debug);
 			};
 			
 			DB.put({
 				_id: id,
-				location_code: location_code, 
-				sess_check: sess_check,
-				location_name: location_name, 
-				country: country, 
-				province: province, 
-				locality: locality, 
-				site_details: site_details, 
-				latitude: latitude, 
-				lat_ns: lat_ns, 
-				longitude: longitude,
-				long_ew: long_ew,
-				coord_source: coord_source,
-				gps_projection: gps_projection, 
-				gps_datum: gps_datum, 
-				coord_precision: coord_precision,
-				altitude: altitude, 
-				alt_source: alt_source, 
-				Mapgrid: Mapgrid, 
-				habitat_Type: habitat_Type, 
-				rodent_proofing: rodent_proofing, 
-				inside_cover: inside_cover, 
-				outside_cover: outside_cover, 
-				open_water: open_water, 
-				recent_rodent_control: recent_rodent_control,
-				pictures: pictures, 
-				habitat_remarks: habitat_remarks,
+				Project: Project,
+		  	    Sampling_Date: Sampling_Date,
+			    Animal_ID: Animal_ID,
+			    Genus_Species: Genus_Species,
+			    Province: Province,
+			    District: District,
+			    Site: Site,
+			    Specific_location: Specific_location,
+			    
+			    No: No,
+			    Sample_Type: Sample_Type,
+			    Taxa: Taxa,
+			    'rtPCR_SARS-COV-2_E_gene': rtPCR_SARS_COV_2_E_gene,
+			    PCR_Quan_result: PCR_Quan_result,
+			    PCR_Watanabe_result: PCR_Watanabe_result,
+			    
+			    Sex: Sex,
+			    'Age-Status': Age_Status,
+			    Health_Status: Health_Status,
+			    Condition: Condition,
+			    FEV: FEV,
+			    OSV: OSV,
+			    OST: OST,
+			    RSV: RSV,
+			    RST: RST,
+			    DBS: DBS, 
+			    URV: URV,
+			    URT: URT, 
+			    WBV: WBV, 
+			    BSN: BSN,
+			    BCN: BCN, 
+			    FA_mm: FA_mm,
+			    Weigth_g: Weigth_g,
+			    Photo: Photo,
+			    Recorder_type: Recorder_type,
+			    File_name: File_name,
+			    Kiv: Kiv,
+			    KiT: KiT,
+			    SpV: SpV,
+			    SpT: SpT,
+			    LiV: LiV,
+			    LiT: LiT,
+			    LuV: LuV,
+			    LuT: LuT,
+			    HeV: HeV, 
+			    HeT: HeT, 
+			    BrV: BrV, 
+			    BrT: BrT, 
+			    UrV: UrV, 
+			    UrT: UrT, 
+			    Other: Other,
 				Username: Username
 			}).then(function (response) {
 								
@@ -848,9 +1162,9 @@
 						
 						var andAdd = document.getElementById("andAdd");
 					  	if (andAdd.checked == true) {
-					  	  window.location = 'ajouter_modifier_biodivafreid_locations.html?option=1&table=' + nom_table;
+					  	  window.location = 'ajouter_modifier_rhinokhov_zoocov.html?option=1&table=' + nom_table;
 					  	} else {
-					  	  window.location = 'liste_biodivafreid_locations.html?table=' + nom_table;	
+					  	  window.location = 'liste_rhinokhov_zoocov.html?table=' + nom_table;	
 					  	};
 					}).on('error', function (err) {
 						// error while replicating
@@ -860,9 +1174,9 @@
 				} else {
 					var andAdd = document.getElementById("andAdd");
 				  	if (andAdd.checked == true) {
-				  	  window.location = 'ajouter_modifier_biodivafreid_locations.html?option=1&table=' + nom_table;
+				  	  window.location = 'ajouter_modifier_rhinokhov_zoocov.html?option=1&table=' + nom_table;
 				  	} else {
-				  	  window.location = 'liste_biodivafreid_locations.html?table=' + nom_table;	
+				  	  window.location = 'liste_rhinokhov_zoocov.html?table=' + nom_table;	
 				  	};
 				}
 				
@@ -874,39 +1188,64 @@
 			});	
   		};
   		
-  		function modifyBiodivAfreid_locations() {  
+  		function modifyRhinoKhov_ZooCov() {  
 			var l = Ladda.create( document.querySelector( '.ladda-button' ) );
 
 			// Start loading
 			l.start();
 			
-			var id = localStorage.getItem('ID_biodivafreid_locations' + nom_table);
-			var location_code = document.getElementById('location_code').value; 
-			var sess_check = document.getElementById('sess_check').value;
-			var location_name = document.getElementById('location_name').value; 
-			var country = document.getElementById('country').value; 
-			var province = document.getElementById('province').value; 
-			var locality = document.getElementById('locality').value; 
-			var site_details = document.getElementById('site_details').value; 
-			var latitude = document.getElementById('latitude').value; 
-			var lat_ns = document.getElementById('lat_ns').value; 
-			var longitude = document.getElementById('longitude').value;
-			var long_ew = document.getElementById('long_ew').value;
-			var coord_source = document.getElementById('coord_source').value;
-			var gps_projection = document.getElementById('gps_projection').value; 
-			var gps_datum = document.getElementById('gps_datum').value; 
-			var coord_precision = document.getElementById('coord_precision').value;
-			var altitude = document.getElementById('altitude').value; 
-			var alt_source = document.getElementById('alt_source').value; 
-			var Mapgrid = document.getElementById('Mapgrid').value; 
-			var habitat_Type = document.getElementById('habitat_Type').value; 
-			var rodent_proofing = document.getElementById('rodent_proofing').value; 
-			var inside_cover = document.getElementById('inside_cover').value; 
-			var outside_cover = document.getElementById('outside_cover').value; 
-			var open_water = document.getElementById('open_water').value; 
-			var recent_rodent_control = document.getElementById('recent_rodent_control').value;
-			var pictures = document.getElementById('pictures').value; 
-			var habitat_remarks = document.getElementById('habitat_remarks').value;
+			var id = localStorage.getItem('ID_rhinokhov_zoocov' + nom_table);
+			var Project = document.getElementById('Project').value;
+		    var Sampling_Date = document.getElementById('Sampling_Date').value;
+		    var Animal_ID = document.getElementById('Animal_ID').value;
+		    var Genus_Species = document.getElementById('Genus_Species').value;
+		    var Province = document.getElementById('Province').value;
+		    var District = document.getElementById('District').value;
+		    var Site = document.getElementById('Site').value;
+		    var Specific_location = document.getElementById('Specific_location').value;
+		    
+		    var No = document.getElementById('No').value;
+		    var Sample_Type = document.getElementById('Sample_Type').value;
+		    var Taxa = document.getElementById('Taxa').value;
+		    var rtPCR_SARS_COV_2_E_gene = document.getElementById('rtPCR_SARS_COV_2_E_gene').value;
+		    var PCR_Quan_result = document.getElementById('PCR_Quan_result').value;
+		    var PCR_Watanabe_result = document.getElementById('PCR_Watanabe_result').value;
+		    
+		    var Sex = document.getElementById('Sex').value;
+		    var Age_Status = document.getElementById('Age_Status').value;
+		    var Health_Status = document.getElementById('Health_Status').value;
+		    var Condition = document.getElementById('Condition').value;
+		    var FEV = document.getElementById('FEV').value;
+		    var OSV = document.getElementById('OSV').value;
+		    var OST = document.getElementById('OST').value;
+		    var RSV = document.getElementById('RSV').value;
+		    var RST = document.getElementById('RST').value;
+		    var DBS = document.getElementById('DBS').value; 
+		    var URV = document.getElementById('URV').value;
+		    var URT = document.getElementById('URT').value; 
+		    var WBV = document.getElementById('WBV').value; 
+		    var BSN = document.getElementById('BSN').value;
+		    var BCN = document.getElementById('BCN').value; 
+		    var FA_mm = document.getElementById('FA_mm').value;
+		    var Weigth_g = document.getElementById('Weigth_g').value;
+		    var Photo = document.getElementById('Photo').value;
+		    var Recorder_type = document.getElementById('Recorder_type').value;
+		    var File_name = document.getElementById('File_name').value;
+		    var Kiv = document.getElementById('Kiv').value;
+		    var KiT = document.getElementById('KiT').value;
+		    var SpV = document.getElementById('SpV').value;
+		    var SpT = document.getElementById('SpT').value;
+		    var LiV = document.getElementById('LiV').value;
+		    var LiT = document.getElementById('LiT').value;
+		    var LuV = document.getElementById('LuV').value;
+		    var LuT = document.getElementById('LuT').value;
+		    var HeV = document.getElementById('HeV').value; 
+		    var HeT = document.getElementById('HeT').value; 
+		    var BrV = document.getElementById('BrV').value; 
+		    var BrT = document.getElementById('BrT').value; 
+		    var UrV = document.getElementById('UrV').value; 
+		    var UrT = document.getElementById('UrT').value; 
+		    var Other = document.getElementById('Other').value;
 		    var Username = localStorage.getItem('loginUsername');
 		    
 			if (localStorage.getItem('web') === 'oui') {
@@ -928,32 +1267,57 @@
 				};
 				
 				DB2.get(id).then(function (doc) {
-					doc.location_code = location_code; 
-					doc.sess_check = sess_check;
-					doc.location_name = location_name; 
-					doc.country = country; 
-					doc.province = province; 
-					doc.locality = locality; 
-					doc.site_details = site_details; 
-					doc.latitude = latitude; 
-					doc.lat_ns = lat_ns; 
-					doc.longitude = longitude;
-					doc.long_ew = long_ew;
-					doc.coord_source = coord_source;
-					doc.gps_projection = gps_projection; 
-					doc.gps_datum = gps_datum; 
-					doc.coord_precision = coord_precision;
-					doc.altitude = altitude; 
-					doc.alt_source = alt_source; 
-					doc.Mapgrid = Mapgrid; 
-					doc.habitat_Type = habitat_Type; 
-					doc.rodent_proofing = rodent_proofing; 
-					doc.inside_cover = inside_cover; 
-					doc.outside_cover = outside_cover; 
-					doc.open_water = open_water; 
-					doc.recent_rodent_control = recent_rodent_control;
-					doc.pictures = pictures; 
-					doc.habitat_remarks = habitat_remarks;
+					doc.Project = Project;
+			  	    doc.Sampling_Date = Sampling_Date;
+				    doc.Animal_ID = Animal_ID;
+				    doc.Genus_Species = Genus_Species;
+				    doc.Province = Province;
+				    doc.District = District;
+				    doc.Site = Site;
+				    doc.Specific_location = Specific_location;
+				    
+				    doc.No = No;
+				    doc.Sample_Type = Sample_Type;
+				    doc.Taxa = Taxa;
+				    doc['rtPCR_SARS-COV-2_E_gene'] = rtPCR_SARS_COV_2_E_gene;
+				    doc.PCR_Quan_result = PCR_Quan_result;
+				    doc.PCR_Watanabe_result = PCR_Watanabe_result;
+				    
+				    doc.Sex = Sex;
+				    doc['Age-Status'] = Age_Status;
+				    doc.Health_Status = Health_Status;
+				    doc.Condition = Condition;
+				    doc.FEV = FEV;
+				    doc.OSV = OSV;
+				    doc.OST = OST;
+				    doc.RSV = RSV;
+				    doc.RST = RST;
+				    doc.DBS = DBS; 
+				    doc.URV = URV;
+				    doc.URT = URT; 
+				    doc.WBV = WBV; 
+				    doc.BSN = BSN;
+				    doc.BCN = BCN; 
+				    doc.FA_mm = FA_mm;
+				    doc.Weigth_g = Weigth_g;
+				    doc.Photo = Photo;
+				    doc.Recorder_type = Recorder_type;
+				    doc.File_name = File_name;
+				    doc.Kiv = Kiv;
+				    doc.KiT = KiT;
+				    doc.SpV = SpV;
+				    doc.SpT = SpT;
+				    doc.LiV = LiV;
+				    doc.LiT = LiT;
+				    doc.LuV = LuV;
+				    doc.LuT = LuT;
+				    doc.HeV = HeV; 
+				    doc.HeT = HeT; 
+				    doc.BrV = BrV; 
+				    doc.BrT = BrT; 
+				    doc.UrV = UrV; 
+				    doc.UrT = UrT; 
+				    doc.Other = Other;
 					doc.Username = Username;
 										
 					return DB2.put(doc);
@@ -967,14 +1331,14 @@
 						var remoteDB = new PouchDB(remote_couchdb + 'bcoming' + nom_table + debug);
 										
 						localDB3.sync(remoteDB).on('complete', (info) => { 
-							window.location = 'liste_biodivafreid_locations.html?table=' + nom_table;
+							window.location = 'liste_rhinokhov_zoocov.html?table=' + nom_table;
 						}).on('error', function (err) {
 							// error while replicating
-							alert('alert sync modify biodivafreid : ' + nom_table + JSON.stringify(err));
+							alert('alert sync modify site : ' + nom_table + JSON.stringify(err));
 							window.location = 'index.html';
 						});	
 					} else {
-						window.location = 'liste_biodivafreid_locations.html?table=' + nom_table;
+						window.location = 'liste_rhinokhov_zoocov.html?table=' + nom_table;
 					}
 					
 					l.stop();								  
@@ -1000,11 +1364,12 @@
 		  }
 		}, true); // "true" => phase de capture
 		
-		if ((nom_table == '_biodivafreid') || (nom_table == '_biodivafreid_locations')) {
-			/*|| (nom_table == '_transvihmi_rdc') || (nom_table == '_transvihmi_gabon')
-			|| (nom_table == '_transvihmi_rca') || (nom_table == '_transvihmi_rwanda')) {*/
-			pays = 'democratic_republic_of_congo';	
-		}
+		if ((nom_table == '_camacross') || (nom_table == '_rhinokhov_zoocov_lab')
+			|| (nom_table == '_rhinokhov_zoocov')) {
+			pays = 'cambodia';	
+		} /*else if ((nom_table == '_mivegec_congo') || (nom_table == '_mivegec_gabon')){
+			institut = 'mivegec';
+		} */;
 			
   		
   		expanded(nom_table);
@@ -1018,11 +1383,12 @@
 			var component_ul =  document.getElementById('ul_' + pays + 'Dropdown');
 			component_ul.classList.add('show');
 			
-			var component_li = document.getElementById('li_biodivafreidDropdown');
+			
+			var component_li = document.getElementById('li' + nom_table + 'Dropdown');
 			component_li.classList.add('active');
-			var component_a = document.getElementById('a_biodivafreidDropdown');
+			var component_a = document.getElementById('a' + nom_table + 'Dropdown');
 			component_a.setAttribute('aria-expanded', 'true');
-			var component_ul =  document.getElementById('ul_biodivafreidDropdown');
+			var component_ul =  document.getElementById('ul' + nom_table + 'Dropdown');
 			component_ul.classList.add('show');
 				
 				

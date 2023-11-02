@@ -14,14 +14,15 @@
 <script src="js/loadjs.js"></script>
 
 <script type="text/javascript"> 
-
+	
 	localStorage['web'] = 'non';
 	localStorage['version'] = '0.11.0';
 	localStorage.removeItem('debug');
-	if ((navigator.onLine) && (localStorage.getItem('web') != 'oui')) {
+	if ((navigator.onLine) && (localStorage.getItem('web') == 'oui')) {
 		loadjs('js/load-db.js');
 	} else {
-		localStorage['remote_couchdb'] = 'https://database.ebo-sursy.eu/couchdb/';
+		localStorage['remote_couchdb'] = 'http://vps-ffc4572e.vps.ovh.net:5984/';
+		
 		localStorage['db_loaded'] = '0';
 		window.location = 'login.html';
 	}
