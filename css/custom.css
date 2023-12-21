@@ -225,3 +225,43 @@ a.ol-popup-closer:hover{
 .ol-popup-closer:after {
     content: "âœ–";
 }
+
+nav.side-navbar ul li a:hover {
+  background: #00D3A0;
+}
+
+nav.side-navbar ul li.active > a {
+  background: #00D3A0;
+}
+
+nav.side-navbar ul li.active > a:hover {
+  background: #00D3A0;
+}
+
+nav.navbar .dropdown-menu .dropdown-item i {
+  background: #00D3A0;
+}
+
+nav.side-navbar ul li li.active > a {
+  background: #00D3A0;
+}
+
+.bg-info {
+    background-color: #00D3A0 !important;
+}
+
+.btn-primary {
+    color: color-yiq(#00D3A0);
+    background-color: #00D3A0;
+    border-color: #00D3A0;
+}
+
+/* Changer la couleur des numéros de page */
+.dataTables_paginate .paginate_button.page-item a {
+    color: #00D3A0; /* Remplacez 'green' par la couleur de votre choix */
+}
+
+.dataTables_paginate .paginate_button.active a {
+    background-color: #00D3A0; /* Remplacez 'red' par la couleur de votre choix */
+    color: white;/* Autres styles pour la page sélectionnée si nécessaire */
+}

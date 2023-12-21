@@ -1,0 +1,221 @@
+function chargement_west_nile_mosquitoes_field_samples_diagnose() {
+	showConnexionStatus();
+	
+    var option = searchParams.get('option');
+    var table = searchParams.get('table');
+    
+    if ((option == 1) || (option == 2)) {
+    	modifier(table, option);
+    }
+	//chargement_des_tables_de_reference(table, option);
+}
+
+function chargement_des_tables_de_reference(table, option) {
+	
+	//0 -> juste le chargement des tables de références
+	//1 -> chargement des table de références et récupérations des infos du dernier ajout
+	//2 -> chargement des table de références pour modification d'un enregistrement
+	
+	var remote_couchdb = localStorage.getItem('remote_couchdb');
+
+	var debug;
+	if (localStorage.getItem('debug') === null) {
+		debug = '';
+	} else {
+		debug = localStorage.getItem('debug');
+	};
+		
+	
+	/*DB.allDocs({  		
+		include_docs: true,
+		attachments: true
+	}).then(function (result) {
+		// handle result
+		if (typeof(JSON.stringify(result)) != "undefined"){  
+	    	var paysTablesData = JSON.parse(JSON.stringify(result));
+		    	
+	    	paysTablesData.rows.forEach(function(row){   
+	    		Pays.options[Pays.options.length] = new Option(row.doc.Pays, row.doc.Pays); 
+	    	});		 
+
+	    	//listeLieu_capture();
+	    	
+	    	if ((option == 1) || (option == 2)) {
+				modifier(table, option);
+	  		};
+		
+	    }
+	}).catch(function (err) {
+		console.log(err);
+	});*/
+
+	
+}
+
+
+function modifier(table, option) {
+	
+	var doc;
+	if (option == 1) {
+		doc = JSON.parse(localStorage.getItem('WestNileMosquitoes_field_samples_diagnoseTablesData'));
+		
+		function addValue(elementName, onchange) {
+			var element = document.getElementById(elementName);
+			element.value = doc[elementName];
+			try {
+				if (onchange) {
+					element.onchange();
+				}
+			} catch(err) {
+			};
+		}
+		
+		/*var SamplingDate = new Date(doc.SamplingDate);
+		$('#SamplingDate').datepicker('setDate', SamplingDate);
+		addValue('Province');
+		addValue('Site');*/
+
+	} else {
+	
+		var id = localStorage.getItem('ID' + table);
+		
+		var debug;
+		if (localStorage.getItem('debug') === null) {
+			debug = '';
+		} else {
+			debug = localStorage.getItem('debug');
+		};
+		
+		if (localStorage.getItem('web') === 'oui') {
+			var remote_couchdb = localStorage.getItem('remote_couchdb');
+			var DB = new PouchDB(remote_couchdb + 'bcoming' + table + debug);
+		} else {
+			var DB = new PouchDB('bcoming' + table + debug);
+		};
+		DB.allDocs({  		
+				keys: [id],
+			include_docs: true,
+			attachments: true
+		}).then(function (result) {
+	
+			// handle result
+			if (typeof(JSON.stringify(result)) != "undefined"){  
+				console.log(JSON.stringify(result.rows));
+				
+				function addValue(elementName, onchange) {
+					var element = document.getElementById(elementName);
+					if (elementName == 'Notes') {
+						element.value = result.rows[0].doc[elementName].replace('"','');
+					} else {
+						element.value = result.rows[0].doc[elementName];
+					}
+					
+					
+					try {
+						if (onchange) {
+							element.onchange();
+						}
+					} catch(err) {
+					};
+				}
+				
+				var dateString = result.rows[0].doc.Date_Used_Individuals;
+				var dateParts = dateString.split('/');
+				
+				if (dateParts.length === 1) {
+				    // Si la date est au format "2005"
+				    var year = parseInt(dateParts[0], 10);
+				    var stringDate = new Date(year, 0, 1); // Créer une date au 1er janvier de l'année spécifiée
+				} else if (dateParts.length === 2) {
+				    // Si la date est au format "06/2005"
+				    var month = parseInt(dateParts[0], 10);
+				    var year = parseInt(dateParts[1], 10);
+				    var stringDate = new Date(year, month - 1, 1); // Créer une date au 1er jour du mois et de l'année spécifiés
+				} else {
+				    // Si la date est au format standard "jj/mm/aaaa"
+				    var day = parseInt(dateParts[0], 10);
+				    var month = parseInt(dateParts[1], 10);
+				    var year = parseInt(dateParts[2], 10);
+				    var stringDate = new Date(year, month - 1, day);
+				}
+				
+				//var stringDate = new Date(year, month - 1, day);
+				
+				$('.input-datepicker').datepicker({
+		        	language: 'fr',
+		        	autoclose: true
+		      	});
+				$('#Date_Used_Individuals').datepicker('setDate', stringDate);										
+				
+				
+				var dateString = result.rows[0].doc.Date;
+				var dateParts = dateString.split('/');
+				
+				if (dateParts.length === 1) {
+				    // Si la date est au format "2005"
+				    var year = parseInt(dateParts[0], 10);
+				    var stringDate = new Date(year, 0, 1); // Créer une date au 1er janvier de l'année spécifiée
+				    
+				} else if (dateParts.length === 2) {
+				    // Si la date est au format "06/2005"
+				    var month = parseInt(dateParts[0], 10);
+				    var year = parseInt(dateParts[1], 10);
+				    var stringDate = new Date(year, month - 1, 1); // Créer une date au 1er jour du mois et de l'année spécifiés
+				} else {
+				    // Si la date est au format standard "jj/mm/aaaa"
+				    var day = parseInt(dateParts[0], 10);
+				    var month = parseInt(dateParts[1], 10);
+				    var year = parseInt(dateParts[2], 10);
+				    var stringDate = new Date(year, month - 1, day);
+				}
+				
+				
+				//var stringDate = new Date(result.rows[0].doc.Date);
+				
+				
+				$('.input-datepicker').datepicker({
+		        	language: 'fr',
+		        	autoclose: true
+		      	});
+				$('#Date').datepicker('setDate', stringDate);														
+				//Year	Month	Day	Site	Location	Habitat	Colonne1	Observation	Notes	Lat	Lon	Project_Study	Trap_method	Biotope
+
+				addValue('ID_FD');	
+
+				addValue('ID_FS');
+				addValue('Group');
+				addValue('Species');
+				addValue('Sex');
+				addValue('Individuals');
+				addValue('Used_Individuals');
+				addValue('RNA_and_cDNA_plates_ANSES');
+				addValue('RNA_and_cDNA_well');
+				addValue('RNA_and_cDNA_Id');
+				
+																	
+
+				addValue('Year');
+				addValue('Month');
+				addValue('Day');
+				addValue('Site');
+				addValue('Location');
+				addValue('Habitat');
+				addValue('Colonne1');
+				addValue('Observation');
+				addValue('Notes');
+				addValue('Lat');
+				addValue('Lon');
+				addValue('Project_Study');
+				addValue('Trap_method');
+				addValue('Biotope');
+				
+					  
+	    	};
+	
+		}).catch(function (err) {
+			console.log(err);
+		});
+	}
+}
+
+

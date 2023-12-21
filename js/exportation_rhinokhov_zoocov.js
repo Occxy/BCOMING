@@ -541,6 +541,7 @@ function addRhinoKhov_ZooCovRecord(row, selected) {
 			if (count == 0) {
 				var blob = new Blob(['\ufeff' + CSV_data], {type: "text/csv;charset=ISO-8859-1"});
 	       		saveAs(blob, "rhinokhov_zoocov" + clock.now + ".csv");
+	       		document.location.href="import_export.html?table=_rhinokhov_zoocov&type=rhinokhov_zoocov";
 			}	
 			
 	} 

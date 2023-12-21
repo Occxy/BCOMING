@@ -161,14 +161,14 @@ DB.allDocs({
 		var tabOut = new Array();
 		
 		//var resBlood = alasql('SELECT Lat_degre_dec, Latitude, Long_degre_dec, Longitude, Date, Famille, Genre, Espece, COUNT(*) AS Blood FROM ? WHERE (Collecte_sang_DBS = "Oui") GROUP BY Lat_degre_dec, Latitude, Long_degre_dec, Longitude, Long_degre_dec, Date, Famille, Genre, Espece', [tab] );
-		var resBcoming_rongeurs_captures_guinea = alasql('SELECT latitude, lat_ns, longitude, long_ew, location_code, COUNT(*) AS Bcoming_rongeurs_captures_guinea FROM ? GROUP BY latitude, lat_ns, longitude, long_ew, location_code', [tab] );
+		var rescerfig_rongeurs_captures_guinea = alasql('SELECT latitude, lat_ns, longitude, long_ew, location_code, COUNT(*) AS cerfig_rongeurs_captures_guinea FROM ? GROUP BY latitude, lat_ns, longitude, long_ew, location_code', [tab] );
 		
-		console.log(resBcoming_rongeurs_captures_guinea)
-		for (var j=0;j<resBcoming_rongeurs_captures_guinea.length;j++) {
-			tabOut.push(resBcoming_rongeurs_captures_guinea[j]);
+		console.log(rescerfig_rongeurs_captures_guinea)
+		for (var j=0;j<rescerfig_rongeurs_captures_guinea.length;j++) {
+			tabOut.push(rescerfig_rongeurs_captures_guinea[j]);
 		}
 		
-		interface_publique = JSON.stringify(resBcoming_rongeurs_captures_guinea);
+		interface_publique = JSON.stringify(rescerfig_rongeurs_captures_guinea);
 		/*var tabInterfacePublique = new Array();
 		for (var j=0;j<resOut.length;j++) {
 			tabInterfacePublique.push(resOut[j]);

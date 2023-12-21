@@ -41,7 +41,7 @@ function modifier(table, option) {
 	
 	var doc;
 	if (option == 1) {
-		doc = JSON.parse(localStorage.getItem('bcoming_chauves_souris_capturees_guineaTablesData'));
+		doc = JSON.parse(localStorage.getItem('bcoming_cerfig_chauves_souris_capturees_guineaTablesData'));
 		
 		function addValue(elementName, onchange) {
 			var element = document.getElementById(elementName);
@@ -144,7 +144,7 @@ function modifier(table, option) {
 				var Genre = document.getElementById("Genre");
 				var Espece = document.getElementById("Espece");
 				try {
-					select_change('bcoming_bcoming_chauves_souris_capturees_espece', Famille, Genre, Espece, result.rows[0].doc.Famille, result.rows[0].doc.Genre, result.rows[0].doc.Espece);
+					select_change('bcoming_cerfig_chauves_souris_capturees_espece', Famille, Genre, Espece, result.rows[0].doc.Famille, result.rows[0].doc.Genre, result.rows[0].doc.Espece);
 				}
 				catch(err) {
 				};
@@ -292,7 +292,7 @@ function modifier(table, option) {
 				var Genre = document.getElementById("Genre");
 				var Espece = document.getElementById("Espece");
 				try {
-					select_change('bcoming_bcoming_chauves_souris_capturees_espece', Famille, Genre, Espece, result.rows[0].doc.Famille, result.rows[0].doc.Genre, result.rows[0].doc.Espece);
+					select_change('bcoming_cerfig_chauves_souris_capturees_espece', Famille, Genre, Espece, result.rows[0].doc.Famille, result.rows[0].doc.Genre, result.rows[0].doc.Espece);
 				}
 				catch(err) {
 				};
@@ -337,9 +337,9 @@ function listeCouleur_pelage_dorsal() {
 	var Couleur_pelage_dorsal = document.getElementById("Couleur_pelage_dorsal");	
 	if (localStorage.getItem('web') === 'oui') {
 		var remote_couchdb = localStorage.getItem('remote_couchdb');
-		var DB = new PouchDB(remote_couchdb + 'bcoming_bcoming_chauves_souris_capturees_couleur_pelage_dorsal' + debug);
+		var DB = new PouchDB(remote_couchdb + 'bcoming_cerfig_chauves_souris_capturees_couleur_pelage_dorsal' + debug);
 	} else {
-		var DB = new PouchDB('bcoming_bcoming_chauves_souris_capturees_couleur_pelage_dorsal' + debug);
+		var DB = new PouchDB('bcoming_cerfig_chauves_souris_capturees_couleur_pelage_dorsal' + debug);
 
 	};
 	DB.allDocs({  		
@@ -368,9 +368,9 @@ function listeCouleur_pelage_ventral() {
 	var Couleur_pelage_ventral = document.getElementById("Couleur_pelage_ventral");	
 	if (localStorage.getItem('web') === 'oui') {
 		var remote_couchdb = localStorage.getItem('remote_couchdb');
-		var DB = new PouchDB(remote_couchdb + 'bcoming_bcoming_chauves_souris_capturees_couleur_pelage_ventral' + debug);
+		var DB = new PouchDB(remote_couchdb + 'bcoming_cerfig_chauves_souris_capturees_couleur_pelage_ventral' + debug);
 	} else {
-		var DB = new PouchDB('bcoming_bcoming_chauves_souris_capturees_couleur_pelage_ventral' + debug);
+		var DB = new PouchDB('bcoming_cerfig_chauves_souris_capturees_couleur_pelage_ventral' + debug);
 
 	};
 	DB.allDocs({  		
@@ -401,9 +401,9 @@ function listeFamille() {
 	var Famille = document.getElementById("Famille");
 	if (localStorage.getItem('web') === 'oui') {
 		var remote_couchdb = localStorage.getItem('remote_couchdb');
-		var DB = new PouchDB(remote_couchdb + 'bcoming_bcoming_chauves_souris_capturees_espece' + debug);
+		var DB = new PouchDB(remote_couchdb + 'bcoming_cerfig_chauves_souris_capturees_espece' + debug);
 	} else {
-		var DB = new PouchDB('bcoming_bcoming_chauves_souris_capturees_espece' + debug);
+		var DB = new PouchDB('bcoming_cerfig_chauves_souris_capturees_espece' + debug);
 	};
 	DB.allDocs({  		
 		include_docs: true,

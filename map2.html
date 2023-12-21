@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ma Carte Google Maps</title>
+  <style>
+    /* Style pour la carte */
+    #map {
+      height: 400px;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <h1>Ma Carte Google Maps</h1>
+  <!-- Élément où la carte sera affichée -->
+  <div id="map"></div>
+
+  <!-- Script pour charger l'API Google Maps -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBkVt9iPB0ozDe8l0gVXoguLUjtum8vnj0&callback=initMap" async defer></script>
+
+  <!-- Script JavaScript pour initialiser la carte -->
+  <script>
+    // Fonction d'initialisation de la carte
+    function initMap() {
+      // Coordonnées pour le centrage de la carte (par exemple, New York)
+      var centerCoords = { lat: 40.7128, lng: -74.0060 };
+
+      // Options de la carte
+      var mapOptions = {
+        zoom: 10, // Niveau de zoom initial
+        center: centerCoords // Position centrale de la carte
+      };
+
+      // Création de la carte Google dans l'élément avec l'ID 'map'
+      var map = new google.maps.Map(document.getElementById('map'), mapOptions);
+    }
+  </script>
+</body>
+</html>

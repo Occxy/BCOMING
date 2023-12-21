@@ -204,13 +204,20 @@ function enable_li() {
 		  var liElement = document.getElementById(liId);
 
 		  if (liElement) {
-		    var redSpan = document.createElement("span");
-		    redSpan.style.color = "red";
-		    redSpan.textContent = "Not accessible";
+		        var anchorElement = liElement.querySelector('a');
 
-		    liElement.appendChild(document.createTextNode("\u00A0")); // Add a non-breaking space
-		    liElement.appendChild(redSpan);
-		  }
+		        if (anchorElement) {
+		            // Créez un span pour contenir l'icône
+		            var iconSpan = document.createElement('span');
+		            iconSpan.classList.add('fa', 'fa-ban'); // Ajoutez les classes pour l'icône
+		            iconSpan.style.color = 'red';
+		            iconSpan.style.fontSize = '1.5em'; // Modifie la taille de l'icône
+
+		            // Ajoutez du texte au lien
+		            anchorElement.appendChild(document.createTextNode(' ')); // Ajoutez un espace
+		            anchorElement.appendChild(iconSpan); // Ajoutez l'icône à côté du texte
+		        }
+		    }
 		}
 	function arrayIncludes(arr, value) {
         return arr.indexOf(value) !== -1;
