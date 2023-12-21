@@ -72,16 +72,16 @@ var bcoming_rhinokhov_zoocov_lab = 'bcoming_rhinokhov_zoocov_lab' + debug + '_co
 var bcoming_rhinokhov_zoocov_animal = 'bcoming_rhinokhov_zoocov_animal' + debug + '_count';
 var bcoming_biodivafreid = 'bcoming_biodivafreid' + debug + '_count';
 var bcoming_biodivafreid_locations = 'bcoming_biodivafreid_locations' + debug + '_count';
-var bcoming_bcoming_rongeurs_captures_guinea = 'bcoming_bcoming_rongeurs_captures_guinea' + debug + '_count';
-var bcoming_bcoming_chauves_souris_capturees_guinea = 'bcoming_bcoming_chauves_souris_capturees_guinea' + debug + '_count';
+var cerfig_rongeurs_captures_guinea = 'cerfig_rongeurs_captures_guinea' + debug + '_count';
+var bcoming_cerfig_chauves_souris_capturees_guinea = 'bcoming_cerfig_chauves_souris_capturees_guinea' + debug + '_count';
 
 /*document.getElementById("label_bcoming_camacross_count").innerHTML = localStorage.getItem(bcoming_camacross);
 document.getElementById("label_bcoming_rhinokhov_zoocov_lab_count").innerHTML = localStorage.getItem(bcoming_rhinokhov_zoocov_lab);
 document.getElementById("label_bcoming_rhinokhov_zoocov_animal_count").innerHTML = localStorage.getItem(bcoming_rhinokhov_zoocov_animal);
 document.getElementById("label_bcoming_biodivafreid_count").innerHTML = localStorage.getItem(bcoming_biodivafreid);
 document.getElementById("label_bcoming_biodivafreid_locations_count").innerHTML = localStorage.getItem(bcoming_biodivafreid_locations);
-document.getElementById("label_bcoming_bcoming_rongeurs_captures_guinea_count").innerHTML = localStorage.getItem(bcoming_bcoming_rongeurs_captures_guinea);
-document.getElementById("label_bcoming_bcoming_chauves_souris_capturees_guinea_count").innerHTML = localStorage.getItem(bcoming_bcoming_chauves_souris_capturees_guinea);*/
+document.getElementById("label_cerfig_rongeurs_captures_guinea_count").innerHTML = localStorage.getItem(cerfig_rongeurs_captures_guinea);
+document.getElementById("label_bcoming_cerfig_chauves_souris_capturees_guinea_count").innerHTML = localStorage.getItem(bcoming_cerfig_chauves_souris_capturees_guinea);*/
 
 //Define an array of IDs
 var elementIds = [
@@ -91,8 +91,24 @@ var elementIds = [
   "label_bcoming_rhinokhov_zoocov_count",
   "label_bcoming_biodivafreid_count",
   "label_bcoming_biodivafreid_locations_count",
-  "label_bcoming_bcoming_rongeurs_captures_guinea_count",
-  "label_bcoming_bcoming_chauves_souris_capturees_guinea_count"
+  "label_bcoming_cerfig_rongeurs_captures_guinea_count",
+  "label_bcoming_cerfig_chauves_souris_capturees_guinea_count",
+  "label_bcoming_merfi_guinea_survey_data_count",
+  "label_bcoming_insula_sites_count",
+  "label_bcoming_insula_av_samples_count",
+  "label_bcoming_insula_av_inventories_wp1_count",
+  "label_bcoming_insula_ch_samples_count",
+  "label_bcoming_insula_ch_samples_data_count",
+  "label_bcoming_insula_mi_samples_count",
+  "label_bcoming_insula_he_samples_count",
+  "label_bcoming_insula_he_samples_data_inventories_count",  
+  "label_bcoming_west_nile_humans_count",
+  "label_bcoming_west_nile_horses_count",
+  "label_bcoming_west_nile_birds_count",
+  "label_bcoming_west_nile_chickens_count",
+  "label_bcoming_west_nile_mosquitoes_field_collection_sites_count",
+  "label_bcoming_west_nile_mosquitoes_field_samples_count",
+  "label_bcoming_west_nile_mosquitoes_field_samples_diagnose_count"
 ];
 
 // Loop through the array of IDs and set their content based on localStorage values

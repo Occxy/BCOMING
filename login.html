@@ -234,8 +234,8 @@
 			
 			if (navigator.onLine == true) {
 				var remote_couchdb = localStorage.getItem('remote_couchdb');
-				var localDB = new PouchDB('username');
-				var remoteDB = new PouchDB(remote_couchdb + 'username', {skip_setup: true});
+				var localDB = new PouchDB('bcoming_username');
+				var remoteDB = new PouchDB(remote_couchdb + 'bcoming_username', {skip_setup: true});
 				localDB.sync(remoteDB).on('complete', function(info) {              
 					//load_db_equipe();
 					connect();
@@ -323,7 +323,7 @@
 	  		var password = document.getElementById('login-password').value; 
 	  		localStorage['loginPassword'] = password;
 	  			  		
-	  		var localDB = new PouchDB('username');
+	  		var localDB = new PouchDB('bcoming_username');
 		  	localDB.find({
 		    	selector: {username: username},
 				fields: ['_id',  'equipe', 'code_equipe', 'projects', 'pays', 'fonction', 'role', 'username', 'email', 'password', 'confirmation_token', 'confirmed_at',
@@ -419,7 +419,7 @@
 		function login_web() { 
 			
 			var remote_couchdb = localStorage.getItem('remote_couchdb');
-			var remoteDB = new PouchDB(remote_couchdb + 'username');
+			var remoteDB = new PouchDB(remote_couchdb + 'bcoming_username');
 			
 			var l = Ladda.create( document.querySelector( '.ladda-button' ) );
 	
@@ -439,7 +439,7 @@
 			  		var password = document.getElementById('login-password').value; 
 			  		localStorage['loginPassword'] = password;
 			  			  		
-			  		var remoteDB2 = new PouchDB(remote_couchdb + 'username'); 
+			  		var remoteDB2 = new PouchDB(remote_couchdb + 'bcoming_username'); 
 			  		remoteDB2.find({
 				    	selector: {username: username},
 						fields: ['_id',  'equipe', 'code_equipe', 'pays', 'fonction', 'role', 'username', 'email', 'password', 'confirmation_token', 'confirmed_at',

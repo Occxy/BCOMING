@@ -44,16 +44,16 @@ var array_selected_fields = [];
 
 if (localStorage.getItem('web') === 'oui') {
 	var remote_couchdb = localStorage.getItem('remote_couchdb');
-	var DBbcoming_rongeurs_captures_guinea = new PouchDB(remote_couchdb + 'bcoming' + nom_table + debug);
+	var DBcerfig_rongeurs_captures_guinea = new PouchDB(remote_couchdb + 'bcoming' + nom_table + debug);
 } else {
-	var DBbcoming_rongeurs_captures_guinea = new PouchDB('bcoming' + nom_table + debug);
+	var DBcerfig_rongeurs_captures_guinea = new PouchDB('bcoming' + nom_table + debug);
 };
 
-var tab_bcoming_rongeurs_captures_guinea = new Array();
+var tab_cerfig_rongeurs_captures_guinea = new Array();
 var tab = new Array();
 
 
-DBbcoming_rongeurs_captures_guinea.allDocs({  		
+DBcerfig_rongeurs_captures_guinea.allDocs({  		
 	include_docs: true,
 	attachments: true
 }).then(function (result) {
@@ -157,7 +157,7 @@ DBbcoming_rongeurs_captures_guinea.allDocs({
   				
    				obj.Username = row.doc.Username */
 
-   				tab_bcoming_rongeurs_captures_guinea.push(obj);
+   				tab_cerfig_rongeurs_captures_guinea.push(obj);
    				
    				i++;	
    				
@@ -175,7 +175,7 @@ DBbcoming_rongeurs_captures_guinea.allDocs({
 		
 		
 		
-	DBbcoming_rongeurs_captures_guinea.info().then((infos) => {
+	DBcerfig_rongeurs_captures_guinea.info().then((infos) => {
 		
 		count = infos.doc_count;
 		
@@ -755,7 +755,7 @@ function addBcomingRongeursCapturesGuineaRecord(row, selected) {
 			console.log(count);
 			if (count == 0) {
 				var blob = new Blob(['\ufeff' + CSV_data], {type: "text/csv;charset=ISO-8859-1"});
-	       		saveAs(blob, "bcoming_cerfig_rongeurs_captures_guinea" + clock.now + ".csv");
+	       		saveAs(blob, "cerfig_rongeurs_captures_guinea" + clock.now + ".csv");
 			}	
 			
 	} 
@@ -770,7 +770,7 @@ window.onload = function() {
 		CSV_data = fields_CSV_head;
 		
 		
-		var res = alasql("SELECT N_identification, Date, Equipe, Binome_prelevement, Site_region, Site_precis_de_capture, Piege, Numero_de_piege, Lieu_de_capture, Lieu_de_capture_autre, Lat_degre_dec_Piege, Latitude_Piege, Long_degre_dec_Piege, Longitude_Piege, Taille_yeux, Couleur_pelage_dorsal, Couleur_pelage_ventral, Espece_identifiee, Famille, Genre, Espece, Age, Sexe, Femelles_gestante, Femelles_lactante, Nombre_de_paires_de_mamelles, checkboxPect, Pect, checkboxAbdo, Abdo, checkboxIngu, Ingu, Testicules_descendus, Longueur_mm, Remarques, Poids_avec_sac_g, Poids_du_sac_g, Poids_net_animal_g, L_corps_mm, L_queue_mm, L_pied_arriere_mm, L_crane_mm, L_oreille_mm, Photo, Relache, Mort_naturelle_carcasse_trouvee, Mort_due_a_la_capture_manip, Euthanasie, Dosage_injection_ketamine, Si_relache_marquage, Si_marque_numero, Ecouv_gorge_RNAl, Sang_papier_buvard, Biopsie_d_oreille_ethanol, Feces_RNAl, Ecouv_urine_RNAl, Ecouv_rectal_RNAl, Ectoparasites_ethanol, Tiques, Puces, Echantillons_Autre, Autres_echantillons_ou_remarques, Coeur_CO, Poumons_PO, Foie_FO, Rate_RA, Reins_RN, Intestins_INT, Testicule_TE, Ovaires_OV, Embryons_EM, Nombre_d_embryons, Organes_RNAl_autre, Username FROM ? ORDER BY Date", [tab_bcoming_rongeurs_captures_guinea] );
+		var res = alasql("SELECT N_identification, Date, Equipe, Binome_prelevement, Site_region, Site_precis_de_capture, Piege, Numero_de_piege, Lieu_de_capture, Lieu_de_capture_autre, Lat_degre_dec_Piege, Latitude_Piege, Long_degre_dec_Piege, Longitude_Piege, Taille_yeux, Couleur_pelage_dorsal, Couleur_pelage_ventral, Espece_identifiee, Famille, Genre, Espece, Age, Sexe, Femelles_gestante, Femelles_lactante, Nombre_de_paires_de_mamelles, checkboxPect, Pect, checkboxAbdo, Abdo, checkboxIngu, Ingu, Testicules_descendus, Longueur_mm, Remarques, Poids_avec_sac_g, Poids_du_sac_g, Poids_net_animal_g, L_corps_mm, L_queue_mm, L_pied_arriere_mm, L_crane_mm, L_oreille_mm, Photo, Relache, Mort_naturelle_carcasse_trouvee, Mort_due_a_la_capture_manip, Euthanasie, Dosage_injection_ketamine, Si_relache_marquage, Si_marque_numero, Ecouv_gorge_RNAl, Sang_papier_buvard, Biopsie_d_oreille_ethanol, Feces_RNAl, Ecouv_urine_RNAl, Ecouv_rectal_RNAl, Ectoparasites_ethanol, Tiques, Puces, Echantillons_Autre, Autres_echantillons_ou_remarques, Coeur_CO, Poumons_PO, Foie_FO, Rate_RA, Reins_RN, Intestins_INT, Testicule_TE, Ovaires_OV, Embryons_EM, Nombre_d_embryons, Organes_RNAl_autre, Username FROM ? ORDER BY Date", [tab_cerfig_rongeurs_captures_guinea] );
 	    			
 	    var CS = JSON.stringify(res);
 	    			
@@ -803,7 +803,7 @@ window.onload = function() {
 			//alert($(sel).val())
 		});
 		
-		var res = alasql("SELECT N_identification, Date, Equipe, Binome_prelevement, Site_region, Site_precis_de_capture, Piege, Numero_de_piege, Lieu_de_capture, Lieu_de_capture_autre, Lat_degre_dec_Piege, Latitude_Piege, Long_degre_dec_Piege, Longitude_Piege, Taille_yeux, Couleur_pelage_dorsal, Couleur_pelage_ventral, Espece_identifiee, Famille, Genre, Espece, Age, Sexe, Femelles_gestante, Femelles_lactante, Nombre_de_paires_de_mamelles, checkboxPect, Pect, checkboxAbdo, Abdo, checkboxIngu, Ingu, Testicules_descendus, Longueur_mm, Remarques, Poids_avec_sac_g, Poids_du_sac_g, Poids_net_animal_g, L_corps_mm, L_queue_mm, L_pied_arriere_mm, L_crane_mm, L_oreille_mm, Photo, Relache, Mort_naturelle_carcasse_trouvee, Mort_due_a_la_capture_manip, Euthanasie, Dosage_injection_ketamine, Si_relache_marquage, Si_marque_numero, Ecouv_gorge_RNAl, Sang_papier_buvard, Biopsie_d_oreille_ethanol, Feces_RNAl, Ecouv_urine_RNAl, Ecouv_rectal_RNAl, Ectoparasites_ethanol, Tiques, Puces, Echantillons_Autre, Autres_echantillons_ou_remarques, Coeur_CO, Poumons_PO, Foie_FO, Rate_RA, Reins_RN, Intestins_INT, Testicule_TE, Ovaires_OV, Embryons_EM, Nombre_d_embryons, Organes_RNAl_autre, Username FROM ? ORDER BY Date", [tab_bcoming_rongeurs_captures_guinea] );
+		var res = alasql("SELECT N_identification, Date, Equipe, Binome_prelevement, Site_region, Site_precis_de_capture, Piege, Numero_de_piege, Lieu_de_capture, Lieu_de_capture_autre, Lat_degre_dec_Piege, Latitude_Piege, Long_degre_dec_Piege, Longitude_Piege, Taille_yeux, Couleur_pelage_dorsal, Couleur_pelage_ventral, Espece_identifiee, Famille, Genre, Espece, Age, Sexe, Femelles_gestante, Femelles_lactante, Nombre_de_paires_de_mamelles, checkboxPect, Pect, checkboxAbdo, Abdo, checkboxIngu, Ingu, Testicules_descendus, Longueur_mm, Remarques, Poids_avec_sac_g, Poids_du_sac_g, Poids_net_animal_g, L_corps_mm, L_queue_mm, L_pied_arriere_mm, L_crane_mm, L_oreille_mm, Photo, Relache, Mort_naturelle_carcasse_trouvee, Mort_due_a_la_capture_manip, Euthanasie, Dosage_injection_ketamine, Si_relache_marquage, Si_marque_numero, Ecouv_gorge_RNAl, Sang_papier_buvard, Biopsie_d_oreille_ethanol, Feces_RNAl, Ecouv_urine_RNAl, Ecouv_rectal_RNAl, Ectoparasites_ethanol, Tiques, Puces, Echantillons_Autre, Autres_echantillons_ou_remarques, Coeur_CO, Poumons_PO, Foie_FO, Rate_RA, Reins_RN, Intestins_INT, Testicule_TE, Ovaires_OV, Embryons_EM, Nombre_d_embryons, Organes_RNAl_autre, Username FROM ? ORDER BY Date", [tab_cerfig_rongeurs_captures_guinea] );
 	     			
 	    var CS = JSON.stringify(res);
 	    			

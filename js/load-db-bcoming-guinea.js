@@ -30,9 +30,9 @@ $(document).ready(function() {
         }
         */
 	var table = $('#example').DataTable({
-		/*columnDefs: [
-			 { type: 'date-eu', targets: 2 }
-		],*/
+		columnDefs: [
+			 { type: 'formatted-num', targets: 0},
+		],
 		columns: [			
 			{ data: null, render: 'N_identification'},									
 			{ data: null, render: 'Date'},
@@ -141,3 +141,17 @@ function enable_button() {
 	button_add.classList.remove("noclick");
 };
 
+jQuery.extend( jQuery.fn.dataTableExt.oSort, {
+	"formatted-num-pre": function ( a ) {
+		a = (a === "-" || a === "") ? 0 : a.replace( /[^\d\-\.]/g, "" );
+		return parseFloat( a );
+	},
+
+	"formatted-num-asc": function ( a, b ) {
+		return a - b;
+	},
+
+	"formatted-num-desc": function ( a, b ) {
+		return b - a;
+	}
+} );

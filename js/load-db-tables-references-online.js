@@ -7,7 +7,13 @@ var projects = localStorage.getItem('projects');
 var codeProjectsArray = projects.split(',');
 var nom_pays = localStorage.getItem('nom_pays');
 
-
+localStorage['bcoming_camacross_count'] = '';
+localStorage['bcoming_rhinokhov_zoocov_count'] = '';
+localStorage['cerfig_rongeurs_captures_guinea_count'] = '';
+localStorage['bcoming_cerfig_chauves_souris_capturees_guinea_count'] = '';
+localStorage['bcoming_biodivafreid_count'] = '';
+localStorage['bcoming_biodivafreid_locations_count'] = '';
+localStorage['bcoming_insula_av_samples_count'] = '';
 
 var debug;
 if (localStorage.getItem('debug') === null) {
@@ -29,21 +35,45 @@ function arrayIncludes(arr, value) {
     return arr.indexOf(value) !== -1;
 }
 
+tables_principales_infos = ['bcoming_camacross',
+							'bcoming_rhinokhov_zoocov',
+							'bcoming_cerfig_rongeurs_captures_guinea',
+							'bcoming_cerfig_chauves_souris_capturees_guinea',
+							'bcoming_biodivafreid',
+							'bcoming_biodivafreid_locations',
+							'bcoming_insula_sites',
+					        'bcoming_insula_av_samples',
+					        'bcoming_insula_av_inventories_wp1',
+					        'bcoming_insula_av_samples',
+					        'bcoming_insula_ch_samples',
+					        'bcoming_insula_ch_samples_data',
+					        'bcoming_insula_mi_samples',
+					        'bcoming_insula_he_samples',
+					        'bcoming_insula_he_samples_data_inventories',
+						    'bcoming_west_nile_humans',
+						    'bcoming_west_nile_horses',
+						    'bcoming_west_nile_birds',
+						    'bcoming_west_nile_chickens',
+						    'bcoming_west_nile_mosquitoes_field_collection_sites',
+						    'bcoming_west_nile_mosquitoes_field_samples',
+						    'bcoming_west_nile_mosquitoes_field_samples_diagnose',
+						    'bcoming_merfi_guinea_survey_data']
+
 if  (debug !== '') {
 	tables_principales = ['bcoming_camacross_debug', 'bcoming_rhinokhov_zoocov_lab_debug', 'bcoming_rhinokhov_zoocov_animal_debug', 
-		                  'bcoming_biodivafreid_debug', 'bcoming_biodivafreid_locations_debug', 'bcoming_bcoming_rongeurs_captures_guinea_debug',
-		                   'bcoming_bcoming_chauves_souris_capturees_guinea_debug'
+		                  'bcoming_biodivafreid_debug', 'bcoming_biodivafreid_locations_debug', 'cerfig_rongeurs_captures_guinea_debug',
+		                   'bcoming_cerfig_chauves_souris_capturees_guinea_debug'
 		  ];
 	
 	
 
 } else {
-	/*tables_principales = ['bcoming_bcoming_rongeurs_captures_guinea',
-        'bcoming_bcoming_chauves_souris_capturees_guinea', 'bcoming_camacross', 'bcoming_rhinokhov_zoocov_lab', 'bcoming_rhinokhov_zoocov_animal', 
+	/*tables_principales = ['cerfig_rongeurs_captures_guinea',
+        'bcoming_cerfig_chauves_souris_capturees_guinea', 'bcoming_camacross', 'bcoming_rhinokhov_zoocov_lab', 'bcoming_rhinokhov_zoocov_animal', 
         'bcoming_biodivafreid', 'bcoming_biodivafreid_locations' 
         ];*/
 	
-	for (var i = 1; i < 6; i++) {
+	for (var i = 1; i < 9; i++) {
 		  
 		if (i === 2) {
 		    if (arrayIncludes(codeProjectsArray, String(i))) {
@@ -57,14 +87,43 @@ if  (debug !== '') {
 		}
 		if (i === 4) {
 		    if (arrayIncludes(codeProjectsArray, String(i))) {
-		      tables_principales.push('bcoming_bcoming_rongeurs_captures_guinea');
-		      tables_principales.push('bcoming_bcoming_chauves_souris_capturees_guinea');
+		      tables_principales.push('bcoming_cerfig_rongeurs_captures_guinea');
+		      tables_principales.push('bcoming_cerfig_chauves_souris_capturees_guinea');
 		    }
 		}
 		if (i === 5) {
 		    if (arrayIncludes(codeProjectsArray, String(i))) {
 		      tables_principales.push('bcoming_biodivafreid');
 		      tables_principales.push('bcoming_biodivafreid_locations');
+		    }
+		}
+		if (i === 6) {
+		    if (arrayIncludes(codeProjectsArray, String(i))) {
+		      tables_principales.push('bcoming_insula_sites');
+		      tables_principales.push('bcoming_insula_av_samples');
+		      tables_principales.push('bcoming_insula_av_inventories_wp1');
+		      tables_principales.push('bcoming_insula_av_samples');
+		      tables_principales.push('bcoming_insula_ch_samples');
+		      tables_principales.push('bcoming_insula_ch_samples_data');
+		      tables_principales.push('bcoming_insula_mi_samples');
+		      tables_principales.push('bcoming_insula_he_samples');
+		      tables_principales.push('bcoming_insula_he_samples_data_inventories');
+		    }
+		}
+		if (i === 7) {
+		    if (arrayIncludes(codeProjectsArray, String(i))) {
+		      tables_principales.push('bcoming_west_nile_humans');
+		      tables_principales.push('bcoming_west_nile_horses');
+		      tables_principales.push('bcoming_west_nile_birds');
+		      tables_principales.push('bcoming_west_nile_chickens');
+		      tables_principales.push('bcoming_west_nile_mosquitoes_field_collection_sites');
+		      tables_principales.push('bcoming_west_nile_mosquitoes_field_samples');
+		      tables_principales.push('bcoming_west_nile_mosquitoes_field_samples_diagnose');
+		    }
+		}
+		if (i === 8) {
+		    if (arrayIncludes(codeProjectsArray, String(i))) {
+		      tables_principales.push('bcoming_merfi_guinea_survey_data');
 		    }
 		}
 	}
@@ -152,18 +211,18 @@ var tabCount = new Array();
 
 if  (debug !== '') {
 	var tables_references = 
-		['username', 'bcoming_version', 'bcoming_bcoming_rongeurs_captures_couleur_pelage_dorsal_debug',  'bcoming_bcoming_rongeurs_captures_couleur_pelage_ventral_debug',
-		 'bcoming_bcoming_rongeurs_captures_espece_debug', 'bcoming_bcoming_chauves_souris_capturees_couleur_pelage_dorsal_debug',  'bcoming_bcoming_chauves_souris_capturees_couleur_pelage_ventral_debug',
-		 'bcoming_bcoming_chauves_souris_capturees_espece_debug'
+		['bcoming_username', 'username', 'bcoming_version', 'bcoming_cerfig_rongeurs_captures_couleur_pelage_dorsal_debug',  'bcoming_cerfig_rongeurs_captures_couleur_pelage_ventral_debug',
+		 'bcoming_cerfig_rongeurs_captures_espece_debug', 'bcoming_cerfig_chauves_souris_capturees_couleur_pelage_dorsal_debug',  'bcoming_cerfig_chauves_souris_capturees_couleur_pelage_ventral_debug',
+		 'bcoming_cerfig_chauves_souris_capturees_espece_debug'
 
 		 ];
 	
 	
 } else {
 	var tables_references = 
-		['username', 'bcoming_version', 'bcoming_bcoming_rongeurs_captures_couleur_pelage_dorsal',  'bcoming_bcoming_rongeurs_captures_couleur_pelage_ventral',
-		 'bcoming_bcoming_rongeurs_captures_espece', 'bcoming_bcoming_chauves_souris_capturees_couleur_pelage_dorsal',  'bcoming_bcoming_chauves_souris_capturees_couleur_pelage_ventral',
-		 'bcoming_bcoming_chauves_souris_capturees_espece'
+		['bcoming_username', 'username', 'bcoming_version', 'bcoming_cerfig_rongeurs_captures_couleur_pelage_dorsal',  'bcoming_cerfig_rongeurs_captures_couleur_pelage_ventral',
+		 'bcoming_cerfig_rongeurs_captures_espece', 'bcoming_cerfig_chauves_souris_capturees_couleur_pelage_dorsal',  'bcoming_cerfig_chauves_souris_capturees_couleur_pelage_ventral',
+		 'bcoming_cerfig_chauves_souris_capturees_espece'
 
 		 ];
 }
@@ -237,14 +296,16 @@ if  (debug !== '') {
 step = 100 / (tables_principales.length + tables_references.length);
 
 var tables_principales_count = tables_principales.length;
-load_tables_count(tables_principales_count);
+//load_tables_count(tables_principales_count);
+
+load_tables_count(tables_principales_infos.length);
 
 function load_tables_count(i) {
 	if (i > 0) {
-		var localDB = new PouchDB(tables_principales[i-1]/* + debug*/);
-		var remoteDB = new PouchDB(remote_couchdb + tables_principales[i-1] /*+ debug*/, {skip_setup: true});
+		var localDB = new PouchDB(tables_principales_infos[i-1] + debug);
+		var remoteDB = new PouchDB(remote_couchdb + tables_principales_infos[i-1] + debug, {skip_setup: true});
 		remoteDB.info().then((infos) => {
-			var table_principale_count = tables_principales[i-1] + '_count';
+			var table_principale_count = tables_principales_infos[i-1] + '_count';
 			localStorage[table_principale_count] = infos.doc_count;
 			//alert(table_principales[i-1] + ' ' + localStorage[table_principale_count])
 				if (infos.doc_count > 20) {
@@ -255,9 +316,9 @@ function load_tables_count(i) {
 				};
 				return load_tables_count(i-1)
 		}).catch((error) => {
-			console.error(error + ' : ' + tables_principales[i-1]);
+			console.error(error + ' : ' + tables_principales_infos[i-1]);
 			localDB.info().then((infos) => {
-				var table_principale_count = tables_principales[i-1] + '_count';
+				var table_principale_count = tables_principales_infos[i-1] + '_count';
 				localStorage[table_principale_count] = infos.doc_count;
 				if (infos.doc_count > 20) {
 					tabCount[i-1] = infos.doc_count;
@@ -288,7 +349,7 @@ function loadCount_total() {
 	for (var i=0;i<tabCount.length;i++) {
 		//alert(tabCount[i] - tabCount[i] % 20);
 		total_progress_count = total_progress_count + (tabCount[i] - tabCount[i] % 20);
-		localStorage['doc_' + tables_principales[i] + '_progress_count'] = tabCount[i] - tabCount[i] % 20;	
+		localStorage['doc_' + tables_principales_infos[i] + '_progress_count'] = tabCount[i] - tabCount[i] % 20;	
 	};	
 	total_progress_count = total_progress_count + 17 * 20;
 	
@@ -352,6 +413,7 @@ function load_tables_references_debug(i) {
 		
 	} else {
 		//loadjs('js/load-alldbs-online.js');
+		
 		load_tables_principales(tables_principales_count);
 	}
 }
@@ -364,6 +426,7 @@ function load_tables_principales(i) {
 		var localDB = new PouchDB(tables_principales[i-1] + debug);
 		var remoteDB = new PouchDB(remote_couchdb + tables_principales[i-1] + debug, {skip_setup: true});
 		console.log('---' + tables_principales[i-1] + '---');
+	
 		localDB.sync(remoteDB, {batch_size: 1000}).on('complete', (info) => {
 			count_total = localStorage.getItem('doc_' + tables_principales[i-1] + '_progress_count') / 20;
 			//for (var j=0; j<count_total; j++) {

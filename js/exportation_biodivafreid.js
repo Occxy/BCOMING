@@ -275,6 +275,7 @@ function addBiodivAfreidRecord(row, selected) {
 			if (count == 0) {
 				var blob = new Blob(['\ufeff' + CSV_data], {type: "text/csv;charset=ISO-8859-1"});
 	       		saveAs(blob, "biodivafreid_captures" + clock.now + ".csv");
+	       		document.location.href="import_export.html?table=_biodivafreid&type=biodivafreid";
 			}	
 			
 	} 
