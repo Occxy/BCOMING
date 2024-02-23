@@ -67,7 +67,7 @@ DBcerfig_rongeurs_captures_guinea.allDocs({
    				var obj = new Object();
    				
    				obj.N_identification = row.doc.N_identification;
-		  	    obj.Date = row.doc.stringDate;
+		  	    obj.Date = row.doc.Date;
 		  	    obj.Equipe = row.doc.Equipe;
 			  	obj.Binome_prelevement = row.doc.Binome_prelevement;
 			  	obj.Site_region = row.doc.Site_region;
@@ -213,7 +213,6 @@ function addBcomingRongeursCapturesGuineaRecord(row, selected) {
 		
 		if (!selected) { 	
 			
-			alert(row.Dosage_injection_ketamine)
 			CSV_data = CSV_data +
 				
 				row.N_identification + ';' +
