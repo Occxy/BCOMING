@@ -427,8 +427,8 @@
 				     			} else if (type_table == 'biodivafreid') {
 									file = 'BAC'
 				     			} else if (type_table == 'bcoming_cerfig') {
-									file = 'CRG'
-				     			} /*else if ((type_table == 'chauves_souris_capturees') && (localStorage.getItem('export_table') == '_astre_transvihmi_guinee')) {
+				     				loadjs('js/templates_cerfig_guinea.js')
+				     		    } /*else if ((type_table == 'chauves_souris_capturees') && (localStorage.getItem('export_table') == '_astre_transvihmi_guinee')) {
 				     				file = 'CSGU'
 				     			} else if ((type_table == 'chauves_souris_non_invasives') && (localStorage.getItem('export_table') != '_astre_transvihmi_guinee')) {
 				     				file = 'CINI'
@@ -454,9 +454,7 @@
 				     				file = 'FA'
 				     			}   */	               		
 			               		line.innerHTML = 
-			                          '<a id="button_download" class="btn btn-primary btn-fill" href="./templates/' +
-			                          file + 
-			                          '.csv" download>Download</a>'	
+			                          '<a id="button_download" class="btn btn-primary btn-fill">Download</a>'	
 			                    document.getElementById("template_1").appendChild(line);
 				          </script>
                           
