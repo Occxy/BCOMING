@@ -426,6 +426,8 @@
 									file = 'RKZC'
 				     			} else if (type_table == 'biodivafreid') {
 									file = 'BAC'
+				     			} else if (type_table == 'bcoming_cerfig') {
+									file = 'CRG'
 				     			} /*else if ((type_table == 'chauves_souris_capturees') && (localStorage.getItem('export_table') == '_astre_transvihmi_guinee')) {
 				     				file = 'CSGU'
 				     			} else if ((type_table == 'chauves_souris_non_invasives') && (localStorage.getItem('export_table') != '_astre_transvihmi_guinee')) {
@@ -592,8 +594,13 @@
 				  		  
 				  		  <script type="text/javascript">
 				  		        var line = document.createElement("div");
-				  		      	
-				  		        if (nom_table == '_biodivafreid') {
+				  		      if (nom_table == '_bcoming_cerfig') {
+			               			line.innerHTML = 
+				                          '<a id="button_generate" href="exportation.html?table=_cerfig_chauves_souris_capturees_guinea' +
+				                          '&type=cerfig_chauves_souris_capturees_guinea' +
+				                          '" class="btn btn btn-primary btn-fill">Generate the file</a></h4>';			               		
+					          		document.getElementById("generate_button_1").appendChild(line);
+			               		} else if (nom_table == '_biodivafreid') {
 				           			line.innerHTML = 
 				                          '<a id="button_generate" href="exportation.html?table=' +
 				                          '_biodivafreid_locations' + '&type=' + 'biodivafreid_locations' +

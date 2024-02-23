@@ -608,7 +608,7 @@
 			pays = 'cambodia';
 			document.getElementById('title').innerText = 'RhinoKhov ZooCov'
 			nomtable = nom_table
-		}  else if (nom_table == '_bcoming_cerfig') {
+		}  else if ((nom_table == '_cerfig_rongeurs_captures_guinea') || (nom_table == '_cerfig_chauves_souris_capturees_guinea'))  {
 			pays = 'guinea';
 			document.getElementById('title').innerText = 'BCOMING/CERFIG'
 			nomtable = '_bcoming_cerfig'
@@ -870,10 +870,16 @@
 				component_a.setAttribute('aria-expanded', 'true');
 				var component_ul =  document.getElementById('ul_bcoming_merfi_guineaDropdown');
 				component_ul.classList.add('show');
-			}          
+			}  else if ((nom_table == '_cerfig_rongeurs_captures_guinea') || (nom_table == '_cerfig_chauves_souris_capturees_guinea'))  {         
+				var component_li = document.getElementById('li_bcoming_cerfig_guineaDropdown');
+				component_li.classList.add('active');
+				var component_a = document.getElementById('a_bcoming_cerfig_guineaDropdown');
+				component_a.setAttribute('aria-expanded', 'true');
+				var component_ul =  document.getElementById('ul_bcoming_cerfig_guineaDropdown');
+				component_ul.classList.add('show');
+			}
 			
-			
-			if (nom_table != '_bcoming_merfi_guinea_survey_data') {
+			if ((nom_table != '_bcoming_merfi_guinea_survey_data') && (nom_table != '_cerfig_rongeurs_captures_guinea') && (nom_table != '_cerfig_chauves_souris_capturees_guinea')) {
 				var component_li = document.getElementById('li' + nomtable + 'Dropdown');
 				component_li.classList.add('active');
 				var component_a = document.getElementById('a' + nomtable + 'Dropdown');
