@@ -21,7 +21,8 @@
 	if ((navigator.onLine) && (localStorage.getItem('web') == 'oui')) {
 		loadjs('js/load-db.js');
 	} else {
-		localStorage['remote_couchdb'] = 'http://vps-ffc4572e.vps.ovh.net/couchdb/';
+		//localStorage['remote_couchdb'] = 'http://vps-ffc4572e.vps.ovh.net/couchdb/';
+		localStorage['remote_couchdb'] = 'http://contis.cirad.fr/couchdb/';
 		
 		localStorage['db_loaded'] = '0';
 		window.location = 'login.html';

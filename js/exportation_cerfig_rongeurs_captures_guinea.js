@@ -754,7 +754,8 @@ function addBcomingRongeursCapturesGuineaRecord(row, selected) {
 			console.log(count);
 			if (count == 0) {
 				var blob = new Blob(['\ufeff' + CSV_data], {type: "text/csv;charset=ISO-8859-1"});
-	       		saveAs(blob, "cerfig_rongeurs_captures_guinea" + clock.now + ".csv");
+	       		saveAs(blob, "bcoming_cerfig_rongeurs_captures_guinea" + clock.now + ".csv");
+	       		document.location.href="import_export.html?table=_bcoming_cerfig&type=bcoming_cerfig";
 			}	
 			
 	} 

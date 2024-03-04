@@ -211,7 +211,7 @@ var tabCount = new Array();
 
 if  (debug !== '') {
 	var tables_references = 
-		['bcoming_username', 'username', 'bcoming_version', 'bcoming_cerfig_rongeurs_captures_couleur_pelage_dorsal_debug',  'bcoming_cerfig_rongeurs_captures_couleur_pelage_ventral_debug',
+		['bcoming_username', 'bcoming_version', 'bcoming_cerfig_rongeurs_captures_couleur_pelage_dorsal_debug',  'bcoming_cerfig_rongeurs_captures_couleur_pelage_ventral_debug',
 		 'bcoming_cerfig_rongeurs_captures_espece_debug', 'bcoming_cerfig_chauves_souris_capturees_couleur_pelage_dorsal_debug',  'bcoming_cerfig_chauves_souris_capturees_couleur_pelage_ventral_debug',
 		 'bcoming_cerfig_chauves_souris_capturees_espece_debug'
 
@@ -220,7 +220,7 @@ if  (debug !== '') {
 	
 } else {
 	var tables_references = 
-		['bcoming_username', 'username', 'bcoming_version', 'bcoming_cerfig_rongeurs_captures_couleur_pelage_dorsal',  'bcoming_cerfig_rongeurs_captures_couleur_pelage_ventral',
+		['bcoming_username', 'bcoming_version', 'bcoming_cerfig_rongeurs_captures_couleur_pelage_dorsal',  'bcoming_cerfig_rongeurs_captures_couleur_pelage_ventral',
 		 'bcoming_cerfig_rongeurs_captures_espece', 'bcoming_cerfig_chauves_souris_capturees_couleur_pelage_dorsal',  'bcoming_cerfig_chauves_souris_capturees_couleur_pelage_ventral',
 		 'bcoming_cerfig_chauves_souris_capturees_espece'
 

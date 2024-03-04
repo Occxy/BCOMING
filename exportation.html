@@ -112,6 +112,8 @@
         	loadjs('js/exportation_rhinokhov_zoocov.js')
         } else if ((nom_table == '_cerfig_rongeurs_captures_guinea') && (type_table == 'cerfig_rongeurs_captures_guinea')) {
         	loadjs('js/exportation_cerfig_rongeurs_captures_guinea.js')
+        } else if ((nom_table == '_cerfig_chauves_souris_capturees_guinea') && (type_table == 'cerfig_chauves_souris_capturees_guinea')) {
+        	loadjs('js/exportation_cerfig_chauves_souris_capturees_guinea.js')
         } else if ((nom_table == '_biodivafreid') && (type_table == 'biodivafreid')) {
         	loadjs('js/exportation_biodivafreid.js')
         } else if ((nom_table == '_biodivafreid_locations') && (type_table == 'biodivafreid_locations')) {
@@ -401,6 +403,20 @@
                             <li id="li_biodivafreid_locations_data_list" name="5"><a href="liste_biodivafreid_locations.html?table=_biodivafreid_locations">locations</a></li>                           
 	                        <li id="li_biodivafreid_map" name="5"><a href="map.html?table=_biodivafreid_locations&type=biodivafreid_locations">map</a></li>
 	                        <li id="li_importation_biodivafreid_datas" name="5"><a href="import_export.html?table=_biodivafreid&type=biodivafreid">importation/exportation</a></li>                            
+                          </ul>
+	                    </li>
+	                  </ul>
+	                </li> 
+	                
+	                <li id="li_cameroonDropdown" name="1"> <a id="a_cameroonDropdown" name="1" href="#ul_cameroonDropdown" aria-expanded="false" data-toggle="collapse"> <i class="a-cameroon"></i><label id="label_cameroon" style="vertical-align: top;">Cameroon</label></a>
+                      <ul id="ul_cameroonDropdown" name="1" class="collapse list-unstyled">
+                        <li id="li_bcoming_cremer_cameroonDropdown" name="9" pays="guinee"> <a id="a_bcoming_cremer_cameroonDropdown" name="1" href="#ul_bcoming_cremer_cameroonDropdown" aria-expanded="false" data-toggle="collapse">BCOMING/CREMER</i> </a>
+                       	  <ul id="ul_bcoming_cremer_cameroonDropdown" name="9" pays="guinee" class="collapse list-unstyled">
+                            <li id="li_bcoming_cremer_rongeurs_captures_cameroon_data_list" name="9"><a href="liste_bcoming_cremer_rongeurs_captures_cameroon.html?table=_cremer_rongeurs_captures_cameroon">rodents captured data</a></li>                            
+	                        <li id="li_bcoming_cremer_chauves_souris_capturees_cameroon_data_list" name="9"><a href="liste_bcoming_cremer_chauves_souris_capturees_cameroon.html?table=_cremer_chauves_souris_capturees_cameroon">bats captured data</a></li>                            
+	                        <li id="li_bcoming_cremer_rongeurs_captures_cameroon_map" name="9"><a href="map.html?table=_cremer_rongeurs_captures_cameroon&type=cremer_rongeurs_captures_cameroon">rodents captured map</a></li>
+	                        <li id="li_bcoming_cremer_chauves_souris_capturees_cameroon_map" name="9"><a href="map.html?table=_cremer_chauves_souris_capturees_cameroon&type=bcoming_cremer_chauves_souris_capturees_cameroon">bats captured map</a></li>
+	                        <li id="li_importation_bcoming_cremer_datas" name="9"><a href="import_export.html?table=_bcoming_cremer&type=bcoming_cremer">import/export</a></li>                            
                           </ul>
 	                    </li>
 	                  </ul>
