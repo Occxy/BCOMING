@@ -74,11 +74,12 @@ if  (debug !== '') {
         'bcoming_biodivafreid', 'bcoming_biodivafreid_locations' 
         ];*/
 	
-	for (var i = 1; i < 9; i++) {
+	for (var i = 1; i < 10; i++) {
 		  
 		if (i === 2) {
 		    if (arrayIncludes(codeProjectsArray, String(i))) {
 		      tables_principales.push('bcoming_camacross');
+		      
 		    }
 		}
 		if (i === 3) {
@@ -90,7 +91,6 @@ if  (debug !== '') {
 		    if (arrayIncludes(codeProjectsArray, String(i))) {
 		      tables_principales.push('bcoming_cerfig_rongeurs_captures_guinea');
 		      tables_principales.push('bcoming_cerfig_chauves_souris_capturees_guinea');
-		      tables_principales.push('bcoming_bcoming_rongeurs_captures_guinea');
 		    }
 		}
 		if (i === 5) {
@@ -123,6 +123,7 @@ if  (debug !== '') {
 		      tables_principales.push('bcoming_west_nile_mosquitoes_field_samples_diagnose');
 		    }
 		}
+		
 		if (i === 8) {
 		    if (arrayIncludes(codeProjectsArray, String(i))) {
 		      tables_principales.push('bcoming_merfi_guinea_survey_data');
