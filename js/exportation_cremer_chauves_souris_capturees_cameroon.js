@@ -1,30 +1,34 @@
 
 
 var fields = 
-    			['N_identification', 'Date', 'Equipe', 'Binome_prelevement', 'Site_region', 'Site_precis_de_capture', 'Piege', 'Numero_de_piege', 
-    			 'Lieu_de_capture', 'Lieu_de_capture_autre', 'Lat_degre_dec_Piege', 'Latitude_Piege', 'Long_degre_dec_Piege', 'Longitude_Piege', 
-    			 'Taille_yeux', 'Couleur_pelage_dorsal', 'Couleur_pelage_ventral', 'Espece_identifiee', 'Famille', 'Genre', 'Espece', 'Age', 
-    			 'Sexe', 'Femelles_gestante', 'Femelles_lactante', 'Nombre_de_paires_de_mamelles', 'checkboxPect', 'Pect', 'checkboxAbdo', 
-    			 'Abdo', 'checkboxIngu', 'Ingu', 'Testicules_descendus', 'Longueur_mm', 'Remarques', 'Poids_avec_sac_g', 'Poids_du_sac_g', 
-    			 'Poids_net_animal_g', 'L_corps_mm', 'L_queue_mm', 'L_pied_arriere_mm', 'L_crane_mm', 'L_oreille_mm', 'Photo', 'Relache', 
-    			 'Mort_naturelle_carcasse_trouvee', 'Mort_due_a_la_capture_manip', 'Euthanasie', 'Dosage_injection_ketamine', 'Si_relache_marquage', 
-    			 'Si_marque_numero', 'Ecouv_gorge_RNAl', 'Sang_papier_buvard', 'Biopsie_d_oreille_ethanol', 'Feces_RNAl', 'Ecouv_urine_RNAl', 'Ecouv_rectal_RNAl', 
-    			 'Ectoparasites_ethanol', 'Tiques', 'Puces', 'Echantillons_Autre', 'Autres_echantillons_ou_remarques', 'Coeur_CO', 'Poumons_PO', 
-    			 'Foie_FO', 'Rate_RA', 'Reins_RN', 'Intestins_INT', 'Testicule_TE', 'Ovaires_OV', 'Embryons_EM', 'Nombre_d_embryons', 
-    			 'Organes_RNAl_autre', 'Username']
+    			['Num_rongeur', 'CODE_rongeur', 'NumMission_NumSite', 'N_site', 'Date', 'J', 'Equipe', 'Pays', 'Region', 'Arrondissement', 'Village', 
+					'Num_piege', 'Type_piege', 'Site_capture', 'Emplacement_piege', 'Detail_emplacement', 'Lat_degre_dec_Piege', 'Latitude_piege', 
+					'Long_degre_dec_Piege', 'Longitude_piege', 'Contention', 'Preleveur', 'Autopsie', 'Identification_espece', 'Famille_terrain', '' +
+					'Genre_terrain', 'Espece_terrain', 'Famille_labo', 'Genre_labo', 'Espece_labo', 'Sexe', 'Age', 'F_gestante', 'F_lactante', 'Nbtotal_paires_mamelles',
+					'N_mamelles_pectorales', 'N_mamelles_abdominales', 'N_mamelles_inguinales', 'Male_testicules_descendues', 'Male_longueur_testicules', 
+					'Poids_sac_rongeur_g', 'Poids_sac_g', 'Poids_g', 'L_totale_corps_Ltc_mm', 'L_queue_mm', 'L_patte_arriere_Tib_mm', 'L_crane_mm', 
+					'L_oreille_mm', 'Taille_yeux', 'Couleur_pelage_dorsal', 'Couleur_pelage_ventral', 'Photo', 'Remarques_anomalies', 'Relache_vivant', 
+					'Cause_deces', 'Recapture', 'Comment_recapture', 'Euthanasie', 'Methode_eutha', 'Dosage_Ketamine_mL', 'Biopsie_oreille_BO', 'Ecouv_Salive_RNAl_SA',
+					'Ecouv_Urogenital_RNAl_URO', 'Urine_RNAl_UR', 'Ecouv_rectal_RNAl_RE', 'Feces_RNAl_FE', 'Sang_DBS_nb_cercles', 'Ectoparasites_Tiques_Eth_EP_TI',
+					'Ectoparasites_Puces_Eth_EP_PU', 'Poils_ethanol_PO', 'Autres_echantillons', 'Autres_echantillons_details', 'Coeur_RNAl_CO',
+					'Poumon_RNAl_PO', 'Foie_RNAl_FO', 'Rate_RNAl_RA', 'Rein_RNAl_RN', 'Testicule_RNAl_TE', 'Ovaire_RNAl_OV', 'Embryon_RNAl_EM',
+					'F_gestante_nb_embryons', 'Intestins_RNAl_INT', 'Peau_RNAl_PE', 'Cerveau_RNAl_CE', 'Autre_Organe_RNAl', 'Details_autre_organe_RNAl',
+					'Remarques_echantillons', 'Username']
 
 
-var fields_CSV_head =   'N_identification;Date;Equipe;Binome_prelevement;Site_region;Site_precis_de_capture;Piege;Numero_de_piege;' + 
-						'Lieu_de_capture;Lieu_de_capture_autre;Lat_degre_dec_Piege;Latitude_Piege;Long_degre_dec_Piege;Longitude_Piege;' + 
-						'Taille_yeux;Couleur_pelage_dorsal;Couleur_pelage_ventral;Espece_identifiee;Famille;Genre;Espece;Age;' + 
-						'Sexe;Femelles_gestante;Femelles_lactante;Nombre_de_paires_de_mamelles;checkboxPect;Pect;checkboxAbdo;' + 
-						'Abdo;checkboxIngu;Ingu;Testicules_descendus;Longueur_mm;Remarques;Poids_avec_sac_g;Poids_du_sac_g;' + 
-						'Poids_net_animal_g;L_corps_mm;L_queue_mm;L_pied_arriere_mm;L_crane_mm;L_oreille_mm;Photo;Relache;' + 
-						'Mort_naturelle_carcasse_trouvee;Mort_due_a_la_capture_manip;Euthanasie;Dosage_injection_ketamine;Si_relache_marquage;Si_marque_numero;' + 
-						'Ecouv_gorge_RNAl;Sang_papier_buvard;Biopsie_d_oreille_ethanol;Feces_RNAl;Ecouv_urine_RNAl;Ecouv_rectal_RNAl;' + 
-						'Ectoparasites_ethanol;Tiques;Puces;Echantillons_Autre;Autres_echantillons_ou_remarques;Coeur_CO;Poumons_PO;' + 
-						'Foie_FO;Rate_RA;Reins_RN;Intestins_INT;Testicule_TE;Ovaires_OV;Embryons_EM;Nombre_d_embryons;' + 
-						'Organes_RNAl_autre;Username;\r\n';
+var fields_CSV_head =   'Num_rongeur;CODE_rongeur;NumMission_NumSite;N_site;Date;J;Equipe;Pays;Region;Arrondissement;Village;' +
+						'Num_piege;Type_piege;Site_capture;Emplacement_piege;Detail_emplacement;Lat_degre_dec_Piege;Latitude_piege;' +
+						'Long_degre_dec_Piege;Longitude_piege;Contention;Preleveur;Autopsie;Identification_espece;Famille_terrain;' +
+						'Genre_terrain;Espece_terrain;Famille_labo;Genre_labo;Espece_labo;Sexe;Age;F_gestante;F_lactante;Nbtotal_paires_mamelles;' +
+						'N_mamelles_pectorales;N_mamelles_abdominales;N_mamelles_inguinales;Male_testicules_descendues;Male_longueur_testicules;' +
+						'Poids_sac_rongeur_g;Poids_sac_g;Poids_g;L_totale_corps_Ltc_mm;L_queue_mm;L_patte_arriere_Tib_mm;L_crane_mm;' +
+						'L_oreille_mm;Taille_yeux;Couleur_pelage_dorsal;Couleur_pelage_ventral;Photo;Remarques_anomalies;Relache_vivant;' +
+						'Cause_deces;Recapture;Comment_recapture;Euthanasie;Methode_eutha;Dosage_Ketamine_mL;Biopsie_oreille_BO;Ecouv_Salive_RNAl_SA;' +
+						'Ecouv_Urogenital_RNAl_URO;Urine_RNAl_UR;Ecouv_rectal_RNAl_RE;Feces_RNAl_FE;Sang_DBS_nb_cercles;Ectoparasites_Tiques_Eth_EP_TI;' +
+						'Ectoparasites_Puces_Eth_EP_PU;Poils_ethanol_PO;Autres_echantillons;Autres_echantillons_details;Coeur_RNAl_CO;' +
+						'Poumon_RNAl_PO;Foie_RNAl_FO;Rate_RNAl_RA;Rein_RNAl_RN;Testicule_RNAl_TE;Ovaire_RNAl_OV;Embryon_RNAl_EM;' +
+						'F_gestante_nb_embryons;Intestins_RNAl_INT;Peau_RNAl_PE;Cerveau_RNAl_CE;Autre_Organe_RNAl;Details_autre_organe_RNAl;' +
+						'Remarques_echantillons;Username;\r\n';
 
 
 var debug;
@@ -44,16 +48,16 @@ var array_selected_fields = [];
 
 if (localStorage.getItem('web') === 'oui') {
 	var remote_couchdb = localStorage.getItem('remote_couchdb');
-	var DBcerfig_rongeurs_captures_guinea = new PouchDB(remote_couchdb + 'bcoming_cerfig_rongeurs_captures_guinea' + debug);
+	var DBcremer_rongeurs_captures_cameroon = new PouchDB(remote_couchdb + 'bcoming_cremer_rongeurs_captures_cameroon' + debug);
 } else {
-	var DBcerfig_rongeurs_captures_guinea = new PouchDB('bcoming_cerfig_rongeurs_captures_guinea' + debug);
+	var DBcremer_rongeurs_captures_cameroon = new PouchDB('bcoming_cremer_rongeurs_captures_cameroon' + debug);
 };
 
-var tab_cerfig_rongeurs_captures_guinea = new Array();
+var tab_cremer_rongeurs_captures_cameroon = new Array();
 var tab = new Array();
 
 
-DBcerfig_rongeurs_captures_guinea.allDocs({  		
+DBcremer_rongeurs_captures_cameroon.allDocs({  		
 	include_docs: true,
 	attachments: true
 }).then(function (result) {
@@ -157,7 +161,7 @@ DBcerfig_rongeurs_captures_guinea.allDocs({
   				
    				obj.Username = row.doc.Username */
 
-   				tab_cerfig_rongeurs_captures_guinea.push(obj);
+   				tab_cremer_rongeurs_captures_cameroon.push(obj);
    				
    				i++;	
    				
@@ -175,7 +179,7 @@ DBcerfig_rongeurs_captures_guinea.allDocs({
 		
 		
 		
-	DBcerfig_rongeurs_captures_guinea.info().then((infos) => {
+	DBcremer_rongeurs_captures_cameroon.info().then((infos) => {
 		
 		count = infos.doc_count;
 		
@@ -754,7 +758,7 @@ function addBcomingRongeursCapturesGuineaRecord(row, selected) {
 			console.log(count);
 			if (count == 0) {
 				var blob = new Blob(['\ufeff' + CSV_data], {type: "text/csv;charset=ISO-8859-1"});
-	       		saveAs(blob, "bcoming_cerfig_rongeurs_captures_guinea" + clock.now + ".csv");
+	       		saveAs(blob, "bcoming_cremer_rongeurs_captures_cameroon" + clock.now + ".csv");
 	       		document.location.href="import_export.html?table=_bcoming_cerfig&type=bcoming_cerfig";
 			}	
 			
@@ -770,7 +774,7 @@ window.onload = function() {
 		CSV_data = fields_CSV_head;
 		
 		
-		var res = alasql("SELECT N_identification, Date, Equipe, Binome_prelevement, Site_region, Site_precis_de_capture, Piege, Numero_de_piege, Lieu_de_capture, Lieu_de_capture_autre, Lat_degre_dec_Piege, Latitude_Piege, Long_degre_dec_Piege, Longitude_Piege, Taille_yeux, Couleur_pelage_dorsal, Couleur_pelage_ventral, Espece_identifiee, Famille, Genre, Espece, Age, Sexe, Femelles_gestante, Femelles_lactante, Nombre_de_paires_de_mamelles, checkboxPect, Pect, checkboxAbdo, Abdo, checkboxIngu, Ingu, Testicules_descendus, Longueur_mm, Remarques, Poids_avec_sac_g, Poids_du_sac_g, Poids_net_animal_g, L_corps_mm, L_queue_mm, L_pied_arriere_mm, L_crane_mm, L_oreille_mm, Photo, Relache, Mort_naturelle_carcasse_trouvee, Mort_due_a_la_capture_manip, Euthanasie, Dosage_injection_ketamine, Si_relache_marquage, Si_marque_numero, Ecouv_gorge_RNAl, Sang_papier_buvard, Biopsie_d_oreille_ethanol, Feces_RNAl, Ecouv_urine_RNAl, Ecouv_rectal_RNAl, Ectoparasites_ethanol, Tiques, Puces, Echantillons_Autre, Autres_echantillons_ou_remarques, Coeur_CO, Poumons_PO, Foie_FO, Rate_RA, Reins_RN, Intestins_INT, Testicule_TE, Ovaires_OV, Embryons_EM, Nombre_d_embryons, Organes_RNAl_autre, Username FROM ? ORDER BY Date", [tab_cerfig_rongeurs_captures_guinea] );
+		var res = alasql("SELECT Num_rongeur, CODE_rongeur, NumMission_NumSite, N_site, Date, J, Equipe, Pays, Region, Arrondissement, Village, Num_piege, Type_piege, Site_capture, Emplacement_piege, Detail_emplacement, Lat_degre_dec_Piege, Latitude_piege, Long_degre_dec_Piege, Longitude_piege, Contention, Preleveur, Autopsie, Identification_espece, Famille_terrain, Genre_terrain, Espece_terrain, Famille_labo, Genre_labo, Espece_labo, Sexe, Age, F_gestante, F_lactante, Nbtotal_paires_mamelles, N_mamelles_pectorales, N_mamelles_abdominales, N_mamelles_inguinales, Male_testicules_descendues, Male_longueur_testicules, Poids_sac_rongeur_g, Poids_sac_g, Poids_g, L_totale_corps_Ltc_mm, L_queue_mm, L_patte_arriere_Tib_mm, L_crane_mm, L_oreille_mm, Taille_yeux, Couleur_pelage_dorsal, Couleur_pelage_ventral, Photo, Remarques_anomalies, Relache_vivant, Cause_deces, Recapture, Comment_recapture, Euthanasie, Methode_eutha, Dosage_Ketamine_mL, Biopsie_oreille_BO, Ecouv_Salive_RNAl_SA, Ecouv_Urogenital_RNAl_URO, Urine_RNAl_UR, Ecouv_rectal_RNAl_RE, Feces_RNAl_FE, Sang_DBS_nb_cercles, Ectoparasites_Tiques_Eth_EP_TI, Ectoparasites_Puces_Eth_EP_PU, Poils_ethanol_PO, Autres_echantillons, Autres_echantillons_details, Coeur_RNAl_CO, Poumon_RNAl_PO, Foie_RNAl_FO, Rate_RNAl_RA, Rein_RNAl_RN, Testicule_RNAl_TE, Ovaire_RNAl_OV, Embryon_RNAl_EM, F_gestante_nb_embryons, Intestins_RNAl_INT, Peau_RNAl_PE, Cerveau_RNAl_CE, Autre_Organe_RNAl, Details_autre_organe_RNAl, Remarques_echantillons, Username FROM ? ORDER BY Date", [tab_cremer_rongeurs_captures_cameroon] );
 	    			
 	    var CS = JSON.stringify(res);
 	    			
@@ -803,7 +807,7 @@ window.onload = function() {
 			//alert($(sel).val())
 		});
 		
-		var res = alasql("SELECT N_identification, Date, Equipe, Binome_prelevement, Site_region, Site_precis_de_capture, Piege, Numero_de_piege, Lieu_de_capture, Lieu_de_capture_autre, Lat_degre_dec_Piege, Latitude_Piege, Long_degre_dec_Piege, Longitude_Piege, Taille_yeux, Couleur_pelage_dorsal, Couleur_pelage_ventral, Espece_identifiee, Famille, Genre, Espece, Age, Sexe, Femelles_gestante, Femelles_lactante, Nombre_de_paires_de_mamelles, checkboxPect, Pect, checkboxAbdo, Abdo, checkboxIngu, Ingu, Testicules_descendus, Longueur_mm, Remarques, Poids_avec_sac_g, Poids_du_sac_g, Poids_net_animal_g, L_corps_mm, L_queue_mm, L_pied_arriere_mm, L_crane_mm, L_oreille_mm, Photo, Relache, Mort_naturelle_carcasse_trouvee, Mort_due_a_la_capture_manip, Euthanasie, Dosage_injection_ketamine, Si_relache_marquage, Si_marque_numero, Ecouv_gorge_RNAl, Sang_papier_buvard, Biopsie_d_oreille_ethanol, Feces_RNAl, Ecouv_urine_RNAl, Ecouv_rectal_RNAl, Ectoparasites_ethanol, Tiques, Puces, Echantillons_Autre, Autres_echantillons_ou_remarques, Coeur_CO, Poumons_PO, Foie_FO, Rate_RA, Reins_RN, Intestins_INT, Testicule_TE, Ovaires_OV, Embryons_EM, Nombre_d_embryons, Organes_RNAl_autre, Username FROM ? ORDER BY Date", [tab_cerfig_rongeurs_captures_guinea] );
+		var res = alasql("SELECT Num_rongeur, CODE_rongeur, NumMission_NumSite, N_site, Date, J, Equipe, Pays, Region, Arrondissement, Village, Num_piege, Type_piege, Site_capture, Emplacement_piege, Detail_emplacement, Lat_degre_dec_Piege, Latitude_piege, Long_degre_dec_Piege, Longitude_piege, Contention, Preleveur, Autopsie, Identification_espece, Famille_terrain, Genre_terrain, Espece_terrain, Famille_labo, Genre_labo, Espece_labo, Sexe, Age, F_gestante, F_lactante, Nbtotal_paires_mamelles, N_mamelles_pectorales, N_mamelles_abdominales, N_mamelles_inguinales, Male_testicules_descendues, Male_longueur_testicules, Poids_sac_rongeur_g, Poids_sac_g, Poids_g, L_totale_corps_Ltc_mm, L_queue_mm, L_patte_arriere_Tib_mm, L_crane_mm, L_oreille_mm, Taille_yeux, Couleur_pelage_dorsal, Couleur_pelage_ventral, Photo, Remarques_anomalies, Relache_vivant, Cause_deces, Recapture, Comment_recapture, Euthanasie, Methode_eutha, Dosage_Ketamine_mL, Biopsie_oreille_BO, Ecouv_Salive_RNAl_SA, Ecouv_Urogenital_RNAl_URO, Urine_RNAl_UR, Ecouv_rectal_RNAl_RE, Feces_RNAl_FE, Sang_DBS_nb_cercles, Ectoparasites_Tiques_Eth_EP_TI, Ectoparasites_Puces_Eth_EP_PU, Poils_ethanol_PO, Autres_echantillons, Autres_echantillons_details, Coeur_RNAl_CO, Poumon_RNAl_PO, Foie_RNAl_FO, Rate_RNAl_RA, Rein_RNAl_RN, Testicule_RNAl_TE, Ovaire_RNAl_OV, Embryon_RNAl_EM, F_gestante_nb_embryons, Intestins_RNAl_INT, Peau_RNAl_PE, Cerveau_RNAl_CE, Autre_Organe_RNAl, Details_autre_organe_RNAl, Remarques_echantillons, Username FROM ? ORDER BY Date", [tab_cremer_rongeurs_captures_cameroon] );
 	     			
 	    var CS = JSON.stringify(res);
 	    			

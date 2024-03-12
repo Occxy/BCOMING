@@ -11,13 +11,7 @@ var fields_CSV_head_rongeurs =
 						'Foie_FO;Rate_RA;Reins_RN;Intestins_INT;Testicule_TE;Ovaires_OV;Embryons_EM;Nombre_d_embryons;' + 
 						'Organes_RNAl_autre;';
 
-window.onload = function() {
-	$('#button_download').click(function(){
-		CSV_data = fields_CSV_head_rongeurs;
-		var blob = new Blob(['\ufeff' + CSV_data], {type: "text/csv;charset=ISO-8859-1"});
-   		saveAs(blob, "RCG.csv");
-	})
-}
+
 
 var fields_CSV_head_chauves_souris =
 						'N_identification;N_identification_mere;Date;Equipe;Site_region;Site_precis_de_capture;Lat_degre_dec;Latitude;Long_degre_dec;' +
@@ -31,6 +25,12 @@ var fields_CSV_head_chauves_souris =
 						'Embryons_EM;Nombre_d_embryons;Organes_RNAl_autre;';
 
 window.onload = function() {
+	$('#button_download').click(function(){
+		CSV_data = fields_CSV_head_rongeurs;
+		var blob = new Blob(['\ufeff' + CSV_data], {type: "text/csv;charset=ISO-8859-1"});
+   		saveAs(blob, "RCG.csv");
+	})
+	
 	$('#button_download_2').click(function(){
 		CSV_data = fields_CSV_head_chauves_souris;
 		var blob = new Blob(['\ufeff' + CSV_data], {type: "text/csv;charset=ISO-8859-1"});

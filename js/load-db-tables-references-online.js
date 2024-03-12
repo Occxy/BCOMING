@@ -39,6 +39,7 @@ tables_principales_infos = ['bcoming_camacross',
 							'bcoming_rhinokhov_zoocov',
 							'bcoming_cerfig_rongeurs_captures_guinea',
 							'bcoming_cerfig_chauves_souris_capturees_guinea',
+							'bcoming_cremer_rongeurs_captures_cameroon',
 							'bcoming_biodivafreid',
 							'bcoming_biodivafreid_locations',
 							'bcoming_insula_sites',
@@ -89,6 +90,7 @@ if  (debug !== '') {
 		    if (arrayIncludes(codeProjectsArray, String(i))) {
 		      tables_principales.push('bcoming_cerfig_rongeurs_captures_guinea');
 		      tables_principales.push('bcoming_cerfig_chauves_souris_capturees_guinea');
+		      tables_principales.push('bcoming_bcoming_rongeurs_captures_guinea');
 		    }
 		}
 		if (i === 5) {
@@ -124,6 +126,11 @@ if  (debug !== '') {
 		if (i === 8) {
 		    if (arrayIncludes(codeProjectsArray, String(i))) {
 		      tables_principales.push('bcoming_merfi_guinea_survey_data');
+		    }
+		}
+		if (i === 9) {
+		    if (arrayIncludes(codeProjectsArray, String(i))) {
+		      tables_principales.push('bcoming_cremer_rongeurs_captures_cameroon');
 		    }
 		}
 	}
@@ -222,7 +229,8 @@ if  (debug !== '') {
 	var tables_references = 
 		['bcoming_username', 'bcoming_version', 'bcoming_cerfig_rongeurs_captures_couleur_pelage_dorsal',  'bcoming_cerfig_rongeurs_captures_couleur_pelage_ventral',
 		 'bcoming_cerfig_rongeurs_captures_espece', 'bcoming_cerfig_chauves_souris_capturees_couleur_pelage_dorsal',  'bcoming_cerfig_chauves_souris_capturees_couleur_pelage_ventral',
-		 'bcoming_cerfig_chauves_souris_capturees_espece'
+		 'bcoming_cerfig_chauves_souris_capturees_espece', 'bcoming_cremer_rongeurs_captures_couleur_pelage_dorsal',  'bcoming_cremer_rongeurs_captures_couleur_pelage_ventral',
+		 'bcoming_cremer_rongeurs_captures_espece', 'bcoming_cremer_rongeurs_captures_site_capture'
 
 		 ];
 }

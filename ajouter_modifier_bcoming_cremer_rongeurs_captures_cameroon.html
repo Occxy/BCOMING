@@ -95,7 +95,7 @@
 
     <script src="js/uuid.js"></script>
 
-    <script src="js/load-page-rongeurs-captures.js"></script>
+    <script src="js/load-page-cremer-cameroon-rongeurs-captures.js"></script>
 
     <!-- <script src="js/addReference.js"></script> -->
 
@@ -361,7 +361,7 @@
                         <li id="li_bcoming_cremer_cameroonDropdown" name="9" pays="guinee"> <a id="a_bcoming_cremer_cameroonDropdown" name="1" href="#ul_bcoming_cremer_cameroonDropdown" aria-expanded="false" data-toggle="collapse">BCOMING/CREMER</i> </a>
                        	  <ul id="ul_bcoming_cremer_cameroonDropdown" name="9" pays="guinee" class="collapse list-unstyled">
                             <li id="li_bcoming_cremer_rongeurs_captures_cameroon_data_list" name="9"><a href="liste_bcoming_cremer_rongeurs_captures_cameroon.html?table=_cremer_rongeurs_captures_cameroon">rodents captured data</a></li>                            
-	                        <li id="li_bcoming_cremer_chauves_souris_capturees_cameroon_data_list" name="9"><a href="liste_bcoming_cremer_chauves_souris_capturees_cameroon.html?table=_cremer_chauves_souris_capturees_cameroon" style="pointer-events: none;">bats captured data<span class="fa fa-ban" style="color: red; font-size: 1.5em; margin-left: 10px;"></a></span></li>                             
+	                        <li id="li_bcoming_cremer_chauves_souris_capturees_cameroon_data_list" name="9"><a href="liste_bcoming_cremer_chauves_souris_capturees_cameroon.html?table=_cremer_chauves_souris_capturees_cameroon" style="pointer-events: none;">bats captured data<span class="fa fa-ban" style="color: red; font-size: 1.5em; margin-left: 10px;"></a></span></li>                            
 	                        <li id="li_bcoming_cremer_rongeurs_captures_cameroon_map" name="9"><a href="map.html?table=_cremer_rongeurs_captures_cameroon&type=cremer_rongeurs_captures_cameroon">rodents captured map</a></li>
 	                        <li id="li_bcoming_cremer_chauves_souris_capturees_cameroon_map" name="9"><a href="map.html?table=_cremer_chauves_souris_capturees_cameroon&type=bcoming_cremer_chauves_souris_capturees_cameroon" style="pointer-events: none;">bats captured map<span class="fa fa-ban" style="color: red; font-size: 1.5em; margin-left: 10px;"></a></li>
 	                        <li id="li_importation_bcoming_cremer_datas" name="9"><a href="import_export.html?table=_bcoming_cremer&type=bcoming_cremer">import/export</a></li>                            
@@ -389,7 +389,7 @@
           <!-- Page Header-->
           <header class="page-header">
             <div class="container-fluid">
-              <h2 class="no-margin-bottom">BCOMING/CERFIG database</h2>
+              <h2 class="no-margin-bottom">BCOMING/CREMER database</h2>
             </div>
           </header>
 
@@ -427,70 +427,105 @@
 
 		      				<div class="row">
 
-		      				  <div class="col-lg-4">
+		      				  <div class="col-lg-6">
 			                    <div class="form-group">
-				                  <label for="N_identification">N° Identification</label>
-				                  <input type="text" class="form-control" id="N_identification" placeholder="N° Identification" required>
+				                  <label for="Num_rongeur">N° de rongeur</label>
+				                  <input type="text" class="form-control" id="Num_rongeur" placeholder="N° de rongeur" required>
 				                  <div class="invalid-feedback">
-				        	  	    S'il vous plaît fournir un N° Identification valide !
+				        	  	    S'il vous plaît fournir un N° de rongeur valide !
 				      		  	  </div>
 				      		  	</div>
 				      		  </div>
-
-		      				  <div class="col-lg-4">
+				      		  
+				      		  <div class="col-lg-6">
+			                    <div class="form-group">
+				                  <label for="CODE_rongeur">Code unique individu Rongeur Cameroun-n°</label>
+				                  <input type="text" class="form-control" id="CODE_rongeur" placeholder="Code unique individu Rongeur Cameroun-n°" required>
+				                  <div class="invalid-feedback">
+				        	  	    S'il vous plaît fournir un Code unique individu Rongeur Cameroun valide !
+				      		  	  </div>
+				      		  	</div>
+				      		  </div>
+				      	    </div>
+				     	  </div>
+				        </div>
+				      	    
+				        <div class="card bg-light">
+				          <div class="card-header card-header-transparent d-flex align-items-center">
+                            <h3 class="h4">Données de site</h3>
+                          </div>
+                          <div class="card-body">
+				      		
+				      		<div class="row">  
+				      		  <div class="col-lg-4">
+			                    <div class="form-group">
+				                  <label for="NumMission_NumSite">Numéro de mission + Numéro de site</label>
+				                  <input type="text" class="form-control" id="NumMission_NumSite" placeholder="Numéro de mission + Numéro de site">
+				                </div>
+				      		  </div>
+				      		  
+				      		  <div class="col-lg-4">
 	            				<div class="form-group">
-	                              <label for="Date">Date</label>
+	                              <label for="N_site">N site</label>
+	                              <input type="text" class="form-control" id="N_site" placeholder="N site">
+				                </div>
+	    					  </div>
+	    					  
+	    					  <div class="col-lg-4">
+	            				<div class="form-group">
+	                              <label for="Date">Date de prélèvement</label>
 	                              <div class="input-group">
 	    							<input type="text" class="form-control input-datepicker" id="Date" placeholder="Date" required>
 	    							<div class="input-group-addon open-datepicker btn btn-primary" id="spanDate">
 	                                  <span class="fa fa-calendar"></span>
 	    							</div>
 	    							<div class="invalid-feedback">
-		                              S'il vous plaît fournir une date valide !
+		                              S'il vous plaît fournir une date de prélèvement valide !
 		                            </div>
 	                              </div>
 	    					    </div>
 	    					  </div>
-
-
-		      				  <div class="col-lg-4">
-	            				<div class="form-group">
-	                              <label for="Equipe">Équipe</label>
-	                              <input type="text" class="form-control" id="Equipe" placeholder="Équipe" required>
-				                  <div class="invalid-feedback">
-				        	  	    S'il vous plaît fournir une équipe valide !
-				      		  	  </div>
-	    					    </div>
-	    					  </div>
 	    					</div>
 
-
-
-
-		      			    <div class="row">
+							<div class="row">
 		      			      <div class="col-lg-4">
 		      			        <div class="form-group">
-		                          <label for="Binome_prelevement">Binôme prélèvement</label>
-		                          <input type="text" class="form-control" id="Binome_prelevement" placeholder="Binôme prélèvement">
+		                          <label for="J">N° de jour de capture</label>
+		                          <input type="text" class="form-control" id="J" placeholder="N° de jour de capture">
 		                        </div>
 		      				  </div>
 		      			      <div class="col-lg-4">
 		      			        <div class="form-group">
-		                          <label for="Site_region">Site région (ex. Koundara)</label>
-		                          <input type="text" class="form-control" id="Site_region" placeholder="Site région (ex. Koundara)" required>
-		                          <div class="invalid-feedback">
-				        	  	    S'il vous plaît fournir un site region valide !
-				      		  	  </div>
+		                          <label for="Equipe">Nom de l'équipe terrain</label>
+		                          <input type="text" class="form-control" id="Equipe" placeholder="Nom de l'équipe terrain">		                          
 		                        </div>
 		      			      </div>
 		      			      <div class="col-lg-4">
 		      			        <div class="form-group">
-		                          <label for="Site_precis_de_capture">Site précis de capture (village, lieu...)(ex. Sarebodio) </label>
-		                          <input type="text" class="form-control" id="Site_precis_de_capture" placeholder="Site précis de capture (village, lieu...)(ex. Sarebodio)" required>
-		                          <div class="invalid-feedback">
-				        	  	    S'il vous plaît fournir un site précis de capture region valide !
-				      		  	  </div>
-				      		  	  </div>
+		                          <label for="Pays">Pays</label>
+		                          <input type="text" class="form-control" id="Pays" placeholder="Pays" value="Cameroun" readonly style="cursor: not-allowed;">
+								</div>
+		      			      </div>
+		      			    </div>
+		      			    
+		      			    <div class="row">
+		      			      <div class="col-lg-4">
+		      			        <div class="form-group">
+		                          <label for="Region">Région du lieu de collecte</label>
+		                          <input type="text" class="form-control" id="Region" placeholder="Région du lieu de collecte">
+		                        </div>
+		      				  </div>
+		      			      <div class="col-lg-4">
+		      			        <div class="form-group">
+		                          <label for="Arrondissement">Arrondissement du lieu de collecte</label>
+		                          <input type="text" class="form-control" id="Arrondissement" placeholder="Arrondissement du lieu de collecte">		                          
+		                        </div>
+		      			      </div>
+		      			      <div class="col-lg-4">
+		      			        <div class="form-group">
+		                          <label for="Village">Nom du village de collecte</label>
+		                          <input type="text" class="form-control" id="Village" placeholder="Nom du village de collecte">
+								</div>
 		      			      </div>
 		      			    </div>
 
@@ -508,11 +543,18 @@
 
 
 		      				<div class="row">
-
+							
+							  <div class="col-lg-4">
+	            				<div class="form-group">
+	                              <label for="Num_piege">Numéro de piège</label>
+	                              <input type="text" class="form-control" id="Num_piege" placeholder="Numéro de piège">
+	    					    </div>
+	    					  </div>
+	    					  
 		      				  <div class="col-lg-4">
 			                    <div class="form-group">
-				                  <label for="Piege">Piège</label>
-				                  <select id="Piege" class="form-control">
+				                  <label for="Type_piege">Piège Sherman ou Grillagé</label>
+				                  <select id="Type_piege" class="form-control">
 		                            <option></option>
 		                            <option>Sherman</option>
 		                            <option>Grillagé</option>
@@ -521,39 +563,37 @@
 				      		  </div>
 
 		      				  <div class="col-lg-4">
-	            				<div class="form-group">
-	                              <label for="Numero_de_piege">Numéro de piège</label>
-	                              <input type="text" class="form-control" id="Numero_de_piege" placeholder="Numéro de piège">
-	    					    </div>
-	    					  </div>
-
-
-		      				  <div class="col-lg-4">
-	            				<div class="form-group">
-	                              <label for="Lieu_de_capture">Lieu de capture</label>
-	                              <select id="Lieu_de_capture" class="form-control" onchange="select_autre(this)">
-		                            <option></option>
-		                            <option>ville/village</option>
-		                            <option>cultures</option>
-		                            <option>forêt</option>
-		                            <option>lisière</option>
-		                            <option>grotte</option>
-		                            <option>autre</option>
-		                          </select>
-	    					    </div>
-	    					  </div>
+			                    <div class="form-group">
+			                      <label for="Site_capture">Site de capture</label>
+			                      <div class="input-group">
+			                        <select id="Site_capture" class="form-control">
+		                              <option></option>
+		                          	</select>
+		                            <label id="nouveauSite_capture" class="input-group-addon btn btn-primary" for="Site_capture" data-toggle="modal" data-target="#nouvelleReference">
+		       					      <span class="fa fa-plus"></span>
+		    					    </label>
+			      				  </div>
+			      			    </div>
+			      			  </div>
 	    					</div>
-
-	    					<div id="Autre" style="display: none;">
-	    					  <div class="row">
-	    					    <div class="col-lg-4">
-	            				  <div class="form-group">
-	                                <label for="Lieu_de_capture_autre">Autre</label>
-	                                <input type="text" class="form-control" id="Lieu_de_capture_autre" placeholder="Autre">
-	    					      </div>
-	    					    </div>
-	    					  </div>
-	    					</div>
+	    					
+	    					<div class="row">
+							  <div class="col-lg-6">
+		      			        <div class="form-group">
+		                          <label for="Emplacement_piege">Emplacement du piège (Transect ou zone village)</label>
+		                          <input type="text" class="form-control" id="Emplacement_piege" placeholder="Emplacement du piège (Transect ou zone village)">		                          
+		                        </div>
+		      			      </div>
+		      			      <div class="col-lg-6">
+		      			        <div class="form-group">
+		                          <label for="Detail_emplacement">Détail de l'emplacement (type de forêt, champs, N° de maison , pièces etc.)</label>
+		                          <input type="text" class="form-control" id="Detail_emplacement" placeholder="Nom du village de collecte (type de forêt, champs, N° de maison , pièces etc.)">
+								</div>
+		      			      </div>
+		      			    </div>
+	    					
+							
+	    					
 
 
 
@@ -593,6 +633,28 @@
 		                        </div>
 		                      </div>
 		                    </div>
+		                    
+		                    <div class="row">
+							  <div class="col-lg-4">
+		      			        <div class="form-group">
+		                          <label for="Contention">Personne assurant la contention</label>
+		                          <input type="text" class="form-control" id="Contention" placeholder="Personne assurant la contention">		                          
+		                        </div>
+		      			      </div>
+		      			      <div class="col-lg-4">
+		      			        <div class="form-group">
+		                          <label for="Preleveur">Personne assurant le prélèvement</label>
+		                          <input type="text" class="form-control" id="Preleveur" placeholder="Personne assurant le prélèvement">
+								</div>
+		      			      </div>
+		      			      <div class="col-lg-4">
+		      			        <div class="form-group">
+		                          <label for="Autopsie">Personne assurant l'autopsie</label>
+		                          <input type="text" class="form-control" id="Autopsie" placeholder="Personne assurant l'autopsie">
+								</div>
+		      			      </div>
+		      			    </div>
+		                    
 
 		                  </div>
 		      			</div>
@@ -603,56 +665,43 @@
                           </div>
                           <div class="card-body">
 
-
-
-
-		      				<div class="row">
+							<div class="row">
 
 		      				  <div class="col-lg-4">
 			                    <div class="form-group">
-				                  <label for="Taille_yeux">Taille yeux</label>
-				                  <select id="Taille_yeux" class="form-control">
+				                  <label for="Identification_espece">L'espèce at-elle été identifiée ?</label>
+				                  <select id="Identification_espece" class="form-control">
 		                            <option></option>
-		                            <option>Grands</option>
-		                            <option>Moyens</option>
-		                            <option>Petits</option>
+		                            <option>Non</option>
+		                            <option>Oui incertain</option>
+		                            <option>Oui certain</option>
 		                          </select>
 				      		  	</div>
 				      		  </div>
-
+				      		  <div class="col-lg-4">
+			                    <div class="form-group">
+				                  <label for="Age">Age</label>
+				                  <select id="Age" class="form-control">
+		                            <option></option>
+		                            <option>Adulte</option>
+		                            <option>Juvénile</option>
+		                            <option>Indéterminé</option>
+		                          </select>
+				      		  	</div>
+				      		  </div>
 		      				  <div class="col-lg-4">
 			                    <div class="form-group">
-			                      <label for="Couleur_pelage_dorsal">Couleur pelage dorsal</label>
-			                      <div class="input-group">
-			                        <select id="Couleur_pelage_dorsal" class="form-control">
-		                              <option></option>
-		                          	</select>
-		                            <label id="nouvelleCouleur_pelage_dorsal" class="input-group-addon btn btn-primary" for="Couleur_pelage_dorsal" data-toggle="modal" data-target="#nouvelleReference">
-		       					      <span class="fa fa-plus"></span>
-		    					    </label>
-			      				  </div>
-			      			    </div>
-			      			  </div>
-
-			      			  <div class="col-lg-4">
-			                    <div class="form-group">
-			                      <label for="Couleur_pelage_ventral">Couleur pelage ventral</label>
-			                      <div class="input-group">
-			                        <select id="Couleur_pelage_ventral" class="form-control">
-		                              <option></option>
-		                          	</select>
-		                            <label id="nouvelleCouleur_pelage_ventral" class="input-group-addon btn btn-primary" for="Couleur_pelage_ventral" data-toggle="modal" data-target="#nouvelleReference">
-		       					      <span class="fa fa-plus"></span>
-		    					    </label>
-			      				  </div>
-			      			    </div>
-	    					  </div>
-			      			</div>
-
-
-
-
-
+				                  <label for="Sexe">Sexe</label>
+				                  <select id="Sexe" class="form-control" onchange="select_sexe(this)">
+		                            <option></option>
+		                            <option>Femelle</option>
+		                            <option>Mâle</option>
+		                            <option>Indéterminé</option>
+		                          </select>
+				      		  	</div>
+				      		  </div>
+				      		</div>
+				      		
 		      			    <div class="row">
 		                      <div class="col-lg-6">
 							  	<div class="form-group">
@@ -670,12 +719,12 @@
 		                    <div class="row">
 		      			      <div class="col-lg-4">
 		      			        <div class="form-group">
-		                          <label for="Famille">Famille</label>
+		                          <label for="Famille_terrain">Famille - terrain</label>
 		                          <div class="input-group">
-		                            <select id="Famille" class="form-control" onchange="select_famille('bcoming_cerfig_rongeurs_captures_espece', this, Genre, Espece)">
+		                            <select id="Famille_terrain" class="form-control" onchange="select_famille('bcoming_cremer_rongeurs_captures_espece', this, Genre_terrain, Espece_terrain)">
 	                                  <option></option>
 	                          	    </select>
-	                                <label id="nouvelleFamille" class="input-group-addon btn btn-primary nouvelleFamille" for="Famille" data-toggle="modal" data-target="#nouvelleReference">
+	                                <label id="nouvelleFamille_terrain" class="input-group-addon btn btn-primary nouvelleFamille" for="Famille_terrain" data-toggle="modal" data-target="#nouvelleReference">
 	       					          <span class="fa fa-plus"></span>
 	    					        </label>
 		      				      </div>
@@ -683,12 +732,12 @@
 		      			      </div>
 		      			      <div class="col-lg-4">
 		      			        <div class="form-group">
-		                          <label for="Genre">Genre</label>
+		                          <label for="Genre_terrain">Genre - terrain</label>
 		                          <div class="input-group">
-		                            <select id="Genre" name="Genre" class="form-control"  onchange="select_genre('bcoming_cerfig_rongeurs_captures_espece', Famille, this, Espece)" disabled>
+		                            <select id="Genre_terrain" name="Genre_terrain" class="form-control"  onchange="select_genre('bcoming_cremer_rongeurs_captures_espece', Famille_terrain, this, Espece_terrain)" disabled>
 	                                  <option></option>
 	                          	    </select>
-	                           		<label  id="nouveauGenre" class="input-group-addon btn btn-outline-dark input-group-addon-disabled noclick nouveauGenre" for="Genre" data-toggle="modal" data-target="#nouvelleReference">
+	                           		<label  id="nouveauGenre_terrain" class="input-group-addon btn btn-outline-dark input-group-addon-disabled noclick nouveauGenre" for="Genre_terrain" data-toggle="modal" data-target="#nouvelleReference">
 	       					   		  <span class="fa fa-plus"></span>
 	    					        </label>
 		      				      </div>
@@ -696,153 +745,184 @@
 		      			      </div>
 		      			      <div class="col-lg-4">
 		      			        <div class="form-group">
-		                          <label for="Espece">Espèce</label>
+		                          <label for="Espece_terrain">Espèce - terrain</label>
 		                          <div class="input-group">
-		                            <select id="Espece" name="Espece" class="form-control" disabled>
+		                            <select id="Espece_terrain" name="Espece_terrain" class="form-control" disabled>
 	                                  <option></option>
 	                          	    </select>
-	                                <label id="nouvelleEspece" class="input-group-addon btn btn-outline-dark input-group-addon-disabled noclick nouvelleEspece" for="Espece" data-toggle="modal" data-target="#nouvelleReference">
+	                                <label id="nouvelleEspece_terrain" class="input-group-addon btn btn-outline-dark input-group-addon-disabled noclick nouvelleEspece" for="Espece_terrain" data-toggle="modal" data-target="#nouvelleReference">
 	       					          <span class="fa fa-plus"></span>
 	    					        </label>
 		      				      </div>
 		      			        </div>
 		      			      </div>
 		      			    </div>
-
+		      			    
 		      			    <div class="row">
-		      				  <div class="col-lg-6">
-			                    <div class="form-group">
-				                  <label for="Age">Age</label>
-				                  <select id="Age" class="form-control">
-		                            <option></option>
-		                            <option>Adulte</option>
-		                            <option>Juvénile</option>
-		                            <option>Indéterminé</option>
-		                          </select>
-				      		  	</div>
-				      		  </div>
-		      				  <div class="col-lg-6">
-			                    <div class="form-group">
-				                  <label for="Sexe">Sexe</label>
-				                  <select id="Sexe" class="form-control" onchange="select_sexe(this)">
-		                            <option></option>
-		                            <option>Femelle</option>
-		                            <option>Mâle</option>
-		                            <option>Indéterminé</option>
-		                          </select>
-				      		  	</div>
-				      		  </div>
-				      		</div>
-
-				      		<div id="Femelle" style="display: none;">
-	    					  <div class="row">
-	    					    <div class="col-lg-4">
-	            				  <div class="form-group">
-	                                <label for="Femelles_gestante">Femelles gestante</label>
-		                            <select id="Femelles_gestante" class="form-control">
-			                          <option></option>
-			                          <option>Non</option>
-			                          <option>Oui</option>
-			                          <option>Ind.</option>
-			                        </select>
-	    					      </div>
+		      			      <div class="col-lg-4">
+		      			        <div class="form-group">
+		                          <label for="Famille_labo">Famille - labo</label>
+		                          <div class="input-group">
+		                            <select id="Famille_labo" class="form-control" onchange="select_famille('bcoming_cremer_rongeurs_captures_espece', this, Genre_labo, Espece_labo)">
+	                                  <option></option>
+	                          	    </select>
+	                                <label id="nouvelleFamille_labo" class="input-group-addon btn btn-primary nouvelleFamille" for="Famille_labo" data-toggle="modal" data-target="#nouvelleReference">
+	       					          <span class="fa fa-plus"></span>
+	    					        </label>
+		      				      </div>
+		      			        </div>
+		      			      </div>
+		      			      <div class="col-lg-4">
+		      			        <div class="form-group">
+		                          <label for="Genre_labo">Genre - labo</label>
+		                          <div class="input-group">
+		                            <select id="Genre_labo" name="Genre_labo" class="form-control"  onchange="select_genre('bcoming_cremer_rongeurs_captures_espece', Famille_labo, this, Espece_labo)" disabled>
+	                                  <option></option>
+	                          	    </select>
+	                           		<label  id="nouveauGenre_labo" class="input-group-addon btn btn-outline-dark input-group-addon-disabled noclick nouveauGenre" for="Genre_labo" data-toggle="modal" data-target="#nouvelleReference">
+	       					   		  <span class="fa fa-plus"></span>
+	    					        </label>
+		      				      </div>
+		      			        </div>
+		      			      </div>
+		      			      <div class="col-lg-4">
+		      			        <div class="form-group">
+		                          <label for="Espece_labo">Espèce - labo</label>
+		                          <div class="input-group">
+		                            <select id="Espece_labo" name="Espece_labo" class="form-control" disabled>
+	                                  <option></option>
+	                          	    </select>
+	                                <label id="nouvelleEspece_labo" class="input-group-addon btn btn-outline-dark input-group-addon-disabled noclick nouvelleEspece" for="Espece_labo" data-toggle="modal" data-target="#nouvelleReference">
+	       					          <span class="fa fa-plus"></span>
+	    					        </label>
+		      				      </div>
+		      			        </div>
+		      			      </div>
+		      			    </div>
+		      			    
+		      			    <div class="row">
+							  <div class="col-lg-4">
+		      			        <div class="form-group">
+		                          <label for="F_gestante">Femelle gestante</label>
+		                          <select id="F_gestante" class="form-control">
+			                        <option></option>
+			                        <option>Non</option>
+			                        <option>Oui</option>
+			                        <option>Ind.</option>
+			                      </select>
+			                    </div>
+		      			      </div>
+		      			      <div class="col-lg-4">
+		      			        <div class="form-group">
+		                          <label for="F_lactante">Femelle lactante</label>
+		                          <select id="F_lactante" class="form-control">
+			                        <option></option>
+			                        <option>Non</option>
+			                        <option>Oui</option>
+			                        <option>Ind.</option>
+			                      </select>
+			                    </div>
+		      			      </div>
+		      			      <div class="col-lg-4">
+		      			        <div class="form-group">
+		                          <label for="Nbtotal_paires_mamelles">Nb total de paires de mamelles</label>
+		                          <input type="text" class="form-control" id="Nbtotal_paires_mamelles" placeholder="Nb total de paires de mamelles">
+								</div>
+		      			      </div>
+		      			    </div>
+							
+							<div class="row">
+							  <div class="col-lg-4">
+		      			        <div class="form-group">
+		                          <label for="N_mamelles_pectorales">Nb de paire en position pectorale</label>
+		                          <input type="text" class="form-control" id="N_mamelles_pectorales" placeholder="Nb de paire en position pectorale">
+								</div>
+		      			      </div>
+		      			      <div class="col-lg-4">
+		      			        <div class="form-group">
+		                          <label for="N_mamelles_abdominales">Nb de paire en position abdominale</label>
+		                          <input type="text" class="form-control" id="N_mamelles_abdominales" placeholder="Nb de paire en position abdominale">
+								</div>
+		      			      </div>
+		      			      <div class="col-lg-4">
+		      			        <div class="form-group">
+		                          <label for="N_mamelles_inguinales">Nb de paire en position inguinale</label>
+		                          <input type="text" class="form-control" id="N_mamelles_inguinales" placeholder="Nb de paire en position inguinale">
+								</div>
+		      			      </div>
+		      			    </div>
+							
+		      			    <div class="row">
+							  <div class="col-lg-4">
+		      			        <div class="form-group">
+		                          <label for="Male_testicules_descendues">Testicules descendues (-> mâle adulte actif)</label>
+		                          <select id="Male_testicules_descendues" class="form-control">
+			                        <option></option>
+			                        <option>Non</option>
+			                        <option>Oui</option>
+			                        <option>Ind.</option>
+			                      </select>
+			                    </div>
+		      			      </div>
+		      			      <div class="col-lg-4">
+		      			        <div class="form-group">
+		                          <label for="Male_longueur_testicules">Longeur des testicules si descendues (en mm)</label>
+		                          <input type="text" class="form-control" id="Male_longueur_testicules" placeholder="Longeur des testicules si descendues (en mm)">
+								</div>
+		      			      </div>
+		      			      <div class="col-lg-4">
+	            				<div class="form-group">
+	                              <label for="Photo">Animal pris en photo</label>
+		                          <select id="Photo" class="form-control">
+			                        <option></option>
+			                        <option>Non</option>
+			                        <option>Oui</option>
+			                        <option>NR</option>
+			                      </select>
 	    					    </div>
-	    					    <div class="col-lg-4">
-	            				  <div class="form-group">
-	                                <label for="Femelles_lactante">Femelles lactante</label>
-		                            <select id="Femelles_lactante" class="form-control">
-			                          <option></option>
-			                          <option>Non</option>
-			                          <option>Oui</option>
-			                          <option>Ind.</option>
-			                        </select>
-	    					      </div>
-	    					    </div>
-	    					    <div class="col-lg-4">
-								  <div class="form-group">
-								    <label for="Nombre_de_paires_de_mamelles">Nombre de paires de mamelles</label>
-								    <input type="text" class="form-control" id="Nombre_de_paires_de_mamelles" placeholder="Nombre de paires de mamelles" >
-								  </div>
-							    </div>
-
-
-
 	    					  </div>
+		      			      
+							</div>
 
-	    					  <div class="row">
-	    					  	<div class="col-lg-1">
-	    					    	<label>Positions (nbr) :</label>
-	    					    </div>
-							    <div class="col-lg-4">
-
-							        <div class="form-group">
-							            <div class="d-flex align-items-center">
-							                <label class="checkbox-inline">
-							                    <input id="checkboxPect" name="checkboxPect" type="checkbox" value=false> Pect
-							                </label>
-							                <input type="text" class="form-control ml-2" id="Pect" placeholder="Pect">
-							            </div>
-							        </div>
-							        <div class="form-group">
-							            <div class="d-flex align-items-center">
-							                <label class="checkbox-inline">
-							                    <input id="checkboxAbdo" name="checkboxAbdo" type="checkbox" value=false> Abdo
-							                </label>
-							                <input type="text" class="form-control ml-2" id="Abdo" placeholder="Abdo">
-							            </div>
-							        </div>
-							        <div class="form-group">
-							            <div class="d-flex align-items-center">
-							                <label class="checkbox-inline">
-							                    <input id="checkboxIngu" name="checkboxIngu" type="checkbox" value=false> Ingu
-							                </label>
-							                <input type="text" class="form-control ml-2" id="Ingu" placeholder="Ingu">
-							            </div>
-							        </div>
-							    </div>
-							  </div>
-
-
-	    				    </div>
-
-	    				    <div id="Male" style="display: none;">
-	    					  <div class="row">
-	    					    <div class="col-lg-4">
-	            				  <div class="form-group">
-	                                <label for="Testicules_descendus">Testicules descendus</label>
-		                            <select id="Testicules_descendus" class="form-control">
-			                          <option></option>
-			                          <option>Non</option>
-			                          <option>Oui</option>
-			                          <option>Ind.</option>
-			                        </select>
-	    					      </div>
-	    					    </div>
-
-	    					    <div class="col-lg-4">
-								  <div class="form-group">
-								    <label for="Longueur_mm">Longueur (mm)</label>
-								    <input type="text" class="form-control" id="Longueur_mm" placeholder="Longueur (mm)" >
-								  </div>
-							    </div>
-	    					  </div>
-	    				    </div>
-
+							<div class="row">
+							  <div class="col-lg-6">
+			                    <div class="form-group">
+			                      <label for="Couleur_pelage_dorsal">Couleur pelage dorsal</label>
+			                      <div class="input-group">
+			                        <select id="Couleur_pelage_dorsal" class="form-control">
+		                              <option></option>
+		                          	</select>
+		                            <label id="nouvelleCouleur_pelage_dorsal" class="input-group-addon btn btn-primary" for="Couleur_pelage_dorsal" data-toggle="modal" data-target="#nouvelleReference">
+		       					      <span class="fa fa-plus"></span>
+		    					    </label>
+			      				  </div>
+			      			    </div>
+			      			  </div>
+							  <div class="col-lg-6">
+			                    <div class="form-group">
+			                      <label for="Couleur_pelage_ventral">Couleur pelage ventral</label>
+			                      <div class="input-group">
+			                        <select id="Couleur_pelage_ventral" class="form-control">
+		                              <option></option>
+		                          	</select>
+		                            <label id="nouvelleCouleur_pelage_ventral" class="input-group-addon btn btn-primary" for="Couleur_pelage_ventral" data-toggle="modal" data-target="#nouvelleReference">
+		       					      <span class="fa fa-plus"></span>
+		    					    </label>
+			      				  </div>
+			      			    </div>
+			      			  </div>			      			  
+							</div>
+							
 							<div class="row">
 			      		      <div class="col-lg-12">
 		    	      			<div class="form-group">
-			      			      <label for="Remarques">Remarques (blessures, anomalies, rayures, etc.)</label>
-			                      <textarea class="form-control col-xs-12" id="Remarques" placeholder="Remarques (blessures, anomalies, rayures, etc.)" rows="3"></textarea>
+			      			      <label for="Remarques_anomalies">Anomalies, blessures, apparence (rayures) etc.</label>
+			                      <textarea class="form-control col-xs-12" id="Remarques_anomalies" placeholder="Anomalies, blessures, apparence (rayures) etc." rows="3"></textarea>
 			                    </div>
 			      			  </div>
 			                </div>
-
-					      </div>
-
-
-
-
-		      			</div>
+						  </div>
+						</div>
 
 
 				        <div class="card bg-light">
@@ -850,31 +930,23 @@
                             <h3 class="h4">Mesures morphologiques</h3>
                           </div>
                           <div class="card-body">
-
-
-
-
-		      				<div class="row">
-
-		      				  <div class="col-lg-4">
+							<div class="row">
+							  <div class="col-lg-4">
 			                    <div class="form-group">
-				                  <label for="Poids_avec_sac_g">Poids avec sac (g)</label>
-				                  <input type="text" class="form-control" id="Poids_avec_sac_g" placeholder="Poids avec sac (g)">
+				                  <label for="Poids_sac_rongeur_g">Poids du sac avec rongeur (en gramme)</label>
+				                  <input type="text" class="form-control" id="Poids_sac_rongeur_g" placeholder="Poids du sac avec rongeur (en gramme)">
 				      		  	</div>
 				      		  </div>
-
 		      				  <div class="col-lg-4">
 	            				<div class="form-group">
-	                              <label for="Poids_du_sac_g">Poids du sac (g)</label>
-	                              <input type="text" class="form-control" id=Poids_du_sac_g placeholder="Poids du sac (g)">
+	                              <label for="Poids_sac_g">Poids du sac vide (en gramme)</label>
+	                              <input type="text" class="form-control" id=Poids_sac_g placeholder="Poids du sac vide (en gramme)">
 	    					    </div>
 	    					  </div>
-
-
 		      				  <div class="col-lg-4">
 	            				<div class="form-group">
-	                              <label for="Poids_net_animal_g">Poids net animal (g)</label>
-	                              <input type="text" class="form-control" id="Poids_net_animal_g" placeholder="Poids net animal (g)">
+	                              <label for="Poids_g">Poids du rongeur (en gramme)</label>
+	                              <input type="text" class="form-control" id="Poids_g" placeholder="Poids du rongeur (en gramme)">
 	    					    </div>
 	    					  </div>
 	    					</div>
@@ -885,51 +957,50 @@
 		      			    <div class="row">
 		      			      <div class="col-lg-4">
 		      			        <div class="form-group">
-		                          <label for="L_corps_mm">L corps (mm)</label>
-		                          <input type="text" class="form-control" id="L_corps_mm" placeholder="L corps (mm)">
+		                          <label for="L_totale_corps_Ltc_mm">Longeur totale tête+ corps (sans la queue)  (en mm)</label>
+		                          <input type="text" class="form-control" id="L_totale_corps_Ltc_mm" placeholder="Longeur totale tête+ corps (sans la queue)  (en mm)">
 		                        </div>
 		      				  </div>
 		      			      <div class="col-lg-4">
 		      			        <div class="form-group">
-		                          <label for="L_queue_mm">L queue (mm)</label>
-		                          <input type="text" class="form-control" id="L_queue_mm" placeholder="L queue (mm)">
+		                          <label for="L_queue_mm">Longeur de la queue (en mm)</label>
+		                          <input type="text" class="form-control" id="L_queue_mm" placeholder="Longeur de la queue (en mm)">
 		                        </div>
 		      			      </div>
+		      			      <div class="col-lg-4">
+		      			        <div class="form-group">
+		                          <label for="L_patte_arriere_Tib_mm">Longueur du pieds arrière (en mm)</label>
+		                          <input type="text" class="form-control" id="L_patte_arriere_Tib_mm" placeholder="Longueur du pieds arrière (en mm)">
+		                        </div>
+		      				  </div>
 		      			    </div>
 
 		      			    <div class="row">
 		      			      <div class="col-lg-4">
 		      			        <div class="form-group">
-		                          <label for="L_pied_arriere_mm">L pied arrière (mm)</label>
-		                          <input type="text" class="form-control" id="L_pied_arriere_mm" placeholder="L pied arrière (mm)">
-		                        </div>
-		      				  </div>
-		      			      <div class="col-lg-4">
-		      			        <div class="form-group">
-		                          <label for="L_crane_mm">L crane (mm)</label>
-		                          <input type="text" class="form-control" id="L_crane_mm" placeholder="L crane (mm)">
+		                          <label for="L_crane_mm">Longueur du crane (en mm)</label>
+		                          <input type="text" class="form-control" id="L_crane_mm" placeholder="Longueur du crane (en mm)">
 		                        </div>
 		      			      </div>
-		      			    </div>
-
-		      			    <div class="row">
 		      			      <div class="col-lg-4">
 		      			        <div class="form-group">
-		                          <label for="L_oreille_mm">L oreille (mm)</label>
-		                          <input type="text" class="form-control" id="L_oreille_mm" placeholder="L oreille (mm)">
+		                          <label for="L_oreille_mm">Longueur de l'oreille (en mm)</label>
+		                          <input type="text" class="form-control" id="L_oreille_mm" placeholder="Longueur de l'oreille (en mm)">
 		                        </div>
 		      				  </div>
-		      			      <div class="col-lg-4">
-	            				<div class="form-group">
-	                              <label for="Photo">Photo</label>
-		                          <select id="Photo" class="form-control">
-			                        <option></option>
-			                        <option>Non</option>
-			                        <option>Oui</option>
-			                      </select>
-	    					    </div>
-	    					  </div>
+		      				  <div class="col-lg-4">
+			                    <div class="form-group">
+				                  <label for="Taille_yeux">Taille yeux</label>
+				                  <select id="Taille_yeux" class="form-control">
+		                            <option></option>
+		                            <option>Grands</option>
+		                            <option>Moyens</option>
+		                            <option>Petits</option>
+		                          </select>
+				      		  	</div>
+				      		  </div>
 		      			    </div>
+
 
 
 		      			  </div>
@@ -937,58 +1008,15 @@
 
 		      			<div class="card bg-light">
 				          <div class="card-header card-header-transparent d-flex align-items-center">
-                            <h3 class="h4">Relâche, marquage ou euthanasie</h3>
+                            <h3 class="h4">Relâche, euthanasie ou recapture</h3>
                           </div>
                           <div class="card-body">
 
-
-
-
-		      				<div class="row">
+							<div class="row">
 		      			      <div class="col-lg-4">
 	            				<div class="form-group">
-	                              <label for="Relache">Relâché</label>
-		                          <select id="Relache" class="form-control">
-			                        <option></option>
-			                        <option>Non</option>
-			                        <option>Oui</option>
-			                      </select>
-	    					    </div>
-	    					  </div>
-		      			    </div>
-
-		                    <div class="row">
-							  <div class="col-lg-8">
-							    <div class="form-group">
-						          <div class="d-flex align-items-center">
-				                    <label class="checkbox-inline">
-	     		                      <input id="Mort_naturelle_carcasse_trouvee" name="Mort_naturelle_carcasse_trouvee" type="checkbox" value=false>  Mort naturelle, carcasse trouvée
-	     		                	</label>
-							      </div>
-							    </div>
-							    <div class="form-group">
-					              <div class="d-flex align-items-center">
-					                <label class="checkbox-inline">
-					                  <input id="Mort_due_a_la_capture_manip" name="Mort_due_a_la_capture_manip" type="checkbox" value=false>  Mort due à la capture/manip
-					                </label>
-					              </div>
-					            </div>
-					            <div class="form-group">
-					              <div class="d-flex align-items-center">
-					                <label class="checkbox-inline">
-					                    <input id="Euthanasie" name="Euthanasie" type="checkbox" value=false>  Euthanasie → Dosage injection Kétamine
-					                </label>
-					                <input type="text" class="form-control ml-2" id="Dosage_injection_ketamine" placeholder="Euthanasie → Dosage injection Kétamine">
-					              </div>
-					            </div>
-							  </div>
-							</div>
-
-	    					<div class="row">
-		      			      <div class="col-lg-4">
-	            				<div class="form-group">
-	                              <label for="Si_relache_marquage">Si relâché, marquage</label>
-		                          <select id="Si_relache_marquage" class="form-control">
+	                              <label for="Relache_vivant">Animal relâché vivant</label>
+		                          <select id="Relache_vivant" class="form-control"  onchange="select_relache_vivant(this)">
 			                        <option></option>
 			                        <option>Non</option>
 			                        <option>Oui</option>
@@ -996,12 +1024,77 @@
 	    					    </div>
 	    					  </div>
 	    					  <div class="col-lg-4">
-	            				<div class="form-group">
-	                              <label for="Si_marque_numero">Si marqué, numéro</label>
-		                          <input type="text" class="form-control" id="Si_marque_numero" placeholder="Si marqué, numéro">
+	    					    <div id="afficheCause_deces" style="display:none;">
+	    					      <div class="form-group">
+	                                <label for="Cause_deces">Cause de décès</label>
+		                            <select id="Cause_deces" class="form-control">
+			                          <option></option>
+			                          <option>Manipulation/contention</option>
+			                          <option>Euthanasie</option>
+			                        </select>
+	    					      </div>
 	    					    </div>
 	    					  </div>
 		      			    </div>
+		      			    
+		      			    <div class="row">
+		      			      <div class="col-lg-4">
+	            				<div class="form-group">
+	                              <label for="Recapture">Animal déjà capturé</label>
+		                          <select id="Recapture" class="form-control"  onchange="select_recapture(this)">
+			                        <option></option>
+			                        <option>Non</option>
+			                        <option>Oui</option>
+			                      </select>
+	    					    </div>
+	    					  </div>
+		      			    </div>
+		      			    
+		      			    <div class="row">
+		      			      <div class="col-lg-12">
+			      			   	<div id="afficheComment_recapture" style="display:none;">
+		    	      			  <div class="form-group">
+			      			        <label for="Comment_recapture">Nb de recaptures - Date et n° de pièges recapture</label>
+			                        <textarea class="form-control col-xs-12" id="Comment_recapture" placeholder="Nb de recaptures - Date et n° de pièges recapture" rows="3"></textarea>
+			                      </div>
+			      			    </div>
+			      			  </div>
+			                </div>
+			                
+			                <div class="row">
+		      			      <div class="col-lg-4">
+	            				<div class="form-group">
+	                              <label for="Euthanasie">Euthanasie</label>
+		                          <select id="Euthanasie" class="form-control"  onchange="select_euthanasie(this)">
+			                        <option></option>
+			                        <option>Non</option>
+			                        <option>Oui</option>
+			                      </select>
+	    					    </div>
+	    					  </div>
+	    					  <div class="col-lg-4">
+	    					    <div id="afficheMethode_eutha" style="display:none;">
+	    					      <div class="form-group">
+	                                <label for="Methode_eutha">Méthode d'euthanasie</label>
+		                            <select id="Methode_eutha" class="form-control"  onchange="select_methode_eutha(this)">
+			                          <option></option>
+			                          <option>Isoflurane</option>
+			                          <option>Ketamine ip (intrapéritonéal)</option>
+			                        </select>
+	    					      </div>
+	    					    </div>
+	    					  </div>
+	    					  <div class="col-lg-4">
+	    					    <div id="afficheDosage_Ketamine_mL" style="display:none;">
+	    					      <div class="form-group">
+	                                <label for="Dosage_Ketamine_mL">Dose de kétamine injectée (en ml)</label>
+		                            <input type="text" class="form-control" id="Dosage_Ketamine_mL" placeholder="Dose de kétamine injectée (en ml)">
+	    					      </div>
+	    					    </div>
+	    					  </div>
+		      			    </div>
+
+		                    
 
 
 		      			  </div>
@@ -1013,171 +1106,217 @@
                           </div>
                           <div class="card-body">
 
-                            <div class="row">
-	    					  <div class="col-lg-3">
+							<div class="row">
+	    					  <div class="col-lg-4">
 	            				<div class="form-group">
-	                              <label for="Ecouv_gorge_RNAl">Écouv. gorge (RNAl)</label>
-		                          <input type="text" class="form-control" id="Ecouv_gorge_RNAl" placeholder="Écouv. gorge (RNAl)">
+	                              <label for="Biopsie_oreille_BO">Nb de tube de biopsie d'oreille (ethanol)</label>
+		                          <input type="text" class="form-control" id="Biopsie_oreille_BO" placeholder="Nb de tube de biopsie d'oreille (ethanol)">
 	    					    </div>
 	    					  </div>
-	    					  <div class="col-lg-3">
+	    					  <div class="col-lg-4">
 	            				<div class="form-group">
-	                              <label for="Sang_papier_buvard">Sang papier buvard</label>
-		                          <input type="text" class="form-control" id="Sang_papier_buvard" placeholder="Sang papier buvard">
+	                              <label for="Ecouv_Salive_RNAl_SA">Nb de tubes d'écouvillons de salive (RNAlater)</label>
+		                          <input type="text" class="form-control" id="Ecouv_Salive_RNAl_SA" placeholder="Nb de tubes d'écouvillons de salive (RNAlater)">
 	    					    </div>
 	    					  </div>
-	    					  <div class="col-lg-3">
+	    					  <div class="col-lg-4">
 	            				<div class="form-group">
-	                              <label for="Biopsie_d_oreille_ethanol">Biopsie d’oreille (éthanol)</label>
-		                          <input type="text" class="form-control" id="Biopsie_d_oreille_ethanol" placeholder="Biopsie d’oreille (éthanol)">
+	                              <label for="Ecouv_Urogenital_RNAl_URO">Nb de tubes d'écouvillons d'urogénitaux (RNAlater)</label>
+		                          <input type="text" class="form-control" id="Ecouv_Urogenital_RNAl_URO" placeholder="Nb de tubes d'écouvillons d'urogénitaux (RNAlater)">
 	    					    </div>
 	    					  </div>
-	    					  <div class="col-lg-3">
-	            				<div class="form-group">
-	                              <label for="Feces_RNAl">Fèces (RNAl)</label>
-		                          <input type="text" class="form-control" id="Feces_RNAl" placeholder="Fèces (RNAl)">
-	    					    </div>
-	    					  </div>
+	    					  
 		      			    </div>
 
 		      			    <div class="row">
-	    					  <div class="col-lg-3">
+		      			      <div class="col-lg-4">
 	            				<div class="form-group">
-	                              <label for="Ecouv_urine_RNAl">Écouv. urine (RNAl)</label>
-		                          <input type="text" class="form-control" id="Ecouv_urine_RNAl" placeholder="Écouv. urine (RNAl)">
+	                              <label for="Urine_RNAl_UR">Nb de tubes d'écouvillons d'urine (RNAlater)</label>
+		                          <input type="text" class="form-control" id="Urine_RNAl_UR" placeholder="Nb de tubes d'écouvillons d'urine (RNAlater)">
 	    					    </div>
 	    					  </div>
-	    					  <div class="col-lg-3">
+	    					  <div class="col-lg-4">
 	            				<div class="form-group">
-	                              <label for="Ecouv_rectal_RNAl">Écouv. rectal (RNAl)</label>
-		                          <input type="text" class="form-control" id="Ecouv_rectal_RNAl" placeholder="Écouv. rectal (RNAl)">
+	                              <label for="Ecouv_rectal_RNAl_RE">Nb de tubes d'écouvillons d'urine (RNAlater)</label>
+		                          <input type="text" class="form-control" id="Ecouv_rectal_RNAl_RE" placeholder="Nb de tubes d'écouvillons d'urine (RNAlater)">
 	    					    </div>
 	    					  </div>
-	    					  <div class="col-lg-3">
+	    					  <div class="col-lg-4">
 	            				<div class="form-group">
-	                              <label for="Ectoparasites_ethanol">Ectoparasites (éthanol)</label>
-		                          <input type="text" class="form-control" id="Ectoparasites_ethanol" placeholder="Ectoparasites (éthanol)">
+	                              <label for="Feces_RNAl_FE">Nb de tubes de fèces (RNAlater)</label>
+		                          <input type="text" class="form-control" id="Feces_RNAl_FE" placeholder="Nb de tubes de fèces (RNAlater)">
 	    					    </div>
 	    					  </div>
+	    					  
+	    					  
+	    					  
 		      			    </div>
 
-		      			    <div class="row">
-	    					  <div class="col-lg-3">
-	            				<div class="form-group">
-	                              <label for="Tiques">Tiques</label>
-		                          <input type="text" class="form-control" id="Tiques" placeholder="Tiques">
-	    					    </div>
-	    					  </div>
-	    					  <div class="col-lg-3">
-	            				<div class="form-group">
-	                              <label for="Puces">Puces</label>
-		                          <input type="text" class="form-control" id="Puces" placeholder="Puces">
-	    					    </div>
-	    					  </div>
-	    					  <div class="col-lg-3">
-	            				<div class="form-group">
-	                              <label for="Echantillons_Autre">Autre</label>
-		                          <input type="text" class="form-control" id="Echantillons_Autre" placeholder="Autre">
-	    					    </div>
-	    					  </div>
-		      			    </div>
+
+
 
 		      			    <div class="row">
-			      			    <div class="col-lg-12">
-		    	      			  <div class="form-group">
-			      			        <label for="Autres_echantillons_ou_remarques">Autres échantillons ou remarques</label>
-			                        <textarea class="form-control col-xs-12" id="Autres_echantillons_ou_remarques" placeholder="Autres échantillons ou remarques" rows="3"></textarea>
-			                      </div>
-			      			    </div>
-			                  </div>
+		      			      <div class="col-lg-4">
+	            				<div class="form-group">
+	                              <label for="Sang_DBS_nb_cercles">Nombre de cercles complet de sang sur DBS</label>
+		                          <input type="text" class="form-control" id="Sang_DBS_nb_cercles" placeholder="Nombre de cercles complet de sang sur DBS">
+	    					    </div>
+	    					  </div>
+	    					  <div class="col-lg-4">
+	            				<div class="form-group">
+	                              <label for="Ectoparasites_Tiques_Eth_EP_TI">Nb de tubes d'ectoparasites: Tiques (ethanol)</label>
+		                          <input type="text" class="form-control" id="Ectoparasites_Tiques_Eth_EP_TI" placeholder="Nb de tubes d'ectoparasites: Tiques (ethanol)">
+	    					    </div>
+	    					  </div>
+	    					  <div class="col-lg-4">
+	            				<div class="form-group">
+	                              <label for="Ectoparasites_Puces_Eth_EP_PU">Nb de tubes d'ectoparasites: Puces (ethanol)</label>
+		                          <input type="text" class="form-control" id="Ectoparasites_Puces_Eth_EP_PU" placeholder="Nb de tubes d'ectoparasites: Puces (ethanol)">
+	    					    </div>
+	    					  </div>
+	    				    </div>
+		      			    <div class="row">
+		      			      <div class="col-lg-4">
+	            				<div class="form-group">
+	                              <label for="Poils_ethanol_PO">Nb de tubes de poils (1e mission uniquement)</label>
+		                          <input type="text" class="form-control" id="Poils_ethanol_PO" placeholder="Nb de tubes de poils (1e mission uniquement)">
+	    					    </div>
+	    					  </div>
+	    					  <div class="col-lg-4">
+	            				<div class="form-group">
+	                              <label for="Autres_echantillons">Nb de tube autre échantillon prélevé</label>
+		                          <input type="text" class="form-control" id="Autres_echantillons" placeholder="Nb de tube autre échantillon prélevé">
+	    					    </div>
+	    					  </div>
+	    					  <div class="col-lg-4">
+	            				<div class="form-group">
+	                              <label for="Autres_echantillons_details">Nature de l'autre échantillon prélevé</label>
+		                          <input type="text" class="form-control" id="Autres_echantillons_details" placeholder="Nature de l'autre échantillon prélevé">
+	    					    </div>
+	    					  </div>
+	    					</div>
 
-
+		      			    <div class="row">
+		      			      <div class="col-lg-12">
+	    	      			    <div class="form-group">
+		      			          <label for="Remarques_echantillons">ex: présence de sang sur écouvillons; sang prélevé après euthanasie (sang post mortem), etc.</label>
+		                          <textarea class="form-control col-xs-12" id="Remarques_echantillons" placeholder="ex: présence de sang sur écouvillons; sang prélevé après euthanasie (sang post mortem), etc." rows="3"></textarea>
+		                        </div>
+		      			      </div>
+		                    </div>
+			                
 		      			  </div>
 		      			</div>
 
+
+
 		      			<div class="card bg-light">
 				          <div class="card-header card-header-transparent d-flex align-items-center">
-                            <h3 class="h4">Organes (RNAl)</h3>
+                            <h3 class="h4">Autopsie</h3>
                           </div>
                           <div class="card-body">
-
-                            <div class="row">
-	    					  <div class="col-lg-3">
+                          
+							<div class="row">
+	    					  <div class="col-lg-4">
 	            				<div class="form-group">
-	                              <label for="Coeur_CO">Cœur (CO)</label>
-		                          <input type="text" class="form-control" id="Coeur_CO" placeholder="Cœur (CO)">
+	                              <label for="Coeur_RNAl_CO">Nombre de tube d'organe (RNAlater) : cœur</label>
+		                          <input type="text" class="form-control" id="Coeur_RNAl_CO" placeholder="Nombre de tube d'organe (RNAlater) : cœur">
 	    					    </div>
 	    					  </div>
-	    					  <div class="col-lg-3">
+	    					  <div class="col-lg-4">
 	            				<div class="form-group">
-	                              <label for="Poumons_PO">Poumons (PO)</label>
-		                          <input type="text" class="form-control" id="Poumons_PO" placeholder="Poumons (PO)">
+	                              <label for="Poumon_RNAl_PO">Nombre de tube d'organe (RNAlater)  : poumon</label>
+		                          <input type="text" class="form-control" id="Poumon_RNAl_PO" placeholder="Nombre de tube d'organe (RNAlater)  : poumon">
 	    					    </div>
 	    					  </div>
-	    					  <div class="col-lg-3">
+	    					  <div class="col-lg-4">
 	            				<div class="form-group">
-	                              <label for="Foie_FO">Foie (FO)</label>
-		                          <input type="text" class="form-control" id="Foie_FO" placeholder="Foie (FO)">
-	    					    </div>
-	    					  </div>
-	    					  <div class="col-lg-3">
-	            				<div class="form-group">
-	                              <label for="Rate_RA">Rate (RA)</label>
-		                          <input type="text" class="form-control" id="Rate_RA" placeholder="Rate (RA)">
+	                              <label for="Foie_RNAl_FO">Nombre de tube d'organe (RNAlater)  : foie</label>
+		                          <input type="text" class="form-control" id="Foie_RNAl_FO" placeholder="Nombre de tube d'organe (RNAlater)  : foie">
 	    					    </div>
 	    					  </div>
 		      			    </div>
 
 		      			    <div class="row">
-	    					  <div class="col-lg-3">
+		      			    
+	    					  <div class="col-lg-4">
 	            				<div class="form-group">
-	                              <label for="Reins_RN">Reins (RN)</label>
-		                          <input type="text" class="form-control" id="Reins_RN" placeholder="Reins (RN)">
+	                              <label for="Rate_RNAl_RA">Nombre de tube d'organe (RNAlater)  : rate</label>
+		                          <input type="text" class="form-control" id="Rate_RNAl_RA" placeholder="Nombre de tube d'organe (RNAlater)  : rate">
 	    					    </div>
 	    					  </div>
-	    					  <div class="col-lg-3">
+	    					  <div class="col-lg-4">
 	            				<div class="form-group">
-	                              <label for="Intestins_INT">Intestins (INT)</label>
-		                          <input type="text" class="form-control" id="Intestins_INT" placeholder="Intestins (INT)">
+	                              <label for="Rein_RNAl_RN">Nombre de tube d'organe (RNAlater)  : rein</label>
+		                          <input type="text" class="form-control" id="Rein_RNAl_RN" placeholder="Nombre de tube d'organe (RNAlater)  : rein">
 	    					    </div>
 	    					  </div>
-	    					  <div class="col-lg-3">
+	    					  <div class="col-lg-4">
 	            				<div class="form-group">
-	                              <label for="Testicule_TE">Testicule (TE)</label>
-		                          <input type="text" class="form-control" id="Testicule_TE" placeholder="Testicule (TE)">
+	                              <label for="Testicule_RNAl_TE">Nombre de tube d'organe (RNAlater)  : testicules</label>
+		                          <input type="text" class="form-control" id="Testicule_RNAl_TE" placeholder="Nombre de tube d'organe (RNAlater)  : testicules">
 	    					    </div>
 	    					  </div>
-	    					  <div class="col-lg-3">
-	            				<div class="form-group">
-	                              <label for="Ovaires_OV">Ovaires (OV)</label>
-		                          <input type="text" class="form-control" id="Ovaires_OV" placeholder="Ovaires (OV)">
-	    					    </div>
-	    					  </div>
+	    					  
 		      			    </div>
 
 		      			    <div class="row">
-	    					  <div class="col-lg-3">
+		      			      <div class="col-lg-4">
 	            				<div class="form-group">
-	                              <label for="Embryons_EM">Embryons (EM)</label>
-		                          <input type="text" class="form-control" id="Embryons_EM" placeholder="Embryons (EM)">
+	                              <label for="Ovaire_RNAl_OV">Nombre de tube d'organe (RNAlater)  : ovaire</label>
+		                          <input type="text" class="form-control" id="Ovaire_RNAl_OV" placeholder="Nombre de tube d'organe (RNAlater)  : ovaire">
 	    					    </div>
 	    					  </div>
-	    					  <div class="col-lg-3">
+	    					  <div class="col-lg-4">
 	            				<div class="form-group">
-	                              <label for="Nombre_d_embryons">Nombre d‘embryons</label>
-		                          <input type="text" class="form-control" id="Nombre_d_embryons" placeholder="Nombre d‘embryons">
+	                              <label for="Embryon_RNAl_EM">Nombre de tube d'organe (RNAlater)  : embryon</label>
+		                          <input type="text" class="form-control" id="Embryon_RNAl_EM" placeholder="Nombre de tube d'organe (RNAlater)  : embryon">
+	    					    </div>
+	    					  </div>
+	    					  <div class="col-lg-4">
+	            				<div class="form-group">
+	                              <label for="F_gestante_nb_embryons">Nb d'embryons si femelle gestante et autopsie</label>
+		                          <input type="text" class="form-control" id="F_gestante_nb_embryons" placeholder="Nb d'embryons si femelle gestante et autopsie">
 	    					    </div>
 	    					  </div>
 		      			    </div>
-
+		      			    
 		      			    <div class="row">
-			      			  <div class="col-lg-12">
-		    	      			<div class="form-group">
-			      			      <label for="Organes_RNAl_autre">Autre</label>
-			                      <textarea class="form-control col-xs-12" id="Organes_RNAl_autre" placeholder="Autre" rows="3"></textarea>
-			                    </div>
-			      			  </div>
-			                </div>
+		      			      <div class="col-lg-4">
+	            				<div class="form-group">
+	                              <label for="Intestins_RNAl_INT">Nombre de tube d'organe (RNAlater)  : intestins</label>
+		                          <input type="text" class="form-control" id="Intestins_RNAl_INT" placeholder="Nombre de tube d'organe (RNAlater)  : intestins">
+	    					    </div>
+	    					  </div>
+	    					  <div class="col-lg-4">
+	            				<div class="form-group">
+	                              <label for="Peau_RNAl_PE">Nombre de tube d'organe (RNAlater) : peau</label>
+		                          <input type="text" class="form-control" id="Peau_RNAl_PE" placeholder="Nombre de tube d'organe (RNAlater) : peau">
+	    					    </div>
+	    					  </div>
+	    					  <div class="col-lg-4">
+	            				<div class="form-group">
+	                              <label for="Cerveau_RNAl_CE">Nombre de tube d'organe (RNAlater)  : cerveau</label>
+		                          <input type="text" class="form-control" id="Cerveau_RNAl_CE" placeholder="Nombre de tube d'organe (RNAlater)  : cerveau">
+	    					    </div>
+	    					  </div>	    					  
+		      			    </div>
+		      			    
+		      			    <div class="row">
+		      			      <div class="col-lg-4">
+	            				<div class="form-group">
+	                              <label for="Autre_Organe_RNAl">Nombre de tube d'organe (RNAlater)  : autre organe</label>
+		                          <input type="text" class="form-control" id="Autre_Organe_RNAl" placeholder="Nombre de tube d'organe (RNAlater)  : autre organe">
+	    					    </div>
+	    					  </div>
+	    					  <div class="col-lg-4">
+	            				<div class="form-group">
+	                              <label for="Details_autre_organe_RNAl">Nature de l'autre organe prélevé</label>
+		                          <input type="text" class="form-control" id="Details_autre_organe_RNAl" placeholder="Nature de l'autre organe prélevé">
+	    					    </div>
+	    					  </div>	    					  
+		      			    </div>
+		      			    
 
 
 		      			  </div>
@@ -1339,26 +1478,56 @@
 					var select = document.getElementById('Lieu_capture');
 					addReference(html, 'lieu_capture', 'Lieu_capture', select, null, null);
    				}*/
-   				if ($(this).data('data-id') == 'couleur_pelage_dorsal') {
-					var select = document.getElementById('Couleur_pelage_dorsal');
+   				if ($(this).data('data-id') == 'site_capture') {
+					var select = document.getElementById('Site_capture');
 
-					addReference1('bcoming_cerfig_rongeurs_captures_couleur_pelage_dorsal', 'Couleur_pelage_dorsal', select);
+					addReference1('bcoming_cremer_rongeurs_captures_site_capture', 'Site_capture', select);
+   				} else if ($(this).data('data-id') == 'couleur_pelage_dorsal') {
+					var select = document.getElementById('Couleur_pelage_dorsal');
+					addReference1('bcoming_cremer_rongeurs_captures_couleur_pelage_dorsal', 'Couleur_pelage_dorsal', select);
    				} else if ($(this).data('data-id') == 'couleur_pelage_ventral') {
 					var select = document.getElementById('Couleur_pelage_ventral');
-					addReference1('bcoming_cerfig_rongeurs_captures_couleur_pelage_ventral', 'Couleur_pelage_ventral', select);
-   				} else if ($(this).data('data-id') == 'famille') {
+					addReference1('bcoming_cremer_rongeurs_captures_couleur_pelage_ventral', 'Couleur_pelage_ventral', select);
+   				/*} else if ($(this).data('data-id') == 'famille') {
 					var select = document.getElementById('Famille');
 					addReference('bcoming_cerfig_rongeurs_captures_espece', 'Famille', select, null, null);
-   				}  else if ($(this).data('data-id') == 'genre') {
+   				}*/
+   				} else if ($(this).data('data-id') == 'famille_terrain') {
+					var select = document.getElementById('Famille_terrain');
+					addReference('bcoming_cremer_rongeurs_captures_espece', 'Famille', select, null, null);
+   				} else if ($(this).data('data-id') == 'famille_labo') {
+					var select = document.getElementById('Famille_labo');
+					addReference('bcoming_cremer_rongeurs_captures_espece', 'Famille', select, null, null);
+   				/*} else if ($(this).data('data-id') == 'genre') {
    					var select = document.getElementById('Famille');
 					var select2 = document.getElementById('Genre');
 					addReference('bcoming_cerfig_rongeurs_captures_espece', 'Genre', select, select2, null);
-   				} else if ($(this).data('data-id') == 'espece') {
+   				}*/
+   				} else if ($(this).data('data-id') == 'genre_terrain') {
+   					var select = document.getElementById('Famille_terrain');
+					var select2 = document.getElementById('Genre_terrain');
+					addReference('bcoming_cremer_rongeurs_captures_espece', 'Genre', select, select2, null);
+   				} else if ($(this).data('data-id') == 'genre_labo') {
+   					var select = document.getElementById('Famille_labo');
+					var select2 = document.getElementById('Genre_labo');
+					addReference('bcoming_cremer_rongeurs_captures_espece', 'Genre', select, select2, null);
+   				/*} else if ($(this).data('data-id') == 'espece') {
    					var select = document.getElementById('Famille');
 					var select2 = document.getElementById('Genre');
 					var select3 = document.getElementById('Espece');
 					addReference('bcoming_cerfig_rongeurs_captures_espece', 'Espece', select, select2, select3);
-   				}
+   				}*/
+   				} else if ($(this).data('data-id') == 'espece_terrain') {
+					var select = document.getElementById('Famille_terrain');
+					var select2 = document.getElementById('Genre_terrain');	
+					var select3 = document.getElementById('Espece_terrain');
+					addReference('bcoming_cremer_rongeurs_captures_espece', 'Espece', select, select2, select3);	
+				} else if ($(this).data('data-id') == 'espece_labo') {
+					var select = document.getElementById('Famille_labo');
+					var select2 = document.getElementById('Genre_labo');	
+					var select3 = document.getElementById('Espece_labo');		
+					addReference('bcoming_cremer_rongeurs_captures_espece', 'Espece', select, select2, select3);	
+				}
 
 
    				var referenceInput = document.getElementById('referenceInput');
@@ -1406,6 +1575,14 @@
 		    };
 		};
 
+		$('#nouveauSite_capture').click(function(){
+   			$('#referenceModalLabel').html('Nouvelle description du site de capture');
+   			$('#referenceLabel').html('Description du site de capture :');
+   			$('#referenceInput').prop('disabled', false);
+   			$('#btnAjouter').data('data-id', 'site_capture');
+   			clickedBtn = this;
+   		});
+		
 		$('#nouvelleCouleur_pelage_dorsal').click(function(){
    			$('#referenceModalLabel').html('Nouvelle couleur pelage dorsal');
    			$('#referenceLabel').html('Couleur pelage dorsal :');
@@ -1427,7 +1604,13 @@
    			$('#referenceLabel').html('Famille :');
    			$('#referenceInput').prop('disabled', false);
 			var nouvelleFamille = $(this).attr('id');
-   			$('#btnAjouter').data('data-id', 'famille');
+			
+			if (nouvelleFamille == 'nouvelleFamille_terrain') {
+   				$('#btnAjouter').data('data-id', 'famille_terrain'); 	
+   			} else if (nouvelleFamille == 'nouvelleFamille_labo') {
+   				$('#btnAjouter').data('data-id', 'famille_labo'); 	
+   			} 
+			
    			clickedBtn = this;
    		});
 
@@ -1438,9 +1621,16 @@
 
    			var nouveauGenre = $(this).attr('id');
 
-   			if (nouveauGenre == 'nouveauGenre') {
+   			/*if (nouveauGenre == 'nouveauGenre') {
    				$('#btnAjouter').data('data-id', 'genre');
    				var Famille =  document.getElementById('Famille');
+   			}*/
+   			if (nouveauGenre == 'nouveauGenre_terrain') {
+   				$('#btnAjouter').data('data-id', 'genre_terrain'); 	
+   				var Famille =  document.getElementById('Famille_terrain');
+   			} else if (nouveauGenre == 'nouveauGenre_labo') {
+   				$('#btnAjouter').data('data-id', 'genre_labo'); 	
+   				var Famille =  document.getElementById('Famille_labo');
    			}
 
    			clickedBtn = this;
@@ -1477,10 +1667,20 @@
 
 			var nouvelleEspece = $(this).attr('id');
 
-   			if (nouvelleEspece == 'nouvelleEspece') {
+   			/*if (nouvelleEspece == 'nouvelleEspece') {
    				$('#btnAjouter').data('data-id', 'espece');
    				var Famille =  document.getElementById('Famille');
    				var Genre =  document.getElementById('Genre');
+   			}*/
+   			
+   			if (nouvelleEspece == 'nouvelleEspece_terrain') {
+   				$('#btnAjouter').data('data-id', 'espece_terrain'); 	
+   				var Famille =  document.getElementById('Famille_terrain');
+   				var Genre =  document.getElementById('Genre_terrain');
+   			} else if (nouvelleEspece == 'nouvelleEspece_labo') {
+   				$('#btnAjouter').data('data-id', 'espece_labo'); 	
+   				var Famille =  document.getElementById('Famille_labo');
+   				var Genre =  document.getElementById('Genre_labo');
    			}
 
    			clickedBtn = this;
@@ -1575,9 +1775,16 @@
 
 		function addReference(nom_table, field, select, select2, select3) {
 
-			var Famille = document.getElementById('Famille');
+			/*var Famille = document.getElementById('Famille');
 			var Genre = document.getElementById('Genre');
-			var Espece = document.getElementById('Espece');
+			var Espece = document.getElementById('Espece');*/
+			
+			var Famille_terrain = document.getElementById('Famille_terrain');
+			var Famille_labo = document.getElementById('Famille_labo');
+			var Genre_terrain = document.getElementById('Genre_terrain');
+			var Genre_labo = document.getElementById('Genre_labo');
+			var Espece_terrain = document.getElementById('Espece_terrain');
+			var Espece_labo = document.getElementById('Espece_labo');
 
    			var value = document.getElementById('referenceInput').value;
    			if (select2 != null) {
@@ -1637,8 +1844,10 @@
 									var remote_couchdb = localStorage.getItem('remote_couchdb');
 									var remoteDB = new PouchDB(remote_couchdb + nom_table /*+ debug*/);
 									DB.sync(remoteDB).on('complete', (info) => {
-							    		Famille.options[Famille.options.length] = new Option(value, value);
-								    	select.value = value;
+							    		//Famille.options[Famille.options.length] = new Option(value, value);
+							    		Famille_terrain.options[Famille_terrain.options.length] = new Option(value, value);
+						    			Famille_labo.options[Famille_labo.options.length] = new Option(value, value);
+						    			select.value = value;
 							    		select.onchange();
 									}).on('error', function (err) {
 								   		// error while replicating
@@ -1646,8 +1855,10 @@
 								   	});
 
 								} else {
-									Famille.options[Famille.options.length] = new Option(value, value);
-							    	select.value = value;
+									//Famille.options[Famille.options.length] = new Option(value, value);
+									Famille_terrain.options[Famille_terrain.options.length] = new Option(value, value);
+						    		Famille_labo.options[Famille_labo.options.length] = new Option(value, value);
+						    		select.value = value;
 						    		select.onchange();
 								}
 							});
@@ -1707,9 +1918,15 @@
 	   							var remote_couchdb = localStorage.getItem('remote_couchdb');
 	   							var remoteDB = new PouchDB(remote_couchdb + nom_table /*+ debug*/);
 	   							DB.sync(remoteDB).on('complete', (info) => {
-	   							   if (Famille.value == value) {
+	   							   /*if (Famille.value == value) {
 	   					    	   		Genre.options[Genre.options.length] = new Option(value2, value2);
-	   					    	   }
+	   					    	   }*/
+		   					    	if (Famille_terrain.value == value) {
+					    				Genre_terrain.options[Genre_terrain.options.length] = new Option(value2, value2);
+					    			}
+					    			if (Famille_labo.value == value) {
+					    				Genre_labo.options[Genre_labo.options.length] = new Option(value2, value2);
+					    			}
 
 	   					    	    select2.value = value2;
 	   						    	select2.onchange();
@@ -1787,8 +2004,14 @@
 								var remoteDB = new PouchDB(remote_couchdb + nom_table /*+ debug*/);
 								DB.sync(remoteDB).on('complete', (info) => {
 
-					    			if ((Famille.value == value) && (Genre.value == value2)) {
+					    			/*if ((Famille.value == value) && (Genre.value == value2)) {
 					    				Espece.options[Espece.options.length] = new Option(value3, value3);
+					    			}*/
+					    			if ((Famille_terrain.value == value) && (Genre_terrain.value == value2)) {
+					    				Espece_terrain.options[Espece_terrain.options.length] = new Option(value3, value3);
+					    			}
+					    			if ((Famille_labo.value == value) && (Genre_labo.value == value2)) {
+					    				Espece_labo.options[Espece_labo.options.length] = new Option(value3, value3);
 					    			}
 
 						    		select3.value = value3;
@@ -2093,166 +2316,192 @@
 
 
 			var id = uuid();
-
-			var N_identification = document.getElementById('N_identification').value;
-		    var stringDate = document.getElementById('Date').value;
-		    var Equipe = document.getElementById('Equipe').value;
-		    var Binome_prelevement = document.getElementById('Binome_prelevement').value;
-		    var Site_region = document.getElementById('Site_region').value;
-		    var Site_precis_de_capture = document.getElementById('Site_precis_de_capture').value;
-		    var Piege = document.getElementById('Piege').value;
-		    var Numero_de_piege = document.getElementById('Numero_de_piege').value;
-		    var Lieu_de_capture = document.getElementById('Lieu_de_capture').value;
-		    var Lieu_de_capture_autre = document.getElementById('Lieu_de_capture_autre').value;
-		    var Lat_degre_dec_Piege = document.getElementById('Lat_degre_dec_Piege').value;
-		    var Latitude_Piege = document.getElementById('Latitude_Piege').value;
-		    var Long_degre_dec_Piege = document.getElementById('Long_degre_dec_Piege').value;
-		    var Longitude_Piege = document.getElementById('Longitude_Piege').value;
-		    var Taille_yeux = document.getElementById('Taille_yeux').value;
-		    var Couleur_pelage_dorsal = document.getElementById('Couleur_pelage_dorsal').value;
-		    var Couleur_pelage_ventral = document.getElementById('Couleur_pelage_ventral').value;
-		    var Espece_identifiee = document.getElementById('Espece_identifiee').value;
-		    var Famille = document.getElementById('Famille').value;
-		    var Genre = document.getElementById('Genre').value;
-		    var Espece = document.getElementById('Espece').value;
-		    var Age = document.getElementById('Age').value;
-		    var Sexe = document.getElementById('Sexe').value;
-		    var Femelles_gestante = document.getElementById('Femelles_gestante').value;
-		    var Femelles_lactante = document.getElementById('Femelles_lactante').value;
-		    var Nombre_de_paires_de_mamelles = document.getElementById('Nombre_de_paires_de_mamelles').value;
-		    var checkboxPect = document.getElementById('checkboxPect').checked;
-		    var Pect = document.getElementById('Pect').value;
-		    var checkboxAbdo = document.getElementById('checkboxAbdo').checked;
-		    var Abdo = document.getElementById('Abdo').value;
-		    var checkboxIngu = document.getElementById('checkboxIngu').checked;
-		    var Ingu = document.getElementById('Ingu').value;
-		    var Testicules_descendus = document.getElementById('Testicules_descendus').value;
-		    var Longueur_mm = document.getElementById('Longueur_mm').value;
-		    var Remarques = document.getElementById('Remarques').value;
-		    var Poids_avec_sac_g = document.getElementById('Poids_avec_sac_g').value;
-		    var Poids_du_sac_g = document.getElementById('Poids_du_sac_g').value;
-		    var Poids_net_animal_g = document.getElementById('Poids_net_animal_g').value;
-		    var L_corps_mm = document.getElementById('L_corps_mm').value;
-		    var L_queue_mm = document.getElementById('L_queue_mm').value;
-		    var L_pied_arriere_mm = document.getElementById('L_pied_arriere_mm').value;
-		    var L_crane_mm = document.getElementById('L_crane_mm').value;
-		    var L_oreille_mm = document.getElementById('L_oreille_mm').value;
-		    var Photo = document.getElementById('Photo').value;
-		    var Relache = document.getElementById('Relache').value;
-		    var Mort_naturelle_carcasse_trouvee = document.getElementById('Mort_naturelle_carcasse_trouvee').checked;
-		    var Mort_due_a_la_capture_manip = document.getElementById('Mort_due_a_la_capture_manip').checked;
-		    var Euthanasie = document.getElementById('Euthanasie').checked;
-		    var Dosage_injection_ketamine = document.getElementById('Dosage_injection_ketamine').value;
-		    var Si_relache_marquage = document.getElementById('Si_relache_marquage').value;
-		    var Si_marque_numero = document.getElementById('Si_marque_numero').value;
-		    var Ecouv_gorge_RNAl = document.getElementById('Ecouv_gorge_RNAl').value;
-		    var Sang_papier_buvard = document.getElementById('Sang_papier_buvard').value;
-		    var Biopsie_d_oreille_ethanol = document.getElementById('Biopsie_d_oreille_ethanol').value;
-		    var Feces_RNAl = document.getElementById('Feces_RNAl').value;
-		    var Ecouv_urine_RNAl = document.getElementById('Ecouv_urine_RNAl').value;
-		    var Ecouv_rectal_RNAl = document.getElementById('Ecouv_rectal_RNAl').value;
-		    var Ectoparasites_ethanol = document.getElementById('Ectoparasites_ethanol').value;
-		    var Tiques = document.getElementById('Tiques').value;
-		    var Puces = document.getElementById('Puces').value;
-		    var Echantillons_Autre = document.getElementById('Echantillons_Autre').value;
-		    var Autres_echantillons_ou_remarques = document.getElementById('Autres_echantillons_ou_remarques').value;
-		    var Coeur_CO = document.getElementById('Coeur_CO').value;
-		    var Poumons_PO = document.getElementById('Poumons_PO').value;
-		    var Foie_FO = document.getElementById('Foie_FO').value;
-		    var Rate_RA = document.getElementById('Rate_RA').value;
-		    var Reins_RN = document.getElementById('Reins_RN').value;
-		    var Intestins_INT = document.getElementById('Intestins_INT').value;
-		    var Testicule_TE = document.getElementById('Testicule_TE').value;
-		    var Ovaires_OV = document.getElementById('Ovaires_OV').value;
-		    var Embryons_EM = document.getElementById('Embryons_EM').value;
-		    var Nombre_d_embryons = document.getElementById('Nombre_d_embryons').value;
-		    var Organes_RNAl_autre = document.getElementById('Organes_RNAl_autre').value;
-
+			
+			var Num_rongeur = document.getElementById('Num_rongeur').value;
+			var CODE_rongeur = document.getElementById('CODE_rongeur').value;
+			var NumMission_NumSite = document.getElementById('NumMission_NumSite').value;
+			var N_site = document.getElementById('N_site').value;
+			var Date = document.getElementById('Date').value;
+			var J = document.getElementById('J').value;
+			var Equipe = document.getElementById('Equipe').value;
+			var Pays = document.getElementById('Pays').value;
+			var Region = document.getElementById('Region').value;
+			var Arrondissement = document.getElementById('Arrondissement').value;
+			var Village = document.getElementById('Village').value;
+			var Num_piege = document.getElementById('Num_piege').value;
+			var Type_piege = document.getElementById('Type_piege').value;
+			var Site_capture = document.getElementById('Site_capture').value;
+			var Emplacement_piege = document.getElementById('Emplacement_piege').value;
+			var Detail_emplacement = document.getElementById('Detail_emplacement').value;
+			var Lat_degre_dec_Piege = document.getElementById('Lat_degre_dec_Piege').value;
+			var Latitude_Piege = document.getElementById('Latitude_Piege').value;
+			var Long_degre_dec_Piege = document.getElementById('Long_degre_dec_Piege').value;
+			var Longitude_Piege = document.getElementById('Longitude_Piege').value;
+			var Contention = document.getElementById('Contention').value;
+			var Preleveur = document.getElementById('Preleveur').value;
+			var Autopsie = document.getElementById('Autopsie').value;
+			var Identification_espece = document.getElementById('Identification_espece').value;
+			var Famille_terrain = document.getElementById('Famille_terrain').value;
+			var Genre_terrain = document.getElementById('Genre_terrain').value;
+			var Espece_terrain = document.getElementById('Espece_terrain').value;
+			var Famille_labo = document.getElementById('Famille_labo').value;
+			var Genre_labo = document.getElementById('Genre_labo').value;
+			var Espece_labo = document.getElementById('Espece_labo').value;
+			var Sexe = document.getElementById('Sexe').value;
+			var Age = document.getElementById('Age').value;
+			var F_gestante = document.getElementById('F_gestante').value;
+			var F_lactante = document.getElementById('F_lactante').value;
+			var Nbtotal_paires_mamelles = document.getElementById('Nbtotal_paires_mamelles').value;
+			var N_mamelles_pectorales = document.getElementById('N_mamelles_pectorales').value;
+			var N_mamelles_abdominales = document.getElementById('N_mamelles_abdominales').value;
+			var N_mamelles_inguinales = document.getElementById('N_mamelles_inguinales').value;
+			var Male_testicules_descendues = document.getElementById('Male_testicules_descendues').value;
+			var Male_longueur_testicules = document.getElementById('Male_longueur_testicules').value;
+			var Poids_sac_rongeur_g = document.getElementById('Poids_sac_rongeur_g').value;
+			var Poids_sac_g = document.getElementById('Poids_sac_g').value;
+			var Poids_g = document.getElementById('Poids_g').value;
+			var L_totale_corps_Ltc_mm = document.getElementById('L_totale_corps_Ltc_mm').value;
+			var L_queue_mm = document.getElementById('L_queue_mm').value;
+			var L_patte_arriere_Tib_mm = document.getElementById('L_patte_arriere_Tib_mm').value;
+			var L_crane_mm = document.getElementById('L_crane_mm').value;
+			var L_oreille_mm = document.getElementById('L_oreille_mm').value;
+			var Taille_yeux = document.getElementById('Taille_yeux').value;
+			var Couleur_pelage_dorsal = document.getElementById('Couleur_pelage_dorsal').value;
+			var Couleur_pelage_ventral = document.getElementById('Couleur_pelage_ventral').value;
+			var Photo = document.getElementById('Photo').value;
+			var Remarques_anomalies = document.getElementById('Remarques_anomalies').value;
+			var Relache_vivant = document.getElementById('Relache_vivant').value;
+			var Cause_deces = document.getElementById('Cause_deces').value;
+			var Recapture = document.getElementById('Recapture').value;
+			var Comment_recapture = document.getElementById('Comment_recapture').value;
+			var Euthanasie = document.getElementById('Euthanasie').value;
+			var Methode_eutha = document.getElementById('Methode_eutha').value;
+			var Dosage_Ketamine_mL = document.getElementById('Dosage_Ketamine_mL').value;
+			var Biopsie_oreille_BO = document.getElementById('Biopsie_oreille_BO').value;
+			var Ecouv_Salive_RNAl_SA = document.getElementById('Ecouv_Salive_RNAl_SA').value;
+			var Ecouv_Urogenital_RNAl_URO = document.getElementById('Ecouv_Urogenital_RNAl_URO').value;
+			var Urine_RNAl_UR = document.getElementById('Urine_RNAl_UR').value;
+			var Ecouv_rectal_RNAl_RE = document.getElementById('Ecouv_rectal_RNAl_RE').value;
+			var Feces_RNAl_FE = document.getElementById('Feces_RNAl_FE').value;
+			var Sang_DBS_nb_cercles = document.getElementById('Sang_DBS_nb_cercles').value;
+			var Ectoparasites_Tiques_Eth_EP_TI = document.getElementById('Ectoparasites_Tiques_Eth_EP_TI').value;
+			var Ectoparasites_Puces_Eth_EP_PU = document.getElementById('Ectoparasites_Puces_Eth_EP_PU').value;
+			var Poils_ethanol_PO = document.getElementById('Poils_ethanol_PO').value;
+			var Autres_echantillons = document.getElementById('Autres_echantillons').value;
+			var Autres_echantillons_details = document.getElementById('Autres_echantillons_details').value;
+			var Coeur_RNAl_CO = document.getElementById('Coeur_RNAl_CO').value;
+			var Poumon_RNAl_PO = document.getElementById('Poumon_RNAl_PO').value;
+			var Foie_RNAl_FO = document.getElementById('Foie_RNAl_FO').value;
+			var Rate_RNAl_RA = document.getElementById('Rate_RNAl_RA').value;
+			var Rein_RNAl_RN = document.getElementById('Rein_RNAl_RN').value;
+			var Testicule_RNAl_TE = document.getElementById('Testicule_RNAl_TE').value;
+			var Ovaire_RNAl_OV = document.getElementById('Ovaire_RNAl_OV').value;
+			var Embryon_RNAl_EM = document.getElementById('Embryon_RNAl_EM').value;
+			var F_gestante_nb_embryons = document.getElementById('F_gestante_nb_embryons').value;
+			var Intestins_RNAl_INT = document.getElementById('Intestins_RNAl_INT').value;
+			var Peau_RNAl_PE = document.getElementById('Peau_RNAl_PE').value;
+			var Cerveau_RNAl_CE = document.getElementById('Cerveau_RNAl_CE').value;
+			var Autre_Organe_RNAl = document.getElementById('Autre_Organe_RNAl').value;
+			var Details_autre_organe_RNAl = document.getElementById('Details_autre_organe_RNAl').value;
+			var Remarques_echantillons = document.getElementById('Remarques_echantillons').value;
 
 		    var Username = localStorage.getItem('loginUsername');
 
 		    var andAdd = document.getElementById("andAdd");
 		  	if (andAdd.checked == true){
 		  	    var doc = new Object();
+				
+		  	    doc.Num_rongeur = Num_rongeur;
+				doc.CODE_rongeur = CODE_rongeur;
+				doc.NumMission_NumSite = NumMission_NumSite;
+				doc.N_site = N_site;
+				doc.Date = Date;
+				doc.J = J;
+				doc.Equipe = Equipe;
+				doc.Pays = Pays;
+				doc.Region = Region;
+				doc.Arrondissement = Arrondissement;
+				doc.Village = Village;
+				doc.Num_piege = Num_piege;
+				doc.Type_piege = Type_piege;
+				doc.Site_capture = Site_capture;
+				doc.Emplacement_piege = Emplacement_piege;
+				doc.Detail_emplacement = Detail_emplacement;
+				doc.Lat_degre_dec_Piege = Lat_degre_dec_Piege;
+				doc.Latitude_Piege = Latitude_Piege;
+				doc.Long_degre_dec_Piege = Long_degre_dec_Piege;
+				doc.Longitude_Piege = Longitude_Piege;
+				doc.Contention = Contention;
+				doc.Preleveur = Preleveur;
+				doc.Autopsie = Autopsie;
+				doc.Identification_espece = Identification_espece;
+				doc.Famille_terrain = Famille_terrain;
+				doc.Genre_terrain = Genre_terrain;
+				doc.Espece_terrain = Espece_terrain;
+				doc.Famille_labo = Famille_labo;
+				doc.Genre_labo = Genre_labo;
+				doc.Espece_labo = Espece_labo;
+				doc.Sexe = Sexe;
+				doc.Age = Age;
+				doc.F_gestante = F_gestante;
+				doc.F_lactante = F_lactante;
+				doc.Nbtotal_paires_mamelles = Nbtotal_paires_mamelles;
+				doc.N_mamelles_pectorales = N_mamelles_pectorales;
+				doc.N_mamelles_abdominales = N_mamelles_abdominales;
+				doc.N_mamelles_inguinales = N_mamelles_inguinales;
+				doc.Male_testicules_descendues = Male_testicules_descendues;
+				doc.Male_longueur_testicules = Male_longueur_testicules;
+				doc.Poids_sac_rongeur_g = Poids_sac_rongeur_g;
+				doc.Poids_sac_g = Poids_sac_g;
+				doc.Poids_g = Poids_g;
+				doc.L_totale_corps_Ltc_mm = L_totale_corps_Ltc_mm;
+				doc.L_queue_mm = L_queue_mm;
+				doc.L_patte_arriere_Tib_mm = L_patte_arriere_Tib_mm;
+				doc.L_crane_mm = L_crane_mm;
+				doc.L_oreille_mm = L_oreille_mm;
+				doc.Taille_yeux = Taille_yeux;
+				doc.Couleur_pelage_dorsal = Couleur_pelage_dorsal;
+				doc.Couleur_pelage_ventral = Couleur_pelage_ventral;
+				doc.Photo = Photo;
+				doc.Remarques_anomalies = Remarques_anomalies;
+				doc.Relache_vivant = Relache_vivant;
+				doc.Cause_deces = Cause_deces;
+				doc.Recapture = Recapture;
+				doc.Comment_recapture = Comment_recapture;
+				doc.Euthanasie = Euthanasie;
+				doc.Methode_eutha = Methode_eutha;
+				doc.Dosage_Ketamine_mL = Dosage_Ketamine_mL;
+				doc.Biopsie_oreille_BO = Biopsie_oreille_BO;
+				doc.Ecouv_Salive_RNAl_SA = Ecouv_Salive_RNAl_SA;
+				doc.Ecouv_Urogenital_RNAl_URO = Ecouv_Urogenital_RNAl_URO;
+				doc.Urine_RNAl_UR = Urine_RNAl_UR;
+				doc.Ecouv_rectal_RNAl_RE = Ecouv_rectal_RNAl_RE;
+				doc.Feces_RNAl_FE = Feces_RNAl_FE;
+				doc.Sang_DBS_nb_cercles = Sang_DBS_nb_cercles;
+				doc.Ectoparasites_Tiques_Eth_EP_TI = Ectoparasites_Tiques_Eth_EP_TI;
+				doc.Ectoparasites_Puces_Eth_EP_PU = Ectoparasites_Puces_Eth_EP_PU;
+				doc.Poils_ethanol_PO = Poils_ethanol_PO;
+				doc.Autres_echantillons = Autres_echantillons;
+				doc.Autres_echantillons_details = Autres_echantillons_details;
+				doc.Coeur_RNAl_CO = Coeur_RNAl_CO;
+				doc.Poumon_RNAl_PO = Poumon_RNAl_PO;
+				doc.Foie_RNAl_FO = Foie_RNAl_FO;
+				doc.Rate_RNAl_RA = Rate_RNAl_RA;
+				doc.Rein_RNAl_RN = Rein_RNAl_RN;
+				doc.Testicule_RNAl_TE = Testicule_RNAl_TE;
+				doc.Ovaire_RNAl_OV = Ovaire_RNAl_OV;
+				doc.Embryon_RNAl_EM = Embryon_RNAl_EM;
+				doc.F_gestante_nb_embryons = F_gestante_nb_embryons;
+				doc.Intestins_RNAl_INT = Intestins_RNAl_INT;
+				doc.Peau_RNAl_PE = Peau_RNAl_PE;
+				doc.Cerveau_RNAl_CE = Cerveau_RNAl_CE;
+				doc.Autre_Organe_RNAl = Autre_Organe_RNAl;
+				doc.Details_autre_organe_RNAl = Details_autre_organe_RNAl;
+				doc.Remarques_echantillons = Remarques_echantillons;
 
-		  	    doc.N_identification = N_identification;
-		  	    doc.Date = stringDate;
-		  	    doc.Equipe = Equipe;
-			  	doc.Binome_prelevement = Binome_prelevement;
-			  	doc.Site_region = Site_region;
-			  	doc.Site_precis_de_capture = Site_precis_de_capture;
-			  	doc.Piege = Piege;
-			  	doc.Numero_de_piege = Numero_de_piege;
-			  	doc.Lieu_de_capture = Lieu_de_capture;
-			  	doc.Lieu_de_capture_autre = Lieu_de_capture_autre;
-			  	doc.Lat_degre_dec_Piege = Lat_degre_dec_Piege;
-			  	doc.Latitude_Piege = Latitude_Piege;
-			  	doc.Long_degre_dec_Piege = Long_degre_dec_Piege;
-			  	doc.Longitude_Piege = Longitude_Piege;
-			  	doc.Taille_yeux = Taille_yeux;
-			  	doc.Couleur_pelage_dorsal = Couleur_pelage_dorsal;
-			  	doc.Couleur_pelage_ventral = Couleur_pelage_ventral;
-			  	doc.Espece_identifiee = Espece_identifiee;
-			  	doc.Famille = Famille;
-			  	doc.Genre = Genre;
-			  	doc.Espece = Espece;
-			  	doc.Age = Age;
-			  	doc.Sexe = Sexe;
-			  	doc.Femelles_gestante = Femelles_gestante;
-			  	doc.Femelles_lactante = Femelles_lactante;
-			  	doc.Nombre_de_paires_de_mamelles = Nombre_de_paires_de_mamelles;
-			  	doc.checkboxPect = checkboxPect;
-			  	doc.Pect = Pect;
-			  	doc.checkboxAbdo = checkboxAbdo;
-			  	doc.Abdo = Abdo;
-			  	doc.checkboxIngu = checkboxIngu;
-			  	doc.Ingu = Ingu;
-			  	doc.Testicules_descendus = Testicules_descendus;
-			  	doc.Longueur_mm = Longueur_mm;
-			  	doc.Remarques = Remarques;
-			  	doc.Poids_avec_sac_g = Poids_avec_sac_g;
-			  	doc.Poids_du_sac_g = Poids_du_sac_g;
-			  	doc.Poids_net_animal_g = Poids_net_animal_g;
-			  	doc.L_corps_mm = L_corps_mm;
-			  	doc.L_queue_mm = L_queue_mm;
-			  	doc.L_pied_arriere_mm = L_pied_arriere_mm;
-			  	doc.L_crane_mm = L_crane_mm;
-			  	doc.L_oreille_mm = L_oreille_mm;
-			  	doc.Photo = Photo;
-			  	doc.Relache = Relache;
-			  	doc.Mort_naturelle_carcasse_trouvee = Mort_naturelle_carcasse_trouvee;
-			  	doc.Mort_due_a_la_capture_manip = Mort_due_a_la_capture_manip;
-			  	doc.Euthanasie = Euthanasie;
-			  	doc.Dosage_injection_ketamine = Dosage_injection_ketamine;
-			  	doc.Si_relache_marquage = Si_relache_marquage;
-			  	doc.Si_marque_numero = Si_marque_numero;
-			  	doc.Ecouv_gorge_RNAl = Ecouv_gorge_RNAl;
-			  	doc.Sang_papier_buvard = Sang_papier_buvard;
-			  	doc.Biopsie_d_oreille_ethanol = Biopsie_d_oreille_ethanol;
-			  	doc.Feces_RNAl = Feces_RNAl;
-			  	doc.Ecouv_urine_RNAl = Ecouv_urine_RNAl;
-			  	doc.Ecouv_rectal_RNAl = Ecouv_rectal_RNAl;
-			  	doc.Ectoparasites_ethanol = Ectoparasites_ethanol;
-			  	doc.Tiques = Tiques;
-			  	doc.Puces = Puces;
-			  	doc.Echantillons_Autre = Echantillons_Autre;
-			  	doc.Autres_echantillons_ou_remarques = Autres_echantillons_ou_remarques;
-			  	doc.Coeur_CO = Coeur_CO;
-			  	doc.Poumons_PO = Poumons_PO;
-			  	doc.Foie_FO = Foie_FO;
-			  	doc.Rate_RA = Rate_RA;
-			  	doc.Reins_RN = Reins_RN;
-			  	doc.Intestins_INT = Intestins_INT;
-			  	doc.Testicule_TE = Testicule_TE;
-			  	doc.Ovaires_OV = Ovaires_OV;
-			  	doc.Embryons_EM = Embryons_EM;
-			  	doc.Nombre_d_embryons = Nombre_d_embryons;
-			  	doc.Organes_RNAl_autre = Organes_RNAl_autre;
+		  	    doc.Username = Username
 
-
-			  	doc.Username = Username
-
-		  		localStorage['cerfig_rongeurs_captures_guineaTablesData'] = JSON.stringify(doc);
+		  		localStorage['cremer_rongeurs_captures_cameroonTablesData'] = JSON.stringify(doc);
 		  	};
 
 		    if (localStorage.getItem('web') === 'oui') {
@@ -2264,81 +2513,96 @@
 
 			DB.put({
 				_id: id,
-				N_identification: N_identification,
-		  	    Date: stringDate,
-		  	    Equipe: Equipe,
-			  	Binome_prelevement: Binome_prelevement,
-			  	Site_region: Site_region,
-			  	Site_precis_de_capture: Site_precis_de_capture,
-			  	Piege: Piege,
-			  	Numero_de_piege: Numero_de_piege,
-			  	Lieu_de_capture: Lieu_de_capture,
-			  	Lieu_de_capture_autre: Lieu_de_capture_autre,
-			  	Lat_degre_dec_Piege: Lat_degre_dec_Piege,
-			  	Latitude_Piege: Latitude_Piege,
-			  	Long_degre_dec_Piege: Long_degre_dec_Piege,
-			  	Longitude_Piege: Longitude_Piege,
-			  	Taille_yeux: Taille_yeux,
-			  	Couleur_pelage_dorsal: Couleur_pelage_dorsal,
-			  	Couleur_pelage_ventral: Couleur_pelage_ventral,
-			  	Espece_identifiee: Espece_identifiee,
-			  	Famille: Famille,
-			  	Genre: Genre,
-			  	Espece: Espece,
-			  	Age: Age,
-			  	Sexe: Sexe,
-			  	Femelles_gestante: Femelles_gestante,
-			  	Femelles_lactante: Femelles_lactante,
-			  	Nombre_de_paires_de_mamelles: Nombre_de_paires_de_mamelles,
-			  	checkboxPect: checkboxPect,
-			  	Pect: Pect,
-			  	checkboxAbdo: checkboxAbdo,
-			  	Abdo: Abdo,
-			  	checkboxIngu: checkboxIngu,
-			  	Ingu: Ingu,
-			  	Testicules_descendus: Testicules_descendus,
-			  	Longueur_mm: Longueur_mm,
-			  	Remarques: Remarques,
-				Poids_avec_sac_g: Poids_avec_sac_g,
-			  	Poids_du_sac_g: Poids_du_sac_g,
-			  	Poids_net_animal_g: Poids_net_animal_g,
-			  	L_corps_mm: L_corps_mm,
-			  	L_queue_mm: L_queue_mm,
-			  	L_pied_arriere_mm: L_pied_arriere_mm,
-			  	L_crane_mm: L_crane_mm,
-			  	L_oreille_mm: L_oreille_mm,
-			  	Photo: Photo,
-			  	Relache: Relache,
-			  	Mort_naturelle_carcasse_trouvee: Mort_naturelle_carcasse_trouvee,
-			  	Mort_due_a_la_capture_manip: Mort_due_a_la_capture_manip,
-			  	Euthanasie: Euthanasie,
-			  	Dosage_injection_ketamine: Dosage_injection_ketamine,
-			  	Si_relache_marquage: Si_relache_marquage,
-			  	Si_marque_numero: Si_marque_numero,
-			  	Ecouv_gorge_RNAl: Ecouv_gorge_RNAl,
-			  	Sang_papier_buvard: Sang_papier_buvard,
-			  	Biopsie_d_oreille_ethanol: Biopsie_d_oreille_ethanol,
-			  	Feces_RNAl: Feces_RNAl,
-			  	Ecouv_urine_RNAl: Ecouv_urine_RNAl,
-			  	Ecouv_rectal_RNAl: Ecouv_rectal_RNAl,
-			  	Ectoparasites_ethanol: Ectoparasites_ethanol,
-			  	Tiques: Tiques,
-			  	Puces: Puces,
-			  	Echantillons_Autre: Echantillons_Autre,
-			  	Autres_echantillons_ou_remarques: Autres_echantillons_ou_remarques,
-			  	Coeur_CO: Coeur_CO,
-			  	Poumons_PO: Poumons_PO,
-			  	Foie_FO: Foie_FO,
-			  	Rate_RA: Rate_RA,
-			  	Reins_RN: Reins_RN,
-			  	Intestins_INT: Intestins_INT,
-			  	Testicule_TE: Testicule_TE,
-			  	Ovaires_OV: Ovaires_OV,
-			  	Embryons_EM: Embryons_EM,
-			  	Nombre_d_embryons: Nombre_d_embryons,
-			  	Organes_RNAl_autre: Organes_RNAl_autre,
-
-
+				
+				Num_rongeur: Num_rongeur,
+				CODE_rongeur: CODE_rongeur,
+				NumMission_NumSite: NumMission_NumSite,
+				N_site: N_site,
+				Date: Date,
+				J: J,
+				Equipe: Equipe,
+				Pays: Pays,
+				Region: Region,
+				Arrondissement: Arrondissement,
+				Village: Village,
+				Num_piege: Num_piege,
+				Type_piege: Type_piege,
+				Site_capture: Site_capture,
+				Emplacement_piege: Emplacement_piege,
+				Detail_emplacement: Detail_emplacement,
+				Lat_degre_dec_Piege: Lat_degre_dec_Piege,
+				Latitude_Piege: Latitude_Piege,
+				Long_degre_dec_Piege: Long_degre_dec_Piege,
+				Longitude_Piege: Longitude_Piege,
+				Contention: Contention,
+				Preleveur: Preleveur,
+				Autopsie: Autopsie,
+				Identification_espece: Identification_espece,
+				Famille_terrain: Famille_terrain,
+				Genre_terrain: Genre_terrain,
+				Espece_terrain: Espece_terrain,
+				Famille_labo: Famille_labo,
+				Genre_labo: Genre_labo,
+				Espece_labo: Espece_labo,
+				Sexe: Sexe,
+				Age: Age,
+				F_gestante: F_gestante,
+				F_lactante: F_lactante,
+				Nbtotal_paires_mamelles: Nbtotal_paires_mamelles,
+				N_mamelles_pectorales: N_mamelles_pectorales,
+				N_mamelles_abdominales: N_mamelles_abdominales,
+				N_mamelles_inguinales: N_mamelles_inguinales,
+				Male_testicules_descendues: Male_testicules_descendues,
+				Male_longueur_testicules: Male_longueur_testicules,
+				Poids_sac_rongeur_g: Poids_sac_rongeur_g,
+				Poids_sac_g: Poids_sac_g,
+				Poids_g: Poids_g,
+				L_totale_corps_Ltc_mm: L_totale_corps_Ltc_mm,
+				L_queue_mm: L_queue_mm,
+				L_patte_arriere_Tib_mm: L_patte_arriere_Tib_mm,
+				L_crane_mm: L_crane_mm,
+				L_oreille_mm: L_oreille_mm,
+				Taille_yeux: Taille_yeux,
+				Couleur_pelage_dorsal: Couleur_pelage_dorsal,
+				Couleur_pelage_ventral: Couleur_pelage_ventral,
+				Photo: Photo,
+				Remarques_anomalies: Remarques_anomalies,
+				Relache_vivant: Relache_vivant,
+				Cause_deces: Cause_deces,
+				Recapture: Recapture,
+				Comment_recapture: Comment_recapture,
+				Euthanasie: Euthanasie,
+				Methode_eutha: Methode_eutha,
+				Dosage_Ketamine_mL: Dosage_Ketamine_mL,
+				Biopsie_oreille_BO: Biopsie_oreille_BO,
+				Ecouv_Salive_RNAl_SA: Ecouv_Salive_RNAl_SA,
+				Ecouv_Urogenital_RNAl_URO: Ecouv_Urogenital_RNAl_URO,
+				Urine_RNAl_UR: Urine_RNAl_UR,
+				Ecouv_rectal_RNAl_RE: Ecouv_rectal_RNAl_RE,
+				Feces_RNAl_FE: Feces_RNAl_FE,
+				Sang_DBS_nb_cercles: Sang_DBS_nb_cercles,
+				Ectoparasites_Tiques_Eth_EP_TI: Ectoparasites_Tiques_Eth_EP_TI,
+				Ectoparasites_Puces_Eth_EP_PU: Ectoparasites_Puces_Eth_EP_PU,
+				Poils_ethanol_PO: Poils_ethanol_PO,
+				Autres_echantillons: Autres_echantillons,
+				Autres_echantillons_details: Autres_echantillons_details,
+				Coeur_RNAl_CO: Coeur_RNAl_CO,
+				Poumon_RNAl_PO: Poumon_RNAl_PO,
+				Foie_RNAl_FO: Foie_RNAl_FO,
+				Rate_RNAl_RA: Rate_RNAl_RA,
+				Rein_RNAl_RN: Rein_RNAl_RN,
+				Testicule_RNAl_TE: Testicule_RNAl_TE,
+				Ovaire_RNAl_OV: Ovaire_RNAl_OV,
+				Embryon_RNAl_EM: Embryon_RNAl_EM,
+				F_gestante_nb_embryons: F_gestante_nb_embryons,
+				Intestins_RNAl_INT: Intestins_RNAl_INT,
+				Peau_RNAl_PE: Peau_RNAl_PE,
+				Cerveau_RNAl_CE: Cerveau_RNAl_CE,
+				Autre_Organe_RNAl: Autre_Organe_RNAl,
+				Details_autre_organe_RNAl: Details_autre_organe_RNAl,
+				Remarques_echantillons: Remarques_echantillons,
+				
+				
 				Username: Username
 			}).then(function (response) {
 
@@ -2351,21 +2615,21 @@
 
 						var andAdd = document.getElementById("andAdd");
 					  	if (andAdd.checked == true) {
-					  	  window.location = 'ajouter_modifier_bcoming_cerfig_rongeurs_captures_guinea.html?option=1&table=' + nom_table;
+					  	  window.location = 'ajouter_modifier_bcoming_cremer_rongeurs_captures_cameroon.html?option=1&table=' + nom_table;
 					  	} else {
-					  	  window.location = 'liste_bcoming_cerfig_rongeurs_captures_guinea.html?table=' + nom_table;
+					  	  window.location = 'liste_bcoming_cremer_rongeurs_captures_cameroon.html?table=' + nom_table;
 					  	};
 					}).on('error', function (err) {
 						// error while replicating
-						alert('alert sync new site : ' + nom_table  + ' ' + JSON.stringify(err));
+						alert('alert sync new bcoming_cremer_rongeurs_captures_cameroon : ' + nom_table  + ' ' + JSON.stringify(err));
 						window.location = 'login.html';
 					});
 				} else {
 					var andAdd = document.getElementById("andAdd");
 				  	if (andAdd.checked == true) {
-				  	  window.location = 'ajouter_modifier_bcoming_cerfig_rongeurs_captures_guinea.html?option=1&table=' + nom_table;
+				  	  window.location = 'ajouter_modifier_bcoming_cremer_rongeurs_captures_cameroon.html?option=1&table=' + nom_table;
 				  	} else {
-				  	  window.location = 'liste_bcoming_cerfig_rongeurs_captures_guinea.html?table=' + nom_table;
+				  	  window.location = 'liste_bcoming_cremer_rongeurs_captures_cameroon.html?table=' + nom_table;
 				  	};
 				}
 
@@ -2385,79 +2649,93 @@
 
 			var id = localStorage.getItem('ID_bcoming' + nom_table);
 
-			var N_identification = document.getElementById('N_identification').value;
-		    var stringDate = document.getElementById('Date').value;
-		    var Equipe = document.getElementById('Equipe').value;
-		    var Binome_prelevement = document.getElementById('Binome_prelevement').value;
-		    var Site_region = document.getElementById('Site_region').value;
-		    var Site_precis_de_capture = document.getElementById('Site_precis_de_capture').value;
-		    var Piege = document.getElementById('Piege').value;
-		    var Numero_de_piege = document.getElementById('Numero_de_piege').value;
-		    var Lieu_de_capture = document.getElementById('Lieu_de_capture').value;
-		    var Lieu_de_capture_autre = document.getElementById('Lieu_de_capture_autre').value;
-		    var Lat_degre_dec_Piege = document.getElementById('Lat_degre_dec_Piege').value;
-		    var Latitude_Piege = document.getElementById('Latitude_Piege').value;
-		    var Long_degre_dec_Piege = document.getElementById('Long_degre_dec_Piege').value;
-		    var Longitude_Piege = document.getElementById('Longitude_Piege').value;
-		    var Taille_yeux = document.getElementById('Taille_yeux').value;
-		    var Couleur_pelage_dorsal = document.getElementById('Couleur_pelage_dorsal').value;
-		    var Couleur_pelage_ventral = document.getElementById('Couleur_pelage_ventral').value;
-		    var Espece_identifiee = document.getElementById('Espece_identifiee').value;
-		    var Famille = document.getElementById('Famille').value;
-		    var Genre = document.getElementById('Genre').value;
-		    var Espece = document.getElementById('Espece').value;
-		    var Age = document.getElementById('Age').value;
-		    var Sexe = document.getElementById('Sexe').value;
-		    var Femelles_gestante = document.getElementById('Femelles_gestante').value;
-		    var Femelles_lactante = document.getElementById('Femelles_lactante').value;
-		    var Nombre_de_paires_de_mamelles = document.getElementById('Nombre_de_paires_de_mamelles').value;
-		    var checkboxPect = document.getElementById('checkboxPect').checked;
-		    var Pect = document.getElementById('Pect').value;
-		    var checkboxAbdo = document.getElementById('checkboxAbdo').checked;
-		    var Abdo = document.getElementById('Abdo').value;
-		    var checkboxIngu = document.getElementById('checkboxIngu').checked;
-		    var Ingu = document.getElementById('Ingu').value;
-		    var Testicules_descendus = document.getElementById('Testicules_descendus').value;
-		    var Longueur_mm = document.getElementById('Longueur_mm').value;
-		    var Remarques = document.getElementById('Remarques').value;
-		    var Poids_avec_sac_g = document.getElementById('Poids_avec_sac_g').value;
-		    var Poids_du_sac_g = document.getElementById('Poids_du_sac_g').value;
-		    var Poids_net_animal_g = document.getElementById('Poids_net_animal_g').value;
-		    var L_corps_mm = document.getElementById('L_corps_mm').value;
-		    var L_queue_mm = document.getElementById('L_queue_mm').value;
-		    var L_pied_arriere_mm = document.getElementById('L_pied_arriere_mm').value;
-		    var L_crane_mm = document.getElementById('L_crane_mm').value;
-		    var L_oreille_mm = document.getElementById('L_oreille_mm').value;
-		    var Photo = document.getElementById('Photo').value;
-		    var Relache = document.getElementById('Relache').value;
-		    var Mort_naturelle_carcasse_trouvee = document.getElementById('Mort_naturelle_carcasse_trouvee').checked;
-		    var Mort_due_a_la_capture_manip = document.getElementById('Mort_due_a_la_capture_manip').checked;
-		    var Euthanasie = document.getElementById('Euthanasie').checked;
-		    var Dosage_injection_ketamine = document.getElementById('Dosage_injection_ketamine').value;
-		    var Si_relache_marquage = document.getElementById('Si_relache_marquage').value;
-		    var Si_marque_numero = document.getElementById('Si_marque_numero').value;
-		    var Ecouv_gorge_RNAl = document.getElementById('Ecouv_gorge_RNAl').value;
-		    var Sang_papier_buvard = document.getElementById('Sang_papier_buvard').value;
-		    var Biopsie_d_oreille_ethanol = document.getElementById('Biopsie_d_oreille_ethanol').value;
-		    var Feces_RNAl = document.getElementById('Feces_RNAl').value;
-		    var Ecouv_urine_RNAl = document.getElementById('Ecouv_urine_RNAl').value;
-		    var Ecouv_rectal_RNAl = document.getElementById('Ecouv_rectal_RNAl').value;
-		    var Ectoparasites_ethanol = document.getElementById('Ectoparasites_ethanol').value;
-		    var Tiques = document.getElementById('Tiques').value;
-		    var Puces = document.getElementById('Puces').value;
-		    var Echantillons_Autre = document.getElementById('Echantillons_Autre').value;
-		    var Autres_echantillons_ou_remarques = document.getElementById('Autres_echantillons_ou_remarques').value;
-		    var Coeur_CO = document.getElementById('Coeur_CO').value;
-		    var Poumons_PO = document.getElementById('Poumons_PO').value;
-		    var Foie_FO = document.getElementById('Foie_FO').value;
-		    var Rate_RA = document.getElementById('Rate_RA').value;
-		    var Reins_RN = document.getElementById('Reins_RN').value;
-		    var Intestins_INT = document.getElementById('Intestins_INT').value;
-		    var Testicule_TE = document.getElementById('Testicule_TE').value;
-		    var Ovaires_OV = document.getElementById('Ovaires_OV').value;
-		    var Embryons_EM = document.getElementById('Embryons_EM').value;
-		    var Nombre_d_embryons = document.getElementById('Nombre_d_embryons').value;
-		    var Organes_RNAl_autre = document.getElementById('Organes_RNAl_autre').value;
+			var Num_rongeur = document.getElementById('Num_rongeur').value;
+			var CODE_rongeur = document.getElementById('CODE_rongeur').value;
+			var NumMission_NumSite = document.getElementById('NumMission_NumSite').value;
+			var N_site = document.getElementById('N_site').value;
+			var Date = document.getElementById('Date').value;
+			var J = document.getElementById('J').value;
+			var Equipe = document.getElementById('Equipe').value;
+			var Pays = document.getElementById('Pays').value;
+			var Region = document.getElementById('Region').value;
+			var Arrondissement = document.getElementById('Arrondissement').value;
+			var Village = document.getElementById('Village').value;
+			var Num_piege = document.getElementById('Num_piege').value;
+			var Type_piege = document.getElementById('Type_piege').value;
+			var Site_capture = document.getElementById('Site_capture').value;
+			var Emplacement_piege = document.getElementById('Emplacement_piege').value;
+			var Detail_emplacement = document.getElementById('Detail_emplacement').value;
+			var Lat_degre_dec_Piege = document.getElementById('Lat_degre_dec_Piege').value;
+			var Latitude_Piege = document.getElementById('Latitude_Piege').value;
+			var Long_degre_dec_Piege = document.getElementById('Long_degre_dec_Piege').value;
+			var Longitude_Piege = document.getElementById('Longitude_Piege').value;
+			var Contention = document.getElementById('Contention').value;
+			var Preleveur = document.getElementById('Preleveur').value;
+			var Autopsie = document.getElementById('Autopsie').value;
+			var Identification_espece = document.getElementById('Identification_espece').value;
+			var Famille_terrain = document.getElementById('Famille_terrain').value;
+			var Genre_terrain = document.getElementById('Genre_terrain').value;
+			var Espece_terrain = document.getElementById('Espece_terrain').value;
+			var Famille_labo = document.getElementById('Famille_labo').value;
+			var Genre_labo = document.getElementById('Genre_labo').value;
+			var Espece_labo = document.getElementById('Espece_labo').value;
+			var Sexe = document.getElementById('Sexe').value;
+			var Age = document.getElementById('Age').value;
+			var F_gestante = document.getElementById('F_gestante').value;
+			var F_lactante = document.getElementById('F_lactante').value;
+			var Nbtotal_paires_mamelles = document.getElementById('Nbtotal_paires_mamelles').value;
+			var N_mamelles_pectorales = document.getElementById('N_mamelles_pectorales').value;
+			var N_mamelles_abdominales = document.getElementById('N_mamelles_abdominales').value;
+			var N_mamelles_inguinales = document.getElementById('N_mamelles_inguinales').value;
+			var Male_testicules_descendues = document.getElementById('Male_testicules_descendues').value;
+			var Male_longueur_testicules = document.getElementById('Male_longueur_testicules').value;
+			var Poids_sac_rongeur_g = document.getElementById('Poids_sac_rongeur_g').value;
+			var Poids_sac_g = document.getElementById('Poids_sac_g').value;
+			var Poids_g = document.getElementById('Poids_g').value;
+			var L_totale_corps_Ltc_mm = document.getElementById('L_totale_corps_Ltc_mm').value;
+			var L_queue_mm = document.getElementById('L_queue_mm').value;
+			var L_patte_arriere_Tib_mm = document.getElementById('L_patte_arriere_Tib_mm').value;
+			var L_crane_mm = document.getElementById('L_crane_mm').value;
+			var L_oreille_mm = document.getElementById('L_oreille_mm').value;
+			var Taille_yeux = document.getElementById('Taille_yeux').value;
+			var Couleur_pelage_dorsal = document.getElementById('Couleur_pelage_dorsal').value;
+			var Couleur_pelage_ventral = document.getElementById('Couleur_pelage_ventral').value;
+			var Photo = document.getElementById('Photo').value;
+			var Remarques_anomalies = document.getElementById('Remarques_anomalies').value;
+			var Relache_vivant = document.getElementById('Relache_vivant').value;
+			var Cause_deces = document.getElementById('Cause_deces').value;
+			var Recapture = document.getElementById('Recapture').value;
+			var Comment_recapture = document.getElementById('Comment_recapture').value;
+			var Euthanasie = document.getElementById('Euthanasie').value;
+			var Methode_eutha = document.getElementById('Methode_eutha').value;
+			var Dosage_Ketamine_mL = document.getElementById('Dosage_Ketamine_mL').value;
+			var Biopsie_oreille_BO = document.getElementById('Biopsie_oreille_BO').value;
+			var Ecouv_Salive_RNAl_SA = document.getElementById('Ecouv_Salive_RNAl_SA').value;
+			var Ecouv_Urogenital_RNAl_URO = document.getElementById('Ecouv_Urogenital_RNAl_URO').value;
+			var Urine_RNAl_UR = document.getElementById('Urine_RNAl_UR').value;
+			var Ecouv_rectal_RNAl_RE = document.getElementById('Ecouv_rectal_RNAl_RE').value;
+			var Feces_RNAl_FE = document.getElementById('Feces_RNAl_FE').value;
+			var Sang_DBS_nb_cercles = document.getElementById('Sang_DBS_nb_cercles').value;
+			var Ectoparasites_Tiques_Eth_EP_TI = document.getElementById('Ectoparasites_Tiques_Eth_EP_TI').value;
+			var Ectoparasites_Puces_Eth_EP_PU = document.getElementById('Ectoparasites_Puces_Eth_EP_PU').value;
+			var Poils_ethanol_PO = document.getElementById('Poils_ethanol_PO').value;
+			var Autres_echantillons = document.getElementById('Autres_echantillons').value;
+			var Autres_echantillons_details = document.getElementById('Autres_echantillons_details').value;
+			var Coeur_RNAl_CO = document.getElementById('Coeur_RNAl_CO').value;
+			var Poumon_RNAl_PO = document.getElementById('Poumon_RNAl_PO').value;
+			var Foie_RNAl_FO = document.getElementById('Foie_RNAl_FO').value;
+			var Rate_RNAl_RA = document.getElementById('Rate_RNAl_RA').value;
+			var Rein_RNAl_RN = document.getElementById('Rein_RNAl_RN').value;
+			var Testicule_RNAl_TE = document.getElementById('Testicule_RNAl_TE').value;
+			var Ovaire_RNAl_OV = document.getElementById('Ovaire_RNAl_OV').value;
+			var Embryon_RNAl_EM = document.getElementById('Embryon_RNAl_EM').value;
+			var F_gestante_nb_embryons = document.getElementById('F_gestante_nb_embryons').value;
+			var Intestins_RNAl_INT = document.getElementById('Intestins_RNAl_INT').value;
+			var Peau_RNAl_PE = document.getElementById('Peau_RNAl_PE').value;
+			var Cerveau_RNAl_CE = document.getElementById('Cerveau_RNAl_CE').value;
+			var Autre_Organe_RNAl = document.getElementById('Autre_Organe_RNAl').value;
+			var Details_autre_organe_RNAl = document.getElementById('Details_autre_organe_RNAl').value;
+			var Remarques_echantillons = document.getElementById('Remarques_echantillons').value;
 
 		    var Username = localStorage.getItem('loginUsername');
 
@@ -2480,79 +2758,93 @@
 				};
 
 				DB2.get(id).then(function (doc) {
-					doc.N_identification = N_identification;
-			  	    doc.Date = stringDate;
-			  	    doc.Equipe = Equipe;
-				  	doc.Binome_prelevement = Binome_prelevement;
-				  	doc.Site_region = Site_region;
-				  	doc.Site_precis_de_capture = Site_precis_de_capture;
-				  	doc.Piege = Piege;
-				  	doc.Numero_de_piege = Numero_de_piege;
-				  	doc.Lieu_de_capture = Lieu_de_capture;
-				  	doc.Lieu_de_capture_autre = Lieu_de_capture_autre;
-				  	doc.Lat_degre_dec_Piege = Lat_degre_dec_Piege;
-				  	doc.Latitude_Piege = Latitude_Piege;
-				  	doc.Long_degre_dec_Piege = Long_degre_dec_Piege;
-				  	doc.Longitude_Piege = Longitude_Piege;
-				  	doc.Taille_yeux = Taille_yeux;
-				  	doc.Couleur_pelage_dorsal = Couleur_pelage_dorsal;
-				  	doc.Couleur_pelage_ventral = Couleur_pelage_ventral;
-				  	doc.Espece_identifiee = Espece_identifiee;
-				  	doc.Famille = Famille;
-				  	doc.Genre = Genre;
-				  	doc.Espece = Espece;
-				  	doc.Age = Age;
-				  	doc.Sexe = Sexe;
-				  	doc.Femelles_gestante = Femelles_gestante;
-				  	doc.Femelles_lactante = Femelles_lactante;
-				  	doc.Nombre_de_paires_de_mamelles = Nombre_de_paires_de_mamelles;
-				  	doc.checkboxPect = checkboxPect;
-				  	doc.Pect = Pect;
-				  	doc.checkboxAbdo = checkboxAbdo;
-				  	doc.Abdo = Abdo;
-				  	doc.checkboxIngu = checkboxIngu;
-				  	doc.Ingu = Ingu;
-				  	doc.Testicules_descendus = Testicules_descendus;
-				  	doc.Longueur_mm = Longueur_mm;
-				  	doc.Remarques = Remarques;
-				  	doc.Poids_avec_sac_g = Poids_avec_sac_g;
-				  	doc.Poids_du_sac_g = Poids_du_sac_g;
-				  	doc.Poids_net_animal_g = Poids_net_animal_g;
-				  	doc.L_corps_mm = L_corps_mm;
-				  	doc.L_queue_mm = L_queue_mm;
-				  	doc.L_pied_arriere_mm = L_pied_arriere_mm;
-				  	doc.L_crane_mm = L_crane_mm;
-				  	doc.L_oreille_mm = L_oreille_mm;
-				  	doc.Photo = Photo;
-				  	doc.Relache = Relache;
-				  	doc.Mort_naturelle_carcasse_trouvee = Mort_naturelle_carcasse_trouvee;
-				  	doc.Mort_due_a_la_capture_manip = Mort_due_a_la_capture_manip;
-				  	doc.Euthanasie = Euthanasie;
-				  	doc.Dosage_injection_ketamine = Dosage_injection_ketamine;
-				  	doc.Si_relache_marquage = Si_relache_marquage;
-				  	doc.Si_marque_numero = Si_marque_numero;
-				  	doc.Ecouv_gorge_RNAl = Ecouv_gorge_RNAl;
-				  	doc.Sang_papier_buvard = Sang_papier_buvard;
-				  	doc.Biopsie_d_oreille_ethanol = Biopsie_d_oreille_ethanol;
-				  	doc.Feces_RNAl = Feces_RNAl;
-				  	doc.Ecouv_urine_RNAl = Ecouv_urine_RNAl;
-				  	doc.Ecouv_rectal_RNAl = Ecouv_rectal_RNAl;
-				  	doc.Ectoparasites_ethanol = Ectoparasites_ethanol;
-				  	doc.Tiques = Tiques;
-				  	doc.Puces = Puces;
-				  	doc.Echantillons_Autre = Echantillons_Autre;
-				  	doc.Autres_echantillons_ou_remarques = Autres_echantillons_ou_remarques;
-				  	doc.Coeur_CO = Coeur_CO;
-				  	doc.Poumons_PO = Poumons_PO;
-				  	doc.Foie_FO = Foie_FO;
-				  	doc.Rate_RA = Rate_RA;
-				  	doc.Reins_RN = Reins_RN;
-				  	doc.Intestins_INT = Intestins_INT;
-				  	doc.Testicule_TE = Testicule_TE;
-				  	doc.Ovaires_OV = Ovaires_OV;
-				  	doc.Embryons_EM = Embryons_EM;
-				  	doc.Nombre_d_embryons = Nombre_d_embryons;
-				  	doc.Organes_RNAl_autre = Organes_RNAl_autre;
+					doc.Num_rongeur = Num_rongeur;
+					doc.CODE_rongeur = CODE_rongeur;
+					doc.NumMission_NumSite = NumMission_NumSite;
+					doc.N_site = N_site;
+					doc.Date = Date;
+					doc.J = J;
+					doc.Equipe = Equipe;
+					doc.Pays = Pays;
+					doc.Region = Region;
+					doc.Arrondissement = Arrondissement;
+					doc.Village = Village;
+					doc.Num_piege = Num_piege;
+					doc.Type_piege = Type_piege;
+					doc.Site_capture = Site_capture;
+					doc.Emplacement_piege = Emplacement_piege;
+					doc.Detail_emplacement = Detail_emplacement;
+					doc.Lat_degre_dec_Piege = Lat_degre_dec_Piege;
+					doc.Latitude_Piege = Latitude_Piege;
+					doc.Long_degre_dec_Piege = Long_degre_dec_Piege;
+					doc.Longitude_Piege = Longitude_Piege;
+					doc.Contention = Contention;
+					doc.Preleveur = Preleveur;
+					doc.Autopsie = Autopsie;
+					doc.Identification_espece = Identification_espece;
+					doc.Famille_terrain = Famille_terrain;
+					doc.Genre_terrain = Genre_terrain;
+					doc.Espece_terrain = Espece_terrain;
+					doc.Famille_labo = Famille_labo;
+					doc.Genre_labo = Genre_labo;
+					doc.Espece_labo = Espece_labo;
+					doc.Sexe = Sexe;
+					doc.Age = Age;
+					doc.F_gestante = F_gestante;
+					doc.F_lactante = F_lactante;
+					doc.Nbtotal_paires_mamelles = Nbtotal_paires_mamelles;
+					doc.N_mamelles_pectorales = N_mamelles_pectorales;
+					doc.N_mamelles_abdominales = N_mamelles_abdominales;
+					doc.N_mamelles_inguinales = N_mamelles_inguinales;
+					doc.Male_testicules_descendues = Male_testicules_descendues;
+					doc.Male_longueur_testicules = Male_longueur_testicules;
+					doc.Poids_sac_rongeur_g = Poids_sac_rongeur_g;
+					doc.Poids_sac_g = Poids_sac_g;
+					doc.Poids_g = Poids_g;
+					doc.L_totale_corps_Ltc_mm = L_totale_corps_Ltc_mm;
+					doc.L_queue_mm = L_queue_mm;
+					doc.L_patte_arriere_Tib_mm = L_patte_arriere_Tib_mm;
+					doc.L_crane_mm = L_crane_mm;
+					doc.L_oreille_mm = L_oreille_mm;
+					doc.Taille_yeux = Taille_yeux;
+					doc.Couleur_pelage_dorsal = Couleur_pelage_dorsal;
+					doc.Couleur_pelage_ventral = Couleur_pelage_ventral;
+					doc.Photo = Photo;
+					doc.Remarques_anomalies = Remarques_anomalies;
+					doc.Relache_vivant = Relache_vivant;
+					doc.Cause_deces = Cause_deces;
+					doc.Recapture = Recapture;
+					doc.Comment_recapture = Comment_recapture;
+					doc.Euthanasie = Euthanasie;
+					doc.Methode_eutha = Methode_eutha;
+					doc.Dosage_Ketamine_mL = Dosage_Ketamine_mL;
+					doc.Biopsie_oreille_BO = Biopsie_oreille_BO;
+					doc.Ecouv_Salive_RNAl_SA = Ecouv_Salive_RNAl_SA;
+					doc.Ecouv_Urogenital_RNAl_URO = Ecouv_Urogenital_RNAl_URO;
+					doc.Urine_RNAl_UR = Urine_RNAl_UR;
+					doc.Ecouv_rectal_RNAl_RE = Ecouv_rectal_RNAl_RE;
+					doc.Feces_RNAl_FE = Feces_RNAl_FE;
+					doc.Sang_DBS_nb_cercles = Sang_DBS_nb_cercles;
+					doc.Ectoparasites_Tiques_Eth_EP_TI = Ectoparasites_Tiques_Eth_EP_TI;
+					doc.Ectoparasites_Puces_Eth_EP_PU = Ectoparasites_Puces_Eth_EP_PU;
+					doc.Poils_ethanol_PO = Poils_ethanol_PO;
+					doc.Autres_echantillons = Autres_echantillons;
+					doc.Autres_echantillons_details = Autres_echantillons_details;
+					doc.Coeur_RNAl_CO = Coeur_RNAl_CO;
+					doc.Poumon_RNAl_PO = Poumon_RNAl_PO;
+					doc.Foie_RNAl_FO = Foie_RNAl_FO;
+					doc.Rate_RNAl_RA = Rate_RNAl_RA;
+					doc.Rein_RNAl_RN = Rein_RNAl_RN;
+					doc.Testicule_RNAl_TE = Testicule_RNAl_TE;
+					doc.Ovaire_RNAl_OV = Ovaire_RNAl_OV;
+					doc.Embryon_RNAl_EM = Embryon_RNAl_EM;
+					doc.F_gestante_nb_embryons = F_gestante_nb_embryons;
+					doc.Intestins_RNAl_INT = Intestins_RNAl_INT;
+					doc.Peau_RNAl_PE = Peau_RNAl_PE;
+					doc.Cerveau_RNAl_CE = Cerveau_RNAl_CE;
+					doc.Autre_Organe_RNAl = Autre_Organe_RNAl;
+					doc.Details_autre_organe_RNAl = Details_autre_organe_RNAl;
+					doc.Remarques_echantillons = Remarques_echantillons;
 					doc.Username = Username;
 
 					return DB2.put(doc);
@@ -2566,14 +2858,14 @@
 						var remoteDB = new PouchDB(remote_couchdb + 'bcoming' + nom_table + debug);
 
 						localDB3.sync(remoteDB).on('complete', (info) => {
-							window.location = 'liste_bcoming_cerfig_rongeurs_captures_guinea.html?table=' + nom_table;
+							window.location = 'liste_bcoming_cremer_rongeurs_captures_cameroon.html?table=' + nom_table;
 						}).on('error', function (err) {
 							// error while replicating
 							alert('alert sync modify site : ' + nom_table + JSON.stringify(err));
 							window.location = 'index.html';
 						});
 					} else {
-						window.location = 'liste_bcoming_cerfig_rongeurs_captures_guinea.html?table=' + nom_table;
+						window.location = 'liste_bcoming_cremer_rongeurs_captures_cameroon.html?table=' + nom_table;
 					}
 
 					l.stop();
@@ -2647,6 +2939,62 @@
 				document.getElementById("Longueur_mm").value="";
 			}
 		};
+		
+		function select_relache_vivant(select) {
+			var valeurRelache_vivant = select.options[select.selectedIndex].value;
+			if (valeurRelache_vivant == "Non") {
+				var elem = document.getElementById("afficheCause_deces");
+				elem.style.display = "block";
+			} else{
+				var elem = document.getElementById("Cause_deces");
+				elem.value = "";
+				var elem = document.getElementById("afficheCause_deces");
+				elem.style.display = "none";
+			}
+		};
+		
+		function select_recapture(select) {
+			var valeurRecapture = select.options[select.selectedIndex].value;
+			if (valeurRecapture == "Oui") {
+				var elem = document.getElementById("afficheComment_recapture");
+				elem.style.display = "block";
+			} else{
+				var elem = document.getElementById("Comment_recapture");
+				elem.value = "";
+				var elem = document.getElementById("afficheComment_recapture");
+				elem.style.display = "none";
+			}
+		};
+		
+		function select_euthanasie(select) {
+			var valeurEuthanasie = select.options[select.selectedIndex].value;
+			if (valeurEuthanasie == "Oui") {
+				var elem = document.getElementById("afficheMethode_eutha");
+				elem.style.display = "block";
+			} else{
+				var elem = document.getElementById("Methode_eutha");
+				elem.value = "";
+				var elem = document.getElementById("afficheMethode_eutha");
+				elem.style.display = "none";
+				var elem = document.getElementById("Dosage_Ketamine_mL");
+				elem.value = "";
+				var elem = document.getElementById("afficheDosage_Ketamine_mL");
+				elem.style.display = "none";
+			}
+		};
+		
+		function select_methode_eutha(select) {
+			var valeurMethode_eutha = select.options[select.selectedIndex].value;
+			if (valeurMethode_eutha == "Ketamine ip (intrapéritonéal)") {
+				var elem = document.getElementById("afficheDosage_Ketamine_mL");
+				elem.style.display = "block";
+			} else{
+				var elem = document.getElementById("Dosage_Ketamine_mL");
+				elem.value = "";
+				var elem = document.getElementById("afficheDosage_Ketamine_mL");
+				elem.style.display = "none";
+			}
+		};
 
 	</script>
 
@@ -2659,10 +3007,10 @@
 		  }
 		}, true); // "true" => phase de capture
 
-		if ((nom_table == '_cerfig_rongeurs_captures_guinea') /*|| (nom_table == '_transvihmi_cameroun')
+		if ((nom_table == '_cremer_rongeurs_captures_cameroon') /*|| (nom_table == '_transvihmi_cameroun')
 			|| (nom_table == '_transvihmi_rdc') || (nom_table == '_transvihmi_gabon')
 			|| (nom_table == '_transvihmi_rca') || (nom_table == '_transvihmi_rwanda')*/) {
-			pays = 'guinea';
+			pays = 'cameroon';
 		} /*else if ((nom_table == '_mivegec_congo') || (nom_table == '_mivegec_gabon')){
 			institut = 'mivegec';
 		} */;
@@ -2679,11 +3027,11 @@
 			var component_ul =  document.getElementById('ul_' + pays + 'Dropdown');
 			component_ul.classList.add('show');
 
-			var component_li = document.getElementById('li_bcoming_cerfig_guineaDropdown');
+			var component_li = document.getElementById('li_bcoming_cremer_cameroonDropdown');
 			component_li.classList.add('active');
-			var component_a = document.getElementById('a_bcoming_cerfig_guineaDropdown');
+			var component_a = document.getElementById('a_bcoming_cremer_cameroonDropdown');
 			component_a.setAttribute('aria-expanded', 'true');
-			var component_ul =  document.getElementById('ul_bcoming_cerfig_guineaDropdown');
+			var component_ul =  document.getElementById('ul_bcoming_cremer_cameroonDropdown');
 			component_ul.classList.add('show');
 
 

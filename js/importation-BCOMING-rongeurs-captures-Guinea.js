@@ -1,4 +1,5 @@
-var import_table = localStorage.getItem('import_table'); 
+//var import_table = localStorage.getItem('import_table');
+var import_table = '_cerfig_rongeurs_captures_guinea'; 
 var file = localStorage.getItem('file_import');
 
 var debug;
@@ -10,7 +11,17 @@ if (localStorage.getItem('debug') === null) {
 
 
 var valid_field = 
-	['SamplingDate', 'AnimalCode', 'Province', 'Site', 'Species', 'SampleType', 'SampleCode', 'Final_Result_for_Corona_Watanabe', 'Final_Result_for_Corona_Quan'];
+	['N_identification', 'Date', 'Equipe', 'Binome_prelevement', 'Site_region', 'Site_precis_de_capture', 'Piege', 'Numero_de_piege', 
+		 'Lieu_de_capture', 'Lieu_de_capture_autre', 'Lat_degre_dec_Piege', 'Latitude_Piege', 'Long_degre_dec_Piege', 'Longitude_Piege', 
+		 'Taille_yeux', 'Couleur_pelage_dorsal', 'Couleur_pelage_ventral', 'Espece_identifiee', 'Famille', 'Genre', 'Espece', 'Age', 
+		 'Sexe', 'Femelles_gestante', 'Femelles_lactante', 'Nombre_de_paires_de_mamelles', 'checkboxPect', 'Pect', 'checkboxAbdo', 
+		 'Abdo', 'checkboxIngu', 'Ingu', 'Testicules_descendus', 'Longueur_mm', 'Remarques', 'Poids_avec_sac_g', 'Poids_du_sac_g', 
+		 'Poids_net_animal_g', 'L_corps_mm', 'L_queue_mm', 'L_pied_arriere_mm', 'L_crane_mm', 'L_oreille_mm', 'Photo', 'Relache', 
+		 'Mort_naturelle_carcasse_trouvee', 'Mort_due_a_la_capture_manip', 'Euthanasie', 'Dosage_injection_ketamine', 'Si_relache_marquage', 
+		 'Si_marque_numero', 'Ecouv_gorge_RNAl', 'Sang_papier_buvard', 'Biopsie_d_oreille_ethanol', 'Feces_RNAl', 'Ecouv_urine_RNAl', 'Ecouv_rectal_RNAl', 
+		 'Ectoparasites_ethanol', 'Tiques', 'Puces', 'Echantillons_Autre', 'Autres_echantillons_ou_remarques', 'Coeur_CO', 'Poumons_PO', 
+		 'Foie_FO', 'Rate_RA', 'Reins_RN', 'Intestins_INT', 'Testicule_TE', 'Ovaires_OV', 'Embryons_EM', 'Nombre_d_embryons', 
+		 'Organes_RNAl_autre', 'Username'];
 
 
 
@@ -148,10 +159,10 @@ function search_N_identification_Recursif_CamAcross(/*localDB,*/ i, j, k, N_site
 		if (typeof tab[i] !== "undefined") {
 			
 			
-			AnimalCode = tab[i][1];
+			N_identification = tab[i][0];
 			
 			DB.find({
-		       	selector: {AnimalCode: AnimalCode}
+		       	selector: {N_identification: N_identification}
 			}).then(function (result) {
 		    	
 		    	if (result.docs.length > 0) {

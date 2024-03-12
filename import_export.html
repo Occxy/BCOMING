@@ -318,9 +318,9 @@
                         <li id="li_bcoming_cremer_cameroonDropdown" name="9" pays="guinee"> <a id="a_bcoming_cremer_cameroonDropdown" name="1" href="#ul_bcoming_cremer_cameroonDropdown" aria-expanded="false" data-toggle="collapse">BCOMING/CREMER</i> </a>
                        	  <ul id="ul_bcoming_cremer_cameroonDropdown" name="9" pays="guinee" class="collapse list-unstyled">
                             <li id="li_bcoming_cremer_rongeurs_captures_cameroon_data_list" name="9"><a href="liste_bcoming_cremer_rongeurs_captures_cameroon.html?table=_cremer_rongeurs_captures_cameroon">rodents captured data</a></li>                            
-	                        <li id="li_bcoming_cremer_chauves_souris_capturees_cameroon_data_list" name="9"><a href="liste_bcoming_cremer_chauves_souris_capturees_cameroon.html?table=_cremer_chauves_souris_capturees_cameroon">bats captured data</a></li>                            
+	                        <li id="li_bcoming_cremer_chauves_souris_capturees_cameroon_data_list" name="9"><a href="liste_bcoming_cremer_chauves_souris_capturees_cameroon.html?table=_cremer_chauves_souris_capturees_cameroon" style="pointer-events: none;">bats captured data<span class="fa fa-ban" style="color: red; font-size: 1.5em; margin-left: 10px;"></a></span></li>                             
 	                        <li id="li_bcoming_cremer_rongeurs_captures_cameroon_map" name="9"><a href="map.html?table=_cremer_rongeurs_captures_cameroon&type=cremer_rongeurs_captures_cameroon">rodents captured map</a></li>
-	                        <li id="li_bcoming_cremer_chauves_souris_capturees_cameroon_map" name="9"><a href="map.html?table=_cremer_chauves_souris_capturees_cameroon&type=bcoming_cremer_chauves_souris_capturees_cameroon">bats captured map</a></li>
+	                        <li id="li_bcoming_cremer_chauves_souris_capturees_cameroon_map" name="9"><a href="map.html?table=_cremer_chauves_souris_capturees_cameroon&type=bcoming_cremer_chauves_souris_capturees_cameroon" style="pointer-events: none;">bats captured map<span class="fa fa-ban" style="color: red; font-size: 1.5em; margin-left: 10px;"></a></li>
 	                        <li id="li_importation_bcoming_cremer_datas" name="9"><a href="import_export.html?table=_bcoming_cremer&type=bcoming_cremer">import/export</a></li>                            
                           </ul>
 	                    </li>
@@ -431,18 +431,20 @@
 			               		var line = document.createElement("div");
 			               	   	var file;
 				               	if (type_table == 'camacross') {
-				     				file = 'CA'
+				               		loadjs('js/template_camacross.js')
 				     			} else if (type_table == 'rhinokhov_zoocov_lab') {
 				     				file = 'RKZCL'
 								} else if (type_table == 'rhinokhov_zoocov_animal') {
 									file = 'RKZCA'
 				     			} else if (type_table == 'rhinokhov_zoocov') {
-									file = 'RKZC'
+				     				loadjs('js/template_rhinokhov_zoocov.js')
 				     			} else if (type_table == 'biodivafreid') {
 									file = 'BAC'
 				     			} else if (type_table == 'bcoming_cerfig') {
 				     				loadjs('js/templates_cerfig_guinea.js')
-				     		    } /*else if ((type_table == 'chauves_souris_capturees') && (localStorage.getItem('export_table') == '_astre_transvihmi_guinee')) {
+				     		    } else if (type_table == 'bcoming_cremer') {
+				     				loadjs('js/templates_cremer_cameroon.js')
+				     		    }/*else if ((type_table == 'chauves_souris_capturees') && (localStorage.getItem('export_table') == '_astre_transvihmi_guinee')) {
 				     				file = 'CSGU'
 				     			} else if ((type_table == 'chauves_souris_non_invasives') && (localStorage.getItem('export_table') != '_astre_transvihmi_guinee')) {
 				     				file = 'CINI'
@@ -575,6 +577,12 @@
 				                          '&type=insula_he_samples' +
 				                          '" class="btn btn btn-primary btn-fill">Generate the file</a></h4>';			               		
 					          		document.getElementById("generate_button_1").appendChild(line);
+			               		} else if (nom_table == '_bcoming_cremer') {
+			               			line.innerHTML = 
+				                          '<a id="button_generate" href="exportation.html?table=_cremer_rongeurs_captures_cameroon' +
+				                          '&type=cremer_rongeurs_captures_cameroon' +
+				                          '" class="btn btn btn-primary btn-fill">Generate the file</a></h4>';			               		
+					          		document.getElementById("generate_button_1").appendChild(line);
 			               		} else {
 			               			line.innerHTML = 
 				                          '<a id="button_generate" href="exportation.html?table=' +
@@ -604,7 +612,7 @@
 				  		  
 				  		  <script type="text/javascript">
 				  		        var line = document.createElement("div");
-				  		      if (nom_table == '_bcoming_cerfig') {
+				  		        if (nom_table == '_bcoming_cerfig') {
 			               			line.innerHTML = 
 				                          '<a id="button_generate" href="exportation.html?table=_cerfig_chauves_souris_capturees_guinea' +
 				                          '&type=cerfig_chauves_souris_capturees_guinea' +
@@ -630,7 +638,13 @@
 				                          '<a id="button_generate" href="exportation.html?table=' +
 				                          '_insula_he_samples_data_inventories' + '&type=' + 'insula_he_samples_data_inventories' +
 				                          '" class="btn btn btn-primary btn-fill">Generate the file</a></h4>';
-				  		        }
+				  		        } else if (nom_table == '_bcoming_cremer') {
+			               			line.innerHTML = 
+				                          '<a id="button_generate" href="exportation.html?table=_cremer_chauves_souris_capturees_cameroon' +
+				                          '&type=cerfig_chauves_souris_capturees_guinea' +
+				                          '" class="btn btn btn-primary btn-fill">Generate the file</a></h4>';			               		
+					          		document.getElementById("generate_button_1").appendChild(line);
+			               		}
 				  		        
 				          		document.getElementById("generate_button_2").appendChild(line);
 				          </script>
@@ -783,7 +797,7 @@
 						loadjs('js/importation-RhinoKhov-ZooCov.js');
         	    	} else if (type_table == 'biodivafreid') {
 						loadjs('js/importation-BiodivAfreid.js');
-        	    	} else if (type_table == 'bcoming_guinea') {
+        	    	} else if (type_table == 'bcoming_cerfig') {
 						loadjs('js/importation-BCOMING-rongeurs-captures-Guinea.js');
         	    	} else if (type_table == 'insula_av') {
         	    		localStorage['import_table'] = '_insula_av_samples';
@@ -1182,7 +1196,23 @@
 			document.getElementById("card1").innerHTML = "Importing survey data from BCOMING/MERFI Guinea";
 			document.getElementById("card2").innerHTML = "Downloading survey data template (BCOMING/MERFI Guinea)";
 			document.getElementById("card3").innerHTML = "Exporting survey data from BCOMING/MERFI Guinea";
-		}      
+		} else if (nom_table == '_bcoming_cremer') {
+			pays = 'cameroon';
+			 document.getElementById("database").innerHTML = "BCOMING/CREMER database";
+			document.getElementById("card1").innerHTML = "Importing rodents captured data from BCOMING/CREMER";
+			document.getElementById("card2").innerHTML = "Downloading the rodents captured data template (BCOMING/CREMER)";
+			document.getElementById("card3").innerHTML = "Exporting rodents captured data from BCOMING/CREMER";
+			
+			/*document.getElementById("card4_importation").style.display = "block";
+			document.getElementById("card4").innerHTML = "Importing bats captured data from BCOMING/CREMER";
+			
+			document.getElementById("card5_template").style.display = "block";
+			document.getElementById("card5").innerHTML = "Downloading the bats captured data template (BCOMING/CREMER)";
+			
+			document.getElementById("card6_exportation").style.display = "block";
+			document.getElementById("card6").innerHTML = "Exporting bats captured data from BCOMING/CREMER";*/
+				
+		}   
 		
 		expanded(nom_table);
 				
@@ -1398,9 +1428,17 @@
 				component_a.setAttribute('aria-expanded', 'true');
 				var component_ul =  document.getElementById('ul_bcoming_merfi_guineaDropdown');
 				component_ul.classList.add('show');
-			}
+			}else if (nom_table == '_bcoming_cremer') {
+				var component_li = document.getElementById('li_bcoming_cremer_cameroonDropdown');
+				component_li.classList.add('active');
+				var component_a = document.getElementById('a_bcoming_cremer_cameroonDropdown');
+				component_a.setAttribute('aria-expanded', 'true');
+				var component_ul =  document.getElementById('ul_bcoming_cremer_cameroonDropdown');
+				component_ul.classList.add('show');
 			
-			if ((nom_table != '_bcoming_cerfig') && (nom_table != '_bcoming_merfi_guinea_survey_data')) {
+  			}
+			
+			if ((nom_table != '_bcoming_cerfig') && (nom_table != '_bcoming_merfi_guinea_survey_data') && (nom_table != '_bcoming_cremer')) {
 				var component_li = document.getElementById('li' + nom_table + 'Dropdown');
 				component_li.classList.add('active');
 				var component_a = document.getElementById('a' + nom_table + 'Dropdown');

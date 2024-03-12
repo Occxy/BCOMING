@@ -93,6 +93,7 @@ var elementIds = [
   "label_bcoming_biodivafreid_locations_count",
   "label_bcoming_cerfig_rongeurs_captures_guinea_count",
   "label_bcoming_cerfig_chauves_souris_capturees_guinea_count",
+  "label_bcoming_cremer_rongeurs_captures_cameroon_count",
   "label_bcoming_merfi_guinea_survey_data_count",
   "label_bcoming_insula_sites_count",
   "label_bcoming_insula_av_samples_count",
