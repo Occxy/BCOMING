@@ -849,7 +849,9 @@
 		logged_only();
 		if (localStorage.getItem('db_loaded') != '1') {
 			if (localStorage.getItem('web') === 'oui') {
+				//alert(localStorage['projects'])
 				loadjs('js/load-db-web.js');
+				//loadjs('js/load-db-tables-references-online.js');
 			} else if (navigator.onLine) {
 				loadjs('js/load-db-tables-references-online.js');
 			} else {

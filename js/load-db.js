@@ -1,5 +1,7 @@
-localStorage['remote_couchdb'] = 'https://database.ebo-sursy.eu/couchdb/';
+localStorage['remote_couchdb'] = 'http://vps-ffc4572e.vps.ovh.net/couchdb/';
 localStorage['db_loaded'] = '0';
+
+
 /*localStorage.removeItem('chauves_souris_capturees_transvihmi_guinee_count');
 localStorage.removeItem('chauves_souris_capturees_transvihmi_cameroun_count');
 localStorage.removeItem('chauves_souris_non_invasives_transvihmi_count');
@@ -21,8 +23,8 @@ localStorage.removeItem('step');
 	
 var remote_couchdb = localStorage.getItem('remote_couchdb');
 
-var localDB = new PouchDB('username');
-var remoteDB = new PouchDB(remote_couchdb + 'username', {skip_setup: true});
+var localDB = new PouchDB('bcoming_username');
+var remoteDB = new PouchDB(remote_couchdb + 'bcoming_username', {skip_setup: true});
 			
 localDB.sync(remoteDB).on('complete', function(info) {              
 	load_db_equipe();

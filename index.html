@@ -15,11 +15,17 @@
 
 <script type="text/javascript"> 
 	
-	localStorage['web'] = 'non';
+	localStorage['web'] = 'oui';
 	localStorage['version'] = '0.11.0';
 	localStorage.removeItem('debug');
 	if ((navigator.onLine) && (localStorage.getItem('web') == 'oui')) {
-		loadjs('js/load-db.js');
+		
+		//loadjs('js/load-db.js');
+		localStorage['remote_couchdb'] = 'http://vps-ffc4572e.vps.ovh.net/couchdb/';
+		//localStorage['remote_couchdb'] = 'http://contis.cirad.fr/couchdb/';
+		
+		localStorage['db_loaded'] = '0';
+		window.location = 'login.html';
 	} else {
 		localStorage['remote_couchdb'] = 'http://vps-ffc4572e.vps.ovh.net/couchdb/';
 		//localStorage['remote_couchdb'] = 'http://contis.cirad.fr/couchdb/';
